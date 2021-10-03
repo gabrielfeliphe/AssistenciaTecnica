@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>َHOME - Assistencia Técnica Briquete</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+
+<form class="box" action="index.html" method="post">
+
+  <h1>Login</h1>
+
+  <input type="text" name="" placeholder="Matrícula">
+
+  <input type="password" name="" placeholder="Senha">
+
+  <input type="submit" name="" value="Entrar">
+
+</form>
+
+  </body>
+
+</html>
