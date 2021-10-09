@@ -1,6 +1,8 @@
+
 .login-container{
     margin-top: 5%;
     margin-bottom: 5%;
+    width: 65%;
 }
 .login-form-1{
     padding: 5%;
@@ -33,3 +35,21 @@
     font-weight: 600;
     text-decoration: none;
 }
+
+.inicio-form img{
+  width:	25%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.senha{
+	display:flex;
+}
+
+form i{
+	margin-top:5px;
+	margin-left:-25px;
+}
+
+
