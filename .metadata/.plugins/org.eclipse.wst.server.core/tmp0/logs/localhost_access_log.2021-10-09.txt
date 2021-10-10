@@ -1,0 +1,5 @@
+127.0.0.1 - - [09/Oct/2021:22:52:01 -0300] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [09/Oct/2021:22:52:01 -0300] "GET /PI-AssistenciaTecnica/ HTTP/1.1" 200 2700
+0:0:0:0:0:0:0:1 - - [09/Oct/2021:22:52:01 -0300] "GET /PI-AssistenciaTecnica/css/login.css HTTP/1.1" 200 874
+0:0:0:0:0:0:0:1 - - [09/Oct/2021:22:52:01 -0300] "GET /PI-AssistenciaTecnica/imgs/logo.png HTTP/1.1" 200 2031
+0:0:0:0:0:0:0:1 - - [09/Oct/2021:22:52:01 -0300] "GET /PI-AssistenciaTecnica/js/login.js HTTP/1.1" 200 623
