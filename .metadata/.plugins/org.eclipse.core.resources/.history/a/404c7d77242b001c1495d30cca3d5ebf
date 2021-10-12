@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+*{
+	border: 1px solid red;
+}
+
+.form-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 65%;
+}
+.form-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+     margin: 0 auto;
+ 	 width: 100%;
+}
+.form-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.form-container form{
+    padding: 10%;
+}
