@@ -1,0 +1,10 @@
+BRIQUETE = new object();
+
+
+$(document).ready(function(){
+	
+	BRIQUETE.PATH = "/PI-AssistenciaTecnica/rest/";
+	
+	$("header").load("/ProjetoTrilhaWeb/pages/adm/geral/cabecalho.html")
+	
+});
