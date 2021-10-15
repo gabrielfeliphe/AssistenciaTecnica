@@ -1,0 +1,4 @@
+.add-itens{
+	display: flex;
+	width: 75%;
+}

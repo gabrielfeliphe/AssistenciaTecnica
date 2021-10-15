@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Realizar Orçamento</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+<link rel= "stylesheet" type = "text/css" href="../../../css/manutencao.css">
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md">
+		 <label>Cliente: </label><label id="cliente"></label></br>
+		 <label >Equipamento: </label><label id="equipamento"></label></br>
+		 <label>Garantia: </label><label id="garantia"></label></br>
+		 <label>Validade do orçamento </label></br>
+		 <input type="text" class="form-control"  placeholder="data">
+		</div>
+		<div class="col-md">
+		 <label>Modelo/Código </label><label id="mod-cod"></label></br>
+		 <label>Data de entrada: </label><label id="data-entrada"></label></br>
+		 <label>Defeito: </label><label id="defeito"></label></br>
+		 <label>Observações: </label></br>
+		 <textarea name="txaobservacao" id="observacao"></textarea>
+		</div>
+	</div>
+	<div class="add-itens">
+	<select name="cars" id="cars">
+	  <option >SELECIONE</option>
+	  <option value="1">Peça</option>
+	  <option value="0">Serviço</option>
+	</select>
+	 <input type="text" class="form-control"  placeholder="Peça ou serviço">
+	 <input type="text" class="form-control"  placeholder="Valor">
+	 <button type="button">Adicionar</button>
+	</div>
+</div>
+
+<div id="peca-servico" class="tabela-lista"></div>
+
+<label>total</label> <!-- provavelmente vou incorporar numa tabela sem borda -->
+<label>00,00</label>
+
+</body>
+</html>

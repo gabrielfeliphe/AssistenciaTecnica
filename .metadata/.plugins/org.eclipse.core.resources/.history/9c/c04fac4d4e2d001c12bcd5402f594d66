@@ -1,0 +1,4 @@
+.add-itens{
+	display: inline;
+	width: 75%;
+}

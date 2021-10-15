@@ -1,0 +1,10 @@
+.add-itens{
+	display: flex;
+}
+.add-itens input{
+	margin-left: 5%;
+	width:15%;
+}
+.add-itens button{
+	margin-left: 10%;
+}

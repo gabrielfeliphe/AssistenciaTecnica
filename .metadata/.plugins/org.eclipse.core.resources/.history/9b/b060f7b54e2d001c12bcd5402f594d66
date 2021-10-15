@@ -1,0 +1,8 @@
+.add-itens{
+	display: flex;
+}
+.add-itens input{
+	margin-left: 5%;
+	height:15%;
+	width:15%;
+}
