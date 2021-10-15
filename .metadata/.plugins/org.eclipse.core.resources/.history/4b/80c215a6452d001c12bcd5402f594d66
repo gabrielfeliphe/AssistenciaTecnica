@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Orçamento</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<link rel= "stylesheet" type = "text/css" href="../../../css/recepcao.css">
+
+</head>
+<body>
+
+	<div class="form-group">
+	<div class="container col-lg-8 centered">
+	<fieldset>
+		<form>
+			 <h5 align="center">Cadastro Orçamento</h5>
+			
+			<div class="row">
+			<div class="col-md">
+		 	<label>Nome</label>
+		 	<form class="form-inline my-2 my-lg-0">
+		 	<div id="searchbox">
+	      		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	     		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	     	</div>
+   			 </form>
+   			  <label>Equipamento</label>
+		 	 <input type="text" class="form-control"  placeholder="Equipamento">
+		 	 <label>Modelo/Código</label>
+		 	 <input type="text" class="form-control"  placeholder="Modelo ou Código">
+		 	 <label>Data</label>
+				 <div class="input-group date" data-provide="datepicker">
+		    	 <input type="text" class="form-control">
+		   		 <div class="input-group-addon">
+		        <span class="glyphicon glyphicon-th"></span>
+		   		 </div>
+				</div>
+			</div>
+			<div class="col-md">
+				<label>Garantia:</label>
+				<div>
+		 		 <input type="checkbox" id="scales" name="scales"  checked>
+		  		 <label for="scales">Não vigente</label>
+		  		 <label for="scales">Vigente</label>
+				</div>
+				<label>Defeito:</label
+				<textarea name="txaobservacao" id="observacao"></textarea>
+			</div>
+			</div>		
+		
+		</form>
+	</div>
+	</div>
+</fieldset>
+
+</body>
+</html>

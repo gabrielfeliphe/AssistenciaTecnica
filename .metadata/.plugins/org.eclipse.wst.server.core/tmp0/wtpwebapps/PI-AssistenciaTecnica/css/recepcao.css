@@ -22,3 +22,10 @@
 	width: 50%;
 	
 }
+
+#observacao{
+	height: 125px;
+	width: 400px; 
+	resize: none;
+
+}

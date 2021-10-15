@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Orçamento</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+<link rel= "stylesheet" type = "text/css" href="../../../css/recepcao.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src"../../../js/recepcao.js"></script>
+
+</head>
+<body>
+
+	<div class="form-group">
+	<div class="container col-lg-8 centered">
+	<fieldset>
+		<form>
+			 <h5 align="center">Cadastro Orçamento</h5>
+			
+			<div class="row">
+			<div class="col-md">
+		 	<label>Nome</label>
+		 	<form class="form-inline my-2 my-lg-0">
+		 	<div id="searchbox">
+	      		<input class="form-control mr-sm-2" type="search" placeholder="Procurar Cliente" aria-label="Search">
+	     		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
+	     	</div>
+   			 </form>
+   			  <label>Equipamento</label>
+		 	 <input type="text" class="form-control"  placeholder="Equipamento">
+		 	 <label>Modelo/Código</label>
+		 	 <input type="text" class="form-control"  placeholder="Modelo ou Código">
+		 	 <label>Data</label>
+				 <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+  <input placeholder="Select date" type="text" id="example" class="form-control">
+  <label for="example">Try me...</label>
+  <i class="fas fa-calendar input-prefix" tabindex=0></i>
+</div>
+			</div>
+			<div class="col-md">
+				<label>Garantia:</label>
+				<div>
+					<form>
+					<INPUT TYPE="RADIO" NAME="OPCAO" VALUE="1" padding=""> Vigente &nbsp;&nbsp;&nbsp;&nbsp;  <!-- gambiarra pra dar espaço -->       
+					<INPUT TYPE="RADIO" NAME="OPCAO" VALUE="0"> Não Vigente
+					</form>
+				</div>
+				</br>
+				<div>
+				<label>Defeito:</label></br>
+				<textarea name="txaobservacao" id="observacao"></textarea>
+				</div>
+			</div>
+			</div>		
+		
+		</form>
+	</div>
+	</div>
+</fieldset>
+
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js'></script>
+<script>
+ $('.input-group.date').datepicker({format: "dd/mm/yyyy"});
+</script>
+
+</body>
+</html>
