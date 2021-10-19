@@ -27,13 +27,13 @@
 		 	 <input type="text" class="form-control"  placeholder="Digite o Telefone">
 			
 		</form>
-		
-	<div class="botoes">
-<button type="button">Cadastrar</button>
-</div>
 	</div>
 	
-	
+	<div class="botoes">
+<button type="button">Cancelar</button>
+<button type="button">Aprovar</button>
+<button type="button">Rejeitar</button>
+</div>
 	</div>
 </fieldset>
 

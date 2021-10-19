@@ -28,8 +28,10 @@
 			
 		</form>
 		
-	<div class="botoes">
-<button type="button">Cadastrar</button>
+		<div class="botoes">
+<button type="button">Cancelar</button>
+<button type="button">Aprovar</button>
+<button type="button">Rejeitar</button>
 </div>
 	</div>
 	

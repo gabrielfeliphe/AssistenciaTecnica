@@ -35,9 +35,13 @@
 		 	 <input type="text" class="form-control"  placeholder="Equipamento">
 		 	 <label>Modelo/Código</label>
 		 	 <input type="text" class="form-control"  placeholder="Modelo ou Código">
-		 	 <label>Data</label></br>
-			 <input type="date" id="diaa" name="diaa">
-
+		 	 <label>Data</label>
+				 <div class="input-group date" data-date-format="dd/mm/yyyy">
+                  <input  type="text" class="form-control" placeholder="dd/mm/yyyy">
+                  <div class="input-group-addon" >
+                    <span class="glyphicon glyphicon-th"></span>
+                  </div>
+                </div>
 			</div>
 			<div class="col-md">
 				<label>Garantia:</label>
@@ -53,15 +57,10 @@
 				<textarea name="txadefeito" id="defeito"></textarea>
 				</div>
 			</div>
-			
-			</div>	
 				<div class="botoes">
-				<button type="button">Cancelar</button>
-
-				<button type="button">Cadastrar</button>
-
-			</div>
-	
+<button type="button">Cadastrar</button>
+</div>
+			</div>		
 		
 		</form>
 	</div>
@@ -69,6 +68,10 @@
 </fieldset>
 
 
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js'></script>
+<script>
+ $('.input-group.date').datepicker({format: "dd/mm/yyyy"});
+</script>
 
 </body>
 </html>

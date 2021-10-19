@@ -35,8 +35,8 @@
 		 	 <input type="text" class="form-control"  placeholder="Equipamento">
 		 	 <label>Modelo/Código</label>
 		 	 <input type="text" class="form-control"  placeholder="Modelo ou Código">
-		 	 <label>Data</label></br>
-			 <input type="date" id="diaa" name="diaa">
+		 	 <label>Data</label>
+						 	  <input type="date" id="diaa" name="diaa">
 
 			</div>
 			<div class="col-md">
