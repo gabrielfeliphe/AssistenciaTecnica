@@ -28,7 +28,7 @@
 			
 		</form>
 		
-	<div class="btnCadastro">
+	<div>
 	<button type="button">Cancelar</button>
 	<button type="button">Cadastrar</button>
 

@@ -28,10 +28,8 @@
 			
 		</form>
 		
-	<div class="btnCadastro">
-	<button type="button">Cancelar</button>
-	<button type="button">Cadastrar</button>
-
+	<div class="botoes">
+<button type="button">Cadastrar</button>
 </div>
 	</div>
 	

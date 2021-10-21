@@ -73,12 +73,5 @@ button{
 }
 
 .btnCadastro{
-	text-align: center;
 	
-}
-
-textarea{
-	width: 350px;
-	height: 120px;
-	resize: none;
 }
