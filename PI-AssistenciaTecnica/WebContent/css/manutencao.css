@@ -17,13 +17,12 @@
 	width:15%;
 }
 .add-itens button{
-	margin-left: 10%;
+	margin-left: 15.9%;
 }
 
 table{
 	margin-top:2%;
-	margin-left:8.3%;
-	width:80%;
+	width:90%;
 }
 
 .botoes{
@@ -31,5 +30,17 @@ table{
   pading: 2%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
+
+button{
+	height: 30px;
+	width: 100px;
+	margin-right: 50px;
+}
+
+textarea{
+	width: 350px;
+	height: 120px;
+	resize: none;
+}
+
