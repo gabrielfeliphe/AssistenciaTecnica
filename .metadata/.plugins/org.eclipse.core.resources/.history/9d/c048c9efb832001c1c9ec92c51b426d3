@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+
+.form-group{
+	
+	padding-top: 5%;
+	
+}
+.container{
+	
+	  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+	  width: 75%;
+	  padding: 2%;
+}
+
+.botoes button{
+text-align: center;
+display: block;
+ height:200px;
+}
+
+.btn1{
+	 margin-left: auto;
+	 float: left;	
+}
+
+.btn2{
+	  margin-right: auto;
+	  float: right;
+	
+}
