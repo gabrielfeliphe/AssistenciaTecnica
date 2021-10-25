@@ -21,7 +21,7 @@
 		 <label >Equipamento: </label><label id="equipamento"></label></br>
 		 <label>Garantia: </label><label id="garantia"></label></br>
 		 <label>Validade do orçamento </label></br>
-		 <input type="date" id="diaa" name="diaa">
+		 <input type="text" class="form-control"  placeholder="data">
 		</div>
 		<div class="col-sm"></div>	
 		<div class="col-md">
