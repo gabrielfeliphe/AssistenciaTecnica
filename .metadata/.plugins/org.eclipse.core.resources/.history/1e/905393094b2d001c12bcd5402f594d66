@@ -1,8 +1,0 @@
-#box{
-	border:solid 1px black;
-	padding: 20px;
-}
-
-#col-left{
-	display: left;
-}

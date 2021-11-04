@@ -1,5 +1,0 @@
-@charset "UTF-8";
-
-.form-group{
-	paddig-top:2px;
-}

@@ -1,8 +1,0 @@
-BRIQUETE = new object();
-
-
-$(document).ready(function(){
-	
-	
-	
-});

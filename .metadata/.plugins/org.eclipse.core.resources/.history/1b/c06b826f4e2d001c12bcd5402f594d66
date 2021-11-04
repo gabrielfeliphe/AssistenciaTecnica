@@ -1,6 +1,0 @@
-.add-itens{
-	display: flex;
-}
-.add-itens input{
-	width:25%;
-}

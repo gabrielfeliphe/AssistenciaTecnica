@@ -1,7 +1,0 @@
-@charset "UTF-8";
-
-.form-group{
-	margin-top: 5%;
-    margin-bottom: 5%;
-    width: 65%;
-}

@@ -1,0 +1,10 @@
+package br.com.tecnicabriquete.bd;
+
+import java.sql.Connection;
+
+public class Conexao {
+	
+	private Connection conexao;
+
+	
+}
