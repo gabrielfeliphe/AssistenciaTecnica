@@ -16,7 +16,7 @@
 	<div class="container col-lg-3 centered">
 	<fieldset>
 		<form>
-			 <h5 align="center">Cadastro Funcionário</h5>
+			 <h5 align="center">Cadastro Funcionario</h5>
 		 	<label>Matricula</label>
 		 	 <input type="text" class="form-control"  placeholder="Digite a matricula">
 		 	 <label>E-mail</label>
@@ -34,7 +34,7 @@
 		 	 <label>Senha</label>
 		 	 <input type="password" class="form-control"  placeholder="Digite a senha">
 		 	 <div class="botoes">
-			<button type="reset">Cancelar</button>
+			<button type="button">Cancelar</button>
 			<button type="button">Cadastrar</button>
 			</div>
 			

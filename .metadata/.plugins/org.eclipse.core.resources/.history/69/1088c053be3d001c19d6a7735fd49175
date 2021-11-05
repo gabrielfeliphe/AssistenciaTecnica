@@ -10,7 +10,7 @@ public class Conexao {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			conexao = java.sql.DriverManager.
-					getConnection("jdbc:mysql://localhost/der-pi?"
+					getConnection("jdbc:mysql://localhost/bdbriquete?"
 							+"user=root&password=root&userTimezone=true&serverTimezone=UTC");
 		}catch(Exception e) {
 			e.printStackTrace();
