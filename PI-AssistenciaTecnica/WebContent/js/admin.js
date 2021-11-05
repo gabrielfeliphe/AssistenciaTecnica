@@ -32,6 +32,18 @@ $(document).ready(function(){
 		novoFuncionario.funcao = document.frmAddFuncionario.funcao.value;
 		novoFuncionario.senha = document.frmAddFuncionario.senha.value;
 		
+		$.ajax({
+			type: "POST",
+			url: "/PI-AssistenciaTecnica/rest/funcionario/cadastrar",
+			data: JSON.stringify(novoFuncionario),
+			success: function(msg){
+				console.log("adicionado novoFuncionario: "+novoFuncionario);
+			},
+			error: function(info){
+				console.log("error= "+info.status+" --- "+info.statusText);
+			}
+		});
+		
 	}
 	
 });

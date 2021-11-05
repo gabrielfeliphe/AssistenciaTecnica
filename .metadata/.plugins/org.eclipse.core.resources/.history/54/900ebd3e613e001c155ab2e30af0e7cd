@@ -1,0 +1,9 @@
+package br.com.tecnicabriquete.rest;
+
+import javax.ws.rs.core.Response;
+import com.google.gson.Gson;
+import br.com.tecnicabriquete.modelo.Funcionario;
+
+public class FuncionarioRest {
+
+}

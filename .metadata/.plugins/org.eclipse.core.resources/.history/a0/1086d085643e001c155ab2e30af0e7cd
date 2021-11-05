@@ -1,0 +1,5 @@
+package br.com.tecnicabriquete.jdbc;
+
+public class JDBCFuncionarioDAO {
+
+}

@@ -1,0 +1,6 @@
+package br.com.tecnicabriquete.rest;
+
+
+public class FuncionarioRest {
+
+}

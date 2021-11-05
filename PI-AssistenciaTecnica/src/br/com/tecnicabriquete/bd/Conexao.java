@@ -17,6 +17,12 @@ public class Conexao {
 		}
 		return conexao;
 	}
-
+	public void fecharConexao() {
+		try {
+			conexao.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
