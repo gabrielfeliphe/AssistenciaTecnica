@@ -15,15 +15,15 @@
 	<div class="form-group">
 	<div class="container col-lg-3 centered">
 	<fieldset>
-		<form name="frmAddFuncionario">
+		<form>
 			 <h5 align="center">Cadastro Funcionário</h5>
 		 	<label>Matricula</label>
-		 	 <input type="text" class="form-control"  placeholder="Digite a matricula" name="matricula">
+		 	 <input type="text" class="form-control"  placeholder="Digite a matricula">
 		 	 <label>E-mail</label>
-		 	 <input type="email" class="form-control"  placeholder="Digite o E-mail" name="email">
+		 	 <input type="email" class="form-control"  placeholder="Digite o E-mail">
 		 	 <label>Função</label>
 		 	  <div>
-				  <select name="funcao">
+				  <select>
 				    <option value="0">Selecione a função</option>
 				    <option value="1">Administrador</option>
 				    <option value="2">Recepção</option>
@@ -32,7 +32,7 @@
 	 			 </select>
 			</div>
 		 	 <label>Senha</label>
-		 	 <input type="password" class="form-control"  placeholder="Digite a senha" name="senha">
+		 	 <input type="password" class="form-control"  placeholder="Digite a senha">
 		 	 <div class="botoes">
 			<button type="reset">Cancelar</button>
 			<button type="button" onclick="BRIQUETE.funcionario.cadastrar()">Cadastrar</button>

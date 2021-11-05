@@ -23,17 +23,4 @@ $(document).ready(function(){
 			});
 	}
 	
-	BRIQUETE.funcionario.cadastrar = function(){
-		
-		let novoFuncionario = new Object();
-		
-		novoFuncionario.matricula = document.frmAddFuncionario.matricula.value;
-		novoFuncionario.email = document.frmAddFuncionario.email.value;
-		novoFuncionario.funcao = document.frmAddFuncionario.funcao.value;
-		novoFuncionario.senha = document.frmAddFuncionario.senha.value;
-		
-	}
-	
 });
-
-

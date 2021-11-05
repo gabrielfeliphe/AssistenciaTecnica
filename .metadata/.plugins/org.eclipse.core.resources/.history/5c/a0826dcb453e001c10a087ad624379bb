@@ -23,7 +23,7 @@
 		 	 <input type="email" class="form-control"  placeholder="Digite o E-mail" name="email">
 		 	 <label>Função</label>
 		 	  <div>
-				  <select name="funcao">
+				  <select>
 				    <option value="0">Selecione a função</option>
 				    <option value="1">Administrador</option>
 				    <option value="2">Recepção</option>

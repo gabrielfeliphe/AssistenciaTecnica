@@ -23,7 +23,7 @@
 		 	 <input type="email" class="form-control"  placeholder="Digite o E-mail" name="email">
 		 	 <label>Função</label>
 		 	  <div>
-				  <select name="funcao">
+				  <select>
 				    <option value="0">Selecione a função</option>
 				    <option value="1">Administrador</option>
 				    <option value="2">Recepção</option>
@@ -32,7 +32,7 @@
 	 			 </select>
 			</div>
 		 	 <label>Senha</label>
-		 	 <input type="password" class="form-control"  placeholder="Digite a senha" name="senha">
+		 	 <input type="password" class="form-control"  placeholder="Digite a senha">
 		 	 <div class="botoes">
 			<button type="reset">Cancelar</button>
 			<button type="button" onclick="BRIQUETE.funcionario.cadastrar()">Cadastrar</button>
