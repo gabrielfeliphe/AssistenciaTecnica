@@ -29,3 +29,56 @@
 	resize: none;
 
 }
+
+.botoes{
+  margin: 2%;
+  pading: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h4{
+	text-align: center;
+	margin-bottom:2%;
+}
+
+
+label{
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+button{
+	height: 30px;
+	width: 100px;
+	margin: 20px;
+}
+
+.botoes{
+	margin-top: 5%;
+	text-align: center;
+	display:block;
+}
+
+
+.btn1 button{
+	 margin-left: 500px;
+	 
+}
+
+.btn2{
+	  float: right;
+	
+}
+
+.btnCadastro{
+	text-align: center;
+	
+}
+
+textarea{
+	width: 350px;
+	height: 120px;
+	resize: none;
+}
