@@ -63,5 +63,12 @@ select{
 #lista-funcionarios{
 	margin: 0 auto;
 	margin-top: 50px;
-	width: 20%;
+	width: 40%;
+}
+
+#lista-funcionarios table img{
+	padding: 0 4px;
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
 }

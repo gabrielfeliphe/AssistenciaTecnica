@@ -53,7 +53,7 @@ public class JDBCFuncionarioDAO {
 						funcionario = new Funcionario();
 						
 						int matricula = rs.getInt("matricula");
-						String senha = rs.getString("senha");
+						//String senha = rs.getString("senha"); não precisamos da senha, se não já comprometemos a integridade dos dados
 						int funcao = rs.getInt("funcao");
 						String email = rs.getString("email");
 						
@@ -62,7 +62,7 @@ public class JDBCFuncionarioDAO {
 							funcionario.setEmail(email);
 							funcionario.setFuncao(funcao);
 							funcionario.setMatricula(matricula);
-							funcionario.setSenha(senha);
+							//funcionario.setSenha(senha);
 							listaFuncionario.add(funcionario);
 					}
 					
@@ -98,6 +98,23 @@ public class JDBCFuncionarioDAO {
 			//Executa o comando no BD
 			p.execute();
 			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
+	public boolean deletar(int matricula) {
+		
+		System.out.println("metodo deletar da jdbcdaofunc invocado matricula: "+matricula);
+		
+		String comando = "DELETE FROM usuario WHERE matricula = ?";
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setInt(1, matricula);
+			p.execute();
 		}catch(SQLException e) {
 			e.printStackTrace();
 			return false;

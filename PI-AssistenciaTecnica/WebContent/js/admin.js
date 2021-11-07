@@ -19,7 +19,8 @@ $(document).ready(function(){
 		//limpa a tag section, excluindo todo o conteúdo de dentro dela
 		$("section").empty();
 		//carrega a página solicitada dentro da tag section
-		$("section").load(pagename+"/",function(response,status,info){
+		$("section").load(pagename,function(response,status,info){
+			
 			if(status=="error"){
 				var msg = "Houve um erro ao encontrar a página: "+ info.status + " - " + info.statusText;
 				$("section").html(msg);
@@ -36,18 +37,23 @@ $(document).ready(function(){
 		novoFuncionario.funcao = document.frmAddFuncionario.funcao.value;
 		novoFuncionario.senha = document.frmAddFuncionario.senha.value;
 		
+		if(novoFuncionario.matricula ==""||novoFuncionario.email==""||novoFuncionario.funcao==""||novoFuncionario.senha==""){
+			console.log("erro : preencha todos os campos!");
+		}else{
+		
 		$.ajax({
 			type: "POST",
 			url: "/PI-AssistenciaTecnica/rest/funcionario/cadastrar",
 			data: JSON.stringify(novoFuncionario),
 			success: function(msg){
 				console.log("adicionado novoFuncionario: "+novoFuncionario);
+				BRIQUETE.funcionario.buscarFuncionarios();
 			},
 			error: function(info){
 				console.log("error= "+info.status+" --- "+info.statusText);
 			}
 		});
-		
+	  }
 	}
 	
 	BRIQUETE.funcionario.buscarFuncionarios = function(){ // PRIMEIRO PARTO FEITO, ESTOU RECEBENDO AS MARCAS DA BACKEND
@@ -73,22 +79,42 @@ $(document).ready(function(){
 	
 	BRIQUETE.funcionario.exibirFuncionarios = function(listaDeFuncionarios){
 		
-		var tabela = "<table>"+
+		var tabela = "<table class='table table-bordered table-dark'>"+
 		"<tr>"+
 		"<th>Matricula</th>"+
 		"<th>Função</th>"+
-		"<th>E-mail</th>"
+		"<th>E-mail</th>"+
+		"<th>Ações</th>"
 		"</tr>";
 		
 		if(listaDeFuncionarios != undefined && listaDeFuncionarios.length > 0){
 			
 			
 			for(var i=0; i<listaDeFuncionarios.length; i++){	
+				let nomeFuncao
+				switch(listaDeFuncionarios[i].funcao){
+					case 0:
+					nomeFuncao = "Administrador"
+					break;
+					case 1:
+					nomeFuncao = "Recepção"
+					break;
+					case 2:
+					nomeFuncao = "Manutenção"
+					break;
+					case 3:
+					nomeFuncao = "Almoxarife"
+					break;
+				}
 				
 				tabela += "<tr>"+
 					"<td>"+listaDeFuncionarios[i].matricula+"</td>" +
-					"<td>"+listaDeFuncionarios[i].funcao+"</td>" +
+					"<td>"+nomeFuncao+"</td>" +
 					"<td>"+listaDeFuncionarios[i].email+"</td>" +
+					"<td>" +
+						"<a onclick=\"BRIQUETE.funcionario.exibirEdicao('"+listaDeFuncionarios[i].matricula+"')\"><img src='../../../imgs/edit.png' alt='Editar registro'></a>"+
+						"<a onclick=\"BRIQUETE.funcionario.excluir('"+listaDeFuncionarios[i].matricula+"')\"><img src='../../../imgs/delete.png' alt='Excluir registro'></a>"+
+					"</td>" +
 					"</tr>"
 	                
 					
@@ -101,6 +127,22 @@ $(document).ready(function(){
 		
 		return tabela;
 		
+	};
+	
+	
+	BRIQUETE.funcionario.excluir = function(matricula){
+		
+						$.ajax({
+							type: "DELETE",
+							url: BRIQUETE.PATH + "funcionario/excluir/"+matricula,
+							success: function (msg){
+								BRIQUETE.funcionario.buscarFuncionarios();
+							},
+							error: function(info){
+								console.log("Erro ao excluir produto: "+ info.status + " - " + info.statusText+ " - " + info.responseText);
+							},
+						});
+					
 	};
 	
 	

@@ -1,10 +1,13 @@
 package br.com.tecnicabriquete.rest;
 
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
@@ -76,6 +79,42 @@ public class FuncionarioRest extends UtilRest{
 			return this.buildErrorResponse(e.getMessage());
 		}
 	}
+	
+	@DELETE
+	@Path("/excluir/{matricula}")
+	@Consumes("application/*")
+
+	public Response excluir(@PathParam("matricula") int matricula) {
+		
+		System.out.println("metodo excluir invocado matricula : "+matricula);
+
+		try {
+
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
+
+
+					boolean retorno = jdbcFuncionario.deletar(matricula);
+
+					String msg = "";
+					if (retorno) {
+						msg = "Funcionario excluido com sucesso!";
+					} else {
+						msg = "Erro ao excluir o Funcionario!";
+					}
+
+					conec.fecharConexao();
+
+					return this.buildResponse(msg);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+
 
 
 }
