@@ -54,3 +54,14 @@ select{
 	width: 100%;
 	height: 40px;
 }
+
+#lista-funcionarios table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#lista-funcionarios{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 20%;
+}

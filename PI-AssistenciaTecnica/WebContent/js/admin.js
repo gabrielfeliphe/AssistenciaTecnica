@@ -58,6 +58,7 @@ $(document).ready(function(){
 			url: BRIQUETE.PATH + "funcionario/buscar",
 			success: function(dados){
 				console.log(dados);
+				$("#lista-funcionarios").html(BRIQUETE.funcionario.exibirFuncionarios(dados));
 			},
 			error: function(info){
 				console.log("erro : "+info);
@@ -68,6 +69,41 @@ $(document).ready(function(){
 	};
 	
 	BRIQUETE.funcionario.buscarFuncionarios(); // Fazer a instancia para a página sempre carregar a marca
+	
+	
+	BRIQUETE.funcionario.exibirFuncionarios = function(listaDeFuncionarios){
+		
+		var tabela = "<table>"+
+		"<tr>"+
+		"<th>Matricula</th>"+
+		"<th>Função</th>"+
+		"<th>E-mail</th>"
+		"</tr>";
+		
+		if(listaDeFuncionarios != undefined && listaDeFuncionarios.length > 0){
+			
+			
+			for(var i=0; i<listaDeFuncionarios.length; i++){	
+				
+				tabela += "<tr>"+
+					"<td>"+listaDeFuncionarios[i].matricula+"</td>" +
+					"<td>"+listaDeFuncionarios[i].funcao+"</td>" +
+					"<td>"+listaDeFuncionarios[i].email+"</td>" +
+					"</tr>"
+	                
+					
+			}
+			
+		}else if(listaDeFuncionarios ==""){
+			tabela +="<tr><td colspan='6'>Nenhum registro encontrado</td></tr>";
+		}
+		tabela += "</table>";
+		
+		return tabela;
+		
+	};
+	
+	
 	
 });
 

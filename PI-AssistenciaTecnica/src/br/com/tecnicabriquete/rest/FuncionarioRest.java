@@ -4,7 +4,9 @@ import javax.ws.rs.Path;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -36,6 +38,40 @@ public class FuncionarioRest extends UtilRest{
 			conec.fecharConexao();
 			return this.buildResponse(listaFuncionarios);
 		}catch(Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+	
+	@POST
+	@Path("/cadastrar")
+	@Consumes("application/*")
+	public Response inserir(String novoFuncionario) {
+		try {
+
+			Funcionario funcionario = new Gson().fromJson(novoFuncionario, Funcionario.class);
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
+
+
+	
+
+				boolean retorno = jdbcFuncionario.inserir(funcionario);
+
+				String msg = "";
+
+				if (retorno) {
+					msg = "Marca cadastrada com sucesso!";
+				} else {
+					msg = "Erro ao cadastrar marca.";
+				}
+
+				conec.fecharConexao();
+
+				return this.buildResponse(msg);
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
 		}

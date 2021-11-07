@@ -77,4 +77,32 @@ public class JDBCFuncionarioDAO {
 				return listaFuncionario;
 	}
 
+	public boolean inserir(Funcionario funcionario) {
+		String comando = "INSERT INTO usuario "
+				+"(matricula,senha,funcao,email) "
+				+"VALUES (?,?,?,?)";
+		PreparedStatement p;
+		
+		try {
+			
+			//Prepara o comando para execução no BD em que nos conectamos
+			p = this.conexao.prepareStatement(comando);
+			
+			//Substitui no comando os "?" pelos valores do produto
+			
+			p.setInt(1, funcionario.getMatricula());
+			p.setString(2, funcionario.getSenha());
+			p.setInt(3,funcionario.getFuncao());
+			p.setString(4, funcionario.getEmail());
+			
+			//Executa o comando no BD
+			p.execute();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
 }
