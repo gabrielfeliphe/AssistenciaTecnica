@@ -67,3 +67,7 @@ select {
 	height: 20px;
 	cursor: pointer;
 }
+
+#modalAviso, .modalEditar{
+	display: none;
+}

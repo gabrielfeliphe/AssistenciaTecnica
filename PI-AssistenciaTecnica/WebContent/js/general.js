@@ -29,7 +29,7 @@ $(document).ready(function(){
 	}
 
 
-exibirAviso = function(aviso){
+BRIQUETE.exibirAviso = function(aviso){
 		var modal = {
 			title: "Mensagem",
 			height: 250,

@@ -96,8 +96,8 @@ $(document).ready(function() {
 					"<td>" + nomeFuncao + "</td>" +
 					"<td>" + listaDeFuncionarios[i].email + "</td>" +
 					"<td>" +
-					"<a onclick=\"BRIQUETE.funcionario.exibirEdicao('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../../imgs/edit.png' alt='Editar registro'></a>" +
-					"<a onclick=\"BRIQUETE.funcionario.excluir('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../../imgs/delete.png' alt='Excluir registro'></a>" +
+					"<a onclick=\"BRIQUETE.funcionario.exibirEdicao('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
+					"<a onclick=\"BRIQUETE.funcionario.excluir('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
 					"</td>" +
 					"</tr>"
 
@@ -115,19 +115,35 @@ $(document).ready(function() {
 
 
 	BRIQUETE.funcionario.excluir = function(matricula) {
+		var modal = {
+				title: "Mensagem",
+				height: 250,
+				width: 400,
+				modal: true,
+				buttons: {
+					"OK": function(){
+						$(this).dialog("close");
+						$.ajax({
+							type: "DELETE",
+							url: BRIQUETE.PATH + "funcionario/excluir/" + matricula,
+							success: function (msg){
+								BRIQUETE.exibirAviso(msg);
+								BRIQUETE.funcionario.buscarFuncionarios();
+							},
+							error: function(info){
+								BRIQUETE.exibirAviso("Erro ao excluir funcionário "+ info.status + " - " + info.statusText+ " - " + info.responseText);
+							},
+						});
+					},
+					"Cancelar" : function(){
+						$(this).dialog("close");
+					}
+				}
+			};
+			$("#modalAviso").html("Deseja realmente deletar esse funcionário ?");
+			$("#modalAviso").dialog(modal);
 
-		$.ajax({
-			type: "DELETE",
-			url: BRIQUETE.PATH + "funcionario/excluir/" + matricula,
-			success: function(msg) {
-				BRIQUETE.funcionario.buscarFuncionarios();
-			},
-			error: function(info) {
-				console.log("Erro ao excluir produto: " + info.status + " - " + info.statusText + " - " + info.responseText);
-			},
-		});
-
-	};
+	}
 
 
 
