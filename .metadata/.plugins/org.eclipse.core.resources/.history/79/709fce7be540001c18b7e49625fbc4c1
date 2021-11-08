@@ -156,33 +156,24 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 		
 		$.ajax({
 			type: "GET",
-			url: BRIQUETE.PATH + "funcionario/buscarPorMatricula",
-			data: "matricula="+matricula,
-			success: function(funcionario){
+			url: COLDIGO.PATH + "marca/buscarPorId",
+			data: "id="+id,
+			success: function(marca){
 					
-				document.frmEditaFuncionario.matricula.value = funcionario.id;
-				document.frmEditaFuncionario.email.value = funcionario.nome;
-				document.frmEditaFuncionario.senha.value = funcionario.senha;
+				document.frmEditaMarca.idMarca.value = marca.id;
+				document.frmEditaMarca.marcaId.value = marca.nome;
 		
 				
-				var selFuncao = document.getElementById ('selFuncaoEdicao');
-				for(var i=0; i<selFuncao.length; i++){
-					if(selFuncao.options[i].value == funcionario.funcao){
-						selFuncao.options[i].setAttribute("selected","selected");
-					}else{
-						selFuncao.options[i].removeAttribute("selected");
-					}
-				}
+				var selMarcaEdicao = document.getElementById ('selMarcaEdicao');		
 				
-				
-				var modalEditaFuncionario = {
-						title: "Editar Funcionário",
+				var modalEditaMarca = {
+						title: "Editar Marca",
 						height: 200,
 						width: 350,
 						modal: true,
 						buttons:{
 							"Salvar": function(){
-								BRIQUETE.funcionario.editar();
+								COLDIGO.marcas.editarMarca();
 								$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
 							},
 							"Cancelar": function(){
@@ -195,7 +186,7 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 						}
 				};
 				
-				$("#modalEditaFuncionario").dialog(modalEditaFuncionario);
+				$("#modalEditaMarca").dialog(modalEditaMarca);
 				
 			},
 			error: function(info){
@@ -206,31 +197,6 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 		
 	};
 	
-	
-BRIQUETE.funcionario.editar = function (){
-		
-		var funcionario = new Object();
-		funcionario.matricula = document.frmEditaFuncionario.matricula.value;
-		funcionario.funcao = document.frmEditaProduto.funcao.value;
-		funcionario.email = document.frmEditaProduto.email.value;
-		funcionario.senha = document.frmEditaProduto.senha.value;
-
-		
-		$.ajax({
-			type: "PUT",
-			url: COLDIGO.PATH + "produto/alterar",
-			data: JSON.stringify(produto),
-			success: function(msg){
-				COLDIGO.exibirAviso(msg);
-				COLDIGO.produto.buscar();
-				$("#modalEditaProduto").dialog("close");
-			},
-			error: function(info){
-				COLDIGO.exibirAviso("Erro ao editar produto: "+info.status+" - "+info.statusText);
-			}
-		});
-		
-	}
 
 
 

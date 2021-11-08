@@ -209,12 +209,13 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 	
 BRIQUETE.funcionario.editar = function (){
 		
-		var funcionario = new Object();
-		funcionario.matricula = document.frmEditaFuncionario.matricula.value;
-		funcionario.funcao = document.frmEditaProduto.funcao.value;
-		funcionario.email = document.frmEditaProduto.email.value;
-		funcionario.senha = document.frmEditaProduto.senha.value;
-
+		var produto = new Object();
+		produto.id = document.frmEditaProduto.idProduto.value;
+		produto.categoria = document.frmEditaProduto.categoria.value;
+		produto.marcaId = document.frmEditaProduto.marcaId.value;
+		produto.modelo = document.frmEditaProduto.modelo.value;
+		produto.capacidade = document.frmEditaProduto.capacidade.value;
+		produto.valor = document.frmEditaProduto.valor.value;
 		
 		$.ajax({
 			type: "PUT",
