@@ -121,5 +121,54 @@ public class JDBCFuncionarioDAO {
 		}
 		return true;
 	}
+	
+	
+	public Funcionario buscarPorMatricula(int matricula) {
+		String comando = "SELECT * FROM usuario WHERE usuario.matricula = ?";
+		Funcionario funcionario = new Funcionario();
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			p.setInt(1, matricula);
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				
+				String email = rs.getString("email");
+				int funcao= rs.getInt("funcao");
+				String senha = rs.getString("senha");
+				int matricula_ = rs.getInt("matricula");
+				
+				funcionario.setEmail(email);
+				funcionario.setFuncao(funcao);
+				funcionario.setMatricula(matricula_);
+				funcionario.setSenha(senha);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return funcionario;
+	}
+
+	public boolean alterar(Funcionario funcionario) {
+		
+		System.out.println("conteúdo alterar do funcionário : "+ funcionario);
+		
+		
+		String comando = "UPDATE usuario SET matricula=?,senha=?,funcao=?,email=? WHERE matricula =?";
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setInt(1, funcionario.getMatricula());
+			p.setString(2, funcionario.getSenha());
+			p.setInt(3,funcionario.getFuncao());
+			p.setString(4, funcionario.getEmail());
+			p.setInt(5, funcionario.getMatricula());
+			p.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 
 }

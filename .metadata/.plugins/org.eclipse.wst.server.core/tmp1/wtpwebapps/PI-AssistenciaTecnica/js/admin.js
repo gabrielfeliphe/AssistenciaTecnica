@@ -153,6 +153,8 @@ $(document).ready(function() {
 	
 	
 BRIQUETE.funcionario.exibirEdicao = function(matricula){
+	
+	console.log("exibir edição entrou!! matricula :"+ matricula);
 		
 		$.ajax({
 			type: "GET",
@@ -160,8 +162,8 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 			data: "matricula="+matricula,
 			success: function(funcionario){
 					
-				document.frmEditaFuncionario.matricula.value = funcionario.id;
-				document.frmEditaFuncionario.email.value = funcionario.nome;
+				document.frmEditaFuncionario.matricula.value = funcionario.matricula;
+				document.frmEditaFuncionario.email.value = funcionario.email;
 				document.frmEditaFuncionario.senha.value = funcionario.senha;
 		
 				
@@ -174,11 +176,13 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 					}
 				}
 				
+				console.log(funcionario)
+				
 				
 				var modalEditaFuncionario = {
 						title: "Editar Funcionário",
-						height: 200,
-						width: 350,
+						height: 400,
+						width: 500,
 						modal: true,
 						buttons:{
 							"Salvar": function(){
@@ -211,22 +215,22 @@ BRIQUETE.funcionario.editar = function (){
 		
 		var funcionario = new Object();
 		funcionario.matricula = document.frmEditaFuncionario.matricula.value;
-		funcionario.funcao = document.frmEditaProduto.funcao.value;
-		funcionario.email = document.frmEditaProduto.email.value;
-		funcionario.senha = document.frmEditaProduto.senha.value;
+		funcionario.funcao = document.frmEditaFuncionario.funcao.value;
+		funcionario.email = document.frmEditaFuncionario.email.value;
+		funcionario.senha = document.frmEditaFuncionario.senha.value;
 
 		
 		$.ajax({
 			type: "PUT",
-			url: COLDIGO.PATH + "produto/alterar",
-			data: JSON.stringify(produto),
+			url: BRIQUETE.PATH + "funcionario/alterar",
+			data: JSON.stringify(funcionario),
 			success: function(msg){
-				COLDIGO.exibirAviso(msg);
-				COLDIGO.produto.buscar();
-				$("#modalEditaProduto").dialog("close");
+				BRIQUETE.exibirAviso(msg);
+				BRIQUETE.funcionario.buscarFuncionarios();
+				$("#modalEditaFuncionario").dialog("close");
 			},
 			error: function(info){
-				COLDIGO.exibirAviso("Erro ao editar produto: "+info.status+" - "+info.statusText);
+				BRIQUETE.exibirAviso("Erro ao editar produto: "+info.status+" - "+info.statusText);
 			}
 		});
 		

@@ -6,7 +6,6 @@ public class Funcionario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int matricula;
 	public int getMatricula() {
 		return matricula;
 	}
@@ -31,8 +30,10 @@ public class Funcionario implements Serializable{
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	private String email;
+	
+	private int matricula;
 	private int funcao;
+	private String email;
 	private String senha;
 	
 	
