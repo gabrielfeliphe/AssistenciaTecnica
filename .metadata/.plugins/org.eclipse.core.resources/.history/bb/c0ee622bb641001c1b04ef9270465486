@@ -49,7 +49,7 @@ $(document).ready(function() {
 		}
 	}
 
-	BRIQUETE.funcionario.buscarFuncionarios = function() {
+	BRIQUETE.funcionario.buscarFuncionarios = function() { // PRIMEIRO PARTO FEITO, ESTOU RECEBENDO AS MARCAS DA BACKEND	
 		
 		$.ajax({
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 
 
-	BRIQUETE.funcionario.buscarFuncionarios();
+	BRIQUETE.funcionario.buscarFuncionarios(); // Fazer a instancia para a página sempre carregar a marca
 
 
 	BRIQUETE.funcionario.exibirFuncionarios = function(listaDeFuncionarios) {
@@ -215,7 +215,7 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 			},
 			error: function(info){
 				
-				BRIQUETE.exibirAviso("Erro ao buscar o funcionário para a edição "+info.status+" - "+info.statusText+ " - " + info.responseText);
+				COLDIGO.exibirAviso("Erro ao buscar a marca para edição: "+info.status+" - "+info.statusText+ " - " + info.responseText);
 			}
 		});
 		

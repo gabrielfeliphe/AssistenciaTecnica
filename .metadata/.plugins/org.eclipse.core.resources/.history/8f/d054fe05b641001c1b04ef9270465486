@@ -22,12 +22,13 @@ public class JDBCFuncionarioDAO {
 
 		System.out.println("Entrou no funcionario dao");
 
-		// Criação da instrução SQL para busca de todos funcionarios
+		// Criação da instrução SQL para busca de todas as marcas
 		String comando = "SELECT * FROM usuario";
 
+		// Criação de uma lista para armazenar cada marca encontrada
 		List<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
 
-
+		// Criação do objeto marca com valor null (ou seja, sem instanciá-lo)
 		Funcionario funcionario = null;
 
 		// Abertura do try-catch
@@ -79,6 +80,7 @@ public class JDBCFuncionarioDAO {
 			// Prepara o comando para execução no BD em que nos conectamos
 			p = this.conexao.prepareStatement(comando);
 
+			// Substitui no comando os "?" pelos valores do produto
 
 			p.setInt(1, funcionario.getMatricula());
 			p.setString(2, funcionario.getSenha());
