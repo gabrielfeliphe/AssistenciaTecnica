@@ -71,14 +71,11 @@ public class FuncionarioRest extends UtilRest{
 					}else {
 						msg = "Erro ao criar funcionário";
 					}
-					conec.fecharConexao();
-
 					return this.buildResponse(msg);
 				}else {
-					conec.fecharConexao();
 					return this.buildErrorResponse("Erro já existe um funcionário com esta matrícula ou e-mail");
 				}
-					
+					conec.fecharConexao();
 				
 
 		} catch (Exception e) {
@@ -162,9 +159,6 @@ public class FuncionarioRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
 			
-			boolean retornoExistencia = jdbcFuncionario.verficiaExistenciaEditar(funcionario);
-			
-			if(retornoExistencia == true) {
 			
 			boolean retorno = jdbcFuncionario.alterar(funcionario);
 
@@ -178,9 +172,6 @@ public class FuncionarioRest extends UtilRest{
 
 			conec.fecharConexao();
 			return this.buildResponse(msg);
-			}else{
-				return this.buildErrorResponse("Erro este e-mail já pertence a um funcionário");
-			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

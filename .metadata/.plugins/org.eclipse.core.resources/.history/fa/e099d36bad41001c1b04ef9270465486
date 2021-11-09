@@ -191,7 +191,7 @@ public class JDBCFuncionarioDAO {
 	public boolean verficiaExistenciaEditar(Funcionario funcionario) {
 		boolean retorno = false;
 
-		String comando = "SELECT EXISTS(SELECT * FROM usuario WHERE matricula <>? AND email = ?)as resultado";
+		String comando = "SELECT EXISTS(SELECT * FROM usuario WHERE matricula =? OR email = ?)as resultado";
 		try {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 

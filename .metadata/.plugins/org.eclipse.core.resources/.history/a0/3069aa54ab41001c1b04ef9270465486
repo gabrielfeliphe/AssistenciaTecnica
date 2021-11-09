@@ -52,40 +52,32 @@ public class FuncionarioRest extends UtilRest{
 	@Path("/cadastrar")
 	@Consumes("application/*")
 	public Response inserir(String novoFuncionario) {
-		
 		try {
 
 			Funcionario funcionario = new Gson().fromJson(novoFuncionario, Funcionario.class);
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
-			String msg="";
+
 
 				boolean retornoExistencia= jdbcFuncionario.verficiaExistencia(funcionario);
 				
 				if (retornoExistencia == false) {
 				
-					boolean retorno = jdbcFuncionario.inserir(funcionario);
-					if(retorno == true) {
-						msg = "Funcionario criado com sucesso!";
-					}else {
-						msg = "Erro ao criar funcionário";
-					}
-					conec.fecharConexao();
+				boolean retorno = jdbcFuncionario.inserir(funcionario);
 
-					return this.buildResponse(msg);
+
+				conec.fecharConexao();
+
+				return this.buildResponse("Funcionário cadastrado com sucesso !");
 				}else {
-					conec.fecharConexao();
-					return this.buildErrorResponse("Erro já existe um funcionário com esta matrícula ou e-mail");
+					return this.buildErrorResponse("Erro já existe um funcionário com esta matricula ou email");
 				}
-					
-				
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
 		}
-		
 	}
 	
 	@DELETE
@@ -162,9 +154,6 @@ public class FuncionarioRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
 			
-			boolean retornoExistencia = jdbcFuncionario.verficiaExistenciaEditar(funcionario);
-			
-			if(retornoExistencia == true) {
 			
 			boolean retorno = jdbcFuncionario.alterar(funcionario);
 
@@ -178,9 +167,6 @@ public class FuncionarioRest extends UtilRest{
 
 			conec.fecharConexao();
 			return this.buildResponse(msg);
-			}else{
-				return this.buildErrorResponse("Erro este e-mail já pertence a um funcionário");
-			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -162,7 +162,7 @@ public class FuncionarioRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
 			
-			boolean retornoExistencia = jdbcFuncionario.verficiaExistenciaEditar(funcionario);
+			boolean retornoExistencia = jdbcFuncionario.verficiaExistencia(funcionario);
 			
 			if(retornoExistencia == true) {
 			
