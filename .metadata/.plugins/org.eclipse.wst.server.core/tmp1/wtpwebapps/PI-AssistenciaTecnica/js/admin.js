@@ -43,7 +43,7 @@ $(document).ready(function() {
 					BRIQUETE.funcionario.buscarFuncionarios();
 				},
 				error: function(info) {
-					console.log("error= " + info.status + " --- " + info.statusText);
+					BRIQUETE.exibirAviso(info.responseText);
 				}
 			});
 		}

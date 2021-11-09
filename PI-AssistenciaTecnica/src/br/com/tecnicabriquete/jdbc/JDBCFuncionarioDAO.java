@@ -170,9 +170,33 @@ public class JDBCFuncionarioDAO {
 		return true;
 	}
 
-	public boolean verificaExistenciaFuncionario(Funcionario funcionario) {
-		// TODO Auto-generated method stub
+
+	public boolean verficiaExistencia(Funcionario funcionario) {
+		
+		boolean retorno = false;
+		
+		String comando = "SELECT EXISTS(SELECT * FROM usuario WHERE matricula =? OR email = ?)as resultado";
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			
+			p.setInt(1, funcionario.getMatricula());
+			p.setString(2, funcionario.getEmail());
+			ResultSet rs = p.executeQuery();
+			while(rs.next()) {
+				int existencia = rs.getInt("resultado"); // vem do alias do comando
+				System.out.println("existencia ?"+ existencia);
+				if(existencia == 1) {
+					retorno = true;
+				}else {
+					retorno = false;
+				}
+			}
+	}catch(SQLException e) {
+		e.printStackTrace();
 		return false;
+	}
+		
+		return retorno;
 	}
 	
 

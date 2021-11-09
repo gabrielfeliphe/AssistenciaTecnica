@@ -60,21 +60,19 @@ public class FuncionarioRest extends UtilRest{
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
 
 
-	
-
+				boolean retornoExistencia= jdbcFuncionario.verficiaExistencia(funcionario);
+				
+				if (retornoExistencia == false) {
+				
 				boolean retorno = jdbcFuncionario.inserir(funcionario);
 
-				String msg = "";
-
-				if (retorno) {
-					msg = "Marca cadastrada com sucesso!";
-				} else {
-					msg = "Erro ao cadastrar marca.";
-				}
 
 				conec.fecharConexao();
 
-				return this.buildResponse(msg);
+				return this.buildResponse("Funcionário cadastrado com sucesso !");
+				}else {
+					return this.buildErrorResponse("Erro já existe um funcionário com esta matricula!");
+				}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -155,7 +153,8 @@ public class FuncionarioRest extends UtilRest{
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
-
+			
+			
 			boolean retorno = jdbcFuncionario.alterar(funcionario);
 
 			String msg = "";
