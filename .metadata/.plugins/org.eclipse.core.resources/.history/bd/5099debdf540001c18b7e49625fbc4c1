@@ -15,7 +15,6 @@ $(document).ready(function() {
 		let novoFuncionario = new Object();
 		
 		var expRegMatricula = new RegExp("^[0-9]+$")
-		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 
 		novoFuncionario.matricula = document.frmAddFuncionario.matricula.value;
 		novoFuncionario.email = document.frmAddFuncionario.email.value;
@@ -25,9 +24,7 @@ $(document).ready(function() {
 		if (novoFuncionario.matricula == "" || novoFuncionario.email == "" || novoFuncionario.funcao == "" || novoFuncionario.senha == "") {
 			console.log("erro : preencha todos os campos!");
 		}else if (!expRegMatricula.test(novoFuncionario.matricula)){
-			alert("não é numero")
-		}else if(reg.test(novoFuncionario.email) == false){
-			alert("não é email valido")
+			console.log("não é numero")
 		}
 		
 		

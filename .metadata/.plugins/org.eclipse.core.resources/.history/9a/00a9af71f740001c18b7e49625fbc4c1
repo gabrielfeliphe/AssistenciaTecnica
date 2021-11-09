@@ -169,11 +169,6 @@ public class JDBCFuncionarioDAO {
 		}
 		return true;
 	}
-
-	public boolean verificaExistenciaFuncionario(Funcionario funcionario) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 
 }

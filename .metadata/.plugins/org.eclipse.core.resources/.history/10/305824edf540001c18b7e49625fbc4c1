@@ -26,7 +26,7 @@ $(document).ready(function() {
 			console.log("erro : preencha todos os campos!");
 		}else if (!expRegMatricula.test(novoFuncionario.matricula)){
 			alert("não é numero")
-		}else if(reg.test(novoFuncionario.email) == false){
+		}else if(reg.test(novoFuncionario.email) = false){
 			alert("não é email valido")
 		}
 		
