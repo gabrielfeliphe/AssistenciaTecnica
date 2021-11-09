@@ -164,7 +164,7 @@ public class FuncionarioRest extends UtilRest{
 			
 			boolean retornoExistencia = jdbcFuncionario.verficiaExistenciaEditar(funcionario);
 			
-			if(retornoExistencia == false) {
+			if(retornoExistencia == true) {
 			
 			boolean retorno = jdbcFuncionario.alterar(funcionario);
 

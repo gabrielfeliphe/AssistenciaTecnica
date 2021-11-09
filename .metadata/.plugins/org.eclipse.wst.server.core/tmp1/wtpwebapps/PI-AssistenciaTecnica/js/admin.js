@@ -241,7 +241,7 @@ BRIQUETE.funcionario.editar = function (){
 				$("#modalEditaFuncionario").dialog("close");
 			},
 			error: function(info){
-				BRIQUETE.exibirAviso("Erro ao editar produto: "+info.status+" - "+info.statusText);
+				BRIQUETE.exibirAviso("Erro ao editar Funcionário: "+info.responseText);
 			}
 		});
 		
