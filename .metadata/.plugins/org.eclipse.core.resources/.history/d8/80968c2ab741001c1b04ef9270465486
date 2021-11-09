@@ -233,8 +233,8 @@ BRIQUETE.funcionario.editar = function (){
 		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 			if(reg.test(funcionario.email) == false){
 				alert("não é email valido")
-			}else{
-		
+				document.frmEditaFuncionario.email.value = funcionario.email;
+			}
 		
 		$.ajax({
 			type: "PUT",
@@ -249,7 +249,6 @@ BRIQUETE.funcionario.editar = function (){
 				BRIQUETE.exibirAviso("Erro ao editar Funcionário: "+info.responseText);
 			}
 		});
-			}
 		
 	}
 

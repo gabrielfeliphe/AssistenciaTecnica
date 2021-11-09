@@ -236,6 +236,7 @@ BRIQUETE.funcionario.editar = function (){
 			}else{
 		
 		
+		
 		$.ajax({
 			type: "PUT",
 			url: BRIQUETE.PATH + "funcionario/alterar",

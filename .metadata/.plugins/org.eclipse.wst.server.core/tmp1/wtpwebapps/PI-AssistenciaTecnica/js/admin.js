@@ -176,7 +176,7 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 				document.frmEditaFuncionario.matricula.value = funcionario.matricula;
 				document.frmEditaFuncionario.email.value = funcionario.email;
 				document.frmEditaFuncionario.senha.value = funcionario.senha;
-		
+				
 				
 				var selFuncao = document.getElementById ('selFuncaoEdicao');
 				for(var i=0; i<selFuncao.length; i++){
@@ -229,7 +229,12 @@ BRIQUETE.funcionario.editar = function (){
 		funcionario.funcao = document.frmEditaFuncionario.funcao.value;
 		funcionario.email = document.frmEditaFuncionario.email.value;
 		funcionario.senha = document.frmEditaFuncionario.senha.value;
-
+		
+		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+			if(reg.test(funcionario.email) == false){
+				alert("não é email valido")
+			}else{
+		
 		
 		$.ajax({
 			type: "PUT",
@@ -244,6 +249,7 @@ BRIQUETE.funcionario.editar = function (){
 				BRIQUETE.exibirAviso("Erro ao editar Funcionário: "+info.responseText);
 			}
 		});
+			}
 		
 	}
 
