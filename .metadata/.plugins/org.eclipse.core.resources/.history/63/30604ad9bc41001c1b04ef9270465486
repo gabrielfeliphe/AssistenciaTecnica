@@ -141,27 +141,22 @@ public class JDBCFuncionarioDAO {
 
 		System.out.println("conteúdo alterar do funcionário : " + funcionario);
 		
-		System.out.println("getsenha: "+funcionario.getSenha());
 
 		String comando = "UPDATE usuario SET matricula=?,email=?,funcao=? WHERE matricula =?";
-		if (!funcionario.getSenha().equals("")) {
-			System.out.println("entrou getsenha");
+		String comandoFinal="";
+		if (funcionario.getSenha() !="") {
 			comando = "UPDATE usuario SET matricula=?,email=?,funcao=?,senha=? WHERE matricula =?";
 		}
 		
 		
 		PreparedStatement p;
 		try {
-			p = this.conexao.prepareStatement(comando);
+			p = this.conexao.prepareStatement(comandoFinal);
 			p.setInt(1, funcionario.getMatricula());
 			p.setString(2, funcionario.getEmail());
 			p.setInt(3, funcionario.getFuncao());
-			if(!funcionario.getSenha().equals("")) {
 			p.setString(4, funcionario.getSenha());
 			p.setInt(5, funcionario.getMatricula());
-			}else {
-				p.setInt(4, funcionario.getMatricula());
-			}
 			p.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -83,7 +83,7 @@
 		<tr>
 				<th>Senha</th>
 				<td>
-					<input type = "password" name = "senha">
+					<input type = "text" name = "senha">
 				</td>
 		</tr>
 		</table>

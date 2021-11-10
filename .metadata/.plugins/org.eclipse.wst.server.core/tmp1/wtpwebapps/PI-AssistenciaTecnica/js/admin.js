@@ -23,11 +23,11 @@ $(document).ready(function() {
 		novoFuncionario.senha = document.frmAddFuncionario.senha.value;
 
 		if (novoFuncionario.matricula == "" || novoFuncionario.email == "" || novoFuncionario.funcao == "" || novoFuncionario.senha == "") {
-			console.log("erro : preencha todos os campos!");
+			BRIQUETE.exibirAviso("erro : preencha todos os campos!");
 		}else if (!expRegMatricula.test(novoFuncionario.matricula)){
-			alert("não é numero")
+			BRIQUETE.exibirAviso("A matrícula devem ser apenas números")
 		}else if(reg.test(novoFuncionario.email) == false){
-			alert("não é email valido")
+			BRIQUETE.exibirAviso("não é email valido")
 		}
 		
 		
@@ -175,7 +175,7 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 					
 				document.frmEditaFuncionario.matricula.value = funcionario.matricula;
 				document.frmEditaFuncionario.email.value = funcionario.email;
-				document.frmEditaFuncionario.senha.value = funcionario.senha;
+				document.frmEditaFuncionario.senha.value = "";
 				
 				
 				var selFuncao = document.getElementById ('selFuncaoEdicao');
@@ -229,10 +229,11 @@ BRIQUETE.funcionario.editar = function (){
 		funcionario.funcao = document.frmEditaFuncionario.funcao.value;
 		funcionario.email = document.frmEditaFuncionario.email.value;
 		funcionario.senha = document.frmEditaFuncionario.senha.value;
+	
 		
 		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 			if(reg.test(funcionario.email) == false){
-				alert("não é email valido")
+				BRIQUETE.exibirAviso("não é email valido")
 			}else{
 		
 		

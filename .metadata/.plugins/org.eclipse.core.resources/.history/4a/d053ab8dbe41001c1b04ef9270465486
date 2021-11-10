@@ -156,7 +156,7 @@ public class JDBCFuncionarioDAO {
 			p.setInt(1, funcionario.getMatricula());
 			p.setString(2, funcionario.getEmail());
 			p.setInt(3, funcionario.getFuncao());
-			if(!funcionario.getSenha().equals("")) {
+			if(funcionario.getSenha()!="") {
 			p.setString(4, funcionario.getSenha());
 			p.setInt(5, funcionario.getMatricula());
 			}else {

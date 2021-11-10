@@ -228,8 +228,10 @@ BRIQUETE.funcionario.editar = function (){
 		funcionario.matricula = document.frmEditaFuncionario.matricula.value;
 		funcionario.funcao = document.frmEditaFuncionario.funcao.value;
 		funcionario.email = document.frmEditaFuncionario.email.value;
+		
+		if (document.frmEditaFuncionario.senha.value != ""){
 		funcionario.senha = document.frmEditaFuncionario.senha.value;
-	
+		}
 		
 		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 			if(reg.test(funcionario.email) == false){

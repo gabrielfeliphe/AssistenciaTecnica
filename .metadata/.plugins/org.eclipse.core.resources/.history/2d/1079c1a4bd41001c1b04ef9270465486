@@ -141,10 +141,9 @@ public class JDBCFuncionarioDAO {
 
 		System.out.println("conteúdo alterar do funcionário : " + funcionario);
 		
-		System.out.println("getsenha: "+funcionario.getSenha());
 
 		String comando = "UPDATE usuario SET matricula=?,email=?,funcao=? WHERE matricula =?";
-		if (!funcionario.getSenha().equals("")) {
+		if (funcionario.getSenha() !="") {
 			System.out.println("entrou getsenha");
 			comando = "UPDATE usuario SET matricula=?,email=?,funcao=?,senha=? WHERE matricula =?";
 		}
@@ -156,7 +155,7 @@ public class JDBCFuncionarioDAO {
 			p.setInt(1, funcionario.getMatricula());
 			p.setString(2, funcionario.getEmail());
 			p.setInt(3, funcionario.getFuncao());
-			if(!funcionario.getSenha().equals("")) {
+			if(funcionario.getSenha()!="") {
 			p.setString(4, funcionario.getSenha());
 			p.setInt(5, funcionario.getMatricula());
 			}else {
