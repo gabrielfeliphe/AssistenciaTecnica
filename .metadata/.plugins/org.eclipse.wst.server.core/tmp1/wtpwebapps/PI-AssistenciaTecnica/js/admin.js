@@ -8,8 +8,6 @@ console.log("path funciona ? " + BRIQUETE.PATH)
 
 $(document).ready(function() {
 	
-	
-
 	BRIQUETE.funcionario.cadastrar = function() {
 
 		let novoFuncionario = new Object();

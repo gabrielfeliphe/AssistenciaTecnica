@@ -8,7 +8,7 @@ $(document).ready(function(){
 	
 	BRIQUETE.PATH = "/PI-AssistenciaTecnica/rest/";
 	
-	$("header").load("/PI-AssistenciaTecnica/pages/adm/geral/cabecalho.html")
+	$("header").load("geral/cabecalho.html")
 	
 	
 	BRIQUETE.carregaPagina= function(pagename){

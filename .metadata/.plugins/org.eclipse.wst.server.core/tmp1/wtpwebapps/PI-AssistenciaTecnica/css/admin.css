@@ -10,7 +10,10 @@ h4 {
 }
 
 .form-group {
-	padding-top: 5%;
+	display:block;
+	height: 405px;
+	margin:1%;
+	margin-bottom: 70px;
 }
 
 .container {
@@ -28,11 +31,11 @@ label {
 button {
 	height: 30px;
 	width: 100px;
-	margin: 20px;
+	margin: 10px;
 }
 
 .botoes {
-	margin-top: 5%;
+	margin-top: 2%;
 	text-align: center;
 	display: block;
 }
@@ -70,4 +73,9 @@ select {
 
 #modalAviso, .modalEditar{
 	display: none;
+}
+
+.container{
+	max-width: 340px;
+	max-heigth: 720px;
 }

@@ -2,7 +2,7 @@
 
 
 .form-group{
-	
+	display:block;
 	padding-top: 5%;
 	
 }
@@ -52,11 +52,9 @@ label{
 button{
 	height: 30px;
 	width: 100px;
-	margin: 20px;
 }
 
 .botoes{
-	margin-top: 5%;
 	text-align: center;
 	display:block;
 }
@@ -69,12 +67,19 @@ button{
 
 .btn2{
 	  float: right;
-	
 }
 
 .btnCadastro{
+	margin-top: 5%;
 	text-align: center;
-	
+	display: block;
+	padding: 10px;
+}
+
+.btnCadastro button{
+	margin: 20px;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 textarea{
