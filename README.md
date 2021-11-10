@@ -8,8 +8,9 @@
 🚀 Em construção...  🚧
 </h4>
 
-<h3>Demonstração CRUD funcionários</h3>
+<h3 align="center">Demonstração CRUD funcionários</h3>
 
+![CRUD_funcionario](https://user-images.githubusercontent.com/62681139/141153596-101cb231-73c2-424b-aae9-867f1d186e44.gif)
 
 
 <h2>Sobre o projeto</h2>
