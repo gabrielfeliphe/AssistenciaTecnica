@@ -1,6 +1,17 @@
 BRIQUETE.funcionario = new Object();
 
 
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+togglePassword.addEventListener('click', function (e) {
+  
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    this.classList.toggle('bi-eye');
+});
+
+
 console.log("script ADMIN")
 
 console.log("path funciona ? " + BRIQUETE.PATH)

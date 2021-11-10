@@ -2,7 +2,7 @@ BRIQUETE.funcionario = new Object();
 
 
 const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
+const password = document.querySelector('#senha');
 
 togglePassword.addEventListener('click', function (e) {
   

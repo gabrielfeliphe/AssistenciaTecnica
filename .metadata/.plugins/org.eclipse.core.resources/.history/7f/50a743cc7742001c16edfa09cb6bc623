@@ -33,10 +33,9 @@
 							<option value="3">Almoxarife</option>
 						</select>
 					</div>
-					<label>Senha</label>
 					<div class="senha">
-					 <input type="password" class="form-control"
-						placeholder="Digite a senha" name="senha" id="password">
+					<label>Senha</label> <input type="password" class="form-control"
+						placeholder="Digite a senha" name="senha">
 						<i class="bi bi-eye-slash" id="togglePassword"></i>
 					</div>
 					<div class="botoes">

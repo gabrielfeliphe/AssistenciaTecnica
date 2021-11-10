@@ -33,12 +33,8 @@
 							<option value="3">Almoxarife</option>
 						</select>
 					</div>
-					<label>Senha</label>
-					<div class="senha">
-					 <input type="password" class="form-control"
-						placeholder="Digite a senha" name="senha" id="password">
-						<i class="bi bi-eye-slash" id="togglePassword"></i>
-					</div>
+					<label>Senha</label> <input type="password" class="form-control"
+						placeholder="Digite a senha" name="senha">
 					<div class="botoes">
 						<button type="reset">Cancelar</button>
 						<button type="button" onclick="BRIQUETE.funcionario.cadastrar()">Cadastrar</button>	
@@ -76,6 +72,7 @@
 				<th>Funcao</th>
 				<td>
 					<select name="funcao" id = "selFuncaoEdicao">
+							<option value="">Selecione a função</option>
 							<option value="0">Administrador</option>
 							<option value="1">Recepção</option>
 							<option value="2">Manutenção</option>

@@ -85,12 +85,3 @@ select {
     font-weight: 600;
     text-decoration: none;
 }
-
-.senha{
-	display:flex;
-}
-
-form i{
-	margin-top:5px;
-	margin-left:-25px;
-}
