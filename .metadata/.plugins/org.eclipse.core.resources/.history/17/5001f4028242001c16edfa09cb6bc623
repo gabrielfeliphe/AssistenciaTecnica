@@ -1,0 +1,100 @@
+BRIQUETE.cliente = new Object();
+
+console.log("script cliente entrou!");
+
+$(document).ready(function() {
+	
+	BRIQUETE.cliente.cadastrar = function() {
+
+		let novoCliente = new Object();
+
+		novoCliente.nome = document.frmAddCliente.nome.value;
+		novoCliente.email = document.frmAddFuncionario.email.value;
+		novoCliente.funcao = document.frmAddFuncionario.funcao.value;
+		novoCliente.senha = document.frmAddFuncionario.senha.value;
+		novoCliente
+
+		if (novoFuncionario.matricula == "" || novoFuncionario.email == "" || novoFuncionario.funcao == "" || novoFuncionario.senha == "") {
+			BRIQUETE.exibirAviso("erro : preencha todos os campos!");
+		}else if (!expRegMatricula.test(novoFuncionario.matricula)){
+			BRIQUETE.exibirAviso("A matrícula devem ser apenas números")
+		}else if(reg.test(novoFuncionario.email) == false){
+			BRIQUETE.exibirAviso("não é email valido")
+		}
+		
+		
+		
+		else {
+
+			$.ajax({
+				type: "POST",
+				url: BRIQUETE.PATH + "funcionario/cadastrar",
+				data: JSON.stringify(novoFuncionario),
+				success: function(msg) {
+					console.log("adicionado novoFuncionario: " + novoFuncionario);
+					BRIQUETE.funcionario.buscarFuncionarios();
+				},
+				error: function(info) {
+					BRIQUETE.exibirAviso(info.responseText);
+				}
+			});
+		}
+	}	
+
+	
+BRIQUETE.cliente.buscarClientes = function() {
+		
+		$.ajax({
+			
+			type: "GET",
+			url: BRIQUETE.PATH + "cliente/buscar",
+			success: function(dados) {
+				console.log(dados);
+				$("#lista-clientes").html(BRIQUETE.cliente.exibirClientes(dados));
+			},
+			error: function(info) {
+				console.log("erro : " + info);
+				//BRIQUETE.exibirAviso("Erro ao consultar os contatos: "+ info.status+" - " + info.statusText+ " - " + info.responseText);
+			},
+
+		});
+	};
+	
+BRIQUETE.cliente.buscarClientes();
+
+BRIQUETE.cliente.exibirClientes = function(listaClientes){
+	
+	var tabela = "<table class='table table-bordered table-dark'>" +
+	"<tr>" +
+	"<th>Nome</th>" +
+	"<th>CPF</th>" +
+	"<th>E-mail</th>" +
+	"<th>Telefone</th>"
+	"<th>Ações</th>"
+"</tr>";
+
+if (listaClientes != undefined && listaClientes.length > 0) {
+
+	for (var i = 0; i < listaClientes.length; i++) {
+		tabela += "<tr>" +
+			"<td>" + listaClientes[i].nome + "</td>" +
+			"<td>" + listaClientes[i].cpf+ "</td>" +
+			"<td>" + listaClientes[i].email + "</td>" +
+			"<td>" + listaClientes[i].telefone + "</td>" +
+			"<td>" +
+			"<a onclick=\"BRIQUETE.cliente.exibirEdicao('" + listaClientes[i].idcliente + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
+			"<a onclick=\"BRIQUETE.cliente.excluir('" + listaClientes[i].idcliente + "')\"><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
+			"</td>" +
+			"</tr>"
+			}
+	}else if (listaClientes == "") {
+	tabela += "<tr><td colspan='6'>Nenhum registro encontrado</td></tr>";
+}
+tabela += "</table>";
+
+return tabela;
+	
+};
+	
+	
+});

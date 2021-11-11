@@ -1,0 +1,13 @@
+package br.com.tecnicabriquete.jdbc;
+
+import java.sql.Connection;
+
+public class JDBCClienteDAO {
+	
+	private Connection conexao;
+
+	public JDBCClienteDAO(Connection conexao) {
+		this.conexao = conexao;
+	}
+
+}

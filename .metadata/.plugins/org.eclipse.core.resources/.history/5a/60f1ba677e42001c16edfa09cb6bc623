@@ -1,0 +1,7 @@
+BRIQUETE.cliente = new Object();
+
+$(document).ready(function() {
+	
+	
+	
+});
