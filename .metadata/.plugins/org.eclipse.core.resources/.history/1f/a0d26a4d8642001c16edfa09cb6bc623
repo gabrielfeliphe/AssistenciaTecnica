@@ -97,9 +97,9 @@ public class ClienteRest extends UtilRest {
 
 					String msg = "";
 					if (retorno) {
-						msg = "cliente excluido com sucesso!";
+						msg = "Funcionario excluido com sucesso!";
 					} else {
-						msg = "Erro ao excluir o cliente!";
+						msg = "Erro ao excluir o Funcionario!";
 					}
 
 					conec.fecharConexao();

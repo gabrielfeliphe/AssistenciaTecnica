@@ -92,19 +92,4 @@ public class JDBCClienteDAO {
 		return true;
 	}
 
-	public boolean deletar(int idcliente) {
-
-		String comando = "DELETE FROM cliente WHERE idcliente = ?";
-		PreparedStatement p;
-		try {
-			p = this.conexao.prepareStatement(comando);
-			p.setInt(1, idcliente);
-			p.execute();
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
-
 }

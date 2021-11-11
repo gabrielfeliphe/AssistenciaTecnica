@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+
 <title>Cadastro de Clientes</title>
 
 <script src="../../js/recepcao.js"></script>
-
-</head>
-<body>
 
 	<div class="form-group">
 	<div class="container col-lg-3 centered">
@@ -38,7 +32,3 @@
 <div id="lista-clientes" class="tabela-lista"> <!-- Usado posteriormente para aparecer a tabela -->
 
 </div>
-
-
-</body>
-</html>

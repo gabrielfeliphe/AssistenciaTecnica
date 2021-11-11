@@ -88,41 +88,6 @@ tabela += "</table>";
 return tabela;
 	
 };
-
-BRIQUETE.cliente.excluir = function(idcliente) {
-	
-	console.log("invocado excluir")
-	
-	var modal = {
-		
-			title: "Mensagem",
-			height: 250,
-			width: 400,
-			modal: true,
-			buttons: {
-				"Excluir": function(){
-					$(this).dialog("close");
-					$.ajax({
-						type: "DELETE",
-						url: BRIQUETE.PATH + "cliente/excluir/" + idcliente,
-						success: function (msg){
-							BRIQUETE.cliente.buscarClientes();
-						},
-						error: function(info){
-							BRIQUETE.exibirAviso("Erro ao excluir cliente "+ info.status + " - " + info.statusText+ " - " + info.responseText);
-						},
-					});
-				},
-				"Cancelar" : function(){
-					$(this).dialog("close");
-				}
-			}
-		};
-		console.log("invocado antes modal")
-
-		$("#modalAviso").html("Deseja realmente deletar esse funcionário ?");
-		$("#modalAviso").dialog(modal);
-};
 	
 	
 });
