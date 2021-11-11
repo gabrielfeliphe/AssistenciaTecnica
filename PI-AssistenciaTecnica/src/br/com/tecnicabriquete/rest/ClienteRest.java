@@ -112,5 +112,64 @@ public class ClienteRest extends UtilRest {
 			return this.buildErrorResponse(e.getMessage());
 		}
 	}
+	
+	@GET
+	@Path("/buscarPorId")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorId(@QueryParam("idcliente") int idcliente) {
+
+		try {
+			Cliente cliente = new Cliente();
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCClienteDAO jdbcCliente = new JDBCClienteDAO(conexao);
+
+			cliente = jdbcCliente.buscarPorId(idcliente);
+
+			conec.fecharConexao();
+
+			return this.buildResponse(cliente);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+
+	}
+
+	@PUT
+	@Path("/alterar")
+	@Consumes("application/*")
+	public Response alterar(String clienteParam) {
+		
+		System.out.println("alterar conteúdo : "+clienteParam);
+		
+		try {
+			Cliente cliente = new Gson().fromJson(clienteParam,Cliente.class);
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCClienteDAO jdbcCliente = new JDBCClienteDAO(conexao);
+
+			
+			
+			boolean retorno = jdbcCliente.alterar(cliente);
+
+			String msg = "";
+
+			if (retorno) {
+				msg = "Funcionario alterado com sucesso!";
+			} else {
+				msg = "Erro ao alterar o Funcionario.";
+			}
+
+			conec.fecharConexao();
+			return this.buildResponse(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
 
 }

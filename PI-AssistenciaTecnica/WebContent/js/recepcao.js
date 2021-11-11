@@ -1,7 +1,6 @@
 BRIQUETE.cliente = new Object();
 
-console.log("script cliente entrou!");
-
+//$.noConflict(); // ta carregando 2 jquery ?
 $(document).ready(function() {
 	
 	BRIQUETE.cliente.cadastrar = function() {
@@ -56,6 +55,7 @@ BRIQUETE.cliente.buscarClientes = function() {
 BRIQUETE.cliente.buscarClientes();
 
 BRIQUETE.cliente.exibirClientes = function(listaClientes){
+	
 	
 	var tabela = "<table class='table table-bordered table-dark'>" +
 	"<tr>" +
@@ -118,11 +118,94 @@ BRIQUETE.cliente.excluir = function(idcliente) {
 				}
 			}
 		};
-		console.log("invocado antes modal")
 
-		$("#modalAviso").html("Deseja realmente deletar esse funcionário ?");
+		$("#modalAviso").html("Deseja realmente deletar esse cliente ?");
 		$("#modalAviso").dialog(modal);
 };
+
+
+BRIQUETE.cliente.exibirEdicao = function(idcliente){
+		
+		$.ajax({
+			type: "GET",
+			url: BRIQUETE.PATH + "cliente/buscarPorId",
+			data: "idcliente="+idcliente,
+			success: function(cliente){
+				
+				console.log(cliente);
+				
+				document.frmEditaCliente.nome.value = cliente.nome;
+				document.frmEditaCliente.email.value = cliente.email;
+				document.frmEditaCliente.cpf.value = cliente.cpf;
+				document.frmEditaCliente.telefone.value = cliente.telefone;
+
+				
+				console.log(cliente)
+				
+				
+				var modalEditaFuncionario = {
+						title: "Editar Funcionário",
+						height: 400,
+						width: 500,
+						modal: true,
+						buttons:{
+							"Salvar": function(){
+								BRIQUETE.cliente.editar();
+								$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
+							},
+							"Cancelar": function(){
+								$(this).dialog("close");
+							}
+						},
+						close: function(){
+							//caso o usuário simplesmente feche a caixa de edição
+							// nao deve acontecar nada
+						}
+				};
+				
+				$("#modalEditaFuncionario").dialog(modalEditaFuncionario);
+				
+			},
+			error: function(info){
+				
+				BRIQUETE.exibirAviso("Erro ao buscar o funcionário para a edição "+info.status+" - "+info.statusText+ " - " + info.responseText);
+			}
+		});
+		
+	};
+	
+	
+BRIQUETE.cliente.editar = function (){
+		
+		var funcionario = new Object();
+		cliente.nome = document.frmEditaCliente.nome.value;
+		cliente.email = document.frmEditaCliente.email.value;
+		cliente.cpf = document.frmEditaCliente.cpf.value;
+		cliente.telefone = document.frmEditaCliente.telefone.value;
+
+		
+		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+			if(reg.test(funcionario.email) == false){
+				BRIQUETE.exibirAviso("não é email valido")
+			}else{
+		
+		
+		$.ajax({
+			type: "PUT",
+			url: BRIQUETE.PATH + "cliente/alterar",
+			data: JSON.stringify(funcionario),
+			success: function(msg){
+				BRIQUETE.exibirAviso(msg);
+				BRIQUETE.funcionario.buscarFuncionarios();
+				$("#modalEditaCliente").dialog("close");
+			},
+			error: function(info){
+				BRIQUETE.exibirAviso("Erro ao editar cliente: "+info.responseText);
+			}
+		});
+			}
+		
+	}
 	
 	
 });

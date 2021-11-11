@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.tecnicabriquete.modelo.Cliente;
+import br.com.tecnicabriquete.modelo.Funcionario;
 
 public class JDBCClienteDAO {
 
@@ -106,5 +107,51 @@ public class JDBCClienteDAO {
 		}
 		return true;
 	}
+
+	public Cliente buscarPorId(int idcliente) {
+		String comando = "SELECT * FROM usuario WHERE cliente.idcliente = ?";
+		Cliente cliente = new Cliente();
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			p.setInt(1, idcliente);
+			ResultSet rs = p.executeQuery();
+			while (rs.next()) {
+
+				String email = rs.getString("email");
+				String nome = rs.getString("nome");
+				int telefone = rs.getInt("telefone");
+				int cpf = rs.getInt("cpf");
+
+				cliente.setEmail(email);
+				cliente.setNome(nome);
+				cliente.setTelefone(telefone);
+				cliente.setCpf(cpf);;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cliente;
+	}
+
+	public boolean alterar(Cliente cliente) {
+		
+		String comando = "UPDATE cliente SET cpf=?,telefone=?,email=?,nome=? WHERE idcliente =?";
+		
+		PreparedStatement p;
+		try {
+			p = this.conexao.prepareStatement(comando);
+			p.setInt(1, cliente.getCpf());
+			p.setInt(2, cliente.getTelefone());
+			p.setString(3, cliente.getEmail());
+			p.setString(4, cliente.getNome());
+			p.setInt(5, cliente.getIdcliente());
+			p.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
 
 }

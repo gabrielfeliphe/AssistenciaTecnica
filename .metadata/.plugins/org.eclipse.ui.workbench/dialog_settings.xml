@@ -5,8 +5,8 @@
 		<item key="DIALOG_Y_ORIGIN" value="8"/>
 	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item key="dialogHeight" value="-1"/>
-		<item key="dialogWidth" value="-1"/>
+		<item key="dialogHeight" value="678"/>
+		<item key="dialogWidth" value="829"/>
 		<list key="orderedElements">
 		</list>
 		<list key="orderedProviders">
@@ -21,5 +21,7 @@
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.wst.server.ui"/>
 		</list>
+	</section>
+	<section name="ImportExportAction">
 	</section>
 </section>

@@ -1,23 +1,22 @@
 BRIQUETE.funcionario = new Object();
 
-
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
-
-togglePassword.addEventListener('click', function (e) {
-  
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    this.classList.toggle('bi-eye');
-});
-
-
 console.log("script ADMIN")
 
 console.log("path funciona ? " + BRIQUETE.PATH)
 
 
 $(document).ready(function() {
+	
+	const togglePassword = document.querySelector('#togglePassword');
+	const password = document.querySelector('#password');
+
+	togglePassword.addEventListener('click', function (e) {
+	  
+	    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+	    password.setAttribute('type', type);
+	    this.classList.toggle('bi-eye');
+	});
+	
 	
 	BRIQUETE.funcionario.cadastrar = function() {
 
@@ -118,8 +117,8 @@ $(document).ready(function() {
 					"<td>" + nomeFuncao + "</td>" +
 					"<td>" + listaDeFuncionarios[i].email + "</td>" +
 					"<td>" +
-					"<a onclick=\"BRIQUETE.cliente.exibirEdicao('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
-					"<a onclick=\"BRIQUETE.cliente.excluir('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
+					"<a onclick=\"BRIQUETE.funcionario.exibirEdicao('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
+					"<a onclick=\"BRIQUETE.funcionario.excluir('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
 					"</td>" +
 					"</tr>"
 
