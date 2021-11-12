@@ -1,0 +1,8 @@
+package br.com.tecnicabriquete.modelo;
+
+public class Orcamento {
+	
+	Cliente cliente;
+	String equipamentoNome,equipamentoModelo;
+
+}
