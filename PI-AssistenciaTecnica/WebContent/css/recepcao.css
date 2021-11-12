@@ -90,13 +90,12 @@ textarea{
 #lista-clientes table {
 	margin-left: auto;
 	margin-right: auto;
-	display:block;
 }
 
 #lista-clientes {
 	margin: 0 auto;
 	margin-top: 10px;
-	width: 40%;
+	width: 70%;
 }
 
 #lista-clientes table img {

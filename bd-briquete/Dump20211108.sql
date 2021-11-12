@@ -145,4 +145,7 @@ UNLOCK TABLES;
 -- Dump completed on 2021-11-08 14:26:09
 select * from cliente;
 
-update cliente set cpf=4567 where id=4;
+insert into cliente(nome,email,cpf,telefone)
+VALUES('alfredo','alfredo@gmail.com',12345678911,4799618851);
+
+ALTER TABLE cliente MODIFY telefone char(11);

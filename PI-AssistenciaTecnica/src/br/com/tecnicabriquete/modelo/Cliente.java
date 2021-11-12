@@ -8,7 +8,8 @@ public class Cliente implements Serializable{
 	
 	
 	String nome,email;
-	int cpf,telefone,idcliente;
+	long cpf,telefone;
+	int idcliente;
 	
 	
 	public String getNome() {
@@ -23,23 +24,24 @@ public class Cliente implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getCpf() {
-		return cpf;
-	}
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
-	}
-	public int getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(int telefone) {
-		this.telefone = telefone;
-	}
+
 	public int getIdcliente() {
 		return idcliente;
 	}
 	public void setIdcliente(int idcliente) {
 		this.idcliente = idcliente;
+	}
+	public long getCpf() {
+		return cpf;
+	}
+	public void setCpf(long cpf) {
+		this.cpf = cpf;
+	}
+	public long getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(long telefone) {
+		this.telefone = telefone;
 	}
 	
 	

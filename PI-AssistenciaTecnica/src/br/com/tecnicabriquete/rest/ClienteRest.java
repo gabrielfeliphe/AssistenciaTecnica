@@ -20,9 +20,8 @@ import java.util.List;
 
 import br.com.tecnicabriquete.bd.Conexao;
 import br.com.tecnicabriquete.jdbc.JDBCClienteDAO;
-import br.com.tecnicabriquete.jdbc.JDBCFuncionarioDAO;
 import br.com.tecnicabriquete.modelo.Cliente;
-import br.com.tecnicabriquete.modelo.Funcionario;
+
 
 @Path("cliente")
 public class ClienteRest extends UtilRest {
@@ -69,9 +68,9 @@ public class ClienteRest extends UtilRest {
 			
 			boolean retorno = jdbcCliente.inserir(cliente);
 			if (retorno == true) {
-				msg = "Funcionario criado com sucesso!";
+				msg = "cliente criado com sucesso!";
 			} else {
-				msg = "Erro ao criar funcionário";
+				msg = "Erro ao criar cliente";
 			}
 			conec.fecharConexao();
 
@@ -166,9 +165,9 @@ public class ClienteRest extends UtilRest {
 			String msg = "";
 
 			if (retorno) {
-				msg = "Funcionario alterado com sucesso!";
+				msg = "cliente alterado com sucesso!";
 			} else {
-				msg = "Erro ao alterar o Funcionario.";
+				msg = "Erro ao alterar o cliente.";
 			}
 
 			conec.fecharConexao();

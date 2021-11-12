@@ -3,13 +3,16 @@ BRIQUETE.cliente = new Object();
 //$.noConflict(); // ta carregando 2 jquery ?
 $(document).ready(function() {
 	
+	
 	BRIQUETE.cliente.cadastrar = function() {
 
 		let novoCliente = new Object();
 		
 		var expApenasNumeros = new RegExp("^[0-9]+$")
 		var email = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
-
+        var cpf = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/
+        
+   
 		novoCliente.nome = document.frmAddCliente.nome.value;
 		novoCliente.email = document.frmAddCliente.email.value;
 		novoCliente.cpf = document.frmAddCliente.cpf.value;

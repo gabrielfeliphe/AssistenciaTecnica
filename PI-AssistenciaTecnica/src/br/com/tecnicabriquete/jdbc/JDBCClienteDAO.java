@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.tecnicabriquete.modelo.Cliente;
-import br.com.tecnicabriquete.modelo.Funcionario;
 
 public class JDBCClienteDAO {
 
@@ -50,9 +49,9 @@ public class JDBCClienteDAO {
 
 				int idcliente = rs.getInt("idcliente");
 				String nome = rs.getString("nome");
-				int cpf = rs.getInt("cpf");
+				long cpf = rs.getLong("cpf");
 				String email = rs.getString("email");
-				int telefone = rs.getInt("telefone");
+				long telefone = rs.getLong("telefone");
 
 				cliente.setEmail(email);
 				cliente.setCpf(cpf);
@@ -79,9 +78,9 @@ public class JDBCClienteDAO {
 
 			p = this.conexao.prepareStatement(comando);
 
-			p.setInt(1, cliente.getCpf());
+			p.setLong(1, cliente.getCpf());
 			p.setString(2, cliente.getNome());
-			p.setInt(3, cliente.getTelefone());
+			p.setLong(3, cliente.getTelefone());
 			p.setString(4, cliente.getEmail());
 
 			p.execute();
@@ -119,8 +118,8 @@ public class JDBCClienteDAO {
 
 				String email = rs.getString("email");
 				String nome = rs.getString("nome");
-				int telefone = rs.getInt("telefone");
-				int cpf = rs.getInt("cpf");
+				long telefone = rs.getLong("telefone");
+				long cpf = rs.getLong("cpf");
 
 				cliente.setEmail(email);
 				cliente.setNome(nome);
@@ -143,8 +142,8 @@ public class JDBCClienteDAO {
 		PreparedStatement p;
 		try {
 			p = this.conexao.prepareStatement(comando);
-			p.setInt(1, cliente.getCpf());
-			p.setInt(2, cliente.getTelefone());
+			p.setLong(1, cliente.getCpf());
+			p.setLong(2, cliente.getTelefone());
 			p.setString(3, cliente.getEmail());
 			p.setString(4, cliente.getNome());
 			p.setInt(5, cliente.getIdcliente());
@@ -163,7 +162,7 @@ public class JDBCClienteDAO {
 		try {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 
-			p.setInt(1, cliente.getCpf());
+			p.setLong(1, cliente.getCpf());
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
 				int existencia = rs.getInt("resultado"); // vem do alias do comando
