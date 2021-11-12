@@ -128,6 +128,8 @@ public class ClienteRest extends UtilRest {
 			cliente = jdbcCliente.buscarPorId(idcliente);
 
 			conec.fecharConexao();
+			
+			System.out.println("cliente dados:"+cliente.getIdcliente());
 
 			return this.buildResponse(cliente);
 

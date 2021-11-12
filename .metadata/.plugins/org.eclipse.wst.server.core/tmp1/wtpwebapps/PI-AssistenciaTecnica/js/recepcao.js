@@ -126,24 +126,22 @@ BRIQUETE.cliente.excluir = function(idcliente) {
 
 BRIQUETE.cliente.exibirEdicao = function(idcliente){
 		
+		console.log("idcliente exibir edição: "+idcliente)
+	
 		$.ajax({
 			type: "GET",
 			url: BRIQUETE.PATH + "cliente/buscarPorId",
 			data: "idcliente="+idcliente,
 			success: function(cliente){
 				
-				console.log(cliente);
-				
 				document.frmEditaCliente.nome.value = cliente.nome;
 				document.frmEditaCliente.email.value = cliente.email;
 				document.frmEditaCliente.cpf.value = cliente.cpf;
 				document.frmEditaCliente.telefone.value = cliente.telefone;
-
-				
-				console.log(cliente)
+				document.frmEditaCliente.idCliente.value = idcliente;
 				
 				
-				var modalEditaFuncionario = {
+				var modalEditaCliente = {
 						title: "Editar Funcionário",
 						height: 400,
 						width: 500,
@@ -163,7 +161,7 @@ BRIQUETE.cliente.exibirEdicao = function(idcliente){
 						}
 				};
 				
-				$("#modalEditaFuncionario").dialog(modalEditaFuncionario);
+				$("#modalEditaCliente").dialog(modalEditaCliente);
 				
 			},
 			error: function(info){
@@ -177,15 +175,16 @@ BRIQUETE.cliente.exibirEdicao = function(idcliente){
 	
 BRIQUETE.cliente.editar = function (){
 		
-		var funcionario = new Object();
+		var cliente = new Object();
 		cliente.nome = document.frmEditaCliente.nome.value;
 		cliente.email = document.frmEditaCliente.email.value;
 		cliente.cpf = document.frmEditaCliente.cpf.value;
 		cliente.telefone = document.frmEditaCliente.telefone.value;
+		cliente.idcliente = document.frmEditaCliente.idCliente.value;
 
 		
 		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
-			if(reg.test(funcionario.email) == false){
+			if(reg.test(cliente.email) == false){
 				BRIQUETE.exibirAviso("não é email valido")
 			}else{
 		
@@ -193,10 +192,10 @@ BRIQUETE.cliente.editar = function (){
 		$.ajax({
 			type: "PUT",
 			url: BRIQUETE.PATH + "cliente/alterar",
-			data: JSON.stringify(funcionario),
+			data: JSON.stringify(cliente),
 			success: function(msg){
 				BRIQUETE.exibirAviso(msg);
-				BRIQUETE.funcionario.buscarFuncionarios();
+				BRIQUETE.cliente.buscarClientes();
 				$("#modalEditaCliente").dialog("close");
 			},
 			error: function(info){

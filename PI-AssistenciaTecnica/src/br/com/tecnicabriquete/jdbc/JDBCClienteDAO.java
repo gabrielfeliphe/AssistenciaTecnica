@@ -109,7 +109,7 @@ public class JDBCClienteDAO {
 	}
 
 	public Cliente buscarPorId(int idcliente) {
-		String comando = "SELECT * FROM usuario WHERE cliente.idcliente = ?";
+		String comando = "SELECT * FROM cliente WHERE idcliente = ?";
 		Cliente cliente = new Cliente();
 		try {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
@@ -125,7 +125,8 @@ public class JDBCClienteDAO {
 				cliente.setEmail(email);
 				cliente.setNome(nome);
 				cliente.setTelefone(telefone);
-				cliente.setCpf(cpf);;
+				cliente.setCpf(cpf);
+				cliente.setIdcliente(idcliente);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -136,6 +137,8 @@ public class JDBCClienteDAO {
 	public boolean alterar(Cliente cliente) {
 		
 		String comando = "UPDATE cliente SET cpf=?,telefone=?,email=?,nome=? WHERE idcliente =?";
+		
+		System.out.println("dados dentro do alterar dao"+cliente.getCpf()+cliente.getNome()+cliente.getIdcliente());
 		
 		PreparedStatement p;
 		try {
