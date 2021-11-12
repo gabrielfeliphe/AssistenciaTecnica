@@ -96,7 +96,7 @@ textarea{
 #lista-clientes {
 	margin: 0 auto;
 	margin-top: 10px;
-	width: 40%;
+	width: 30%;
 }
 
 #lista-clientes table img {

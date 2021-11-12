@@ -64,7 +64,7 @@ public class ClienteRest extends UtilRest {
 			boolean verificaCpf = jdbcCliente.verificaCpf(cliente);
 			
 			if(verificaCpf == true) {
-				return this.buildErrorResponse("Erro já existe um cliente com este cpf");
+				return this.buildErrorResponse("Erro já existe um cliente com este cpf")
 			}else {
 			
 			boolean retorno = jdbcCliente.inserir(cliente);

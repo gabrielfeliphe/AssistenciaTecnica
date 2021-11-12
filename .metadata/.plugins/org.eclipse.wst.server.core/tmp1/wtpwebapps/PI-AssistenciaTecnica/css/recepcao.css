@@ -90,6 +90,7 @@ textarea{
 #lista-clientes table {
 	margin-left: auto;
 	margin-right: auto;
+	display:block;
 }
 
 #lista-clientes {

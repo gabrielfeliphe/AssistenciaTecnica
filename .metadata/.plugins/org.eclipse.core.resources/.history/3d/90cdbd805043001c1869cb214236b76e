@@ -72,7 +72,7 @@ BRIQUETE.cliente.exibirClientes = function(listaClientes){
 	"<th>CPF</th>" +
 	"<th>E-mail</th>" +
 	"<th>Telefone</th>"+
-	"<th>Ações</th>"
+	"<th>Ações</th>"+
 "</tr>";
 
 if (listaClientes != undefined && listaClientes.length > 0) {

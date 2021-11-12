@@ -60,13 +60,7 @@ public class ClienteRest extends UtilRest {
 			Connection conexao = conec.abrirConexao();
 			JDBCClienteDAO jdbcCliente = new JDBCClienteDAO(conexao);
 			String msg = "";
-			
-			boolean verificaCpf = jdbcCliente.verificaCpf(cliente);
-			
-			if(verificaCpf == true) {
-				return this.buildErrorResponse("Erro já existe um cliente com este cpf");
-			}else {
-			
+
 			boolean retorno = jdbcCliente.inserir(cliente);
 			if (retorno == true) {
 				msg = "Funcionario criado com sucesso!";
@@ -76,7 +70,7 @@ public class ClienteRest extends UtilRest {
 			conec.fecharConexao();
 
 			return this.buildResponse(msg);
-			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());

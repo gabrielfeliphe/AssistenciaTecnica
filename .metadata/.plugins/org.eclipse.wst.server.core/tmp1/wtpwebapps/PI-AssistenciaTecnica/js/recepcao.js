@@ -6,6 +6,9 @@ $(document).ready(function() {
 	BRIQUETE.cliente.cadastrar = function() {
 
 		let novoCliente = new Object();
+		
+		var expApenasNumeros = new RegExp("^[0-9]+$")
+		var email = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
 
 		novoCliente.nome = document.frmAddCliente.nome.value;
 		novoCliente.email = document.frmAddCliente.email.value;
@@ -14,6 +17,12 @@ $(document).ready(function() {
 
 		if (novoCliente.nome == "" || novoCliente.email == "" || novoCliente.cpf == "" || novoCliente.telefone == "") {
 			BRIQUETE.exibirAviso("erro : preencha todos os campos!");
+		}else if(email.test(novoCliente.email) == false){
+			BRIQUETE.exibirAviso("não é email valido");
+		}else if (!expApenasNumeros.test(novoCliente.telefone)){
+			BRIQUETE.exibirAviso("Apenas números no telefone");
+		}else if (!expApenasNumeros.test(novoCliente.cpf)){
+			BRIQUETE.exibirAviso("Apenas números no cpf");
 		}
 		
 		else {
@@ -62,7 +71,7 @@ BRIQUETE.cliente.exibirClientes = function(listaClientes){
 	"<th>Nome</th>" +
 	"<th>CPF</th>" +
 	"<th>E-mail</th>" +
-	"<th>Telefone</th>"
+	"<th>Telefone</th>"+
 	"<th>Ações</th>"
 "</tr>";
 

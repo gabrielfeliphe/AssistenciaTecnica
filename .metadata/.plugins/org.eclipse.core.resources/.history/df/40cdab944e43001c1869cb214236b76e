@@ -20,9 +20,9 @@ $(document).ready(function() {
 		}else if(email.test(novoCliente.email) == false){
 			BRIQUETE.exibirAviso("não é email valido");
 		}else if (!expApenasNumeros.test(novoCliente.telefone)){
-			BRIQUETE.exibirAviso("Apenas números no telefone");
+			BRIQUETE.exibirAviso("Apenas números no telefone")
 		}else if (!expApenasNumeros.test(novoCliente.cpf)){
-			BRIQUETE.exibirAviso("Apenas números no cpf");
+			BRIQUETE.exibirAviso("Apenas números no cpf")
 		}
 		
 		else {
@@ -71,7 +71,7 @@ BRIQUETE.cliente.exibirClientes = function(listaClientes){
 	"<th>Nome</th>" +
 	"<th>CPF</th>" +
 	"<th>E-mail</th>" +
-	"<th>Telefone</th>"+
+	"<th>Telefone</th>"
 	"<th>Ações</th>"
 "</tr>";
 

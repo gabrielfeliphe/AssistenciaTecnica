@@ -156,29 +156,5 @@ public class JDBCClienteDAO {
 		return true;
 	}
 
-	public boolean verificaCpf(Cliente cliente) {
-		boolean retorno = false;
-
-		String comando = "SELECT EXISTS(SELECT * FROM cliente WHERE cpf = ?)as resultado";
-		try {
-			PreparedStatement p = this.conexao.prepareStatement(comando);
-
-			p.setInt(1, cliente.getCpf());
-			ResultSet rs = p.executeQuery();
-			while (rs.next()) {
-				int existencia = rs.getInt("resultado"); // vem do alias do comando
-				if (existencia == 1) {
-					retorno = true;
-				} else {
-					retorno = false;
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return retorno;
-	}
-
 
 }

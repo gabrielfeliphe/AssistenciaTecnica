@@ -163,7 +163,7 @@ public class JDBCClienteDAO {
 		try {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 
-			p.setInt(1, cliente.getCpf());
+			p.setString(1, cliente.getCpf());
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
 				int existencia = rs.getInt("resultado"); // vem do alias do comando
