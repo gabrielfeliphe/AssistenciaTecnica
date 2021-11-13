@@ -222,19 +222,7 @@ BRIQUETE.cliente.editar = function (){
 
 BRIQUETE.orcamento.procurarClientes = function(){
 	
-	$.ajax({
-		
-		type: "GET",
-		url: BRIQUETE.PATH + "cliente/buscar",
-		success: function(dados) {
-			BRIQUETE.orcamento.exibirClientes(dados)
-		},
-		error: function(info) {
-			console.log("erro : " + info);
-			//BRIQUETE.exibirAviso("Erro ao consultar os contatos: "+ info.status+" - " + info.statusText+ " - " + info.responseText);
-		},
-
-	});
+	console.log("teste")
 	
 }
 
@@ -244,7 +232,7 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
 	for(var i = 0 ; i < clientes.length; i++){
 		var option = document.createElement("option");
-		option.setAttribute("idcliente",clientes[i].idcliente);
+		option.setAttribute("nome",clientes[i].nome);
 		
 
 		option.innerHTML = (clientes[i].nome);

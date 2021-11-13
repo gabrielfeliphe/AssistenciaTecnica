@@ -244,7 +244,7 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
 	for(var i = 0 ; i < clientes.length; i++){
 		var option = document.createElement("option");
-		option.setAttribute("idcliente",clientes[i].idcliente);
+		option.setAttribute("nome",clientes[i].nome);
 		
 
 		option.innerHTML = (clientes[i].nome);

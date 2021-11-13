@@ -227,7 +227,7 @@ BRIQUETE.orcamento.procurarClientes = function(){
 		type: "GET",
 		url: BRIQUETE.PATH + "cliente/buscar",
 		success: function(dados) {
-			BRIQUETE.orcamento.exibirClientes(dados);
+			BRIQUETE.orcamento.exibirClientes(dados)
 		},
 		error: function(info) {
 			console.log("erro : " + info);
@@ -235,7 +235,6 @@ BRIQUETE.orcamento.procurarClientes = function(){
 		},
 
 	});
-	
 	
 }
 
@@ -245,7 +244,7 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
 	for(var i = 0 ; i < clientes.length; i++){
 		var option = document.createElement("option");
-		option.setAttribute("nome",clientes[i].nome);
+		option.setAttribute("idcliente",clientes[i].idcliente);
 		
 
 		option.innerHTML = (clientes[i].nome);
