@@ -1,4 +1,5 @@
 BRIQUETE.cliente = new Object();
+BRIQUETE.orcamento = new Object();
 
 //$.noConflict(); // ta carregando 2 jquery ?
 $(document).ready(function() {
@@ -217,6 +218,69 @@ BRIQUETE.cliente.editar = function (){
 			}
 		
 	}
+
+
+BRIQUETE.orcamento.procurarClientes = function(){
 	
+	$.ajax({
+		
+		type: "GET",
+		url: BRIQUETE.PATH + "cliente/buscar",
+		success: function(dados) {
+			BRIQUETE.orcamento.exibirClientes(dados);
+		},
+		error: function(info) {
+			console.log("erro : " + info);
+			//BRIQUETE.exibirAviso("Erro ao consultar os contatos: "+ info.status+" - " + info.statusText+ " - " + info.responseText);
+		},
+
+	});
+	
+	
+}
+
+BRIQUETE.orcamento.exibirClientes = function(clientes){
+	
+	var option = document.createElement("option");
+	
+	for(var i = 0 ; i < clientes.length; i++){
+		var option = document.createElement("option");
+		option.setAttribute("nome",clientes[i].nome);
+		
+
+		option.innerHTML = (clientes[i].nome);
+		$(select).append(option);
+	}
+	
+}
+
+BRIQUETE.orcamento.cadastrar = function(){
+	let orcamento = new Object();
+	
+	orcamento.cliente = document.frmAberturaOrcamento.procurarCliente.value;
+	orcamento.equipamentoNome = document.frmAberturaOrcamento.equipamento.value;
+	orcamento.equipamentoModeloCodigo = document.frmAberturaOrcamento.equipamento.value;
+	orcamento.defeito = document.frmAberturaOrcamento.defeito.value;
+	orcamento.equipamento = document.frmAberturaOrcamento.equipamento.value;
+	orcamento.orcamento = document.frmAberturaOrcamento.orcamento.value;
+	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
+	orcamento.data = document.frmAberturaOrcamento.data.value;
+	
+	console.log(orcamento);
+	
+	$.ajax({
+		type: "POST",
+		url: BRIQUETE.PATH + "orcamento/cadastrar",
+		data: JSON.stringify(orcamento),
+		success: function(msg) {
+			console.log("adicionado novo orçamento " + novoCliente);
+		},
+		error: function(info) {
+			BRIQUETE.exibirAviso(info.responseText);
+		}
+	});
+
+
+}
 	
 });

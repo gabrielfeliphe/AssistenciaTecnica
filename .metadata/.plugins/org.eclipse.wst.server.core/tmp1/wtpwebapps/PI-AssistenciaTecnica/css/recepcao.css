@@ -108,3 +108,9 @@ textarea{
 .modalEditar{
 	display: none;
 }
+
+select{
+display:block;
+width: 100%;
+height:35px;
+}
