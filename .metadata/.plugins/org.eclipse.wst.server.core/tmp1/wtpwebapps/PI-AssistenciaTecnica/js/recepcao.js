@@ -65,8 +65,8 @@ BRIQUETE.cliente.buscarClientes = function() {
 		});
 	};
 	
-BRIQUETE.cliente.buscarClientes();
-
+	BRIQUETE.cliente.buscarClientes();
+	
 BRIQUETE.cliente.exibirClientes = function(listaClientes){
 	
 	
@@ -122,7 +122,7 @@ BRIQUETE.cliente.excluir = function(idcliente) {
 							BRIQUETE.cliente.buscarClientes();
 						},
 						error: function(info){
-							BRIQUETE.exibirAviso("Erro ao excluir cliente "+ info.status + " - " + info.statusText+ " - " + info.responseText);
+							BRIQUETE.exibirAviso(info.responseText);
 						},
 					});
 				},
@@ -222,6 +222,8 @@ BRIQUETE.cliente.editar = function (){
 
 BRIQUETE.orcamento.procurarClientes = function(){
 	
+	console.log("entrou procurar clientes")
+	
 	$.ajax({
 		
 		type: "GET",
@@ -240,15 +242,20 @@ BRIQUETE.orcamento.procurarClientes = function(){
 
 BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
+	select = "#listaClientes";
+	
 	var option = document.createElement("option");
+	option.setAttribute ("idcliente", "");
+	option.innerHTML = ("Escolha");
 	
 	for(var i = 0 ; i < clientes.length; i++){
 		var option = document.createElement("option");
 		option.setAttribute("idcliente",clientes[i].idcliente);
 		
-
 		option.innerHTML = (clientes[i].nome);
 		$(select).append(option);
+		
+
 	}
 	
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Cadastro de Orçamento</title>
 
-<script src"../../../js/recepcao.js"></script>
+<script src="../../js/recepcao.js"></script>
 
 </head>
 <body>
@@ -20,7 +20,7 @@
 		 	<label>Nome</label>
 		 	<form class="form-inline my-2 my-lg-0">
 		 	<select name="clientes" id="listaClientes"></select>
-		 	<input type="hidden" name="idCliente">
+		 	<input type="hidden" name="idCliente" >
    			 </form>
    			  <label>Equipamento</label>
 		 	 <input type="text" class="form-control"  placeholder="Equipamento" name="equipamento">
@@ -47,7 +47,7 @@
 			
 			</div>	
 				<div class="botoes">
-				<button type="button" onclick="BRIQUETE.orcamento.procurarClientes()">Cancelar</button>
+				<button type="button">Cancelar</button>
 
 				<button type="button" onclick="BRIQUETE.orcamento.cadastrar()">Cadastrar</button>
 

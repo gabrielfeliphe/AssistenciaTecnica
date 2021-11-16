@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Orçamento</title>
+
+<script src="../../js/recepcao.js"></script>
+
+</head>
+<body onload="javascript:BRIQUETE.cliente.buscarClientes()">
+
+	<div class="form-group">
+	<div class="container col-lg-8 centered">
+	<fieldset>
+		<form name="frmAberturaOrcamento">
+			 <h5 align="center">Cadastro Orçamento</h5>
+			
+			<div class="row">
+			<div class="col-md">
+		 	<label>Nome</label>
+		 	<form class="form-inline my-2 my-lg-0">
+		 	<select name="clientes" id="listaClientes"></select>
+		 	<input type="hidden" name="idCliente" >
+   			 </form>
+   			  <label>Equipamento</label>
+		 	 <input type="text" class="form-control"  placeholder="Equipamento" name="equipamento">
+		 	 <label>Modelo/Código</label>
+		 	 <input type="text" class="form-control"  placeholder="Modelo ou Código" name="modelo_codigo">
+		 	 <label>Data</label></br>
+			 <input type="date" id="diaa" name="data">
+
+			</div>
+			<div class="col-md">
+				<label>Garantia:</label>
+				<div>
+					<form>
+					<INPUT TYPE="RADIO" NAME="garantia" VALUE="1" > Vigente &nbsp;&nbsp;&nbsp;&nbsp;  <!-- gambiarra pra dar espaço -->       
+					<INPUT TYPE="RADIO" NAME="garantia" VALUE="0"> Não Vigente
+					</form>
+				</div>
+				</br>
+				<div>
+				<label>Defeito:</label></br>
+				<textarea name="txadefeito" id="defeito" name="defeito"></textarea>
+				</div>
+			</div>
+			
+			</div>	
+				<div class="botoes">
+				<button type="button">Cancelar</button>
+
+				<button type="button" onclick="BRIQUETE.orcamento.cadastrar()">Cadastrar</button>
+
+			</div>
+	
+		
+		</form>
+	</div>
+	</div>
+</fieldset>
+
+
+
+</body>
+</html>

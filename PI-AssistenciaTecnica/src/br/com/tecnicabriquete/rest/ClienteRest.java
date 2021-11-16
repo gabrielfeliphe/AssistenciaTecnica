@@ -103,13 +103,16 @@ public class ClienteRest extends UtilRest {
 					String msg = "";
 					if (retorno) {
 						msg = "cliente excluido com sucesso!";
+						conec.fecharConexao();
+
+						return this.buildResponse(msg);
 					} else {
 						msg = "Erro ao excluir o cliente!";
+						conec.fecharConexao();
+
+						return this.buildErrorResponse(msg);
 					}
-
-					conec.fecharConexao();
-
-					return this.buildResponse(msg);
+					
 
 
 		} catch (Exception e) {
@@ -157,6 +160,12 @@ public class ClienteRest extends UtilRest {
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCClienteDAO jdbcCliente = new JDBCClienteDAO(conexao);
+			
+			boolean verificaCpf = jdbcCliente.verificaCpf(cliente);
+			
+			if(verificaCpf == true) {
+				return this.buildErrorResponse("Erro já existe um cliente com este cpf");
+			}else {
 
 			
 			
@@ -172,6 +181,7 @@ public class ClienteRest extends UtilRest {
 
 			conec.fecharConexao();
 			return this.buildResponse(msg);
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
