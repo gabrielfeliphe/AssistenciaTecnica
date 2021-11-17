@@ -34,10 +34,6 @@
 	</div>
 </fieldset>
 
-<div id="procurarClientes">
-<input type="search" class="form-control" id="datatable-search-input">
-</div>
-
 <div id="lista-clientes"> <!-- Usado posteriormente para aparecer a tabela -->
 
 </div>

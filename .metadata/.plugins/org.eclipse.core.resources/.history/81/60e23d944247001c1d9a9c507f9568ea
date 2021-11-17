@@ -114,15 +114,3 @@ display:block;
 width: 100%;
 height:35px;
 }
-
-#procurarClientes{
-	max-width:  650px;
-	border: solid black 2px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-#procurarClientes search{
-	max-width: 350px;
-}
