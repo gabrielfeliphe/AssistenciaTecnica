@@ -265,15 +265,19 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
 	select = "#listaClientes";
 	
+	
 	if(document.frmAberturaOrcamento.listaClientes.length == 0){
+	
 	
 	var option = document.createElement("option");
 	option.setAttribute ("idcliente", "");
 	option.innerHTML = ("Escolha");
+	$(select).append(option);
 	
 	for(var i = 0 ; i < clientes.length; i++){
 		var option = document.createElement("option");
-		option.setAttribute("idcliente",clientes[i].idcliente);
+		option.value = clientes[i].idcliente;
+		//option.setAttribute("idcliente",clientes[i].idcliente);
 		
 		option.innerHTML = (clientes[i].nome);
 		$(select).append(option);
@@ -286,30 +290,42 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 BRIQUETE.orcamento.cadastrar = function(){
 	let orcamento = new Object();
 	
-	console.log("valor select "+document.frmAberturaOrcamento.listaClientes.value);
-	
-	orcamento.cliente = document.frmAberturaOrcamento.listaClientes.value;
+	orcamento.idcliente = document.frmAberturaOrcamento.listaClientes.value;
 	orcamento.equipamentoNome = document.frmAberturaOrcamento.equipamento.value;
-	orcamento.equipamentoModeloCodigo = document.frmAberturaOrcamento.equipamento.value;
+	orcamento.equipamentoModeloCodigo = document.frmAberturaOrcamento.modelo_codigo.value;
 	orcamento.defeito = document.frmAberturaOrcamento.defeito.value;
-	orcamento.equipamento = document.frmAberturaOrcamento.equipamento.value;
+	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
 	orcamento.data = document.frmAberturaOrcamento.data.value;
 	
-	console.log(orcamento);
+	if(orcamento.idcliente==""){
+		BRIQUETE.exibirAviso("Selecione um cliente");
+	}else if(orcamento.equipamentoNome==""){
+		BRIQUETE.exibirAviso("Insira o nome do equipamento")
+	}else if(orcamento.equipamentoModeloCodigo==""){
+		BRIQUETE.exibirAviso("Insira o modelo ou código do equipamento");
+	}else if(orcamento.defeito==""){
+		BRIQUETE.exibirAviso("Insira o defeito do equipamento")
+	}else if(orcamento.garantia==""){
+		BRIQUETE.exibirAviso("Selecione a vigencia da garantia")
+	}else if(orcamento.data==""){
+		BRIQUETE.exibirAviso("Selecione a data de entrada do equipamento")
+	}else{
 	
 	$.ajax({
 		type: "POST",
 		url: BRIQUETE.PATH + "servicos/cadastrarOrcamento",
 		data: JSON.stringify(orcamento),
 		success: function(msg) {
-			console.log("adicionado novo orçamento " + novoCliente);
+			BRIQUETE.exibirAviso(msg);
+			document.getElementById("frm-AberturaOrcamento").reset();
 		},
 		error: function(info) {
 			BRIQUETE.exibirAviso(info.responseText);
 		}
 	});
-
+  }
 
 }
+
 	
 });

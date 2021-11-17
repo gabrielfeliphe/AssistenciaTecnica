@@ -12,7 +12,7 @@
 	<div class="form-group">
 	<div class="container col-lg-8 centered">
 	<fieldset>
-		<form name="frmAberturaOrcamento">
+		<form name="frmAberturaOrcamento" id="frm-AberturaOrcamento">
 			 <h5 align="center">Cadastro Orçamento</h5>
 			
 			<div class="row">
@@ -33,10 +33,8 @@
 			<div class="col-md">
 				<label>Garantia:</label>
 				<div>
-					<form>
-					<INPUT TYPE="RADIO" NAME="garantia" VALUE="1" > Vigente &nbsp;&nbsp;&nbsp;&nbsp;  <!-- gambiarra pra dar espaço -->       
-					<INPUT TYPE="RADIO" NAME="garantia" VALUE="0"> Não Vigente
-					</form>
+					<INPUT TYPE="RADIO" name="garantia" value="1" > Vigente &nbsp;&nbsp;&nbsp;&nbsp;  <!-- gambiarra pra dar espaço -->       
+					<INPUT TYPE="RADIO" name="garantia" value="0"> Não Vigente
 				</div>
 				</br>
 				<div>
@@ -47,7 +45,7 @@
 			
 			</div>	
 				<div class="botoes">
-				<button type="button">Cancelar</button>
+				<button type="button" onclick="document.getElementById('frm-AberturaOrcamento').reset()">Cancelar</button>
 
 				<button type="button" onclick="BRIQUETE.orcamento.cadastrar()">Cadastrar</button>
 

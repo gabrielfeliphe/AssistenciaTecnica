@@ -20,7 +20,7 @@ public class JDBCServicosDAO {
 		
 		String comando = "INSERT INTO orcamento(nome_equipamento,modelo_codigo,descricao_problema,"
 				+ "garantia,data_entrada,validade_orcamento,status,idcliente)"
-				+ "VALUES(?,?,?,?,?,?,?,?,?)";
+				+ "VALUES(?,?,?,?,?,?,?,?)";
 		
 		PreparedStatement p;
 		
@@ -40,7 +40,7 @@ public class JDBCServicosDAO {
 			p.setDate(5, orcamento.getData());
 			p.setDate(6, orcamento.getData());
 			p.setInt(7, status);
-			p.setInt(8, orcamento.getCliente().getIdcliente());
+			p.setInt(8, orcamento.getIdcliente());
 			
 			// Executa o comando no BD
 			p.execute();

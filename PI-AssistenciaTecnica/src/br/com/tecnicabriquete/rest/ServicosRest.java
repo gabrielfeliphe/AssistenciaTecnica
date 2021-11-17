@@ -1,6 +1,8 @@
 package br.com.tecnicabriquete.rest;
 
 import javax.ws.rs.Path;
+
+import java.sql.Date;
 import javax.ws.rs.PathParam;
 
 import java.sql.Connection;
@@ -16,6 +18,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
 
 import br.com.tecnicabriquete.bd.Conexao;
@@ -36,8 +40,10 @@ public class ServicosRest extends UtilRest{
 		try {
 			
 			System.out.println(novoOrcamento);
-
-			Orcamento orcamento = new Gson().fromJson(novoOrcamento, Orcamento.class);
+			Gson gson=  new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+			
+			
+			Orcamento orcamento = gson.fromJson(novoOrcamento, Orcamento.class);
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcOrcamento = new JDBCServicosDAO(conexao);

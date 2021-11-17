@@ -158,11 +158,12 @@ public class JDBCClienteDAO {
 	public boolean verificaCpf(Cliente cliente) {
 		boolean retorno = false;
 
-		String comando = "SELECT EXISTS(SELECT * FROM cliente WHERE cpf = ?)as resultado";
+		String comando = "SELECT EXISTS(SELECT * FROM cliente WHERE cpf = ? AND idcliente <> ?)as resultado";
 		try {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 
 			p.setLong(1, cliente.getCpf());
+			p.setInt(2, cliente.getIdcliente());
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
 				int existencia = rs.getInt("resultado"); // vem do alias do comando

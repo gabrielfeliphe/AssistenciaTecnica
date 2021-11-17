@@ -145,6 +145,8 @@ UNLOCK TABLES;
 -- Dump completed on 2021-11-08 14:26:09
 select * from cliente;
 
+select * from orcamento;
+
 insert into cliente(nome,email,cpf,telefone)
 VALUES('alfredo','alfredo@gmail.com',12345678911,4799618851);
 
@@ -154,3 +156,5 @@ select * from orcamento;
 
 INSERT INTO orcamento(nome_equipamento,modelo_codigo,descricao_problema,garantia,data_entrada,status,idcliente)
 VALUES("TESTE 2","1","quebrado",0,"2021-01-01",1,1);
+
+DELETE FROM orcamento where idorcamento between 3 and 13;

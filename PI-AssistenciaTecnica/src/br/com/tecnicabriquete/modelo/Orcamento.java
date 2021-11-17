@@ -4,16 +4,15 @@ import java.sql.Date;
 
 public class Orcamento {
 	
-	Cliente cliente;
 	String equipamentoNome,equipamentoModeloCodigo,defeito;
-	int garantia;
+	int garantia,idcliente;
 	Date data;
 	
-	public Cliente getCliente() {
-		return cliente;
+	public int getIdcliente() {
+		return idcliente;
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setIdcliente(int idcliente) {
+		this.idcliente = idcliente;
 	}
 	public String getEquipamentoNome() {
 		return equipamentoNome;
