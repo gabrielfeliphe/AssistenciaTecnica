@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Clientes</title>
+
+<script src="../../js/recepcao.js"></script>
+</head>
+<body>	
+
+	<div class="form-group">
+	<div class="container col-lg-3 centered">
+	<fieldset>
+		<form name="frmAddCliente">
+			 <h5 align="center">Cadastro Cliente</h5>
+		 	<label>Nome</label>
+		 	 <input type="text" class="form-control"  placeholder="Digite o Nome" name="nome">
+		 	 <label>E-mail</label>
+		 	 <input type="email" class="form-control"  placeholder="Digite o E-mail" name="email">
+		 	 <label>CPF</label>
+		 	 <input type="text" class="form-control"  placeholder="Digite o CPF" name="cpf">
+		 	 <label>Telefone	</label>
+		 	 <input type="text" class="form-control"  placeholder="Digite o Telefone" name="telefone">
+		
+			<div class="btnCadastro">
+			<button type="reset">Cancelar</button>
+			<button type="button" onclick="BRIQUETE.cliente.cadastrar()">Cadastrar</button>
+		    </div>
+			
+		</form>
+	</div>
+	
+	
+	</div>
+</fieldset>
+
+<div class="container-search">
+<input type="search"  id="procurarClientes">
+<button type="button">Procurar</button>
+</div>
+
+<div id="lista-clientes"> <!-- Usado posteriormente para aparecer a tabela -->
+
+</div>
+
+<div id="modalEditaCliente" class = "modalEditar">
+	<form name="frmEditaCliente" id = "editaCliente" class="frmEditar">
+		<table>
+		<tr>
+				<th>Nome</th>
+						<td>
+							<input type = "text" name = "nome">
+						</td>
+				</td>
+		</tr>
+		
+		
+		<tr>
+				<th>E-mail</th>
+				<td>
+					<input type = "email" name = "email">
+				</td>
+		</tr>
+		<tr>
+				<th>CPF</th>
+				<td>
+					<input type = "text" name = "cpf">
+				</td>
+			</tr>
+		<tr>
+				<th>Telefone</th>
+				<td>
+					<input type = "text" name = "telefone">
+				</td>
+		</tr>
+		</table>
+		<input type="hidden" name="idCliente">
+	</form>
+</div>
+
+
+</body>
+</html>

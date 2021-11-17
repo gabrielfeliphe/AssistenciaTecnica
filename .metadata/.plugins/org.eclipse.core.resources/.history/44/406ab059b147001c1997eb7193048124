@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+
+.form-group{
+	display:block;
+	padding-top: 2%;
+	
+}
+.container{
+	  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+	  width: 75%;
+	  padding: 2%;
+}
+
+#searchbox{
+	display: flex;
+}
+
+#searchbox input{
+	
+	width: 50%;
+	
+}
+
+#observacao{
+	height: 125px;
+	width: 400px; 
+	resize: none;
+
+}
+
+.botoes{
+  margin: 2%;
+  pading: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h4{
+	text-align: center;
+	margin-bottom:2%;
+}
+
+
+label{
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+button{
+	height: 30px;
+	width: 100px;
+}
+
+.botoes{
+	text-align: center;
+	display:block;
+}
+
+
+.btn1 button{
+	 margin-left: 500px;
+	 
+}
+
+.btn2{
+	  float: right;
+}
+
+.btnCadastro{
+	margin-top: 5%;
+	text-align: center;
+	display: block;
+	padding: 10px;
+}
+
+.btnCadastro button{
+	margin: 10px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+textarea{
+	width: 350px;
+	height: 120px;
+	resize: none;
+}
+
+#lista-clientes table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#lista-clientes {
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 70%;
+}
+
+#lista-clientes table img {
+	padding: 0 4px;
+	width: 30px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.modalEditar{
+	display: none;
+}
+
+select{
+display:block;
+width: 100%;
+height:35px;
+}
+
+.container-search{
+	  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+	  width: 35%;
+	  padding: 2%;
+	  margin: auto;
+
+}
+
+#procurarClientes{
+	width:  70%;
+
+}
+
