@@ -53,11 +53,9 @@ button{
 	width: 100px;
 }
 
-.botoes button{
+.botoes{
 	text-align: center;
 	display:block;
-	margin-left: 45px;
-	margin-right: 45px;
 }
 
 

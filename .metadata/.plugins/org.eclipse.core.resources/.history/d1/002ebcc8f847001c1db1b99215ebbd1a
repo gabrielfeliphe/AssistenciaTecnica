@@ -56,8 +56,7 @@ button{
 .botoes button{
 	text-align: center;
 	display:block;
-	margin-left: 45px;
-	margin-right: 45px;
+	margin: 50px;
 }
 
 
