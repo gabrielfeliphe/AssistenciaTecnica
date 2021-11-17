@@ -12,6 +12,9 @@
 
 ![CRUD_funcionario](https://user-images.githubusercontent.com/62681139/141153596-101cb231-73c2-424b-aae9-867f1d186e44.gif)
 
+<h3 align="center">Demonstração CRUD Clientes</h3>
+
+![CRUD_clientes](https://user-images.githubusercontent.com/62681139/142226287-ee372bff-8623-4e5a-a07f-eae4b00ddb42.gif)
 
 <h2>Sobre o projeto</h2>
 Projeto de uma assistência técnica Ficticia que permitirá o cadastro de funcionários no sistema, cadastro de clientes, abertura de orçamentos, aberturas ordem de serviço, pedidos de peças, e entrega de produtos para o cliente final.
@@ -19,4 +22,4 @@ Projeto de uma assistência técnica Ficticia que permitirá o cadastro de funci
 
 <h2>Tecnologias</h2>
  
-Java, Javascript, Bootstrap, Jersey FrameWork, MVC.
+Java, Javascript, Bootstrap, Jersey FrameWork(REST), MVC.
