@@ -204,13 +204,14 @@ BRIQUETE.funcionario.exibirEdicao = function(matricula){
 						width: 500,
 						modal: true,
 						buttons:{
+							"Cancelar": function(){
+								$(this).dialog("close");
+							},
 							"Salvar": function(){
 								BRIQUETE.funcionario.editar();
 								$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
-							},
-							"Cancelar": function(){
-								$(this).dialog("close");
 							}
+
 						},
 						close: function(){
 							//caso o usuário simplesmente feche a caixa de edição

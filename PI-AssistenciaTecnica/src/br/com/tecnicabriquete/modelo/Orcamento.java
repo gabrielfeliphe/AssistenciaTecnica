@@ -1,9 +1,13 @@
 package br.com.tecnicabriquete.modelo;
 
+import java.sql.Date;
+
 public class Orcamento {
 	
 	Cliente cliente;
-	String equipamentoNome,equipamentoModeloCodigo,defeito,garantia,data;
+	String equipamentoNome,equipamentoModeloCodigo,defeito;
+	int garantia;
+	Date data;
 	
 	public Cliente getCliente() {
 		return cliente;
@@ -29,16 +33,17 @@ public class Orcamento {
 	public void setDefeito(String defeito) {
 		this.defeito = defeito;
 	}
-	public String getGarantia() {
+	
+	public int getGarantia() {
 		return garantia;
 	}
-	public void setGarantia(String garantia) {
+	public void setGarantia(int garantia) {
 		this.garantia = garantia;
 	}
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 	

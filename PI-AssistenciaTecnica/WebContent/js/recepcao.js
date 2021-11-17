@@ -73,8 +73,8 @@ BRIQUETE.cliente.exibirClientes = function(listaClientes){
 	var tabela = "<table class='table table-bordered table-dark'>" +
 	"<tr>" +
 	"<th>Nome</th>" +
-	"<th>CPF</th>" +
 	"<th>E-mail</th>" +
+	"<th>CPF</th>" +
 	"<th>Telefone</th>"+
 	"<th>Ações</th>"
 "</tr>";
@@ -84,8 +84,8 @@ if (listaClientes != undefined && listaClientes.length > 0) {
 	for (var i = 0; i < listaClientes.length; i++) {
 		tabela += "<tr>" +
 			"<td>" + listaClientes[i].nome + "</td>" +
-			"<td>" + listaClientes[i].cpf+ "</td>" +
-			"<td>" + listaClientes[i].email + "</td>" +
+			"<td>" + listaClientes[i].email+ "</td>" +
+			"<td>" + listaClientes[i].cpf + "</td>" +
 			"<td>" + listaClientes[i].telefone + "</td>" +
 			"<td>" +
 			"<a onclick=\"BRIQUETE.cliente.exibirEdicao('" + listaClientes[i].idcliente + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
@@ -155,17 +155,17 @@ BRIQUETE.cliente.exibirEdicao = function(idcliente){
 				
 				
 				var modalEditaCliente = {
-						title: "Editar Funcionário",
+						title: "Editar Cliente",
 						height: 400,
 						width: 500,
 						modal: true,
 						buttons:{
+							"Cancelar": function(){
+								$(this).dialog("close");
+							},
 							"Salvar": function(){
 								BRIQUETE.cliente.editar();
 								$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
-							},
-							"Cancelar": function(){
-								$(this).dialog("close");
 							}
 						},
 						close: function(){
@@ -240,9 +240,12 @@ BRIQUETE.orcamento.procurarClientes = function(){
 	
 }
 
+
 BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
 	select = "#listaClientes";
+	
+	if(document.frmAberturaOrcamento.listaClientes.length == 0){
 	
 	var option = document.createElement("option");
 	option.setAttribute ("idcliente", "");
@@ -257,26 +260,26 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 		
 
 	}
-	
+	}
 }
 
 BRIQUETE.orcamento.cadastrar = function(){
 	let orcamento = new Object();
 	
-	orcamento.cliente = document.frmAberturaOrcamento.procurarCliente.value;
+	console.log("valor select "+document.frmAberturaOrcamento.listaClientes.value);
+	
+	orcamento.cliente = document.frmAberturaOrcamento.listaClientes.value;
 	orcamento.equipamentoNome = document.frmAberturaOrcamento.equipamento.value;
 	orcamento.equipamentoModeloCodigo = document.frmAberturaOrcamento.equipamento.value;
 	orcamento.defeito = document.frmAberturaOrcamento.defeito.value;
 	orcamento.equipamento = document.frmAberturaOrcamento.equipamento.value;
-	orcamento.orcamento = document.frmAberturaOrcamento.orcamento.value;
-	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
 	orcamento.data = document.frmAberturaOrcamento.data.value;
 	
 	console.log(orcamento);
 	
 	$.ajax({
 		type: "POST",
-		url: BRIQUETE.PATH + "orcamento/cadastrar",
+		url: BRIQUETE.PATH + "servicos/cadastrarOrcamento",
 		data: JSON.stringify(orcamento),
 		success: function(msg) {
 			console.log("adicionado novo orçamento " + novoCliente);
