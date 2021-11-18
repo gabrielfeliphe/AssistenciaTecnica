@@ -1,6 +1,5 @@
 BRIQUETE = new Object();
 
-
 $(document).ready(function(){
 
 
@@ -43,5 +42,7 @@ BRIQUETE.exibirAviso = function(aviso){
 		};
 		$("#modalAviso").html(aviso);
 		$("#modalAviso").dialog(modal);
-		};
+};
+
+
 });

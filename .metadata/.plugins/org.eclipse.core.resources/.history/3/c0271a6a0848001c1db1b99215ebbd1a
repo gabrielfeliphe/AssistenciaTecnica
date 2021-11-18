@@ -1,0 +1,10 @@
+BRIQUETE.general = new Object();
+
+$(document).ready(function(){
+	
+BRIQUETE.general.consultaOrcamento = function(){
+	
+}
+	
+	
+});

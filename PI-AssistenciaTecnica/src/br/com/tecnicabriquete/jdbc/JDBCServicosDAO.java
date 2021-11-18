@@ -2,8 +2,14 @@ package br.com.tecnicabriquete.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
+import br.com.tecnicabriquete.modelo.Funcionario;
 import br.com.tecnicabriquete.modelo.Orcamento;
 
 public class JDBCServicosDAO {
@@ -50,6 +56,67 @@ public class JDBCServicosDAO {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Orcamento> buscar() {
+
+
+		// Criação da instrução SQL para busca de todos funcionarios
+		String comando = "SELECT * FROM orcamento";
+
+		List<Orcamento> listaOrcamento = new ArrayList<Orcamento>();
+
+
+		Orcamento orcamento = null;
+
+		// Abertura do try-catch
+
+		try {
+
+			// Uso da conexão do banco para prepará-lo par auma instrução SQL
+
+			Statement stmt = conexao.createStatement();
+
+			// Execução da instrução criada previamente
+			// e armazenamento do resultado no objeto rs
+
+			ResultSet rs = stmt.executeQuery(comando);
+
+			// Enquanto houver uma próxima linha no resultado
+			while (rs.next()) {
+
+				orcamento = new Orcamento();
+
+				int idorcamento = rs.getInt("idorcamento");
+				String nome_equipamento = rs.getString("nome_equipamento");
+				String modelo_codigo = rs.getString("modelo_codigo");
+				String descricao_problema = rs.getString("descricao_problema");
+				int garantia = rs.getInt("garantia");
+				Date data_entrada = rs.getDate("data_entrada");
+				Date validade_orcamento = rs.getDate("validade_orcamento");
+				String observacao = rs.getString("observacao");
+				int status = rs.getInt("status");
+				int idcliente = rs.getInt("idcliente");
+				
+				orcamento.setData(data_entrada);
+				orcamento.setDefeito(descricao_problema);
+				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
+				orcamento.setGarantia(garantia);
+			
+				
+				funcionario.setFuncao(funcao);
+				funcionario.setMatricula(matricula);
+				// funcionario.setSenha(senha);
+				listaOrcamento.add(orcamento);
+			}
+
+			// Caso alguma Exception seja gerada no Try, recebe-a no objeto "ex"
+		} catch (Exception ex) {
+			// Exibe a exceção na console
+			ex.printStackTrace();
+		}
+
+		return listaFuncionario;
 	}
 
 }

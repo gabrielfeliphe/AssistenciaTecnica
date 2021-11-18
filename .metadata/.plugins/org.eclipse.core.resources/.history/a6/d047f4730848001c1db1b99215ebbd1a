@@ -1,0 +1,12 @@
+BRIQUETE.general = new Object();
+
+$(document).ready(function(){
+	
+BRIQUETE.general.consultaOrcamento = function(){
+	console.log("entrou")
+}
+
+BRIQUETE.general.consultaOrcamento()
+	
+	
+});

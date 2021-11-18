@@ -1,0 +1,7 @@
+BRIQUETE.general = new Object();
+
+$(document).ready(function(){
+	
+	
+	
+});
