@@ -157,4 +157,4 @@ select * from orcamento;
 INSERT INTO orcamento(nome_equipamento,modelo_codigo,descricao_problema,garantia,data_entrada,status,idcliente)
 VALUES("TESTE 2","1","quebrado",0,"2021-01-01",1,1);
 
-DELETE FROM orcamento where idorcamento between 3 and 13;
+DELETE FROM orcamento where idorcamento between 17 and 18;
