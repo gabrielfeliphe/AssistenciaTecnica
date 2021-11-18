@@ -1,0 +1,42 @@
+#box{
+	border:solid 1px black;
+	padding: 20px;
+	width: 
+}
+
+#box input{
+	margin-top: 50%;
+}
+
+
+label{
+	margin-top:10px;
+	margin-bottom: 10px;
+}
+
+button{
+	height: 30px;
+	width: 100px;
+	margin: 20px;
+}
+
+.botoes{
+	margin-top: 5%;
+	text-align: center;
+	display:block;
+}
+
+
+.btn1{
+	 float: left;
+	 
+}
+
+.btn2{
+	  float: right;
+	
+}
+
+h4{
+	text-align: center;
+}

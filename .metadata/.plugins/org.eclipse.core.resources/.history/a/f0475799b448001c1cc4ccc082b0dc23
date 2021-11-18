@@ -1,0 +1,73 @@
+BRIQUETE.general = new Object();
+
+$(document).ready(function(){
+	
+BRIQUETE.general.consultaOrcamento = function(){
+	
+	$.ajax({
+
+		type: "GET",
+		url: BRIQUETE.PATH + "servicos/buscarOrcamentos",
+		success: function(dados) {
+			console.log(dados);
+			$("#lista-orcamento").html(BRIQUETE.general.exibirOrcamentos(dados));
+		},
+		error: function(info) {
+			console.log("erro : " + info);
+			//BRIQUETE.exibirAviso("Erro ao consultar os contatos: "+ info.status+" - " + info.statusText+ " - " + info.responseText);
+		},
+
+	});
+	
+}
+
+BRIQUETE.general.consultaOrcamento()
+
+
+
+BRIQUETE.general.exibirOrcamentos = function(listaDeOrcamentos) {
+
+	var tabela = "<table class='table table-bordered table-dark'>" +
+		"<tr>" +
+		"<th>Status</th>" +
+		"<th>Cliente</th>" +
+		"<th>Equipamento</th>" +
+	"</tr>";
+
+	if (listaDeOrcamentos != undefined && listaDeOrcamentos.length > 0) {
+
+
+		for (var i = 0; i < listaDeOrcamentos.length; i++) {
+			let statusOrcamento
+			switch (listaDeFuncionarios[i].funcao) {
+				case 1:
+					statusOrcamento = "Aguardando técnico"
+					break;
+				case 2:
+					statusOrcamento = "Aguardando cliente"
+					break;
+				case -1:
+					statusOrcamento = "Rejeitado"
+			}
+
+			tabela += "<tr>" +
+				"<td>" + listaDeOrcamentos[i].status + "</td>" +
+				"<td>" + statusOrcamento + "</td>" +
+				"<td>" + listaDeOrcamentos[i].nomeCliente + "</td>" +
+				"<td>" + listaDeOrcamentos[i].equipamentoNome + "</td>" +
+				"</tr>"
+
+
+		}
+
+	} else if (listaDeFuncionarios == "") {
+		tabela += "<tr><td colspan='6'>Nenhum registro encontrado</td></tr>";
+	}
+	tabela += "</table>";
+
+	return tabela;
+
+};
+	
+	
+});

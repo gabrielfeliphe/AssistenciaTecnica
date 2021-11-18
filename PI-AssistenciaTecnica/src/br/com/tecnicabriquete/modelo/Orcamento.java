@@ -4,9 +4,9 @@ import java.sql.Date;
 
 public class Orcamento {
 	
-	String equipamentoNome,equipamentoModeloCodigo,defeito;
-	int garantia,idcliente;
-	Date data;
+	String equipamentoNome,equipamentoModeloCodigo,defeito,observacao,nomeCliente;
+	int garantia,idcliente,status,idorcamento;
+	Date data,validade;
 	
 	public int getIdcliente() {
 		return idcliente;
@@ -42,10 +42,38 @@ public class Orcamento {
 	public Date getData() {
 		return data;
 	}
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(java.util.Date data_entrada) {
+		this.data = (Date) data_entrada;
+	}
+	public String getObservacao() {
+		return observacao;
+	}
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getIdorcamento() {
+		return idorcamento;
+	}
+	public void setIdorcamento(int idorcamento) {
+		this.idorcamento = idorcamento;
+	}
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
+	}
+	public Date getValidade() {
+		return validade;
+	}
+	public void setValidade(java.util.Date validade_orcamento) {
+		this.validade = (Date) validade_orcamento;
 	}
 	
-	
-
 }

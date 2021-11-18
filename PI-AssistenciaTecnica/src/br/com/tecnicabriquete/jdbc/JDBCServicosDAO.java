@@ -62,7 +62,7 @@ public class JDBCServicosDAO {
 
 
 		// Criação da instrução SQL para busca de todos funcionarios
-		String comando = "SELECT * FROM orcamento";
+		String comando = "SELECT * FROM orcamento INNER JOIN cliente on orcamento.idcliente = cliente.idcliente";
 
 		List<Orcamento> listaOrcamento = new ArrayList<Orcamento>();
 
@@ -97,16 +97,21 @@ public class JDBCServicosDAO {
 				String observacao = rs.getString("observacao");
 				int status = rs.getInt("status");
 				int idcliente = rs.getInt("idcliente");
+				String nomeCliente = rs.getString("nome");
 				
 				orcamento.setData(data_entrada);
 				orcamento.setDefeito(descricao_problema);
 				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
 				orcamento.setGarantia(garantia);
+				orcamento.setEquipamentoNome(nome_equipamento);
+				orcamento.setIdcliente(idcliente);
+				orcamento.setIdorcamento(idorcamento);
+				orcamento.setStatus(status);
+				orcamento.setValidade(validade_orcamento);
+				orcamento.setObservacao(observacao);
+				orcamento.setNomeCliente(nomeCliente);
 			
-				
-				funcionario.setFuncao(funcao);
-				funcionario.setMatricula(matricula);
-				// funcionario.setSenha(senha);
+		
 				listaOrcamento.add(orcamento);
 			}
 
@@ -116,7 +121,7 @@ public class JDBCServicosDAO {
 			ex.printStackTrace();
 		}
 
-		return listaFuncionario;
+		return listaOrcamento;
 	}
 
 }

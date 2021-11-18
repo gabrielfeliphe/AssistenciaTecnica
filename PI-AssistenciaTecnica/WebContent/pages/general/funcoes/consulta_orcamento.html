@@ -12,20 +12,19 @@
 		<h4>Consulta de orçamento</h4>
 		<div class = "row" id="box">
 			<div class="col-sm">
-			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento">
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id='procurarClientesOrcamentos'>
 			</div>	
-			<div class="col-sm"></div>
 			<div class="col-sm">
-			<input type="checkbox" id="manutencao" name="aprovar" value="1">
+			<input type="checkbox" id="manutencao" name="aprovar" value="1" onclick="BRIQUETE.general.filtroOrcamentos(1)">
 			<label for="vehicle1"> A aprovar</label><br>
-			<input type="checkbox" id="pecas" name="fazer" value="2">
+			<input type="checkbox" id="pecas" name="fazer" value="2" onclick="BRIQUETE.general.filtroOrcamentos(2)">
 			<label for="vehicle2"> A fazer</label><br>
 			</div>
 		</div>	
+		<div id= "lista-orcamento" class = "lista-tabela">
+</div>
 	</div>
 	
-<div id= "lista-orcamento" class = "lista-tabela">
-</div>
 
 </body>
 </html>

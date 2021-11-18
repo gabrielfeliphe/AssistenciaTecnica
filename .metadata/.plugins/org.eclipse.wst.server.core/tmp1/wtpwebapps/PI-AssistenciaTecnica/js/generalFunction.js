@@ -25,57 +25,71 @@ BRIQUETE.general.consultaOrcamento()
 
 
 
-BRIQUETE.general.exibirOrcamentos = function(listaDeFuncionarios) {
+BRIQUETE.general.exibirOrcamentos = function(listaDeOrcamentos) {
 
 	var tabela = "<table class='table table-bordered table-dark'>" +
+		"<thead>"+
 		"<tr>" +
-		"<th>Matricula</th>" +
-		"<th>Função</th>" +
-		"<th>E-mail</th>" +
-		"<th>Ações</th>"
-	"</tr>";
+		"<th>Status</th>" +
+		"<th>Cliente</th>" +
+		"<th>Equipamento</th>" +
+		"</tr>"+
+		"</thead>"+
+		"<tbody id='tabelaOrcamentos'>";
 
-	if (listaDeFuncionarios != undefined && listaDeFuncionarios.length > 0) {
+	if (listaDeOrcamentos != undefined && listaDeOrcamentos.length > 0) {
 
 
-		for (var i = 0; i < listaDeFuncionarios.length; i++) {
-			let nomeFuncao
-			switch (listaDeFuncionarios[i].funcao) {
-				case 0:
-					nomeFuncao = "Administrador"
-					break;
+		for (var i = 0; i < listaDeOrcamentos.length; i++) {
+			let statusOrcamento
+			switch (listaDeOrcamentos[i].status) {
 				case 1:
-					nomeFuncao = "Recepção"
+					statusOrcamento = "Aguardando técnico"
 					break;
 				case 2:
-					nomeFuncao = "Manutenção"
+					statusOrcamento = "Aguardando cliente"
 					break;
-				case 3:
-					nomeFuncao = "Almoxarife"
-					break;
+				case -1:
+					statusOrcamento = "Rejeitado"
 			}
 
-			tabela += "<tr>" +
-				"<td>" + listaDeFuncionarios[i].matricula + "</td>" +
-				"<td>" + nomeFuncao + "</td>" +
-				"<td>" + listaDeFuncionarios[i].email + "</td>" +
-				"<td>" +
-				"<a onclick=\"BRIQUETE.funcionario.exibirEdicao('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/edit.png' alt='Editar registro'></a>" +
-				"<a onclick=\"BRIQUETE.funcionario.excluir('" + listaDeFuncionarios[i].matricula + "')\"><img src='../../imgs/delete.png' alt='Excluir registro'></a>" +
-				"</td>" +
+			tabela += "<tr id='tabelaExibeOrcamentos'>" +
+				"<td>" + statusOrcamento + "</td>" +
+				"<td class='clienteNomes'>" + listaDeOrcamentos[i].nomeCliente+ "</td>" +
+				"<td>" + listaDeOrcamentos[i].equipamentoNome + "</td>" +
 				"</tr>"
 
 
 		}
 
-	} else if (listaDeFuncionarios == "") {
+	} else if (listaDeOrcamentos == "") {
 		tabela += "<tr><td colspan='6'>Nenhum registro encontrado</td></tr>";
 	}
-	tabela += "</table>";
+	tabela += "</tbody></table>";
 
 	return tabela;
 
 };
+
+
+$("#procurarClientesOrcamentos").on("keyup", function() {
+		    var value = $(this).val().toLowerCase();
+		    $("#tabelaOrcamentos tr").filter(function() {
+		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		    });
+		  });
+
+BRIQUETE.general.filtroOrcamentos = function(valorHtml){
+	if(valorHtml == 1){
+		  $("#tabelaOrcamentos tr").filter(function() {
+		      $(this).toggle($(this).text().indexOf('Aguardando cliente') > -1)
+		   });
+	}else if (valorHtml == 2){
+		$("#tabelaOrcamentos tr").filter(function() {
+		      $(this).toggle($(this).text().indexOf('Aguardando técnico') > -1)
+		   });
+	}
+}
 	
 	
 });
