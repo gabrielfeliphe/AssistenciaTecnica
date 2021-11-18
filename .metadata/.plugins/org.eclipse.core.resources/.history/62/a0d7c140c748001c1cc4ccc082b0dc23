@@ -79,13 +79,13 @@ $("#procurarClientesOrcamentos").on("keyup", function() {
 		    });
 		  });
 
-
 BRIQUETE.general.filtroOrcamentos = function(){
 	
 	if(document.querySelector('#pecas').checked && document.querySelector('#manutencao').checked){
 		console.log("Disparou os dois")
 		$("#tabelaOrcamentos tr").filter(function() {
-			$("tr").show()
+		      $('#pecas').toggle()
+		      $('#manutencao').toggle()
 		   });
 	}else if(document.querySelector('#manutencao').checked){
 		  $("#tabelaOrcamentos tr").filter(function() {

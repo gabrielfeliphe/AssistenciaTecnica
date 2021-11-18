@@ -79,7 +79,6 @@ $("#procurarClientesOrcamentos").on("keyup", function() {
 		    });
 		  });
 
-
 BRIQUETE.general.filtroOrcamentos = function(){
 	
 	if(document.querySelector('#pecas').checked && document.querySelector('#manutencao').checked){

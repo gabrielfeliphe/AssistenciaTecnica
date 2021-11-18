@@ -79,14 +79,29 @@ $("#procurarClientesOrcamentos").on("keyup", function() {
 		    });
 		  });
 
-BRIQUETE.general.filtroOrcamentos = function(valorHtml){
-	if(valorHtml == 1){
+
+BRIQUETE.general.filtroOrcamentos = function(){
+	
+	if(document.querySelector('#pecas').checked && document.querySelector('#manutencao').checked){
+		console.log("Disparou os dois")
+		$("#tabelaOrcamentos tr").filter(function() {
+			$("tr").show()
+		   });
+	}else if(document.querySelector('#manutencao').checked){
 		  $("#tabelaOrcamentos tr").filter(function() {
 		      $(this).toggle($(this).text().indexOf('Aguardando cliente') > -1)
 		   });
-	}else if (valorHtml == 2){
+	}else if (document.querySelector('#pecas').checked){
 		$("#tabelaOrcamentos tr").filter(function() {
 		      $(this).toggle($(this).text().indexOf('Aguardando técnico') > -1)
+		   });
+	}else if (!document.querySelector('#manutencao').checked){
+		$("#tabelaOrcamentos tr").filter(function() {
+		      $(this).show()
+		   });
+	}else if (!document.querySelector('#pecas').checked){
+		$("#tabelaOrcamentos tr").filter(function() {
+		      $(this).show()
 		   });
 	}
 }
