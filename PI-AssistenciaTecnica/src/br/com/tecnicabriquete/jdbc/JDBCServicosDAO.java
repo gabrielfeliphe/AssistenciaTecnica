@@ -132,4 +132,28 @@ public class JDBCServicosDAO {
 		return listaOrcamento;
 	}
 
+	public Orcamento buscarOrcamentoId(int idorcamento) {
+		
+		String comando = "SELECT * FROM orcamento WHERE idorcamento = ?";
+		Orcamento orcamento = new Orcamento();
+		try {
+			PreparedStatement p = this.conexao.prepareStatement(comando);
+			p.setInt(1, idorcamento);
+			ResultSet rs = p.executeQuery();
+			while (rs.next()) {
+
+				String nome_equipamento = rs.getString("nome_equipamento");
+				String modelo_codigo = rs.getString("modelo_codigo");
+
+				funcionario.setEmail(email);
+				funcionario.setFuncao(funcao);
+				funcionario.setMatricula(matricula_);
+				//funcionario.setSenha(senha);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return funcionario;
+	}
+
 }

@@ -24,8 +24,10 @@ import java.util.List;
 
 import br.com.tecnicabriquete.bd.Conexao;
 import br.com.tecnicabriquete.jdbc.JDBCClienteDAO;
+import br.com.tecnicabriquete.jdbc.JDBCFuncionarioDAO;
 import br.com.tecnicabriquete.jdbc.JDBCServicosDAO;
 import br.com.tecnicabriquete.modelo.Cliente;
+import br.com.tecnicabriquete.modelo.Funcionario;
 import br.com.tecnicabriquete.modelo.Orcamento;
 
 
@@ -85,6 +87,31 @@ public class ServicosRest extends UtilRest{
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
 		}
+	}
+	
+	@GET
+	@Path("/buscarOrcamentoId")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorId(@QueryParam("idorcamento") int idorcamento) {
+
+		try {
+			Orcamento orcamento = new Orcamento();
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcServicos= new JDBCServicosDAO(conexao);
+
+			orcamento = jdbcServicos.buscarOrcamentoId(idorcamento);
+
+			conec.fecharConexao();
+
+			return this.buildResponse(orcamento);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+
 	}
 
 }

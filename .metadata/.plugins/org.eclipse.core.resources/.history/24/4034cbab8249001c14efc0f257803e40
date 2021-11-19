@@ -1,0 +1,39 @@
+#box{
+	border:solid 1px black;
+}
+
+#box input{
+	margin-top: 30px;
+}
+
+
+input[type=checkbox]{
+	margin-left:45%;
+}
+
+button{
+	height: 30px;
+	width: 100px;
+	margin: 20px;
+}
+
+.botoes{
+	margin-top: 5%;
+	text-align: center;
+	display:block;
+}
+
+
+.btn1{
+	 float: left;
+	 
+}
+
+.btn2{
+	  float: right;
+	
+}
+
+h4{
+	text-align: center;
+}
