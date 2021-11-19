@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Cadastro de Orçamento</title>
 
-<script src="../../js/recepcao.js"></script>
+<script src="../../js/recepcao_cadastroOrcamento.js"></script>
 
 </head>
 <body>
@@ -19,7 +19,7 @@
 			<div class="col-md">
 		 	<label>Nome</label>
 		 	<form class="form-inline my-2 my-lg-0">
-		 	<select name="clientes" id="listaClientes" onclick="BRIQUETE.orcamento.procurarClientes()"></select>
+		 	<select name="clientes" id="listaClientes"></select>
 		 	<input type="hidden" name="idCliente" >
    			 </form>
    			  <label>Equipamento</label>
@@ -27,7 +27,7 @@
 		 	 <label>Modelo/Código</label>
 		 	 <input type="text" class="form-control"  placeholder="Modelo ou Código" name="modelo_codigo">
 		 	 <label>Data</label></br>
-			 <input type="date" id="diaa" name="data">
+			 <input type="date" id="diaa" name="data" disabled>
 
 			</div>
 			<div class="col-md">
@@ -45,7 +45,7 @@
 			
 			</div>	
 				<div class="botoes">
-				<button type="button" onclick="document.getElementById('frm-AberturaOrcamento').reset()">Cancelar</button>
+				<button type="button" onclick="document.getElementById('frm-AberturaOrcamento').reset()">Limpar</button>
 
 				<button type="button" onclick="BRIQUETE.orcamento.cadastrar()">Cadastrar</button>
 
