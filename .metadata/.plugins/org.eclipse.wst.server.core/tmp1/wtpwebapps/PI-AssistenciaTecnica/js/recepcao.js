@@ -270,7 +270,7 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
 	
 	var option = document.createElement("option");
-	option.setAttribute ("idcliente", "");
+	option.value = "";
 	option.innerHTML = ("Escolha");
 	$(select).append(option);
 	
@@ -296,6 +296,9 @@ BRIQUETE.orcamento.cadastrar = function(){
 	orcamento.defeito = document.frmAberturaOrcamento.defeito.value;
 	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
 	orcamento.data = document.frmAberturaOrcamento.data.value;
+	
+	orcamento.cliente = new Object(); // utilizar essa estrutura
+
 	
 	if(orcamento.idcliente==""){
 		BRIQUETE.exibirAviso("Selecione um cliente");

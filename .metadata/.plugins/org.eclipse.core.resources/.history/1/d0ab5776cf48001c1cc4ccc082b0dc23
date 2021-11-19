@@ -66,9 +66,7 @@ public class JDBCServicosDAO {
 
 		List<Orcamento> listaOrcamento = new ArrayList<Orcamento>();
 
-		
-	
-		
+
 		Orcamento orcamento = null;
 
 		// Abertura do try-catch

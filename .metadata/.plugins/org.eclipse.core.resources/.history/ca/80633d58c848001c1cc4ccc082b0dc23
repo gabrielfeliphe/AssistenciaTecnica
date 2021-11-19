@@ -55,7 +55,7 @@ BRIQUETE.general.exibirOrcamentos = function(listaDeOrcamentos) {
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td>" + statusOrcamento + "</td>" +
-				"<td>" + listaDeOrcamentos[i].nomeCliente+ "</td>" +
+				"<td class='clienteNomes'>" + listaDeOrcamentos[i].nomeCliente+ "</td>" +
 				"<td>" + listaDeOrcamentos[i].equipamentoNome + "</td>" +
 				"</tr>"
 
@@ -74,7 +74,7 @@ BRIQUETE.general.exibirOrcamentos = function(listaDeOrcamentos) {
 
 $("#procurarClientesOrcamentos").on("keyup", function() {
 		    var value = $(this).val().toLowerCase();
-		    $("#tabelaOrcamentos tr").filter(function() {
+		    $("#tabelaOrcamentos tr" && ".clienteNomes td").filter(function() {
 		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		    });
 		  });

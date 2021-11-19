@@ -297,9 +297,6 @@ BRIQUETE.orcamento.cadastrar = function(){
 	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
 	orcamento.data = document.frmAberturaOrcamento.data.value;
 	
-	orcamento.cliente = new Object(); // utilizar essa estrutura
-
-	
 	if(orcamento.idcliente==""){
 		BRIQUETE.exibirAviso("Selecione um cliente");
 	}else if(orcamento.equipamentoNome==""){
