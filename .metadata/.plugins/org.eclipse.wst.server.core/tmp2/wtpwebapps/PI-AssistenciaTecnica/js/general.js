@@ -1,6 +1,5 @@
 BRIQUETE = new Object();
 
-
 $(document).ready(function(){
 
 
@@ -19,8 +18,7 @@ $(document).ready(function(){
 
 		$("section").empty();
 		//carrega a página solicitada dentro da tag section
-		$("section").load(pagename,function(response,status,info){
-			
+		$("section").load(pagename+"/",function(response,status,info){
 			if(status=="error"){
 				var msg = "Houve um erro ao encontrar a página: "+ info.status + " - " + info.statusText;
 				$("section").html(msg);
@@ -43,5 +41,7 @@ BRIQUETE.exibirAviso = function(aviso){
 		};
 		$("#modalAviso").html(aviso);
 		$("#modalAviso").dialog(modal);
-		};
+};
+
+
 });

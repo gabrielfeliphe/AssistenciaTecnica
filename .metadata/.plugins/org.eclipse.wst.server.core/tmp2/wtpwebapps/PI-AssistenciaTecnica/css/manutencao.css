@@ -1,6 +1,8 @@
 .container{
 	border: solid 2px black;
-	padding: 4%;
+	padding: 2%;
+	max-width: 65%;
+	margin-top: 2%;
 }
 
 .container h4{
@@ -43,4 +45,8 @@ textarea{
 	height: 120px;
 	resize: none;
 }
+
+
+
+
 

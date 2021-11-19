@@ -53,9 +53,11 @@ button{
 	width: 100px;
 }
 
-.botoes{
+.botoes button{
 	text-align: center;
 	display:block;
+	margin-left: 45px;
+	margin-right: 45px;
 }
 
 
@@ -128,7 +130,7 @@ height:35px;
 }
 
 .container-search button{
-	margin-left: 8%;
+	margin-left: 5%;
 }
 
 #procurarClientes{
