@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.com.tecnicabriquete.modelo.Cliente;
 import br.com.tecnicabriquete.modelo.Funcionario;
 import br.com.tecnicabriquete.modelo.Orcamento;
 
@@ -47,7 +46,7 @@ public class JDBCServicosDAO {
 			p.setDate(5, orcamento.getData());
 			p.setDate(6, orcamento.getData());
 			p.setInt(7, status);
-			p.setInt(8, orcamento.getCliente().getIdcliente());
+			p.setInt(8, orcamento.getIdcliente());
 			
 			// Executa o comando no BD
 			p.execute();
@@ -90,7 +89,7 @@ public class JDBCServicosDAO {
 			while (rs.next()) {
 
 				orcamento = new Orcamento();
-				cliente = new Cliente();
+				cliente = new Cliente;
 
 				int idorcamento = rs.getInt("idorcamento");
 				String nome_equipamento = rs.getString("nome_equipamento");
@@ -104,9 +103,6 @@ public class JDBCServicosDAO {
 				int idcliente = rs.getInt("idcliente");
 				String nomeCliente = rs.getString("nome");
 				
-				cliente.setIdcliente(idcliente);
-				cliente.setNome(nomeCliente);
-				
 				
 				orcamento.setData(data_entrada);
 				orcamento.setDefeito(descricao_problema);
@@ -118,7 +114,7 @@ public class JDBCServicosDAO {
 				orcamento.setValidade(validade_orcamento);
 				orcamento.setObservacao(observacao);
 				orcamento.setCliente(cliente);;
-				
+			
 		
 				listaOrcamento.add(orcamento);
 			}

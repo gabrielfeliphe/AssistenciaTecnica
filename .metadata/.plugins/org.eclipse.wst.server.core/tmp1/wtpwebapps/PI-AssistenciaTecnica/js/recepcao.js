@@ -27,6 +27,8 @@ $(document).ready(function() {
 			BRIQUETE.exibirAviso("Apenas números no telefone");
 		}else if (!expApenasNumeros.test(novoCliente.cpf)){
 			BRIQUETE.exibirAviso("Apenas números no cpf");
+		}else if(novoCliente.cpf.length < 11){
+			BRIQUETE.exibirAviso("Cpf deve possuir 11 dígitos");
 		}
 		
 		else {
@@ -289,16 +291,16 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 
 BRIQUETE.orcamento.cadastrar = function(){
 	let orcamento = new Object();
+	orcamento.cliente = new Object(); // utilizar essa estrutura
 	
-	orcamento.idcliente = document.frmAberturaOrcamento.listaClientes.value;
+	orcamento.cliente.idcliente = document.frmAberturaOrcamento.listaClientes.value;
 	orcamento.equipamentoNome = document.frmAberturaOrcamento.equipamento.value;
 	orcamento.equipamentoModeloCodigo = document.frmAberturaOrcamento.modelo_codigo.value;
 	orcamento.defeito = document.frmAberturaOrcamento.defeito.value;
 	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
 	orcamento.data = document.frmAberturaOrcamento.data.value;
 	
-	orcamento.cliente = new Object(); // utilizar essa estrutura
-
+	
 	
 	if(orcamento.idcliente==""){
 		BRIQUETE.exibirAviso("Selecione um cliente");

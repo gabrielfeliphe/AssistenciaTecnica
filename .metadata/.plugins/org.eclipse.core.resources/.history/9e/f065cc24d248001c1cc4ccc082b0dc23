@@ -23,7 +23,7 @@ public class JDBCServicosDAO {
 
 	public boolean inserir(Orcamento orcamento) {
 		
-		System.out.println(orcamento.getData());
+		
 		
 		String comando = "INSERT INTO orcamento(nome_equipamento,modelo_codigo,descricao_problema,"
 				+ "garantia,data_entrada,validade_orcamento,status,idcliente)"

@@ -47,7 +47,7 @@ public class JDBCServicosDAO {
 			p.setDate(5, orcamento.getData());
 			p.setDate(6, orcamento.getData());
 			p.setInt(7, status);
-			p.setInt(8, orcamento.getCliente().getIdcliente());
+			p.setInt(8, orcamento.getIdcliente());
 			
 			// Executa o comando no BD
 			p.execute();

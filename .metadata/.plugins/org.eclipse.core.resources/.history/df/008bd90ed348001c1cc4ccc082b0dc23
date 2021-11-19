@@ -27,8 +27,6 @@ $(document).ready(function() {
 			BRIQUETE.exibirAviso("Apenas números no telefone");
 		}else if (!expApenasNumeros.test(novoCliente.cpf)){
 			BRIQUETE.exibirAviso("Apenas números no cpf");
-		}else if(novoCliente.cpf.length < 11){
-			BRIQUETE.exibirAviso("Cpf deve possuir 11 dígitos");
 		}
 		
 		else {

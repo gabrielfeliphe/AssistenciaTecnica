@@ -56,7 +56,7 @@ BRIQUETE.general.exibirOrcamentos = function(listaDeOrcamentos) {
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td>" + statusOrcamento + "</td>" +
-				"<td>" + listaDeOrcamentos[i].cliente.nome+ "</td>" +
+				"<td>" + listaDeOrcamentos[i].cliente.nomecliente+ "</td>" +
 				"<td>" + listaDeOrcamentos[i].equipamentoNome + "</td>" +
 				"</tr>"
 
