@@ -25,6 +25,7 @@ BRIQUETE.orcamento.procurarClientes = function(){
 }
 
 BRIQUETE.orcamento.procurarClientes();
+BRIQUETE.orcamento.data();
 
 BRIQUETE.orcamento.exibirClientes = function(clientes){
 	
@@ -58,12 +59,10 @@ BRIQUETE.orcamento.data = function(){
 	var mes = String(data.getMonth() + 1).padStart(2, '0');
 	var ano = data.getFullYear();
 	
-	dataAtual = ano + '/' + mes + '/' +  dia;
+	dataAtual = dia + '/' + mes + '/' + ano;
 	
 	document.frmAberturaOrcamento.diaa.value = dataAtual;
 }
-
-BRIQUETE.orcamento.data();
 
 BRIQUETE.orcamento.cadastrar = function(){
 	let orcamento = new Object();
