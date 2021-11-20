@@ -134,26 +134,38 @@ public class JDBCServicosDAO {
 
 	public Orcamento buscarOrcamentoId(int idorcamento) {
 		
-		String comando = "SELECT * FROM orcamento WHERE idorcamento = ?";
+		String comando = "SELECT * FROM orcamento INNER JOIN cliente on orcamento.idcliente = cliente.idcliente WHERE idorcamento = ?";
 		Orcamento orcamento = new Orcamento();
+		Cliente cliente = new Cliente();
 		try {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 			p.setInt(1, idorcamento);
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
+				
 
 				String nome_equipamento = rs.getString("nome_equipamento");
 				String modelo_codigo = rs.getString("modelo_codigo");
+				String descricao_problema = rs.getString("descricao_problema");
+				int garantia = rs.getInt("garantia");
+				Date data = rs.getDate("data_entrada");
+				int status = rs.getInt("status");
+				String nome = rs.getString("nome");
+				
+				cliente.setNome(nome);
 
-				funcionario.setEmail(email);
-				funcionario.setFuncao(funcao);
-				funcionario.setMatricula(matricula_);
-				//funcionario.setSenha(senha);
+				orcamento.setEquipamentoNome(nome_equipamento);
+				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
+				orcamento.setDefeito(descricao_problema);
+				orcamento.setGarantia(garantia);
+				orcamento.setData(data);
+				orcamento.setStatus(status);
+				orcamento.setCliente(cliente);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return funcionario;
+		return orcamento;
 	}
 
 }

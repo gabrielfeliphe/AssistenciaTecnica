@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Consulta Orçamento - Manutenção</title>
+
+<script src="../../js/manutencao_consultaOrcamento.js"></script>
+
+</head>
+<body>
+	<div class= "container">
+		<h4>Consulta de orçamento</h4>
+		<div class = "row" id="box">
+			<div class="col-sm">
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id='procurarClientesOrcamentos'>
+			</div>	
+			<div class="col-sm">
+			<input type="checkbox" id="manutencao" name="aprovar" value="1" onclick="BRIQUETE.manutencao.filtroOrcamentos()">
+			<label for="vehicle1"> A aprovar</label><br>
+			<input type="checkbox" id="pecas" name="fazer" value="2" onclick="BRIQUETE.manutencao.filtroOrcamentos()">
+			<label for="vehicle2"> A fazer</label><br>
+			</div>
+		</div>	
+		<div id= "lista-orcamento" class = "lista-tabela">
+</div>
+	</div>
+
+<div id="modalRealizaOrcamento" class = "modalEditar">
+
+<div class="container">
+	<h4>Realizar orçamento</h4>
+	<div class="row">
+		<div class="col-md">
+		 <label>Cliente: </label><label id="clienteNameModal"></label></br>
+		 <label >Equipamento: </label><label name="equipamento"></label></br>
+		 <label>Garantia: </label><label name="garantia"></label></br>
+		 <label>Validade do orçamento </label></br>
+		 <input type="date" id="diaa" name="diaa">		
+		 
+		 <div class="add-itens">
+	<select name="cars" id="cars">
+	  <option >SELECIONE</option>
+	  <option value="1">Peça</option>
+	  <option value="0">Serviço</option>
+	</select>
+	 <input type="text" class="form-control"  placeholder="Peça ou serviço">
+	 <input type="text" class="form-control"  placeholder="Valor">
+	 <button type="button">Adicionar</button>
+	</div>
+		 
+		 
+		 </div>
+		<div class="col-sm"></div>	
+		<div class="col-md">
+		 <label>Modelo/Código </label><label idname"mod-cod"></label></br>
+		 <label>Data de entrada: </label><label name="data-entrada"></label></br>
+		 <label>Defeito: </label><label name="defeito"></label></br>
+		 <label>Observações: </label></br>
+		 <textarea name="txaobservacao" id="observacao" name="observacoes"></textarea>
+		</div>
+	</div>
+	
+	</BR><div id="peca-servico" class="tabela-lista">TABELA ITENS A ADICIONAR JS</div>
+
+<table border="1px">
+<th>
+<label>total</label> <!-- provavelmente vou incorporar numa tabela sem borda -->
+</th>
+<th>
+<label>00,00</label>
+</th>
+</table>
+
+<div class="botoes">
+<div class="btn1">
+<button type="button">Cancelar</button>
+</div>
+<div class ="btn2">
+<button type="button">Realizar</button>
+</div>
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -46,6 +46,10 @@ textarea{
 	resize: none;
 }
 
+.modalEditar{
+	display: none;
+}
+
 
 
 

@@ -108,9 +108,89 @@ BRIQUETE.manutencao.filtroOrcamentos = function(){
 	}
 }
 
-BRIQUETE.manutencao.realizarOrcamento = function(orcamento){
-	console.log(orcamento);
-}
+/*BRIQUETE.manutencao.exibirRealizarOrcamento = function(dados){
+	$.ajax({
+		type: "GET",
+		url: BRIQUETE.PATH + "cliente/buscarPorId",
+		data: "idcliente="+idcliente,
+		success: function(cliente){
+			
+			document.cliente.value = dados.nome;
+			
+			
+			var modalEditaOrcamento= {
+					title: "Editar Cliente",
+					height: 400,
+					width: 500,
+					modal: true,
+					buttons:{
+						"Cancelar": function(){
+							$(this).dialog("close");
+						},
+						"Salvar": function(){
+							BRIQUETE.cliente.editar();
+							$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
+						}
+					},
+					close: function(){
+						//caso o usuário simplesmente feche a caixa de edição
+						// nao deve acontecar nada
+					}
+			};
+			
+			$("#modalRealizaOrcamento").dialog(modalEditaOrcamento);
+			
+		},
+		error: function(info){
+			
+			BRIQUETE.exibirAviso("Erro ao buscar o funcionário para a edição "+info.status+" - "+info.statusText+ " - " + info.responseText);
+		}
+	});
+}*/
+
+BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 	
+	$.ajax({
+		
+		
+
+		type: "GET",
+		url: BRIQUETE.PATH + "servicos/buscarOrcamentoId",
+		data: "idorcamento="+idorcamento,
+		success: function(dados) {
+			
+			console.log(dados);
+			
+			//document.getElementById('clienteNameModal').innerHTML = dados.cliente.nome;
+			
+			var modalRealizaOrcamento = {
+					title: "Realizar orcamento",
+					height: 650,
+					width: 1200,
+					modal: true,
+					buttons:{
+						"Cancelar": function(){
+							$(this).dialog("close");
+						},
+						"Salvar": function(){
+							$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
+						}
+					},
+					close: function(){
+						//caso o usuário simplesmente feche a caixa de edição
+						// nao deve acontecar nada
+					}
+			};
+			
+			$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
+		},
+		error: function(info) {
+			console.log("erro : " + info);
+			//BRIQUETE.exibirAviso("Erro ao consultar os contatos: "+ info.status+" - " + info.statusText+ " - " + info.responseText);
+		},
+
+	});
+}
+
 	
 });

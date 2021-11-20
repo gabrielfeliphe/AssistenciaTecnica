@@ -37,7 +37,7 @@ $(document).ready(function() {
 				url: BRIQUETE.PATH + "cliente/cadastrar",
 				data: JSON.stringify(novoCliente),
 				success: function(msg) {
-					console.log("adicionado novoCliente: " + novoCliente);
+					BRIQUETE.exibirAviso("Cliente cadastrado com sucesso!");
 					BRIQUETE.cliente.buscarClientes();
 				},
 				error: function(info) {
