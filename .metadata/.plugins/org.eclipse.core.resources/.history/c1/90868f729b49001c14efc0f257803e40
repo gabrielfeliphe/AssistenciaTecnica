@@ -38,9 +38,9 @@
 		 <input type="date" id="diaa" id="diaa">		</div>
 		<div class="col-sm"></div>	
 		<div class="col-md">
-		 <label>Modelo/Código </label><label id="mod-cod"></label></br>
+		 <label>Modelo/Código </label><label idname"mod-cod"></label></br>
 		 <label>Data de entrada: </label><label id="data-entrada"></label></br>
-		 <label>Defeito: </label><label id="defeito"></label></br>
+		 <label>Defeito: </label><label nameid"defeito"></label></br>
 		 <label>Observações: </label></br>
 		 <textarea name="txaobservacao" id="observacao" name="observacoes"></textarea>
 		</div>

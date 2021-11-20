@@ -32,15 +32,15 @@
 	<div class="row">
 		<div class="col-md">
 		 <label>Cliente: </label><label id="clienteNameModal"></label></br>
-		 <label >Equipamento: </label><label id="equipamento"></label></br>
-		 <label>Garantia: </label><label id="garantia"></label></br>
+		 <label >Equipamento: </label><label name="equipamento"></label></br>
+		 <label>Garantia: </label><label name="garantia"></label></br>
 		 <label>Validade do orçamento </label></br>
-		 <input type="date" id="diaa" id="diaa">		</div>
+		 <input type="date" id="diaa" name="diaa">		</div>
 		<div class="col-sm"></div>	
 		<div class="col-md">
-		 <label>Modelo/Código </label><label id="mod-cod"></label></br>
-		 <label>Data de entrada: </label><label id="data-entrada"></label></br>
-		 <label>Defeito: </label><label id="defeito"></label></br>
+		 <label>Modelo/Código </label><label idname"mod-cod"></label></br>
+		 <label>Data de entrada: </label><label name="data-entrada"></label></br>
+		 <label>Defeito: </label><label name="defeito"></label></br>
 		 <label>Observações: </label></br>
 		 <textarea name="txaobservacao" id="observacao" name="observacoes"></textarea>
 		</div>

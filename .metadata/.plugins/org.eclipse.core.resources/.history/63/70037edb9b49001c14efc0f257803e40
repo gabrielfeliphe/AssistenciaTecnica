@@ -167,7 +167,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 			document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
 			document.getElementById('data-entrada').innerHTML  = dados.data;
-			document.getElementById('defeito').innerHTML  = dados.defeito;
+			document.getElementById('data-defeito').innerHTML  = dados.defeito;
 			
 			
 			var modalRealizaOrcamento = {
