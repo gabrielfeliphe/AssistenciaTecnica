@@ -199,5 +199,10 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 	});
 }
 
+BRIQUETE.manutenção.adicionarItem = function(){
+	
+	
+}
+
 	
 });
