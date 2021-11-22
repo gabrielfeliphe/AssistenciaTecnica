@@ -55,7 +55,7 @@
 	 <button type="button">Adicionar</button>
 	</div>
 	
-	</BR><div id="peca-servico" class="tabela-lista"></div>
+	</BR><div id="peca-servico" class="tabela-lista">TABELA ITENS A ADICIONAR JS</div>
 
 <table border="1px">
 <th>

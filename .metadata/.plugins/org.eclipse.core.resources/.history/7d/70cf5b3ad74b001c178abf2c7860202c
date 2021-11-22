@@ -15,7 +15,7 @@
 }
 .add-itens input{
 	margin-left: 5%;
-	width:21%;
+	width:15%;
 }
 .add-itens button{
 	margin-left: 15.9%;
@@ -42,12 +42,12 @@ table{
 button{
 	height: 30px;
 	width: 100px;
-	
+	margin-right: 50px;
 }
 
 textarea{
-	width: 400px;
-	height: 75px;
+	width: 350px;
+	height: 120px;
 	resize: none;
 }
 
@@ -59,15 +59,6 @@ textarea{
 	font-size: 14px;
 	margin-bottom: 2px;
 }
-
-#modalRealizaOrcamento input[type=date]{
-	margin-top: 10px;
-}
-
-.ui-dialog .ui-dialog-buttonpane{
-	margin-right: 40%;
-}
-
 
 
 

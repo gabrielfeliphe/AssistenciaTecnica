@@ -15,7 +15,7 @@
 }
 .add-itens input{
 	margin-left: 5%;
-	width:21%;
+	width:15%;
 }
 .add-itens button{
 	margin-left: 15.9%;

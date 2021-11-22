@@ -15,7 +15,7 @@
 }
 .add-itens input{
 	margin-left: 5%;
-	width:21%;
+	width:15%;
 }
 .add-itens button{
 	margin-left: 15.9%;
@@ -64,10 +64,15 @@ textarea{
 	margin-top: 10px;
 }
 
-.ui-dialog .ui-dialog-buttonpane{
-	margin-right: 40%;
+.btn1{
+	 float: left;
+	 
 }
 
+.btn2{
+	  float: right;
+	
+}
 
 
 

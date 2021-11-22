@@ -11,15 +11,20 @@
 }
 
 .add-itens{
-	margin-top:5%;
 	display: flex;
 }
 .add-itens input{
 	margin-left: 5%;
-	width:15%;
+	width:21%;
 }
 .add-itens button{
 	margin-left: 15.9%;
+	height: 35px;
+	margin-top: 1px;
+}
+
+.add-itens select{
+	height: 35px;
 }
 
 table{
@@ -37,18 +42,32 @@ table{
 button{
 	height: 30px;
 	width: 100px;
-	margin-right: 50px;
+	
 }
 
 textarea{
-	width: 350px;
-	height: 120px;
+	width: 400px;
+	height: 75px;
 	resize: none;
 }
 
 .modalEditar{
 	display: none;
 }
+
+#modalRealizaOrcamento label{
+	font-size: 14px;
+	margin-bottom: 2px;
+}
+
+#modalRealizaOrcamento input[type=date]{
+	margin-top: 10px;
+}
+
+.ui-dialog .ui-dialog-buttonpane{
+	margin-right: 40%;
+}
+
 
 
 

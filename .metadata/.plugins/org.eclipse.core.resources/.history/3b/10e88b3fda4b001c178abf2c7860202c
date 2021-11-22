@@ -179,7 +179,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 						"Cancelar": function(){
 							$(this).dialog("close");
 						},
-						"Realizar": function(){
+						"Salvar": function(){
 							$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
 						}
 					},
