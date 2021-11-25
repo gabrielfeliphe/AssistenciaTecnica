@@ -186,7 +186,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							var x = document.getElementsByName('divItens');
 							
 							console.log("itens modal: ")
-							console.log(x.values)
+							console.log(x)
 							
 						}
 					},

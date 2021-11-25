@@ -180,13 +180,12 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							$(this).dialog("close");
 						},
 						"Realizar": function(){
-							var a = document.getElementsByName('descricaoPecaServico');
-							var b = document.getElementsByName('valorItem');
-							
-							var x = document.getElementsByName('divItens');
+							var a = document.getElementsByName('descricaoPecaServico[1]');
+							var b = document.getElementsByName('valorItem[1]');
 							
 							console.log("itens modal: ")
-							console.log(x.values)
+							console.log(a)
+							console.log(b)
 							
 						}
 					},

@@ -180,7 +180,14 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							$(this).dialog("close");
 						},
 						"Realizar": function(){
-							$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
+							var a = document.getElementsByName('descricaoPecaServico');
+							var b = document.getElementsByName('valorItem');
+							
+							var x = document.getElementsByName('divItens');
+							
+							console.log("itens modal: ")
+							console.log(x.values)
+							
 						}
 					},
 					close: function(){
