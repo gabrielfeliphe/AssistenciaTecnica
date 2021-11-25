@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Consulta Orçamento - Manutenção</title>
+
+<script src="../../js/manutencao_consultaOrcamento.js"></script>
+
+</head>
+<body>
+	<div class= "container">
+		<h4>Consulta de orçamento</h4>
+		<div class = "row" id="box">
+			<div class="col-sm">
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id='procurarClientesOrcamentos'>
+			</div>	
+			<div class="col-sm">
+			<input type="checkbox" id="manutencao" name="aprovar" value="1" onclick="BRIQUETE.manutencao.filtroOrcamentos()">
+			<label for="vehicle1"> A aprovar</label><br>
+			<input type="checkbox" id="pecas" name="fazer" value="2" onclick="BRIQUETE.manutencao.filtroOrcamentos()">
+			<label for="vehicle2"> A fazer</label><br>
+			</div>
+		</div>	
+		<div id= "lista-orcamento" class = "lista-tabela">
+</div>
+	</div>
+
+<div id="modalRealizaOrcamento" class = "modalEditar">
+
+<div name="modalRealizaServico">
+	<h4>Realizar orçamento</h4>
+	<div class="row">
+		<div class="col-md">
+		 <label>Cliente:&nbsp; </label><label id="clienteNameModal"></label></br>
+		 <label >Equipamento:&nbsp; </label><label id="equipamento"></label></br>
+		 <label>Garantia:&nbsp; </label><label id="garantia"></label></br>
+		 <label>Validade do orçamento: </label></br>
+		 <input type="date" id="diaa" id="diaa">		</div>
+		<div class="col-md">
+		 <label>Modelo/Código:&nbsp; </label><label id="mod-cod"></label></br>
+		 <label>Data de entrada:&nbsp; </label><label id="data-entrada"></label></br>
+		 <label>Defeito:&nbsp; </label><label id="defeito"></label></br>
+		 <label>Observações:&nbsp; </label></br>
+		 <textarea name="txaobservacao" id="observacao" name="observacoes"></textarea>
+		</div>
+	</div>
+	
+	
+	<div class="add-itens">
+	<select name="categoria[]">
+	  <option >SELECIONE</option>
+	  <option value="1">Peça</option>
+	  <option value="0">Serviço</option>
+	</select>
+	 <input type="text" name="descricaoPecaServico[]"class="form-control"  placeholder="Peça ou serviço">
+	 <input type="text" name="valorItem[]"class="form-control"  placeholder="Valor">
+	 <button type="button">Adicionar</button>
+	</div>
+	
+	
+	</BR><div id="peca-servico" class="tabela-lista"></div>
+
+<table border="1px">
+<th>
+<label>total</label> <!-- provavelmente vou incorporar numa tabela sem borda -->
+</th>
+<th>
+<label>00,00</label>
+</th>
+</table>
+</div>
+
+
+</div>
+
+</body>
+</html>

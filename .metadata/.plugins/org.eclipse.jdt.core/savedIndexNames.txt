@@ -55,6 +55,7 @@ INDEX VERSION 1.131+C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata
 3867215750.index
 2994275588.index
 694357683.index
+3139326460.index
 1528200093.index
 897659091.index
 2987787864.index
@@ -65,6 +66,7 @@ INDEX VERSION 1.131+C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata
 3888857259.index
 2286250327.index
 1860485910.index
+2570366824.index
 3421597620.index
 1942359185.index
 144380394.index

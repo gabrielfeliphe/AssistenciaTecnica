@@ -44,18 +44,21 @@
 		 <textarea name="txaobservacao" id="observacao" name="observacoes"></textarea>
 		</div>
 	</div>
+	
+	<button id="btnAdd">Novo item</button>
 	<div class="add-itens">
-	<select name="cars" id="cars">
+	<select name="categoria[]">
 	  <option >SELECIONE</option>
 	  <option value="1">Peça</option>
 	  <option value="0">Serviço</option>
 	</select>
-	 <input type="text" class="form-control"  placeholder="Peça ou serviço">
-	 <input type="text" class="form-control"  placeholder="Valor">
+	 <input type="text" name="descricaoPecaServico[]"class="form-control"  placeholder="Peça ou serviço">
+	 <input type="text" name="valorItem[]"class="form-control"  placeholder="Valor">
 	 <button type="button">Adicionar</button>
+	 <button type="button" onclick="BRIQUETE.manutencao.removeCampo(this)">Remover</button>
 	</div>
 	
-	</BR><div id="peca-servico" class="tabela-lista"></div>
+
 
 <table border="1px">
 <th>

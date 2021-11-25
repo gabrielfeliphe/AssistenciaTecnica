@@ -199,10 +199,30 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 	});
 }
 
-BRIQUETE.manutenção.adicionarItem = function(){
-	
-	
-}
 
+$("#btnAdd").click(function(){
+	// clona a primeira linha de detalhe
+	var novoCampo = $(".add-itens:last").clone();
+	//Esvazia o clone
+	novoCampo.find("input").val("");
+	//Insere o clone na pagina, apos a ultima linha existente
+	novoCampo.insertAfter(".add-itens:last");
 	
 });
+
+BRIQUETE.manutencao.removeCampo = function(botao){
+	
+	
+	if($(".add-itens").length > 1){
+		//remove a linha que contem o botao
+		//parent pega o elemento e vê quem é o pai
+		// uma escadinha inversa nos elementos do DOM
+		$(botao).parent().remove();
+		
+	}else{
+		BRIQUETE.exibirAviso("A última linha não pode ser removida");
+	}
+}
+	
+});
+
