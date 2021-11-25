@@ -1,6 +1,7 @@
 package br.com.tecnicabriquete.modelo;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Orcamento {
 	
@@ -8,6 +9,7 @@ public class Orcamento {
 	int garantia,status,idorcamento;
 	Date data,validade;
 	Cliente cliente;
+	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
 	
 	
 	public String getEquipamentoNome() {
@@ -70,6 +72,12 @@ public class Orcamento {
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	public ArrayList<Servicos> getServicos() {
+		return servicos;
+	}
+	public void setServicos(ArrayList<Servicos> servicos) {
+		this.servicos = servicos;
 	}
 	
 	

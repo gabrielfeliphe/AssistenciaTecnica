@@ -108,46 +108,6 @@ BRIQUETE.manutencao.filtroOrcamentos = function(){
 	}
 }
 
-/*BRIQUETE.manutencao.exibirRealizarOrcamento = function(dados){
-	$.ajax({
-		type: "GET",
-		url: BRIQUETE.PATH + "cliente/buscarPorId",
-		data: "idcliente="+idcliente,
-		success: function(cliente){
-			
-			document.cliente.value = dados.nome;
-			
-			
-			var modalEditaOrcamento= {
-					title: "Editar Cliente",
-					height: 400,
-					width: 500,
-					modal: true,
-					buttons:{
-						"Cancelar": function(){
-							$(this).dialog("close");
-						},
-						"Salvar": function(){
-							BRIQUETE.cliente.editar();
-							$(this).dialog("close"); // ADICIONAR ESSA LINHA PARA RETIRAR OS ERRORS DE CLOSE
-						}
-					},
-					close: function(){
-						//caso o usuário simplesmente feche a caixa de edição
-						// nao deve acontecar nada
-					}
-			};
-			
-			$("#modalRealizaOrcamento").dialog(modalEditaOrcamento);
-			
-		},
-		error: function(info){
-			
-			BRIQUETE.exibirAviso("Erro ao buscar o funcionário para a edição "+info.status+" - "+info.statusText+ " - " + info.responseText);
-		}
-	});
-}*/
-
 BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 	
 	$.ajax({
@@ -180,13 +140,33 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							$(this).dialog("close");
 						},
 						"Realizar": function(){
-							var a = document.getElementsByName('descricaoPecaServico');
-							var b = document.getElementsByName('valorItem');
 							
-							var x = document.getElementsByName('divItens');
+							var values = [];
+							$('.add-itens').each(function () { 
+							    var valoresDiv = {};
+							    $(this).find(':input').each(function() {
+							    	valoresDiv[$(this).prop('name')] = $(this).val();
+							    });
+							    values.push(valoresDiv);
+							});
 							
-							console.log("itens modal: ")
-							console.log(x.values)
+							json = new Object();
+							
+							for(i = 0; i<values.length;i++){
+								json = values[i];
+							}
+							
+							$.ajax({
+								type: "POST",
+								url: BRIQUETE.PATH + "servicos/realizaOrcamento",
+								data: JSON.stringify(json),
+								success: function(msg) {
+									BRIQUETE.exibirAviso("Orcamento realizado com sucesso!");
+								},
+								error: function(info) {
+									BRIQUETE.exibirAviso(info.responseText);
+								}
+							});
 							
 						}
 					},
