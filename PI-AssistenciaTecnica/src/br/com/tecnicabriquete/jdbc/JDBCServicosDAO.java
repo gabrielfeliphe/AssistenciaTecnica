@@ -170,9 +170,8 @@ public class JDBCServicosDAO {
 
 	public boolean realizaOrcamento(Orcamento orcamento) {
 		
-		System.out.println(orcamento.getServicos().get(0).getPeca_servico());
-		System.out.println(orcamento.getServicos().get(0).getValor());
-		
+		System.out.println(orcamento.getServicos().size());
+	
 		return false;
 	}
 

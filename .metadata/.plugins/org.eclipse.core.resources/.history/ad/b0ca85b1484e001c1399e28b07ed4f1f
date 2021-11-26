@@ -1,0 +1,160 @@
+package br.com.tecnicabriquete.rest;
+
+import javax.ws.rs.Path;
+
+import java.sql.Date;
+import javax.ws.rs.PathParam;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
+import java.util.List;
+
+import br.com.tecnicabriquete.bd.Conexao;
+import br.com.tecnicabriquete.jdbc.JDBCClienteDAO;
+import br.com.tecnicabriquete.jdbc.JDBCFuncionarioDAO;
+import br.com.tecnicabriquete.jdbc.JDBCServicosDAO;
+import br.com.tecnicabriquete.modelo.Cliente;
+import br.com.tecnicabriquete.modelo.Funcionario;
+import br.com.tecnicabriquete.modelo.Orcamento;
+import br.com.tecnicabriquete.modelo.Servicos;
+
+
+@Path("servicos")
+public class ServicosRest extends UtilRest{
+	
+	@POST
+	@Path("/cadastrarOrcamento")
+	@Consumes("application/*")
+	public Response inserirOrcamento(String novoOrcamento) {
+		
+		try {
+			
+			System.out.println(novoOrcamento);
+			Gson gson=  new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+			
+			
+			Orcamento orcamento = gson.fromJson(novoOrcamento, Orcamento.class);
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcOrcamento = new JDBCServicosDAO(conexao);
+			String msg = "";
+	
+			
+			boolean retorno = jdbcOrcamento.inserir(orcamento);
+			if (retorno == true) {
+				msg = "Orçamento criado com sucesso!";
+			} else {
+				msg = "Erro ao criar Orçamento";
+			}
+			conec.fecharConexao();
+
+			return this.buildResponse(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+		
+	}
+	
+	@GET
+	@Path("/buscarOrcamentos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscar() {
+
+		try {
+			List<Orcamento> listaOrcamentos = new ArrayList<Orcamento>();
+
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
+			listaOrcamentos = jdbcServicos.buscar();
+			conec.fecharConexao();
+			return this.buildResponse(listaOrcamentos);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+	
+	@GET
+	@Path("/buscarOrcamentoId")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarPorId(@QueryParam("idorcamento") int idorcamento) {
+
+		try {
+			Orcamento orcamento = new Orcamento();
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcServicos= new JDBCServicosDAO(conexao);
+
+			orcamento = jdbcServicos.buscarOrcamentoId(idorcamento);
+
+			conec.fecharConexao();
+
+			return this.buildResponse(orcamento);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+
+	}
+	
+	@POST
+	@Path("/realizaOrcamento")
+	@Consumes("application/*")
+	public Response alterar(String orcamentoParam[]) {
+		
+		System.out.println(orcamentoParam)
+		
+		try {
+			
+			
+			Orcamento orcamento = new Gson().fromJson(orcamentoParam, Orcamento.class);
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
+			
+			for(Servicos servico: orcamento.getServicos()) {
+				System.out.println("Servico: ");
+				System.out.println(servico.getPeca_servico());
+				System.out.println(servico.getValor());
+			}
+			
+
+			boolean retorno = jdbcServicos.realizaOrcamento(orcamento);
+
+			String msg = "";
+
+			if (retorno) {
+				msg = "Orcamento alterado com sucesso!";
+			} else {
+				msg = "Erro ao alterar o Orcamento.";
+			}
+
+			conec.fecharConexao();
+			return this.buildResponse(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+
+}

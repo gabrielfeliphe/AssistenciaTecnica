@@ -151,9 +151,13 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							});
 							
 							json = new Object();
-							
+											
 							for(i = 0; i<values.length;i++){
-								json = values[i];
+								json.servicos[i] = new Object();
+								json.servicos[i].tipo = values[i].tipo;
+								json.servicos[i].peca_servico = values[i].peca_servico;
+								json.servicos[i].valor = values[i].valor;
+								
 							}
 							
 							$.ajax({

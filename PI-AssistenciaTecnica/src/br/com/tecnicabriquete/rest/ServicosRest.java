@@ -30,6 +30,7 @@ import br.com.tecnicabriquete.jdbc.JDBCServicosDAO;
 import br.com.tecnicabriquete.modelo.Cliente;
 import br.com.tecnicabriquete.modelo.Funcionario;
 import br.com.tecnicabriquete.modelo.Orcamento;
+import br.com.tecnicabriquete.modelo.Servicos;
 
 
 @Path("servicos")
@@ -124,22 +125,17 @@ public class ServicosRest extends UtilRest{
 		
 		try {
 			
-			
-			Orcamento orcamento = new Gson().fromJson(orcamentoParam, Orcamento.class);
+			Orcamento orcamento = new Gson().fromJson(orcamentoParam,Orcamento.class);
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
 			
+	
 
 			boolean retorno = jdbcServicos.realizaOrcamento(orcamento);
 
 			String msg = "";
 
-			if (retorno) {
-				msg = "Orcamento alterado com sucesso!";
-			} else {
-				msg = "Erro ao alterar o Orcamento.";
-			}
 
 			conec.fecharConexao();
 			return this.buildResponse(msg);
