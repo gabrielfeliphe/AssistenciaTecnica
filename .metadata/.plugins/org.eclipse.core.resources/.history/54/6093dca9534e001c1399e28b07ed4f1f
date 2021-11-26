@@ -183,12 +183,8 @@ public class JDBCServicosDAO {
 			p.setDate(1, orcamento.getValidade());
 			p.setInt(2, status);
 			p.setString(3, orcamento.getObservacao());
-			p.execute();		
-			for(Servicos servicos: orcamento.getServicos()) {
-				JDBCServicosDAO jdbcServico = new JDBCServicosDAO(this.conexao);
-				jdbcServico.inserirServicos(servicos);
-				}
-
+			p.execute();
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;

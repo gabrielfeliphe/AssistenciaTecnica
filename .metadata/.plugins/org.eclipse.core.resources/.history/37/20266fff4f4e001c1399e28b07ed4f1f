@@ -12,7 +12,6 @@ import java.util.List;
 import br.com.tecnicabriquete.modelo.Cliente;
 import br.com.tecnicabriquete.modelo.Funcionario;
 import br.com.tecnicabriquete.modelo.Orcamento;
-import br.com.tecnicabriquete.modelo.Servicos;
 
 public class JDBCServicosDAO {
 	
@@ -171,58 +170,15 @@ public class JDBCServicosDAO {
 
 	public boolean realizaOrcamento(Orcamento orcamento) {
 		
-		String comando = "UPDATE orcamento" + 
-				" SET validade_orcamento = ?, status = ?, observacao = ? " + 
-				" WHERE idorcamento = ?";
-		PreparedStatement p;
-		
-		int status = 3;
-		
-		try {
-			p = this.conexao.prepareStatement(comando,PreparedStatement.RETURN_GENERATED_KEYS);
-			p.setDate(1, orcamento.getValidade());
-			p.setInt(2, status);
-			p.setString(3, orcamento.getObservacao());
-			p.execute();		
-			for(Servicos servicos: orcamento.getServicos()) {
-				JDBCServicosDAO jdbcServico = new JDBCServicosDAO(this.conexao);
-				jdbcServico.inserirServicos(servicos);
-				}
-
-		}catch(Exception e) {
-			e.printStackTrace();
-			return false;
-		}
-		
-		return true;
+		System.out.println(orcamento.getServicos().size());
+	
+		return false;
 	}
 	
-	public boolean inserirServicos(Servicos servicos){
-		String comando ="INSERT INTO servico(peca_servico,valor,tipo,orcamento_idorcamento)" + 
-				" VALUES(?,?,?,?)";
+	public boolean inserirServicos() {
 		
-		PreparedStatement p;
 		
-		try {
-			
-			p = this.conexao.prepareStatement(comando);
-
-
-			//p.setInt(1, orcamento.getEquipamentoNome());
-			p.setString(1, servicos.getPeca_servico());
-			p.setFloat(2, servicos.getValor());
-			p.setInt(3, servicos.getTipo());
-			p.setInt(4, servicos.getOrcamento_idorcamento());
-			
-			// Executa o comando no BD
-			p.execute();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			return false;	
-		}
-		
-		return true;	
+		return false;
 	}
 
 }

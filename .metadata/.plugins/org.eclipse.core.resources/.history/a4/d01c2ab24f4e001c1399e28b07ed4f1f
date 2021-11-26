@@ -116,7 +116,7 @@ public class ServicosRest extends UtilRest{
 
 	}
 	
-	@PUT
+	@POST
 	@Path("/realizaOrcamento")
 	@Consumes("application/*")
 	public Response alterar(String orcamentoParam) {

@@ -189,6 +189,7 @@ public class JDBCServicosDAO {
 				jdbcServico.inserirServicos(servicos);
 				}
 
+			
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
