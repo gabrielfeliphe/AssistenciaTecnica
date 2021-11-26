@@ -151,7 +151,6 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							});
 							
 							json = new Object();
-							json.servicos = new Array(values.length)
 											
 							for(i = 0; i<values.length;i++){
 								json.servicos[i] = new Object();
@@ -163,9 +162,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							
 							json.defeito = document.getElementById('defeito').value;
 							json.validade = document.getElementById('diaa').value;
-							
 							$.ajax({
-								type: "POST",
+								type: "PUT",
 								url: BRIQUETE.PATH + "servicos/realizaOrcamento",
 								data: JSON.stringify(json),
 								success: function(msg) {
