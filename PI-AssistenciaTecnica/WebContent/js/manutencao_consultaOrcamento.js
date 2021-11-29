@@ -164,6 +164,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							
 							json.defeito = document.getElementById('defeito').value;
 							json.validade = document.getElementById('diaa').value;
+							json.observacao = document.getElementById('observacao').value;
+							json.idorcamento = idorcamento;
 							
 							
 							$.ajax({

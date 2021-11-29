@@ -158,11 +158,14 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 								json.servicos[i].tipo = values[i].tipo;
 								json.servicos[i].peca_servico = values[i].peca_servico;
 								json.servicos[i].valor = values[i].valor;
+								json.servicos[i].orcamento_idorcamento = idorcamento;
 								
 							}
 							
 							json.defeito = document.getElementById('defeito').value;
 							json.validade = document.getElementById('diaa').value;
+							json.observacao = document.getElementById('observacao').value;
+							json.idorcamento = idorcamento;
 							
 							
 							$.ajax({

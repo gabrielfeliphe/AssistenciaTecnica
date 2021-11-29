@@ -176,7 +176,7 @@ public class JDBCServicosDAO {
 				" WHERE idorcamento = ?";
 		PreparedStatement p;
 		
-		int status = 3;
+		int status = 2;
 		
 		try {
 			p = this.conexao.prepareStatement(comando,PreparedStatement.RETURN_GENERATED_KEYS);
@@ -185,6 +185,8 @@ public class JDBCServicosDAO {
 			p.setString(3, orcamento.getObservacao());
 			p.setInt(4, orcamento.getIdorcamento());
 			p.execute();
+			
+			System.out.println(p);
 			
 			for(Servicos servicos: orcamento.getServicos()) {
 				JDBCServicosDAO jdbcServico = new JDBCServicosDAO(this.conexao);
