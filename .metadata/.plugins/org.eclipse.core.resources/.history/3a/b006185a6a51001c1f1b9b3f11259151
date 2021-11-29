@@ -19,6 +19,11 @@ BRIQUETE.manutencao.consultaOrcamento = function(){
 
 	});
 	
+	
+	var divInicial = $(".add-itens").clone();
+	
+	$("#some_div").replaceWith
+	
 }
 
 BRIQUETE.manutencao.consultaOrcamento()

@@ -138,9 +138,9 @@ public class ServicosRest extends UtilRest{
 			String msg = "";
 			
 			if (retorno == true) {
-				msg = "Orçamento realizado com sucesso!";
+				msg = "Orçamento criado com sucesso!";
 			} else {
-				msg = "Erro ao realizar Orçamento";
+				msg = "Erro ao criar Orçamento";
 			}
 
 

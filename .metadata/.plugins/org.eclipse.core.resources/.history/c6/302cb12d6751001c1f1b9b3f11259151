@@ -136,12 +136,6 @@ public class ServicosRest extends UtilRest{
 			boolean retorno = jdbcServicos.realizaOrcamento(orcamento);
 
 			String msg = "";
-			
-			if (retorno == true) {
-				msg = "Orçamento realizado com sucesso!";
-			} else {
-				msg = "Erro ao realizar Orçamento";
-			}
 
 
 			conec.fecharConexao();

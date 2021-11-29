@@ -173,9 +173,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 								url: BRIQUETE.PATH + "servicos/realizaOrcamento",
 								data: JSON.stringify(json),
 								success: function(msg) {
-									BRIQUETE.exibirAviso(msg);
-									BRIQUETE.manutencao.consultaOrcamento()
-									$("#modalRealizaOrcamento").dialog('close');
+									BRIQUETE.exibirAviso("Orcamento realizado com sucesso!");
 								},
 								error: function(info) {
 									BRIQUETE.exibirAviso(info.responseText);
@@ -185,7 +183,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 						}
 					},
 					close: function(){
-						$(this).dialog('close');
+						//caso o usuário simplesmente feche a caixa de edição
+						// nao deve acontecar nada
 					}
 			};
 			

@@ -175,7 +175,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 								success: function(msg) {
 									BRIQUETE.exibirAviso(msg);
 									BRIQUETE.manutencao.consultaOrcamento()
-									$("#modalRealizaOrcamento").dialog('close');
+									$(this).dialog('close');
 								},
 								error: function(info) {
 									BRIQUETE.exibirAviso(info.responseText);

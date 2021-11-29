@@ -2,6 +2,8 @@ BRIQUETE.manutencao = new Object();
 
 $(document).ready(function(){
 	
+var formOriginal = $(".add-itens").clone();
+	
 BRIQUETE.manutencao.consultaOrcamento = function(){
 	
 	$.ajax({
@@ -175,6 +177,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 								success: function(msg) {
 									BRIQUETE.exibirAviso(msg);
 									BRIQUETE.manutencao.consultaOrcamento()
+									BRIQUETE.manutencao.limpaCampos();
 									$("#modalRealizaOrcamento").dialog('close');
 								},
 								error: function(info) {
@@ -222,6 +225,13 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 	}else{
 		BRIQUETE.exibirAviso("A última linha não pode ser removida");
 	}
+}
+
+BRIQUETE.manutencao.limpaCampos = function(){
+	$(this).find("input").val("");
+	$(this).find("input[type=date]").val("");
+	$(this).find("textarea").val("");
+	$(this).replaceWith(formOriginal.clone());
 }
 	
 });
