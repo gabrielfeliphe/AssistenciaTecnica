@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="idservico"/>
 			<item value="3.6"/>
 			<item value="jquery"/>
 			<item value="jqueryjqueryjquery"/>

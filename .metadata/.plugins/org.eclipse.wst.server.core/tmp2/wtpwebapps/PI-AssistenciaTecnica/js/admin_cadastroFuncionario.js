@@ -47,7 +47,7 @@ $(document).ready(function() {
 				url: BRIQUETE.PATH + "funcionario/cadastrar",
 				data: JSON.stringify(novoFuncionario),
 				success: function(msg) {
-					console.log("adicionado novoFuncionario: " + novoFuncionario);
+					BRIQUETE.exibirAviso("Funcionário cadastrado com sucesso!");
 					BRIQUETE.funcionario.buscarFuncionarios();
 				},
 				error: function(info) {

@@ -1,9 +1,0 @@
-BRIQUETE.cliente = new Object();
-
-console.log("script cliente entrou!");
-
-$(document).ready(function() {
-	
-	
-	
-});

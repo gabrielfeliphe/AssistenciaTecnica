@@ -53,17 +53,18 @@ BRIQUETE.orcamento.exibirClientes = function(clientes){
 }
 
 BRIQUETE.orcamento.data = function(){
-	var data = new Date();
-	var dia = String(data.getDate()).padStart(2, '0');
-	var mes = String(data.getMonth() + 1).padStart(2, '0');
-	var ano = data.getFullYear();
+	var now = new Date();
+	 
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
 	
-	dataAtual = ano + '/' + mes + '/' +  dia;
-	
-	document.frmAberturaOrcamento.diaa.value = dataAtual;
+	  $('#diaa').val(today);
 }
 
 BRIQUETE.orcamento.data();
+
 
 BRIQUETE.orcamento.cadastrar = function(){
 	let orcamento = new Object();
