@@ -11666,3 +11666,191 @@ java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnic
 	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
 	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 20:40:44.903
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.wst.jsdt.core 4 4 2021-11-29 20:54:12.821
+!MESSAGE null
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.core.dom.binding.Scope.getKey(Scope.java:403)
+	at org.eclipse.wst.jsdt.internal.core.dom.binding.SymbolBase.getKey(SymbolBase.java:38)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.putBinding(BindingResolverDom.java:199)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.processVariableDeclaration(BindingResolverDom.java:163)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.resolve(BindingResolverDom.java:105)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.resolveBindings(ASTParser.java:1110)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:656)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy$1.run(JavascriptReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:129)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:98)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:374)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.wst.jsdt.core 4 4 2021-11-29 20:54:13.823
+!MESSAGE null
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.core.dom.binding.Scope.getKey(Scope.java:403)
+	at org.eclipse.wst.jsdt.internal.core.dom.binding.SymbolBase.getKey(SymbolBase.java:38)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.putBinding(BindingResolverDom.java:199)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.processVariableDeclaration(BindingResolverDom.java:163)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.resolve(BindingResolverDom.java:105)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.resolveBindings(ASTParser.java:1110)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:656)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy$1.run(JavascriptReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.java.JavascriptReconcilingStrategy.reconcile(JavascriptReconcilingStrategy.java:129)
+	at org.eclipse.wst.jsdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:85)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:98)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.wst.jsdt.internal.ui.text.JavaReconciler.process(JavaReconciler.java:374)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.wst.jsdt.core 4 4 2021-11-29 20:54:14.026
+!MESSAGE null
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.core.dom.binding.Scope.getKey(Scope.java:403)
+	at org.eclipse.wst.jsdt.internal.core.dom.binding.SymbolBase.getKey(SymbolBase.java:38)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.putBinding(BindingResolverDom.java:199)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.processVariableDeclaration(BindingResolverDom.java:163)
+	at org.eclipse.wst.jsdt.core.dom.BindingResolverDom.resolve(BindingResolverDom.java:105)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.resolveBindings(ASTParser.java:1110)
+	at org.eclipse.wst.jsdt.core.dom.ASTParser.createAST(ASTParser.java:656)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:583)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:576)
+	at org.eclipse.wst.jsdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:511)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:150)
+	at org.eclipse.wst.jsdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:135)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 20:54:48.405
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 20:59:54.146
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 21:05:26.620
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 21:10:43.589
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 21:17:32.217
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 568 2021-11-29 21:23:36.669
+!MESSAGE Could not write metadata for '/Servers'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.core.resources\.projects\Servers\.markers.snap (O sistema não pode encontrar o caminho especificado)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1767)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1848)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1202)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

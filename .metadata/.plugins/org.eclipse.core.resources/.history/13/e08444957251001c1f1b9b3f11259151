@@ -185,7 +185,6 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 						}
 					},
 					close: function(){
-						BRIQUETE.manutencao.limparFrm();
 						$(this).dialog('close');
 					}
 			};
@@ -226,10 +225,9 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 }
 
 BRIQUETE.manutencao.limparFrm = function(){	
-
+	
 	$(".add-itens").find("input").val("");
-	$("#observacao").val("");
-	$("#diaa").val("");
+	$(".add-itens").find("input[type=date]").val("");
 	
 	while($(".add-itens").length > 1){
 	$(".add-itens").last().remove();

@@ -185,11 +185,11 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 						}
 					},
 					close: function(){
-						BRIQUETE.manutencao.limparFrm();
 						$(this).dialog('close');
 					}
 			};
 			
+			var modalOriginal = $("#modalRealizaOrcamento").clone();
 			$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
 			
 		},
@@ -226,11 +226,6 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 }
 
 BRIQUETE.manutencao.limparFrm = function(){	
-
-	$(".add-itens").find("input").val("");
-	$("#observacao").val("");
-	$("#diaa").val("");
-	
 	while($(".add-itens").length > 1){
 	$(".add-itens").last().remove();
 }

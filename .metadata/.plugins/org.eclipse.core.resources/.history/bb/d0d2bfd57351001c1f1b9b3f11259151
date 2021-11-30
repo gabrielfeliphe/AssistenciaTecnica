@@ -228,6 +228,7 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 BRIQUETE.manutencao.limparFrm = function(){	
 
 	$(".add-itens").find("input").val("");
+	
 	$("#observacao").val("");
 	$("#diaa").val("");
 	

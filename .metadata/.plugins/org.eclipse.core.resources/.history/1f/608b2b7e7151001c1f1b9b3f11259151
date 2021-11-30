@@ -176,7 +176,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 									BRIQUETE.exibirAviso(msg);
 									BRIQUETE.manutencao.consultaOrcamento();
 									$("#modalRealizaOrcamento").dialog('close');
-									BRIQUETE.manutencao.limparFrm();
+									$("#modalRealizaOrcamento").replaceAll(modalOriginal);
 								},
 								error: function(info) {
 									BRIQUETE.exibirAviso(info.responseText);
@@ -185,7 +185,6 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 						}
 					},
 					close: function(){
-						BRIQUETE.manutencao.limparFrm();
 						$(this).dialog('close');
 					}
 			};
@@ -223,17 +222,6 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 	}else{
 		BRIQUETE.exibirAviso("A última linha não pode ser removida");
 	}
-}
-
-BRIQUETE.manutencao.limparFrm = function(){	
-
-	$(".add-itens").find("input").val("");
-	$("#observacao").val("");
-	$("#diaa").val("");
-	
-	while($(".add-itens").length > 1){
-	$(".add-itens").last().remove();
-}
 }
 	
 });
