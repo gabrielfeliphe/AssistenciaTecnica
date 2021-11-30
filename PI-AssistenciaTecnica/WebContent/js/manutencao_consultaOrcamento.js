@@ -112,13 +112,12 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 	
 	$.ajax({
 		
-		
-
 		type: "GET",
 		url: BRIQUETE.PATH + "servicos/buscarOrcamentoId",
 		data: "idorcamento="+idorcamento,
 		success: function(dados) {
 			
+			console.log("dados return: ")
 			console.log(dados);
 			
 			document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
@@ -129,8 +128,15 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			document.getElementById('data-entrada').innerHTML  = dados.data;
 			document.getElementById('defeito').innerHTML  = dados.defeito;
 			
-			
-			
+			if(dados.status == 2){
+				document.getElementById("tituloOrcamento").innerHTML = "Editar Orçamento";
+				document.getElementById('diaa').innerHTML = dados.validade;
+				document.getElementById('observacao').value = dados.observacao;
+				
+			}else{
+				document.getElementById("tituloOrcamento").innerHTML = "Realizar Orçamento";
+			}
+				
 			var modalRealizaOrcamento = {
 					title: "Realizar orcamento",
 					height: 650,
@@ -225,6 +231,8 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 		BRIQUETE.exibirAviso("A última linha não pode ser removida");
 	}
 }
+
+
 
 BRIQUETE.manutencao.limparFrm = function(){	
 

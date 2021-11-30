@@ -121,8 +121,6 @@ public class ServicosRest extends UtilRest{
 	@Consumes("application/*")
 	public Response alterar(String orcamentoParam) {
 		
-		System.out.println(orcamentoParam);
-		
 		try {
 			
 			Gson gson =  new GsonBuilder().setDateFormat("yyyy/MM/dd").create();
@@ -131,7 +129,6 @@ public class ServicosRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
 			
-	
 
 			boolean retorno = jdbcServicos.realizaOrcamento(orcamento);
 
@@ -151,6 +148,34 @@ public class ServicosRest extends UtilRest{
 			e.printStackTrace();
 			return this.buildErrorResponse(e.getMessage());
 		}
+	}
+	
+	
+	@GET
+	@Path("/buscarServicosOrcamento")
+	@Consumes("application/*")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response buscarServicosOrcamento(@QueryParam("idorcamento") int idorcamento) {
+
+		try {
+			Orcamento orcamento = new Orcamento();
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcServicos= new JDBCServicosDAO(conexao);
+			
+			
+			
+			jdbcServicos.buscarServicos(idorcamento);
+
+			conec.fecharConexao();
+
+			return this.buildResponse(orcamento);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+
 	}
 
 }

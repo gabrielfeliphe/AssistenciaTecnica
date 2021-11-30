@@ -144,7 +144,6 @@ public class JDBCServicosDAO {
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
 				
-
 				String nome_equipamento = rs.getString("nome_equipamento");
 				String modelo_codigo = rs.getString("modelo_codigo");
 				String descricao_problema = rs.getString("descricao_problema");
@@ -152,6 +151,8 @@ public class JDBCServicosDAO {
 				Date data = rs.getDate("data_entrada");
 				int status = rs.getInt("status");
 				String nome = rs.getString("nome");
+				String observacao = rs.getString("observacao");
+				Date validade = rs.getDate("validade_orcamento");
 				
 				cliente.setNome(nome);
 
@@ -162,6 +163,12 @@ public class JDBCServicosDAO {
 				orcamento.setData(data);
 				orcamento.setStatus(status);
 				orcamento.setCliente(cliente);
+				orcamento.setObservacao(observacao);
+				orcamento.setValidade(validade);
+				
+				if (status == 2) {
+					orcamento.setServicos(buscarServicos(idorcamento));
+				}
 			
 				
 			}
@@ -234,9 +241,10 @@ public class JDBCServicosDAO {
 		return true;	
 	}
 	
-	public Servicos buscarServicos(int idorcamento) {
+	public ArrayList<Servicos> buscarServicos(int idorcamento) {
 		
-		Servicos servicos = new Servicos();
+		Servicos servicos = null;
+		ArrayList<Servicos> servicos_ = new ArrayList<Servicos>();
 		String comando = "SELECT * FROM servico WHERE orcamento_idorcamento = ?";
 		
 		try {
@@ -251,17 +259,21 @@ public class JDBCServicosDAO {
 				float valor = rs.getFloat("valor");
 				int tipo = rs.getInt("tipo");
 				
+				servicos = new Servicos();
+				
 				servicos.setIdservico(idservico);
 				servicos.setOrcamento_idorcamento(idorcamento);
 				servicos.setPeca_servico(peca_servico);
 				servicos.setTipo(tipo);
 				servicos.setValor(valor);
+				
+				servicos_.add(servicos);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return servicos;
+		return servicos_;
 	}
 
 }

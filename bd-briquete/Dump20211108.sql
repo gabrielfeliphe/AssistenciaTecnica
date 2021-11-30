@@ -151,4 +151,6 @@ ALTER TABLE cliente MODIFY telefone char(11);
 
 select * from orcamento;
 
+update orcamento set status = 1 where idorcamento = 1;
+
 
