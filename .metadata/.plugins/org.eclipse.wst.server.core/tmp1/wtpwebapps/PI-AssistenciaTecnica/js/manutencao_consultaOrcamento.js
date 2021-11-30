@@ -130,6 +130,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			document.getElementById('defeito').innerHTML  = dados.defeito;
 			
 			
+			
 			var modalRealizaOrcamento = {
 					title: "Realizar orcamento",
 					height: 650,
