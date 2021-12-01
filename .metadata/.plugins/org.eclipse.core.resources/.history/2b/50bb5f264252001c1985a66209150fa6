@@ -131,16 +131,10 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 				document.getElementById('diaa').innerHTML = dados.validade;
 				document.getElementById('observacao').value = dados.observacao;
 				
-				var campoAntigo= $(".add-itens:last");
-				campoAntigo.find("[name='tipo']").val(dados.servicos[0].tipo);
-				campoAntigo.find("[name='valor']").val(dados.servicos[0].valor);
-				campoAntigo.find("[name='peca_servico']").val(dados.servicos[0].peca_servico);
-				
-			   for(var x=1;x<dados.servicos.length;x++){
+			   for(var x=0;x<=dados.servicos.length;x++){
 					var novoCampo = $(".add-itens:last").clone();
+					console.log("valor "+dados.servicos[x].valor)
 					novoCampo.find("[name='valor']").val(dados.servicos[x].valor);
-					novoCampo.find("[name='tipo']").val(dados.servicos[x].tipo);
-					novoCampo.find("[name='peca_servico']").val(dados.servicos[x].peca_servico);
 					novoCampo.insertAfter(".add-itens:last");
 					
 			   }

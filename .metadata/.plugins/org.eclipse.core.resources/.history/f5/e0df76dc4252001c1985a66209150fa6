@@ -138,9 +138,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 				
 			   for(var x=1;x<dados.servicos.length;x++){
 					var novoCampo = $(".add-itens:last").clone();
+					console.log("valor "+dados.servicos[x].valor)
 					novoCampo.find("[name='valor']").val(dados.servicos[x].valor);
-					novoCampo.find("[name='tipo']").val(dados.servicos[x].tipo);
-					novoCampo.find("[name='peca_servico']").val(dados.servicos[x].peca_servico);
 					novoCampo.insertAfter(".add-itens:last");
 					
 			   }

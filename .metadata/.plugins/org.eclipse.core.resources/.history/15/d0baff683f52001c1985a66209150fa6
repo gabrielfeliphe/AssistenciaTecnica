@@ -117,6 +117,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 		data: "idorcamento="+idorcamento,
 		success: function(dados) {
 			
+			console.log("dados return: ")
+			console.log(dados);
 			
 			document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
@@ -130,20 +132,6 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 				document.getElementById("tituloOrcamento").innerHTML = "Editar Orçamento";
 				document.getElementById('diaa').innerHTML = dados.validade;
 				document.getElementById('observacao').value = dados.observacao;
-				
-				var campoAntigo= $(".add-itens:last");
-				campoAntigo.find("[name='tipo']").val(dados.servicos[0].tipo);
-				campoAntigo.find("[name='valor']").val(dados.servicos[0].valor);
-				campoAntigo.find("[name='peca_servico']").val(dados.servicos[0].peca_servico);
-				
-			   for(var x=1;x<dados.servicos.length;x++){
-					var novoCampo = $(".add-itens:last").clone();
-					novoCampo.find("[name='valor']").val(dados.servicos[x].valor);
-					novoCampo.find("[name='tipo']").val(dados.servicos[x].tipo);
-					novoCampo.find("[name='peca_servico']").val(dados.servicos[x].peca_servico);
-					novoCampo.insertAfter(".add-itens:last");
-					
-			   }
 				
 			}else{
 				document.getElementById("tituloOrcamento").innerHTML = "Realizar Orçamento";
@@ -169,19 +157,32 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							    values.push(valoresDiv);
 							});
 							
+						
 							
 							json = new Object();
 							json.servicos = new Array(values.length)
-											
-							for(i = 0; i<values.length;i++){
-								json.servicos[i] = new Object();
-								json.servicos[i].tipo = values[i].tipo;
-								json.servicos[i].peca_servico = values[i].peca_servico;
-								json.servicos[i].valor = values[i].valor;
-								json.servicos[i].orcamento_idorcamento = idorcamento;
+							
+							
+							if(dados.servicos.length =0){
+								for(i = 0; i<values.length;i++){
+									json.servicos[i] = new Object();
+									json.servicos[i].tipo = values[i].tipo;
+									json.servicos[i].peca_servico = values[i].peca_servico;
+									json.servicos[i].valor = values[i].valor;
+									json.servicos[i].orcamento_idorcamento = idorcamento;
+									
+								}
+							
+							}else {
+								for(var x=0;x<dados.servicos.length;x++ )	
+								{
+									var novoCampo = $(".add-itens:last").clone();
+									novoCampo.find("input [name='peca_servico']").val(dados.servicos.peca_servico[x]);
+									novoCampo.insertAfter(".add-itens:last");
+								}
 								
 							}
-										
+							
 							json.defeito = document.getElementById('defeito').value;
 							json.validade = document.getElementById('diaa').value;
 							json.observacao = document.getElementById('observacao').value;
