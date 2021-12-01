@@ -122,8 +122,6 @@ public class ServicosRest extends UtilRest{
 	@Path("/realizaOrcamento")
 	@Consumes("application/*")
 	public Response alterarOrcamento(String orcamentoParam) {
-		System.out.println("realiza orcamento: ");	
-		System.out.println(orcamentoParam);
 		
 		try {
 			

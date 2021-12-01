@@ -122,8 +122,6 @@ public class ServicosRest extends UtilRest{
 	@Path("/realizaOrcamento")
 	@Consumes("application/*")
 	public Response alterarOrcamento(String orcamentoParam) {
-		System.out.println("realiza orcamento: ");	
-		System.out.println(orcamentoParam);
 		
 		try {
 			
@@ -204,22 +202,24 @@ public class ServicosRest extends UtilRest{
 
 	public Response excluir(@PathParam("idservico") int idservico) {
 		
+
 		try {
 
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcServico = new JDBCServicosDAO(conexao);
 
-					boolean retorno = jdbcServico.deletarServicos(idservico);
+
+					boolean retorno = jdbcCliente.deletar(idcliente);
 
 					String msg = "";
 					if (retorno) {
-						msg = "Serviço excluido com sucesso!";
+						msg = "cliente excluido com sucesso!";
 						conec.fecharConexao();
 
 						return this.buildResponse(msg);
 					} else {
-						msg = "Erro ao excluir o Serviço!";
+						msg = "Erro ao excluir o cliente!";
 						conec.fecharConexao();
 
 						return this.buildErrorResponse(msg);

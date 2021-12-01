@@ -248,6 +248,8 @@ $("#btnAdd").click(function(){
 });
 
 BRIQUETE.manutencao.removeCampo = function(botao){
+	
+	
 
 	if($(".add-itens").length > 1){
 		//remove a linha que contem o botao

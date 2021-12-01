@@ -54,7 +54,7 @@
 	</select>
 	 <input type="text" name="peca_servico"class="form-control"  placeholder="Peça ou serviço">
 	 <input type="text" name="valor"class="form-control"  placeholder="Valor">
-	 <button type="button" onclick="BRIQUETE.manutencao.removeCampo(this);BRIQUETE.manutencao.removerServico(this)">Remover</button>
+	 <button type="button" onclick="BRIQUETE.manutencao.removeCampo(this)">Remover</button>
 	 <input type="hidden" name="idServico">
 	</div>
 	
