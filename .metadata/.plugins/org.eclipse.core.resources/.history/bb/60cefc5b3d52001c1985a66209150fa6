@@ -120,6 +120,9 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			console.log("dados return: ")
 			console.log(dados);
 			
+		
+			console.log(BRIQUETE.manutencao.dataAtualFormatada(dados.data))
+			
 			document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 			document.getElementById('garantia').innerHTML  = dados.garantia == 1 ? 'Sim' : 'Não'; // ternario
@@ -162,14 +165,14 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							json = new Object();
 							json.servicos = new Array(values.length)
 											
-								for(i = 0; i<values.length;i++){
-									json.servicos[i] = new Object();
-									json.servicos[i].tipo = values[i].tipo;
-									json.servicos[i].peca_servico = values[i].peca_servico;
-									json.servicos[i].valor = values[i].valor;
-									json.servicos[i].orcamento_idorcamento = idorcamento;
-									
-								}
+							for(i = 0; i<values.length;i++){
+								json.servicos[i] = new Object();
+								json.servicos[i].tipo = values[i].tipo;
+								json.servicos[i].peca_servico = values[i].peca_servico;
+								json.servicos[i].valor = values[i].valor;
+								json.servicos[i].orcamento_idorcamento = idorcamento;
+								
+							}
 							
 							}else {
 								for(var x=0;x<dados.servicos.length;x++ )	{

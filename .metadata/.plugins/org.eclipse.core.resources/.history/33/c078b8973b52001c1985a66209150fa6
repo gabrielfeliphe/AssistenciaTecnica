@@ -3,8 +3,6 @@ package br.com.tecnicabriquete.rest;
 import javax.ws.rs.Path;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-
 import javax.ws.rs.PathParam;
 
 import java.sql.Connection;
@@ -108,7 +106,7 @@ public class ServicosRest extends UtilRest{
 			orcamento = jdbcServicos.buscarOrcamentoId(idorcamento);
 
 			conec.fecharConexao();
-					
+			
 			return this.buildResponse(orcamento);
 
 		} catch (Exception e) {

@@ -130,7 +130,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			
 			if(dados.status == 2){
 				document.getElementById("tituloOrcamento").innerHTML = "Editar Orçamento";
-				document.getElementById('diaa').innerHTML = dados.validade;
+				var javaDate = new Date(dados.validade);
+				document.getElementById('diaa').innerHTML = javaDate;
 				document.getElementById('observacao').value = dados.observacao;
 				
 			}else{
@@ -157,26 +158,15 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							    values.push(valoresDiv);
 							});
 							
-							if(dados.servicos.length = 0){
-							
 							json = new Object();
 							json.servicos = new Array(values.length)
 											
-								for(i = 0; i<values.length;i++){
-									json.servicos[i] = new Object();
-									json.servicos[i].tipo = values[i].tipo;
-									json.servicos[i].peca_servico = values[i].peca_servico;
-									json.servicos[i].valor = values[i].valor;
-									json.servicos[i].orcamento_idorcamento = idorcamento;
-									
-								}
-							
-							}else {
-								for(var x=0;x<dados.servicos.length;x++ )	{
-									var novoCampo = $(".add-itens:last").clone();
-									novoCampo.find("input").val(dados.servicos[x]);
-									novoCampo.insertAfter(".add-itens:last");
-								}
+							for(i = 0; i<values.length;i++){
+								json.servicos[i] = new Object();
+								json.servicos[i].tipo = values[i].tipo;
+								json.servicos[i].peca_servico = values[i].peca_servico;
+								json.servicos[i].valor = values[i].valor;
+								json.servicos[i].orcamento_idorcamento = idorcamento;
 								
 							}
 							
@@ -254,6 +244,14 @@ BRIQUETE.manutencao.limparFrm = function(){
 		while($(".add-itens").length > 1){
 		$(".add-itens").last().remove();
 	}
+}
+
+BRIQUETE.manutencao.dataAtualFormatada = function(){
+		var data = new Date(),
+        dia  = data.getDate().toString().padStart(2, '0'),
+        mes  = (data.getMonth()+1).toString().padStart(2, '0'), //+1 pois no getMonth Janeiro começa com zero.
+        ano  = data.getFullYear();
+    return dia+"/"+mes+"/"+ano;
 }
 	
 });

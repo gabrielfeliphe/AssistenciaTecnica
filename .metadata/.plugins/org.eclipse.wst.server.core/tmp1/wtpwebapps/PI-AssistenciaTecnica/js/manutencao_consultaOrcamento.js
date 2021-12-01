@@ -157,15 +157,26 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							    values.push(valoresDiv);
 							});
 							
+							if(dados.servicos.length = 0){
+							
 							json = new Object();
 							json.servicos = new Array(values.length)
 											
-							for(i = 0; i<values.length;i++){
-								json.servicos[i] = new Object();
-								json.servicos[i].tipo = values[i].tipo;
-								json.servicos[i].peca_servico = values[i].peca_servico;
-								json.servicos[i].valor = values[i].valor;
-								json.servicos[i].orcamento_idorcamento = idorcamento;
+								for(i = 0; i<values.length;i++){
+									json.servicos[i] = new Object();
+									json.servicos[i].tipo = values[i].tipo;
+									json.servicos[i].peca_servico = values[i].peca_servico;
+									json.servicos[i].valor = values[i].valor;
+									json.servicos[i].orcamento_idorcamento = idorcamento;
+									
+								}
+							
+							}else {
+								for(var x=0;x<dados.servicos.length;x++ )	{
+									var novoCampo = $(".add-itens:last").clone();
+									novoCampo.find("input").val(dados.servicos[x]);
+									novoCampo.insertAfter(".add-itens:last");
+								}
 								
 							}
 							
@@ -236,13 +247,13 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 
 BRIQUETE.manutencao.limparFrm = function(){	
 
-	$(".add-itens").find("input").val("");
-	$("#observacao").val("");
-	$("#diaa").val("");
-	
-	while($(".add-itens").length > 1){
-	$(".add-itens").last().remove();
-}
+		$(".add-itens").find("input").val("");
+		$("#observacao").val("");
+		$("#diaa").val("");
+		
+		while($(".add-itens").length > 1){
+		$(".add-itens").last().remove();
+	}
 }
 	
 });

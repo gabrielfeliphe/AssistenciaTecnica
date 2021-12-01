@@ -108,7 +108,10 @@ public class ServicosRest extends UtilRest{
 			orcamento = jdbcServicos.buscarOrcamentoId(idorcamento);
 
 			conec.fecharConexao();
-					
+			
+			System.out.println("teste data: ");
+			System.out.println(orcamento.getData());
+			
 			return this.buildResponse(orcamento);
 
 		} catch (Exception e) {
