@@ -121,7 +121,46 @@ public class ServicosRest extends UtilRest{
 	@PUT
 	@Path("/realizaOrcamento")
 	@Consumes("application/*")
-	public Response alterar(String orcamentoParam) {
+	public Response alterarOrcamento(String orcamentoParam) {
+		
+		try {
+			
+			Gson gson =  new GsonBuilder().setDateFormat("yyyy/MM/dd").create();
+			Orcamento orcamento = gson.fromJson(orcamentoParam,Orcamento.class);
+			Conexao conec = new Conexao();
+			Connection conexao = conec.abrirConexao();
+			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
+
+			boolean retorno = jdbcServicos.realizaOrcamento(orcamento);
+			
+			for(Servicos servicos: orcamento.getServicos()) {
+				JDBCServicosDAO jdbcServico = new JDBCServicosDAO(conexao);
+				jdbcServico.inserirServicos(servicos);
+				}
+
+			String msg = "";
+			
+			if (retorno == true) {
+				msg = "Orçamento realizado com sucesso!";
+			} else {
+				msg = "Erro ao realizar Orçamento";
+			}
+
+
+			conec.fecharConexao();
+			return this.buildResponse(msg);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return this.buildErrorResponse(e.getMessage());
+		}
+	}
+	
+	@PUT
+	@Path("/editarOrcamento")
+	@Consumes("application/*")
+	public Response alterarOrcamentoItens(String orcamentoParam) {
+		
 		
 		try {
 			
@@ -131,15 +170,19 @@ public class ServicosRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
 			
-
 			boolean retorno = jdbcServicos.realizaOrcamento(orcamento);
+			
+			for(Servicos servicos: orcamento.getServicos()) {
+				JDBCServicosDAO jdbcServico = new JDBCServicosDAO(conexao);
+				jdbcServico.alterarServicos(servicos);
+				}
 
 			String msg = "";
 			
 			if (retorno == true) {
-				msg = "Orçamento realizado com sucesso!";
+				msg = "Orçamento editado com sucesso!";
 			} else {
-				msg = "Erro ao realizar Orçamento";
+				msg = "Erro ao editar Orçamento";
 			}
 
 

@@ -117,6 +117,11 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 		data: "idorcamento="+idorcamento,
 		success: function(dados) {
 			
+			console.log("dados : ");
+			console.log(dados);
+			
+			var caminho;
+			
 			
 			document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
@@ -127,25 +132,33 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			document.getElementById('defeito').innerHTML  = dados.defeito;
 			
 			if(dados.status == 2){
+				
+				caminho="servicos/editarOrcamento"
+				
 				document.getElementById("tituloOrcamento").innerHTML = "Editar Orçamento";
-				document.getElementById('diaa').innerHTML = dados.validade;
+				document.getElementById('diaa').value = dados.validade;
 				document.getElementById('observacao').value = dados.observacao;
 				
 				var campoAntigo= $(".add-itens:last");
 				campoAntigo.find("[name='tipo']").val(dados.servicos[0].tipo);
 				campoAntigo.find("[name='valor']").val(dados.servicos[0].valor);
 				campoAntigo.find("[name='peca_servico']").val(dados.servicos[0].peca_servico);
+				campoAntigo.find("[name='idServico']").val(dados.servicos[0].idservico);
 				
+				console.log(dados.servicos[0].idservico);
+
 			   for(var x=1;x<dados.servicos.length;x++){
 					var novoCampo = $(".add-itens:last").clone();
 					novoCampo.find("[name='valor']").val(dados.servicos[x].valor);
 					novoCampo.find("[name='tipo']").val(dados.servicos[x].tipo);
 					novoCampo.find("[name='peca_servico']").val(dados.servicos[x].peca_servico);
+					novoCampo.find("[name='idServico']").val(dados.servicos[x].idservico);
 					novoCampo.insertAfter(".add-itens:last");
-					
 			   }
 				
 			}else{
+				caminho="servicos/realizaOrcamento";
+				
 				document.getElementById("tituloOrcamento").innerHTML = "Realizar Orçamento";
 			}
 				
@@ -179,7 +192,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 								json.servicos[i].peca_servico = values[i].peca_servico;
 								json.servicos[i].valor = values[i].valor;
 								json.servicos[i].orcamento_idorcamento = idorcamento;
-								
+								json.servicos[i].idservico = values[i].idServico;
 							}
 										
 							json.defeito = document.getElementById('defeito').value;
@@ -190,7 +203,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							
 							$.ajax({
 								type: "PUT",
-								url: BRIQUETE.PATH + "servicos/realizaOrcamento",
+								url: BRIQUETE.PATH + caminho,
 								data: JSON.stringify(json),
 								success: function(msg) {
 									BRIQUETE.exibirAviso(msg);
@@ -234,6 +247,8 @@ $("#btnAdd").click(function(){
 
 BRIQUETE.manutencao.removeCampo = function(botao){
 	
+	//console.log($(botao).parent().find("[name='idServico']").val());
+
 	if($(".add-itens").length > 1){
 		//remove a linha que contem o botao
 		//parent pega o elemento e vê quem é o pai

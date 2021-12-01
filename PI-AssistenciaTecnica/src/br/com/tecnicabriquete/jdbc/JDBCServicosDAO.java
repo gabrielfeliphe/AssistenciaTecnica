@@ -197,10 +197,6 @@ public class JDBCServicosDAO {
 			
 			System.out.println(p);
 			
-			for(Servicos servicos: orcamento.getServicos()) {
-				JDBCServicosDAO jdbcServico = new JDBCServicosDAO(this.conexao);
-				jdbcServico.inserirServicos(servicos);
-				}
 
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -274,6 +270,56 @@ public class JDBCServicosDAO {
 		}
 		
 		return servicos_;
+	}
+	
+	public boolean alterarServicos(Servicos servicos){
+		String comando ="UPDATE servico SET peca_servico = ?,valor= ?,tipo =? WHERE idservico = ?";
+			
+		PreparedStatement p;
+		
+		try {
+			
+			p = this.conexao.prepareStatement(comando);
+
+			p.setString(1, servicos.getPeca_servico());
+			p.setFloat(2, servicos.getValor());
+			p.setInt(3, servicos.getTipo());
+			p.setInt(4, servicos.getIdservico());
+			
+			System.out.println(p);
+			
+			// Executa o comando no BD
+			p.execute();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;	
+		}
+		
+		return true;	
+	}
+	
+	
+	public boolean deletarServicos(int idservico){
+		String comando ="DELETE from servico where idservico = ?";
+			
+		PreparedStatement p;
+		
+		try {
+			
+			p = this.conexao.prepareStatement(comando);
+
+			p.setInt(1, idservico);
+			
+			// Executa o comando no BD
+			p.execute();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;	
+		}
+		
+		return true;	
 	}
 
 }
