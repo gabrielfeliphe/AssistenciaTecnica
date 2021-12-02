@@ -46,7 +46,7 @@ $(document).ready(function(){
 						statusOrcamento = "Aguardando técnico"
 						break;
 					case 2:
-						statusOrcamento = "Aguardando cliente"
+						statusOrcamento = "Contatar Cliente"
 						break;
 					case -1:
 						statusOrcamento = "Rejeitado"
@@ -70,5 +70,32 @@ $(document).ready(function(){
 		return tabela;
 
 	};
+	
+	BRIQUETE.orcamento.filtroOrcamentos = function(){
+		
+		if(document.querySelector('#pecas').checked && document.querySelector('#manutencao').checked){
+			console.log("Disparou os dois")
+			$("#tabelaOrcamentos tr").filter(function() {
+				$("tr").show()
+			   });
+		}else if(document.querySelector('#manutencao').checked){
+			  $("#tabelaOrcamentos tr").filter(function() {
+			      $(this).toggle($(this).text().indexOf('Contatar Cliente') > -1)
+			   });
+		}else if (document.querySelector('#pecas').checked){
+			$("#tabelaOrcamentos tr").filter(function() {
+			      $(this).toggle($(this).text().indexOf('Aguardando técnico') > -1)
+			   });
+		}else if (!document.querySelector('#manutencao').checked){
+			$("#tabelaOrcamentos tr").filter(function() {
+			      $(this).show()
+			   });
+		}else if (!document.querySelector('#pecas').checked){
+			$("#tabelaOrcamentos tr").filter(function() {
+			      $(this).show()
+			   });
+		}
+	}
+
 
 });
