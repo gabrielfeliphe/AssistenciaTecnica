@@ -46,4 +46,7 @@ h4{
 	color: #7FFFD4;
 }
 
-
+table{
+	margin-top:2%;
+	width:90%;
+}

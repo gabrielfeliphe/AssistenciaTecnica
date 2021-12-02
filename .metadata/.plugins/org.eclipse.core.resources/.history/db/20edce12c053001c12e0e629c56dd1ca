@@ -21,9 +21,8 @@
 			<label for="vehicle2"> A fazer</label><br>
 			</div>
 		</div>	
-		<div id= "lista-orcamento" class = "lista-tabela">
 </div>
-	</div>
+
 	
 <div id="modalRealizaOrcamento" class ="modalEditar">	
 	<div class="container">
