@@ -1,0 +1,12 @@
+BRIQUETE.orcamento = new Object();
+
+
+$(document).ready(function(){
+	
+BRIQUETE.orcamento.teste = function(){
+	alert("olha o corno");
+}	
+	
+BRIQUETE.orcamento.teste();
+
+});

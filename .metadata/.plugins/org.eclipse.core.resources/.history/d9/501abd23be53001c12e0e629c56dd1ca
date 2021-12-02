@@ -1,0 +1,7 @@
+BRIQUETE.recepcao = new Object();
+
+
+$(document).ready(function(){
+	
+	alert("olha o corno");
+});

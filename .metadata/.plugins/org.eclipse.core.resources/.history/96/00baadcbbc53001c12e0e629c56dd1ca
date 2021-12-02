@@ -25,7 +25,7 @@
 </div>
 	</div>
 	
-<div id="modalRealizaOrcamento" class ="modalEditar">	
+<div id="modalRealizaOrcamento">	
 	<div class="container">
 	<h4>Aprovar orçamento</h4>
 	<div class="row">

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Consulta Orçamento</title>
 
-<script src="../../js/general_consultaOrcamento.js"></script>
+<script src="../../js/recepcao_aprovarOrcamento.js"></script>
 
 </head>
 <body>
@@ -25,6 +25,38 @@
 </div>
 	</div>
 	
+<div id="modalRealizaOrcamento" class ="modalEditar">	
+	<div class="container">
+	<h4>Aprovar orçamento</h4>
+	<div class="row">
+		<div class="col-md">
+		 <label>Cliente: </label><label id="cliente"></label></br>
+		 <label >Equipamento: </label><label id="equipamento"></label></br>
+		 <label>Garantia: </label><label id="garantia"></label></br>
+		 <label>Validade do orçamento </label><label id="validadeOrcamento"></label></br>
+		 <label>Observações: </label><label id="Observacoes"></label></br>
+		</div>
+		<div class="col-md">
+		 <label>Modelo/Código </label><label id="mod-cod"></label></br>
+		 <label>Data de entrada: </label><label id="data-entrada"></label></br>
+		 <label>Defeito: </label><label id="defeito"></label></br>
+		 <label>Telefone: </label><label id="telefone"></label></br>
+		</div>
+</div>
 
+<div id="tabela-orcamento" class="tabela-lista">
+
+</div>
+
+<table border="1px">
+<th>
+<label>total</label> <!-- provavelmente vou incorporar numa tabela sem borda -->
+</th>
+<th>
+<label>00,00</label>
+</th>
+</table>
+
+</div>
 </body>
 </html>
