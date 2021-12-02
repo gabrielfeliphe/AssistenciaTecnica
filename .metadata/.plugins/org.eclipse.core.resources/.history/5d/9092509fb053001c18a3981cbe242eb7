@@ -194,13 +194,11 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							json.observacao = document.getElementById('observacao').value;
 							json.idorcamento = idorcamento;
 							
-							console.log(BRIQUETE.manutencao.validaMultiCampos());
-							
 							if($("#diaa").val() ==""){
 								BRIQUETE.exibirAviso("A data não foi preenchida!")
 							}else if($("#observacao").val()==""){
 								BRIQUETE.exibirAviso("A observação não foi preenchida");
-							}else if(BRIQUETE.manutencao.validaMultiCampos() == true){
+							}else if(BRIQUETE.manutencao.validaMultiCampos == true){
 								BRIQUETE.exibirAviso("Os campos de serviços ou peças não foram preenchidos corretamente");
 							}
 							else{
@@ -295,25 +293,18 @@ BRIQUETE.manutencao.calculaValor = function(){
 
 BRIQUETE.manutencao.validaMultiCampos = function(){
 	
-	var retorno = false;
+	console.log("entrou na validação")
 	
 	$('.add-itens').each(function () {// CRIAMOS UM ARRAY COM OS VALORES
-		
-		console.log($(this).find("[name='tipo']").val());
-		
-	    if($(this).find("[name='tipo']").val()== ""){
-	    	console.log("entrou 1")
-	    	retorno = true;
-	    }else if($(this).find("[name='peca_servico']").val() == ""){
-	    	console.log("entrou 2")
-	    	retorno = true;
-	    }else if($(this).find("[name='valor']").val() == ""){
-	    	console.log("entrou 3")
-	    	retorno = true;
-	    }
+	    $(this).find(':input').each(function() {
+	    	if($(this).val()==""){
+	    		return true;
+	    	}else{
+	    		return false;
+	    	}
+	    });
 	});
 	
-	return retorno;
 }
 	
 });

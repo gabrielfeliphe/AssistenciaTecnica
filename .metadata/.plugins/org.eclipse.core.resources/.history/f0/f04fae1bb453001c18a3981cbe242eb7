@@ -301,7 +301,7 @@ BRIQUETE.manutencao.validaMultiCampos = function(){
 		
 		console.log($(this).find("[name='tipo']").val());
 		
-	    if($(this).find("[name='tipo']").val()== ""){
+	    if($(this).find("[name='tipo']").html()== ""){
 	    	console.log("entrou 1")
 	    	retorno = true;
 	    }else if($(this).find("[name='peca_servico']").val() == ""){

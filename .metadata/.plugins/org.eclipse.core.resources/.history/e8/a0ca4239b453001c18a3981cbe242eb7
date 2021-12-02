@@ -48,7 +48,7 @@
 	<button id="btnAdd">Novo item</button>
 	<div class="add-itens" name="divItens">
 	<select name="tipo">
-	  <option value="">SELECIONE</option>
+	  <option >SELECIONE</option>
 	  <option value="1">Peça</option>
 	  <option value="0">Serviço</option>
 	</select>

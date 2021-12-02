@@ -299,9 +299,9 @@ BRIQUETE.manutencao.validaMultiCampos = function(){
 	
 	$('.add-itens').each(function () {// CRIAMOS UM ARRAY COM OS VALORES
 		
-		console.log($(this).find("[name='tipo']").val());
+		console.log(($(this).find("[name='tipo']").val())
 		
-	    if($(this).find("[name='tipo']").val()== ""){
+	    if(($(this).find("[name='tipo']").val()!= '1') || ($(this).find("[name='tipo']").val()!= '2') ){
 	    	console.log("entrou 1")
 	    	retorno = true;
 	    }else if($(this).find("[name='peca_servico']").val() == ""){

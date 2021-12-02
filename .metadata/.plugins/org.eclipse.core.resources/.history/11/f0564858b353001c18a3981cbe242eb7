@@ -295,25 +295,22 @@ BRIQUETE.manutencao.calculaValor = function(){
 
 BRIQUETE.manutencao.validaMultiCampos = function(){
 	
-	var retorno = false;
-	
 	$('.add-itens').each(function () {// CRIAMOS UM ARRAY COM OS VALORES
 		
-		console.log($(this).find("[name='tipo']").val());
+		console.log("entrou no each")
 		
-	    if($(this).find("[name='tipo']").val()== ""){
+	    if(($(this).find("[name='tipo']").val()!= 1) ||($(this).find("[name='tipo']").val()!= 2) ){
 	    	console.log("entrou 1")
-	    	retorno = true;
+	    	return false;
 	    }else if($(this).find("[name='peca_servico']").val() == ""){
 	    	console.log("entrou 2")
-	    	retorno = true;
+	    	return  false;
 	    }else if($(this).find("[name='valor']").val() == ""){
 	    	console.log("entrou 3")
-	    	retorno = true;
+	    	return false;
 	    }
+	    return true;
 	});
-	
-	return retorno;
 }
 	
 });
