@@ -53,8 +53,8 @@
 	  <option value="0">Serviço</option>
 	</select>
 	 <input type="text" name="peca_servico"class="form-control"  placeholder="Peça ou serviço">
-	 <input type="text" name="valor"class="form-control"  placeholder="Valor">
-	 <button type="button" onclick="BRIQUETE.manutencao.removeCampo(this);BRIQUETE.manutencao.removerServico(this)">Remover</button>
+	 <input type="text" name="valor"class="form-control"  placeholder="Valor" onchange="BRIQUETE.manutencao.calculaValor()">
+	 <button type="button" onclick="BRIQUETE.manutencao.removeCampo(this)">Remover</button>
 	 <input type="hidden" name="idServico">
 	</div>
 	
@@ -65,7 +65,7 @@
 <label>total</label> <!-- provavelmente vou incorporar numa tabela sem borda -->
 </th>
 <th>
-<label>00,00</label>
+<label id="totalValores">00,00</label>
 </th>
 </table>
 </div>

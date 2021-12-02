@@ -117,11 +117,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 		data: "idorcamento="+idorcamento,
 		success: function(dados) {
 			
-			console.log("dados : ");
-			console.log(dados);
-			
-			var caminho;
-			
+			//CARREGAMENTO DOS ITENS NA LABEL VIA DADOS
 			
 			document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
@@ -131,9 +127,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			document.getElementById('data-entrada').innerHTML  = dados.data;
 			document.getElementById('defeito').innerHTML  = dados.defeito;
 			
-			if(dados.status == 2){
-				
-				caminho="servicos/editarOrcamento"
+			if(dados.status == 2){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
 				
 				document.getElementById("tituloOrcamento").innerHTML = "Editar Orçamento";
 				document.getElementById('diaa').value = dados.validade;
@@ -144,10 +138,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 				campoAntigo.find("[name='valor']").val(dados.servicos[0].valor);
 				campoAntigo.find("[name='peca_servico']").val(dados.servicos[0].peca_servico);
 				campoAntigo.find("[name='idServico']").val(dados.servicos[0].idservico);
-				
-				console.log(dados.servicos[0].idservico);
 
-			   for(var x=1;x<dados.servicos.length;x++){
+			   for(var x=1;x<dados.servicos.length;x++){ //adiciona os itens e gera os campos dinamicos
 					var novoCampo = $(".add-itens:last").clone();
 					novoCampo.find("[name='valor']").val(dados.servicos[x].valor);
 					novoCampo.find("[name='tipo']").val(dados.servicos[x].tipo);
@@ -155,14 +147,14 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 					novoCampo.find("[name='idServico']").val(dados.servicos[x].idservico);
 					novoCampo.insertAfter(".add-itens:last");
 			   }
+			   
+			   BRIQUETE.manutencao.calculaValor();
 				
 			}else{
-				caminho="servicos/realizaOrcamento";
-				
 				document.getElementById("tituloOrcamento").innerHTML = "Realizar Orçamento";
 			}
 				
-			var modalRealizaOrcamento = {
+			var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 					title: "Realizar orcamento",
 					height: 650,
 					width: 1200,
@@ -174,7 +166,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 						"Salvar": function(){
 							
 							var values = [];
-							$('.add-itens').each(function () { 
+							$('.add-itens').each(function () {// CRIAMOS UM ARRAY COM OS VALORES
 							    var valoresDiv = {};
 							    $(this).find(':input').each(function() {
 							    	valoresDiv[$(this).prop('name')] = $(this).val();
@@ -186,7 +178,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							json = new Object();
 							json.servicos = new Array(values.length)
 											
-							for(i = 0; i<values.length;i++){
+							for(i = 0; i<values.length;i++){ //INSERE EM OBJ PARA PASSAR PRA JSON DPS
 								json.servicos[i] = new Object();
 								json.servicos[i].tipo = values[i].tipo;
 								json.servicos[i].peca_servico = values[i].peca_servico;
@@ -202,10 +194,16 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							json.observacao = document.getElementById('observacao').value;
 							json.idorcamento = idorcamento;
 							
+							if($("#diaa").val() ==""){
+								BRIQUETE.exibirAviso("A data não foi preenchida!")
+							}else if($("#observacao").val()==""){
+								BRIQUETE.exibirAviso("A observação não foi preenchida");
+							}
+							else{
 							
 							$.ajax({
 								type: "PUT",
-								url: BRIQUETE.PATH + caminho,
+								url: BRIQUETE.PATH + "servicos/realizaOrcamento",
 								data: JSON.stringify(json),
 								success: function(msg) {
 									BRIQUETE.exibirAviso(msg);
@@ -217,6 +215,8 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 									BRIQUETE.exibirAviso(info.responseText);
 								}
 							});
+						}
+							
 						}
 					},
 					close: function(){
@@ -260,45 +260,6 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 	}
 }
 
-BRIQUETE.manutencao.removerServico = function(botao){
-	
-	alert("olha o corno")
-	
-	var idservico = $(botao).parent().find("[name='idServico']").val();
-	
-	var modal = {
-			
-			title: "Mensagem",
-			height: 250,
-			width: 400,
-			modal: true,
-			buttons: {
-				"Excluir": function(){
-					$(this).dialog("close");
-					$.ajax({
-						type: "DELETE",
-						url: BRIQUETE.PATH + "servicos/excluir/" + idservico,
-						success: function (msg){
-							BRIQUETE.exibirAviso(msg);
-							BRIQUETE.manutencao.removeCampo(botao);
-						},
-						error: function(info){
-							BRIQUETE.exibirAviso(info.responseText);
-						},
-					});
-				},
-				"Cancelar" : function(){
-					$(this).dialog("close");
-				}
-			}
-		};
-
-		$("#modalAviso").html("Deseja realmente deletar esse cliente ?");
-		$("#modalAviso").dialog(modal);
-	
-}
-
-
 
 BRIQUETE.manutencao.limparFrm = function(){	
 
@@ -309,6 +270,22 @@ BRIQUETE.manutencao.limparFrm = function(){
 		while($(".add-itens").length > 1){
 		$(".add-itens").last().remove();
 	}
+}
+
+BRIQUETE.manutencao.calculaValor = function(){
+	
+	var valorTotal=0;
+	$('.add-itens').each(function () {// CRIAMOS UM ARRAY COM OS VALORES
+	    $(this).find("[name='valor']").each(function() {
+	    	valorTotal += +$(this).val();
+	    });
+	});
+	
+	const currency = function(number){
+	    return new Intl.NumberFormat('en-IN', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
+	};
+	
+	$("#totalValores").html(currency(valorTotal));
 }
 	
 });
