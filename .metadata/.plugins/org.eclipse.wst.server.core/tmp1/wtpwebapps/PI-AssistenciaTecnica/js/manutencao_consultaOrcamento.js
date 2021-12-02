@@ -119,12 +119,13 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			
 			//CARREGAMENTO DOS ITENS NA LABEL VIA DADOS
 			
+			
 			document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 			document.getElementById('garantia').innerHTML  = dados.garantia == 1 ? 'Sim' : 'Não'; // ternario
 			document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 			document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
-			document.getElementById('data-entrada').innerHTML  = dados.data;
+			document.getElementById('data-entrada').innerHTML  = formatDate(dados.data);
 			document.getElementById('defeito').innerHTML  = dados.defeito;
 			
 			if(dados.status == 2){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
@@ -315,6 +316,14 @@ BRIQUETE.manutencao.validaMultiCampos = function(){
 	
 	return retorno;
 }
+
+function formatDate (input) {
+	  var datePart = input.match(/\d+/g),
+	  year = datePart[0].substring(0,4),
+	  month = datePart[1], day = datePart[2];
+
+	  return day+'/'+month+'/'+year;
+	}
 	
 });
 
