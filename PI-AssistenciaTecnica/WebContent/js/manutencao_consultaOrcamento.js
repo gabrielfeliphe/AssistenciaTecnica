@@ -149,8 +149,6 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 					novoCampo.insertAfter(".add-itens:last");
 			   }
 			   
-			   BRIQUETE.manutencao.calculaValor();
-				
 			}else{
 				document.getElementById("tituloOrcamento").innerHTML = "Realizar Orçamento";
 			}
@@ -163,6 +161,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 					buttons:{
 						"Cancelar": function(){
 							$(this).dialog("close");
+							BRIQUETE.manutencao.limparFrm()
 						},
 						"Salvar": function(){
 							

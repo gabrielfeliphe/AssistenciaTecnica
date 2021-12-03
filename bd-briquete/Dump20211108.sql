@@ -145,12 +145,14 @@ UNLOCK TABLES;
 -- Dump completed on 2021-11-08 14:26:09
 select * from cliente;
 
-select * from orcamento;
+select * from servico;
 
 ALTER TABLE cliente MODIFY telefone char(11);
 
 select * from orcamento;
 
 update orcamento set status = 1 where idorcamento = 1;
+
+delete from servico where idservico between 3 and 8;
 
 

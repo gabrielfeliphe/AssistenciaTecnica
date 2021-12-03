@@ -104,9 +104,11 @@ public class JDBCServicosDAO {
 				int status = rs.getInt("status");
 				int idcliente = rs.getInt("idcliente");
 				String nomeCliente = rs.getString("nome");
+				long numeroCliente = rs.getLong("telefone");
 				
 				cliente.setIdcliente(idcliente);
 				cliente.setNome(nomeCliente);
+				cliente.setTelefone(numeroCliente);
 				
 				
 				orcamento.setData(data_entrada);
@@ -153,8 +155,10 @@ public class JDBCServicosDAO {
 				String nome = rs.getString("nome");
 				String observacao = rs.getString("observacao");
 				Date validade = rs.getDate("validade_orcamento");
+				long telefone = rs.getLong("telefone");
 				
 				cliente.setNome(nome);
+				cliente.setTelefone(telefone);
 
 				orcamento.setEquipamentoNome(nome_equipamento);
 				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
