@@ -136,13 +136,13 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 				
 				var campoAntigo= $(".add-itens:last");
 				campoAntigo.find("[name='tipo']").val(dados.servicos[0].tipo);
-				campoAntigo.find("[name='valor']").val(dados.servicos[0].valor);
+				campoAntigo.find("[name='valor']").val(String(dados.servicos[0].valor).replace(".",","));
 				campoAntigo.find("[name='peca_servico']").val(dados.servicos[0].peca_servico);
 				campoAntigo.find("[name='idServico']").val(dados.servicos[0].idservico);
 
 			   for(var x=1;x<dados.servicos.length;x++){ //adiciona os itens e gera os campos dinamicos
 					var novoCampo = $(".add-itens:last").clone();
-					novoCampo.find("[name='valor']").val(dados.servicos[x].valor);
+					novoCampo.find("[name='valor']").val(String(dados.servicos[x].valor).replace(".",","));
 					novoCampo.find("[name='tipo']").val(dados.servicos[x].tipo);
 					novoCampo.find("[name='peca_servico']").val(dados.servicos[x].peca_servico);
 					novoCampo.find("[name='idServico']").val(dados.servicos[x].idservico);
@@ -182,7 +182,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 								json.servicos[i] = new Object();
 								json.servicos[i].tipo = values[i].tipo;
 								json.servicos[i].peca_servico = values[i].peca_servico;
-								json.servicos[i].valor = values[i].valor;
+								json.servicos[i].valor = BRIQUETE.manutencao.formatarDinheiro(values[i].valor);
 								json.servicos[i].orcamento_idorcamento = idorcamento;
 								if(dados.status == 2){
 								json.servicos[i].idservico = values[i].idServico;
@@ -194,7 +194,6 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 							json.observacao = document.getElementById('observacao').value;
 							json.idorcamento = idorcamento;
 							
-							console.log(BRIQUETE.manutencao.validaMultiCampos());
 							
 							if($("#diaa").val() ==""){
 								BRIQUETE.exibirAviso("A data não foi preenchida!")
@@ -230,6 +229,7 @@ BRIQUETE.manutencao.realizarOrcamento = function(idorcamento){
 			};
 			
 			$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
+			BRIQUETE.manutencao.calculaValor();
 			
 		},
 		error: function(info) {
@@ -281,13 +281,15 @@ BRIQUETE.manutencao.calculaValor = function(){
 	var valorTotal=0;
 	$('.add-itens').each(function () {// CRIAMOS UM ARRAY COM OS VALORES
 	    $(this).find("[name='valor']").each(function() {
-	    	valorTotal += +$(this).val();
+	    	var a = $(this).val().replace(",",".");
+	    	valorTotal += +a;
 	    });
 	});
 	
 	const currency = function(number){
-	    return new Intl.NumberFormat('en-IN', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
+	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
 	};
+	
 	
 	$("#totalValores").html(currency(valorTotal));
 }
@@ -325,4 +327,8 @@ function formatDate (input) {
 	}
 	
 });
+
+BRIQUETE.manutencao.formatarDinheiro = function (valor){
+	return valor.replace(',','.')
+}
 

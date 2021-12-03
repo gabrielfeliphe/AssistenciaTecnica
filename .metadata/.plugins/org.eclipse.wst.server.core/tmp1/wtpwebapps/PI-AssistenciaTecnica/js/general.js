@@ -43,5 +43,4 @@ BRIQUETE.exibirAviso = function(aviso){
 		$("#modalAviso").dialog(modal);
 };
 
-
 });
