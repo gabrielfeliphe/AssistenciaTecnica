@@ -118,10 +118,12 @@ $(document).ready(function(){
 				document.getElementById('data-entrada').innerHTML  = dados.data;
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				
+				
 				if(dados.status == 2){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
 					
-					document.getElementById('diaa').value = dados.validade;
-					document.getElementById('observacao').value = dados.observacao;
+					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
+					document.getElementById('observacoes').innerHTML = dados.observacao;
+					document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 					
 					var campoAntigo= $(".add-itens:last");
 					campoAntigo.find("[name='tipo']").val(dados.servicos[0].tipo);
@@ -138,7 +140,7 @@ $(document).ready(function(){
 						novoCampo.insertAfter(".add-itens:last");
 				   }
 				   
-				   BRIQUETE.orcamento.calculaValor();
+				  // BRIQUETE.orcamento.calculaValor();
 					
 				}else{
 				
@@ -203,7 +205,7 @@ $(document).ready(function(){
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
 										$("#modalRealizaOrcamento").dialog('close');
-										BRIQUETE.orcamento.limparFrm();
+										//BRIQUETE.orcamento.limparFrm();
 									},
 									error: function(info) {
 										BRIQUETE.exibirAviso(info.responseText);
@@ -217,7 +219,7 @@ $(document).ready(function(){
 							}
 						},
 						close: function(){
-							BRIQUETE.orcamento.limparFrm();
+							//BRIQUETE.orcamento.limparFrm();
 							$(this).dialog('close');
 						}
 				};

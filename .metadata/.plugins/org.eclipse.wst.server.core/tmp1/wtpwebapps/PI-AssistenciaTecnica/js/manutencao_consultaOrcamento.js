@@ -36,31 +36,27 @@ BRIQUETE.manutencao.exibirOrcamentos = function(listaDeOrcamentos) {
 		"</tr>"+
 		"</thead>"+
 		"<tbody id='tabelaOrcamentos'>";
-
+	
+	var triggerStatus = 0;
+	
 	if (listaDeOrcamentos != undefined && listaDeOrcamentos.length > 0) {
 		
 		console.log(listaDeOrcamentos)
 
 		for (var i = 0; i < listaDeOrcamentos.length; i++) {
-			let statusOrcamento
-			switch (listaDeOrcamentos[i].status) {
-				case 1:
-					statusOrcamento = "Aguardando técnico"
-					break;
-				case 2:
-					statusOrcamento = "Aguardando cliente"
-					break;
-				case -1:
-					statusOrcamento = "Rejeitado"
-			}
 			
+			
+			if(listaDeOrcamentos[i].status == 1){
+				
+			triggerStatus = 1;
+			let statusOrcamento = "Aguardando técnico"	
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td class='exibeInformacoes' onclick='BRIQUETE.manutencao.realizarOrcamento("+listaDeOrcamentos[i].idorcamento+")'>" + statusOrcamento + "</td>" +
 				"<td>" + listaDeOrcamentos[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOrcamentos[i].equipamentoNome + "</td>" +
 				"</tr>"
-
+			}
 
 		}
 
@@ -68,6 +64,25 @@ BRIQUETE.manutencao.exibirOrcamentos = function(listaDeOrcamentos) {
 		tabela += "<tr><td colspan='6'>Nenhum registro encontrado</td></tr>";
 	}
 	tabela += "</tbody></table>";
+	
+	if(triggerStatus == 0){
+		
+		console.log("entrou no trigger")
+		
+		tabela = "<table class='table table-bordered table-dark'>" +
+		"<thead>"+
+		"<tr>" +
+		"<th>Status</th>" +
+		"<th>Cliente</th>" +
+		"<th>Equipamento</th>" +
+		"</tr>"+
+		"</thead>"+
+		"<tbody id='tabelaOrcamentos'>"+
+		"<tr><td colspan='6'>Nenhum registro encontrado</td></tr>"+
+		"</tbody></table>";
+	}
+	
+	console.log(triggerStatus)
 
 	return tabela;
 
@@ -258,6 +273,7 @@ BRIQUETE.manutencao.removeCampo = function(botao){
 		//parent pega o elemento e vê quem é o pai
 		// uma escadinha inversa nos elementos do DOM
 		$(botao).parent().remove();
+		BRIQUETE.manutencao.calculaValor();
 		
 	}else{
 		BRIQUETE.exibirAviso("A última linha não pode ser removida");

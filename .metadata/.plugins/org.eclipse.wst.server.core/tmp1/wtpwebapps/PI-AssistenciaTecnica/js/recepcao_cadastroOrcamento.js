@@ -100,6 +100,7 @@ BRIQUETE.orcamento.cadastrar = function(){
 		success: function(msg) {
 			BRIQUETE.exibirAviso(msg);
 			document.getElementById("frm-AberturaOrcamento").reset();
+			BRIQUETE.orcamento.data();
 		},
 		error: function(info) {
 			BRIQUETE.exibirAviso(info.responseText);
