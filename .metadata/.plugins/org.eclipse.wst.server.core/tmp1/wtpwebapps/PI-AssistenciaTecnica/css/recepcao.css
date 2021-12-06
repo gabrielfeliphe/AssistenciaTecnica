@@ -142,5 +142,19 @@ table{
 	width:90%;
 }
 
+#tabela-orcamento table{
+	max-height: 50%;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	margin-right: 35%;
+	
+}
+
+#modalRealizaOrcamento label{
+	font-size: 14px;
+	margin-bottom: 2px;
+}
+
 
 

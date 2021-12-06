@@ -155,4 +155,6 @@ update orcamento set status = 1 where idorcamento = 1;
 
 delete from servico where idservico between 3 and 8;
 
+update orcamento set status = ? where idorcamento = ?;
+
 

@@ -259,7 +259,7 @@ BRIQUETE.funcionario.editar = function (){
 				BRIQUETE.exibirAviso("Erro ao editar Funcionário: "+info.responseText);
 			}
 		});
-			}
+	}
 		
 	}
 

@@ -326,4 +326,32 @@ public class JDBCServicosDAO {
 		return true;	
 	}
 
+	public boolean aprovarOrcamento(int idOrcamento, int operacao) {
+		
+		
+		String comando ="update orcamento set status = ? where idorcamento = ?;";
+		
+		PreparedStatement p;
+		
+		try {
+			
+			p = this.conexao.prepareStatement(comando);
+
+			p.setInt(1, idOrcamento);
+			p.setInt(2, operacao);
+			
+			System.out.println(p);
+			
+			// Executa o comando no BD
+			p.execute();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;	
+		}
+		
+		
+		return true;
+	}
+
 }
