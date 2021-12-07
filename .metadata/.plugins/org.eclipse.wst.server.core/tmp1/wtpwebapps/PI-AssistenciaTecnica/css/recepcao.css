@@ -156,5 +156,15 @@ table{
 	margin-bottom: 2px;
 }
 
+#box{
+	border:solid 1px black;
+}
+
+#procurarClientesOrcamentos{
+	margin-top: 25px;
+}
+
+
+
 
 

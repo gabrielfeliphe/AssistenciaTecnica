@@ -77,6 +77,11 @@ textarea{
 	margin-bottom: 30px;
 }
 
+#box{
+	border:solid 1px black;
+}
+
+
 
 
 

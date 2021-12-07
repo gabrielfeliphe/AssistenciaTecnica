@@ -12,7 +12,7 @@
 		<h4>Consulta de orçamento</h4>
 		<div class = "row" id="box">
 			<div class="col-sm">
-			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id='procurarClientesOrcamentos' oninput="BRIQUETE.orcamento.procurarCliente()">
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id='procurarClientesOrcamentos'>
 			</div>	
 			<div class="col-sm">
 			<input type="checkbox" id="aprovar"  value="1" onclick="BRIQUETE.orcamento.filtroOrcamentos()">

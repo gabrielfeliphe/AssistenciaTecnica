@@ -25,7 +25,7 @@ $(document).ready(function(){
 	
 	BRIQUETE.orcamento.exibirOrcamentos = function(listaDeOrcamentos) {
 
-		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientes'>" +
+		var tabela = "<table class='table table-bordered table-dark'>" +
 			"<thead>"+
 			"<tr>" +
 			"<th>Status</th>" +
@@ -77,25 +77,24 @@ $(document).ready(function(){
 	
 	BRIQUETE.orcamento.filtroOrcamentos = function(){
 		
-		
-		if(!document.querySelector('#aprovar').checked && !document.querySelector('#contatar').checked){
+		if(document.querySelector('#pecas').checked && document.querySelector('#orcamento').checked){
 			console.log("Disparou os dois")
 			$("#tabelaOrcamentos tr").filter(function() {
 				$("tr").show()
 			   });
-		}else if(document.querySelector('#contatar').checked){
+		}else if(document.querySelector('#orcamento').checked){
 			  $("#tabelaOrcamentos tr").filter(function() {
-			      $(this).toggle($(this).text().indexOf('Aguardando técnico') > -1)
-			   });
-		}else if (document.querySelector('#aprovar').checked){
-			$("#tabelaOrcamentos tr").filter(function() {
 			      $(this).toggle($(this).text().indexOf('Contatar Cliente') > -1)
 			   });
-		}else if (!document.querySelector('#provar').checked){
+		}else if (document.querySelector('#pecas').checked){
+			$("#tabelaOrcamentos tr").filter(function() {
+			      $(this).toggle($(this).text().indexOf('Aguardando técnico') > -1)
+			   });
+		}else if (!document.querySelector('#orcamento').checked){
 			$("#tabelaOrcamentos tr").filter(function() {
 			      $(this).show()
 			   });
-		}else if (!document.querySelector('#contatar').checked){
+		}else if (!document.querySelector('#pecas').checked){
 			$("#tabelaOrcamentos tr").filter(function() {
 			      $(this).show()
 			   });
@@ -249,28 +248,7 @@ $(document).ready(function(){
 	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
 	};
 	
-	
-	BRIQUETE.orcamento.procurarCliente = function(){
-		  var input, filter, table, tr, td, i, txtValue;
-		  input = document.getElementById("procurarClientesOrcamentos");
-		  filter = input.value.toUpperCase();
-		  table = document.getElementById("tabelaExibeClientes");
-		  tr = table.getElementsByTagName("tr");
-		  console.log(tr)
-		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[1];
-		    console.log(td)
-		    if (td) {
-		      txtValue = td.textContent || td.innerText;
-		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		        tr[i].style.display = "";
-		      } else {
-		        tr[i].style.display = "none";
-		      }
-		    }       
-		  }
-		}
-	
+
 
 
 });

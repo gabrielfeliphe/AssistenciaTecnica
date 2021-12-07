@@ -160,10 +160,6 @@ table{
 	border:solid 1px black;
 }
 
-#procurarClientesOrcamentos{
-	margin-top: 25px;
-}
-
 
 
 
