@@ -347,4 +347,3 @@ function formatDate (input) {
 BRIQUETE.manutencao.formatarDinheiro = function (valor){
 	return valor.replace(',','.')
 }
-

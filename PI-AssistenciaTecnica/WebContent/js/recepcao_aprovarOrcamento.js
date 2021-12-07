@@ -144,7 +144,7 @@ $(document).ready(function(){
 								$.ajax({
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento",
-									data: JSON.stringify(idorcamento,3),
+									data: , // ???
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
@@ -162,7 +162,7 @@ $(document).ready(function(){
 								$.ajax({
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento",
-									data: JSON.stringify(idorcamento,-1),
+									data:(idorcamento,-1),
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
