@@ -50,6 +50,10 @@ $(document).ready(function(){
 						break;
 					case -1:
 						statusOrcamento = "Rejeitado"
+						break;
+					case 3:
+						statusOrcamento = "Aprovado"
+						break;
 				}
 				
 
@@ -73,24 +77,25 @@ $(document).ready(function(){
 	
 	BRIQUETE.orcamento.filtroOrcamentos = function(){
 		
-		if(document.querySelector('#pecas').checked && document.querySelector('#orcamento').checked){
+		
+		if(!document.querySelector('#aprovar').checked && !document.querySelector('#contatar').checked){
 			console.log("Disparou os dois")
 			$("#tabelaOrcamentos tr").filter(function() {
 				$("tr").show()
 			   });
-		}else if(document.querySelector('#orcamento').checked){
+		}else if(document.querySelector('#contatar').checked){
 			  $("#tabelaOrcamentos tr").filter(function() {
-			      $(this).toggle($(this).text().indexOf('Contatar Cliente') > -1)
-			   });
-		}else if (document.querySelector('#pecas').checked){
-			$("#tabelaOrcamentos tr").filter(function() {
 			      $(this).toggle($(this).text().indexOf('Aguardando técnico') > -1)
 			   });
-		}else if (!document.querySelector('#orcamento').checked){
+		}else if (document.querySelector('#aprovar').checked){
+			$("#tabelaOrcamentos tr").filter(function() {
+			      $(this).toggle($(this).text().indexOf('Contatar Cliente') > -1)
+			   });
+		}else if (!document.querySelector('#provar').checked){
 			$("#tabelaOrcamentos tr").filter(function() {
 			      $(this).show()
 			   });
-		}else if (!document.querySelector('#pecas').checked){
+		}else if (!document.querySelector('#contatar').checked){
 			$("#tabelaOrcamentos tr").filter(function() {
 			      $(this).show()
 			   });
@@ -119,7 +124,7 @@ $(document).ready(function(){
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 				
-				if(dados.status == 2){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
+				if((dados.status == 2) || (dados.status == 3)){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
 					
 					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
 					document.getElementById('observacoes').innerHTML = dados.observacao;
@@ -143,8 +148,7 @@ $(document).ready(function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento",
-									data: ("idOrcamento="+idorcamento+ "&operacao=3" ),
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"3",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
@@ -161,8 +165,7 @@ $(document).ready(function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento",
-									data:(idorcamento,-1),
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-1",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
@@ -200,7 +203,7 @@ $(document).ready(function(){
 		
 		var somaValores =0;
 		
-		var tabela = "<table class='table table-bordered table-dark'>" +
+		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientes'>" +
 		"<tr>" +
 		"<th>Categoria</th>" +
 		"<th>Descrição</th>" +
@@ -246,7 +249,26 @@ $(document).ready(function(){
 	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
 	};
 	
-
+	
+	BRIQUETE.orcamento.procurarCliente = function(){
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("procurarClientesOrcamentos");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("tabelaExibeClientes");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+		    td = tr[i].getElementsByTagName("td")[0];
+		    if (td) {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		        tr[i].style.display = "";
+		      } else {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+	
 
 
 });

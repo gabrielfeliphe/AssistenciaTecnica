@@ -170,7 +170,7 @@ public class JDBCServicosDAO {
 				orcamento.setObservacao(observacao);
 				orcamento.setValidade(validade);
 				
-				if (status >= 2) {
+				if (status == 2) {
 					orcamento.setServicos(buscarServicos(idorcamento));
 				}
 			
@@ -337,8 +337,8 @@ public class JDBCServicosDAO {
 			
 			p = this.conexao.prepareStatement(comando);
 
-			p.setInt(1, operacao);
-			p.setInt(2, idOrcamento);
+			p.setInt(1, idOrcamento);
+			p.setInt(2, operacao);
 			
 			System.out.println(p);
 			

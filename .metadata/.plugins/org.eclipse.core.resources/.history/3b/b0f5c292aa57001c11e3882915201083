@@ -170,7 +170,7 @@ public class JDBCServicosDAO {
 				orcamento.setObservacao(observacao);
 				orcamento.setValidade(validade);
 				
-				if (status >= 2) {
+				if (status == 2) {
 					orcamento.setServicos(buscarServicos(idorcamento));
 				}
 			

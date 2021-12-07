@@ -263,7 +263,7 @@ public class ServicosRest extends UtilRest{
 	
 	
 	@PUT
-	@Path("/aprovarOrcamento/{idOrcamento}/{operacao}")
+	@Path("/aprovarOrcamento/{idOrcamento}{operacao}")
 	@Consumes("application/*")
 	public Response aprovarOrcamento(@PathParam("idOrcamento")int idOrcamento,@PathParam("operacao") int operacao) {
 		

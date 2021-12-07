@@ -263,9 +263,9 @@ public class ServicosRest extends UtilRest{
 	
 	
 	@PUT
-	@Path("/aprovarOrcamento/{idOrcamento}/{operacao}")
-	@Consumes("application/*")
-	public Response aprovarOrcamento(@PathParam("idOrcamento")int idOrcamento,@PathParam("operacao") int operacao) {
+	@Path("/aprovarOrcamento")
+	@Consumes("text/plain*")
+	public Response aprovarOrcamento(@QueryParam("idOrcamento")int idOrcamento,@QueryParam("operacao") int operacao) {
 		
 		System.out.println("Querys:"+idOrcamento);
 		System.out.println(operacao);
