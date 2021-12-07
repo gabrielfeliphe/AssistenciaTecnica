@@ -144,7 +144,7 @@ $(document).ready(function(){
 								$.ajax({
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento",
-									data: ("idOrcamento="+idorcamento+ "&operacao=3" ),
+									data: {idOrcamento:[idorcamento], operacao:[3] },
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
