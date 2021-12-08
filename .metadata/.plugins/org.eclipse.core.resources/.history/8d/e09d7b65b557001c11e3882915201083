@@ -126,7 +126,6 @@ $(document).ready(function(){
 				
 				if((dados.status == 2) || (dados.status == 3)){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
 					
-					
 					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
 					document.getElementById('observacoes').innerHTML = dados.observacao;
 					
@@ -188,8 +187,8 @@ $(document).ready(function(){
 						}
 				};
 				
-				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
+				BRIQUETE.orcamento.limparFrm();
 				
 			},
 			error: function(info) {
@@ -278,13 +277,10 @@ $(document).ready(function(){
 	
 
 	BRIQUETE.orcamento.limparFrm = function(){	
-		
-			console.log("entrou limpar frm")
-		
 			$("#observacao").val("");
 			$("#diaa").val("");
-			$("#tabela-orcamento").html("");
-			$("#valorTotal").html("");
+			$("#tabela-orcamento").val("");
+			$("#valorTotal").val("");
 			
 	}
 	

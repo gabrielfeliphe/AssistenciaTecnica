@@ -113,6 +113,8 @@ $(document).ready(function(){
 				
 				//CARREGAMENTO DOS ITENS NA LABEL VIA DADOS
 				
+				BRIQUETE.orcamento.limparFrm();
+				
 				console.log(dados);
 				
 				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
@@ -187,7 +189,6 @@ $(document).ready(function(){
 							$(this).dialog('close');
 						}
 				};
-				
 				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
 				
@@ -283,8 +284,8 @@ $(document).ready(function(){
 		
 			$("#observacao").val("");
 			$("#diaa").val("");
-			$("#tabela-orcamento").html("");
-			$("#valorTotal").html("");
+			$("#tabela-orcamento").val("");
+			$("#valorTotal").val("");
 			
 	}
 	

@@ -126,6 +126,7 @@ $(document).ready(function(){
 				
 				if((dados.status == 2) || (dados.status == 3)){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
 					
+					
 					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
 					document.getElementById('observacoes').innerHTML = dados.observacao;
 					
@@ -136,13 +137,14 @@ $(document).ready(function(){
 				}
 					
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
-						title: "Realizar orcamento",
+						title: "Orçamento",
 						height: 650,
 						width: 1200,
 						modal: true,
 						buttons:{
 							"Cancelar": function(){
 								$(this).dialog("close");
+								BRIQUETE.orcamento.limparFrm();	
 							},
 							"Aprovar": function(){
 								
@@ -152,6 +154,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOrcamento").dialog('close');
 									},
 									error: function(info) {
@@ -169,6 +172,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOrcamento").dialog('close');
 									},
 									error: function(info) {
@@ -179,10 +183,11 @@ $(document).ready(function(){
 							}
 						},
 						close: function(){
-							//BRIQUETE.orcamento.limparFrm();
+							BRIQUETE.orcamento.limparFrm();
 							$(this).dialog('close');
 						}
 				};
+				
 				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
 				
@@ -270,6 +275,18 @@ $(document).ready(function(){
 		    }       
 		  }
 		}
+	
+
+	BRIQUETE.orcamento.limparFrm = function(){	
+		
+			console.log("entrou limpar frm")
+		
+			$("#observacao").val("");
+			$("#diaa").val("");
+			$("#tabela-orcamento").html("");
+			$("#valorTotal").html("");
+			
+	}
 	
 
 

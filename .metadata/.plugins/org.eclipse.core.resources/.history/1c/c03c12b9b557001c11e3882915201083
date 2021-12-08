@@ -126,7 +126,6 @@ $(document).ready(function(){
 				
 				if((dados.status == 2) || (dados.status == 3)){ // FAZ O CARREGAMENTO SE A ORDEM DE SERVIÇO JÁ FOI PREENCHIDA
 					
-					
 					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
 					document.getElementById('observacoes').innerHTML = dados.observacao;
 					
@@ -187,7 +186,6 @@ $(document).ready(function(){
 							$(this).dialog('close');
 						}
 				};
-				
 				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
 				
@@ -283,8 +281,8 @@ $(document).ready(function(){
 		
 			$("#observacao").val("");
 			$("#diaa").val("");
-			$("#tabela-orcamento").html("");
-			$("#valorTotal").html("");
+			$("#tabela-orcamento").val("");
+			$("#valorTotal").val("");
 			
 	}
 	

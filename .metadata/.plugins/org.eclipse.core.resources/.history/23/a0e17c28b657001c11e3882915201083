@@ -188,7 +188,6 @@ $(document).ready(function(){
 						}
 				};
 				
-				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
 				
 			},
@@ -284,7 +283,7 @@ $(document).ready(function(){
 			$("#observacao").val("");
 			$("#diaa").val("");
 			$("#tabela-orcamento").html("");
-			$("#valorTotal").html("");
+			$("#valorTotal").val("");
 			
 	}
 	

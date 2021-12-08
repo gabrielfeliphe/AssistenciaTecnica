@@ -188,7 +188,6 @@ $(document).ready(function(){
 						}
 				};
 				
-				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
 				
 			},

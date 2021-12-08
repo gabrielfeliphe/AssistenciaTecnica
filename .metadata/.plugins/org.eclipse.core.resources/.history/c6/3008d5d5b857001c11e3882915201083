@@ -164,7 +164,7 @@ table{
 	margin-top: 25px;
 }
 
-#modalRealizaOrcamento h4{
+h4{
 	margin-left: 40%;
 }
 
