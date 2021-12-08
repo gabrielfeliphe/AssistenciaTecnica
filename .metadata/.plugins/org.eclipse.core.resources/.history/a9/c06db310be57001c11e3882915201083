@@ -21,7 +21,7 @@
         <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" onclick="BRIQUETE.carregaPagina('funcao/verifica_item')">Consulta</a>
+        <a class="nav-link" href="#" onclick="BRIQUETE.carregaPagina('funcoes/verifica_item')">Consulta</a>
       </li>
 
     </ul>

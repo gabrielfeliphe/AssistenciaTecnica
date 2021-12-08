@@ -62,8 +62,6 @@ $(document).ready(function(){
 					"<td>" + listaDeOrcamentos[i].cliente.nome+ "</td>" +
 					"<td>" + listaDeOrcamentos[i].equipamentoNome + "</td>" +
 					"</tr>"
-
-
 			}
 
 		} else if (listaDeOrcamentos == "") {

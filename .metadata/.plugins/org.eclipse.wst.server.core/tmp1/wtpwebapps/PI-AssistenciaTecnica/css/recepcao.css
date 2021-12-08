@@ -168,6 +168,14 @@ table{
 	margin-left: 40%;
 }
 
+.exibeInformacoes{
+	cursor: pointer;
+}
+
+.exibeInformacoes:hover{
+	color: #7FFFD4;
+}
+
 
 
 
