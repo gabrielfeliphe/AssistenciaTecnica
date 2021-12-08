@@ -186,8 +186,12 @@ $(document).ready(function(){
 						}
 				};
 				
-				
 				$("#modalRealizaOrcamento").dialog(modalRealizaOrcamento);
+				
+				if(dados.status !=2){ // desabilita botão quando for diferente de contatar o cliente;
+					$(":button:contains('Aprovar')").prop("disabled", true).addClass("ui-state-disabled")
+					$(":button:contains('Rejeitar')").prop("disabled", true).addClass("ui-state-disabled")
+				}
 				
 			},
 			error: function(info) {
