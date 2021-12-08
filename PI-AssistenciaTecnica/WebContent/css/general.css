@@ -1,5 +1,6 @@
 #box{
 	border:solid 1px black;
+	margin-top: 10px;
 }
 
 #box input{
@@ -35,6 +36,7 @@ button{
 }
 
 h4{
+	margin-top: 2px;
 	text-align: center;
 }
 
@@ -46,4 +48,19 @@ h4{
 	color: #7FFFD4;
 }
 
+#procurarClienteAlmoxarife{
+	margin-left: 30px;
+	margin-bottom: 30px;
+}
+
+#lista-orcamento table{
+	margin-top:2%;
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#modalAviso, .modalEditar{
+	display: none;
+}
 

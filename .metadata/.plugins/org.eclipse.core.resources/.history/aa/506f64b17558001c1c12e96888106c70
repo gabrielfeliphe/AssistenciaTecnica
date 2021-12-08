@@ -1,0 +1,10 @@
+BRIQUETE.almoxarife = new Object();
+
+
+$(document).ready(function() {
+	
+	
+	
+
+	
+});

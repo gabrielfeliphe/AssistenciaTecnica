@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Verifica item Orçamento</title>
+
+<script src="../../js/almoxarife_verificarItem.js"></script>
+
+</head>
+<body>
+	
+	<div class= "container" id="box">
+	<h4>Verificar item</h4>
+		<div class = "row">
+			<div class="col-sm">
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente" id="procurarClienteAlmoxarife">
+			</div>
+			<div class="col-sm">
+			
+			</div>
+		</div>	
+	</div>
+	
+<div id= "lista-orcamento" class = "lista-tabela">
+</div>
+
+
+<div id="modalOrcamento" class = "modalEditar">
+
+<div name="modalRealizaServico">
+	<h4>Verificar item </h4>
+	<div class="row">
+		<div class="col-md">
+		 <label>Cliente:&nbsp; </label><label id="clienteNameModal"></label></br>
+		 <label >Equipamento:&nbsp; </label><label id="equipamento"></label></br>
+		 <label>Garantia:&nbsp; </label><label id="garantia"></label></br>
+		 <label>Validade do orçamento: </label></br>
+		 <input type="date" id="diaa" id="diaa">		</div>
+		<div class="col-md">
+		 <label>Modelo/Código:&nbsp; </label><label id="mod-cod"></label></br>
+		 <label>Data de entrada:&nbsp; </label><label id="data-entrada"></label></br>
+		 <label>Defeito:&nbsp; </label><label id="defeito"></label></br>
+		 <label>Observações:&nbsp; </label></br>
+		 <textarea name="txaobservacao" id="observacao"></textarea>
+		</div>
+	</div>
+	
+	<button id="btnAdd">Novo item</button>
+	<div class="add-itens" name="divItens">
+	<select name="tipo">
+	  <option value="">SELECIONE</option>
+	  <option value="1">Peça</option>
+	  <option value="0">Serviço</option>
+	</select>
+	 <input type="text" name="peca_servico"class="form-control"  placeholder="Peça ou serviço">
+	 <input type="text" name="valor"class="form-control"  placeholder="Valor" onchange="BRIQUETE.manutencao.calculaValor()">
+	 <button type="button" onclick="BRIQUETE.manutencao.removeCampo(this)">Remover</button>
+	 <input type="hidden" name="idServico">
+	</div>
+	
+
+
+<table border="1px">
+<th>
+<label>total</label> <!-- provavelmente vou incorporar numa tabela sem borda -->
+</th>
+<th>
+<label id="totalValores">00,00</label>
+</th>
+</table>
+</div>
+
+
+</div>
+
+</body>
+</html>
