@@ -52,7 +52,7 @@ $(document).ready(function(){
 						statusOrcamento = "Rejeitado"
 						break;
 					case 3:
-						statusOrcamento = "Aprovado - Aguardando Peças"
+						statusOrcamento = "Aprovado"
 						break;
 				}
 				

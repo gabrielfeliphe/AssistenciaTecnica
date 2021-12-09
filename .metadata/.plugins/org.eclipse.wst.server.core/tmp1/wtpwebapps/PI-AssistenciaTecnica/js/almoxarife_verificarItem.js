@@ -127,7 +127,7 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.almoxarife.consultaOrcamento()
-										$("#modalRealizaOrcamento").dialog('close');
+										$("#modalOrcamento").dialog('close');
 									},
 									error: function(info) {
 										BRIQUETE.exibirAviso(info.responseText);
@@ -137,7 +137,7 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 							},
 							"Aguardar":function(){
 								BRIQUETE.almoxarife.consultaOrcamento();
-								$("#modalRealizaOrcamento").dialog('close');
+								$("#modalOrcamento").dialog('close');
 							}
 						},
 						close: function(){
