@@ -25,25 +25,20 @@
 </div>
 
 
-<div id="modalOrcamento" class = "modalEditar">
+<div id="modalRealizarOrcamento" class = "modalEditar">
 
 <div name="modalRealizaServico">
 	<h4>Verificar item </h4>
-	<br>
 	<div class="row">
 		<div class="col-md">
 		 <label>Cliente:&nbsp; </label><label id="clienteNameModal"></label></br>
 		 <label >Equipamento:&nbsp; </label><label id="equipamento"></label></br>
-		 </div>	
 		<div class="col-md">
 		 <label>Modelo/Código:&nbsp; </label><label id="mod-cod"></label></br>
 		 <label>Defeito:&nbsp; </label><label id="defeito"></label></br>
 		</div>
+	</div>	
 </div>
-
-<div id="tabela-pecas" class="tabela-lista">
-</div>
-
 </div>
 
 </body>

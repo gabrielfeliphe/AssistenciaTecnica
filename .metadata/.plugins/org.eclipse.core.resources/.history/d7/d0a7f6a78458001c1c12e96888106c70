@@ -171,7 +171,7 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 				
 				if(dadosOrcamento[i].tipo == 1){
 						tabela += "<tr>" +
-							"<td>" + dadosOrcamento[i].peca_servico + "</td>" +
+							"<td>" + dadosOrcamento.servicos.peca_servico + "</td>" +
 							"</tr>"
 				}
 			}

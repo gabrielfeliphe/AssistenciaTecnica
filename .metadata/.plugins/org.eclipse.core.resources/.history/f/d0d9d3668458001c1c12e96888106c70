@@ -109,7 +109,7 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 				document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				
-				$("#tabela-pecas").html(BRIQUETE.almoxarife.exibirPecasModal(dados.servicos));
+				$("#tabela-pecas").html(BRIQUETE.almoxarife.exibirPecasModal(dados));
 					
 				var modalOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
@@ -169,16 +169,16 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 		
 			for (var i = 0; i < dadosOrcamento.length; i++) { // servico = 0 , peça = 1
 				
-				if(dadosOrcamento[i].tipo == 1){
+				console.log(dadosOrcamento.servicos.tipo)
+				
+				if(dadosOrcamento.servicos.tipo == 1){
 						tabela += "<tr>" +
-							"<td>" + dadosOrcamento[i].peca_servico + "</td>" +
+							"<td>" + dadosOrcamento.servicos.peca_servico + "</td>" +
 							"</tr>"
 				}
 			}
 		
 		tabela += "</table>";
-		
-		console.log(tabela)
 		
 		return tabela;
 			

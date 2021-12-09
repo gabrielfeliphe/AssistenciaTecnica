@@ -29,7 +29,6 @@
 
 <div name="modalRealizaServico">
 	<h4>Verificar item </h4>
-	<br>
 	<div class="row">
 		<div class="col-md">
 		 <label>Cliente:&nbsp; </label><label id="clienteNameModal"></label></br>
@@ -40,10 +39,6 @@
 		 <label>Defeito:&nbsp; </label><label id="defeito"></label></br>
 		</div>
 </div>
-
-<div id="tabela-pecas" class="tabela-lista">
-</div>
-
 </div>
 
 </body>

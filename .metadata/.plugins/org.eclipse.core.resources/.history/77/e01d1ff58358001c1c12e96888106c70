@@ -40,10 +40,6 @@
 		 <label>Defeito:&nbsp; </label><label id="defeito"></label></br>
 		</div>
 </div>
-
-<div id="tabela-pecas" class="tabela-lista">
-</div>
-
 </div>
 
 </body>

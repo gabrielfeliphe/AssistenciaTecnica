@@ -11,6 +11,7 @@ INDEX VERSION 1.4+C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.
 1055256427.index
 147824217.index
 3633527619.index
+1974735482.index
 545015953.index
 984846302.index
 3691684456.index

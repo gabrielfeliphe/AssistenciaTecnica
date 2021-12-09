@@ -108,8 +108,6 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 				document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
 				document.getElementById('defeito').innerHTML  = dados.defeito;
-				
-				$("#tabela-pecas").html(BRIQUETE.almoxarife.exibirPecasModal(dados.servicos));
 					
 				var modalOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
@@ -126,7 +124,7 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"4",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.almoxarife.consultaOrcamento()
+										BRIQUETE.orcamento.consultaOrcamento();
 										$("#modalRealizaOrcamento").dialog('close');
 									},
 									error: function(info) {
@@ -155,34 +153,6 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 
 		});
 	}
-
-		BRIQUETE.almoxarife.exibirPecasModal = function (dadosOrcamento){
-			
-			
-
-			
-			var tabela = "<table class='table table-bordered table-dark'>" +
-			"<tr>" +
-			"<th>Peca</th>" +
-		"</tr>";
-		
-		
-			for (var i = 0; i < dadosOrcamento.length; i++) { // servico = 0 , peça = 1
-				
-				if(dadosOrcamento[i].tipo == 1){
-						tabela += "<tr>" +
-							"<td>" + dadosOrcamento[i].peca_servico + "</td>" +
-							"</tr>"
-				}
-			}
-		
-		tabela += "</table>";
-		
-		console.log(tabela)
-		
-		return tabela;
-			
-		}
 	
 
 	
