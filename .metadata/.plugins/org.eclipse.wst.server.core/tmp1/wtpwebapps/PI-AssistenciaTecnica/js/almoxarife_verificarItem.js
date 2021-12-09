@@ -29,7 +29,7 @@ $(document).ready(function() {
 	
 	BRIQUETE.almoxarife.exibirOrcamentos = function(listaDeOrcamentos) {
 
-		var tabela = "<table class='table table-bordered table-dark'>" +
+		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibePecas'>" +
 			"<thead>"+
 			"<tr>" +
 			"<th>Status</th>" +
@@ -71,7 +71,7 @@ $(document).ready(function() {
 			
 			console.log("entrou no trigger")
 			
-			tabela = "<table class='table table-bordered table-dark'>" +
+			tabela = "<table class='table table-bordered table-dark' id='tabelaExibePecas'>" +
 			"<thead>"+
 			"<tr>" +
 			"<th>Status</th>" +
@@ -183,6 +183,28 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 		return tabela;
 			
 		}
+		
+		BRIQUETE.almoxarife.procurarCliente = function(){
+			  var input, filter, table, tr, td, i, txtValue;
+			  input = document.getElementById("procurarClienteAlmoxarife");
+			  filter = input.value.toUpperCase();
+			  table = document.getElementById("tabelaExibePecas");
+			  console.log(table)
+			  tr = table.getElementsByTagName("tr");
+			  console.log(tr)
+			  for (i = 0; i < tr.length; i++) {
+			    td = tr[i].getElementsByTagName("td")[1];
+			    console.log(td)
+			    if (td) {
+			      txtValue = td.textContent || td.innerText;
+			      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			        tr[i].style.display = "";
+			      } else {
+			        tr[i].style.display = "none";
+			      }
+			    }       
+			  }
+			}
 	
 
 	

@@ -29,7 +29,7 @@ $(document).ready(function() {
 	
 	BRIQUETE.almoxarife.exibirOrcamentos = function(listaDeOrcamentos) {
 
-		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibePecas'>" +
+		var tabela = "<table class='table table-bordered table-dark'>" +
 			"<thead>"+
 			"<tr>" +
 			"<th>Status</th>" +
@@ -189,11 +189,10 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 			  input = document.getElementById("procurarClienteAlmoxarife");
 			  filter = input.value.toUpperCase();
 			  table = document.getElementById("tabelaExibePecas");
-			  console.log(table)
 			  tr = table.getElementsByTagName("tr");
 			  console.log(tr)
 			  for (i = 0; i < tr.length; i++) {
-			    td = tr[i].getElementsByTagName("td")[1];
+			    td = tr[i].getElementsByTagName("td")[0];
 			    console.log(td)
 			    if (td) {
 			      txtValue = td.textContent || td.innerText;
