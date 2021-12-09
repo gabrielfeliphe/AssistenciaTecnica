@@ -177,7 +177,7 @@ table{
 }
 
 #tabelaValor{
-	text-align: right;
+	margin-left:auto;
 }
 
 

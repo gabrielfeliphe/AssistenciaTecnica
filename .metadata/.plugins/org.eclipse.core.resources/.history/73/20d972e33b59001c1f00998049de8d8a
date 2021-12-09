@@ -50,8 +50,7 @@
 
 <table>
 <th><label>Valor: </label></th>
-<th></th>
-<th id='tabelaValor'><label id="valorTotal"></label></th>
+<th><label id="valorTotal"></label></th>
 </table>
 </div>
 </body>

@@ -48,10 +48,8 @@
 <div id="tabela-orcamento" class="tabela-lista">
 </div>
 
-<table>
-<th><label>Valor: </label></th>
-<th></th>
-<th id='tabelaValor'><label id="valorTotal"></label></th>
+<table border="1px">
+<th><label>Valor: </label></th><th></th><th><label id="valorTotal"></label></th>
 </table>
 </div>
 </body>

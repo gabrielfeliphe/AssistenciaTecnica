@@ -152,8 +152,8 @@ $(document).ready(function(){
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"3",
 									success: function(msg) {
+										$(this).dialog('close');
 										BRIQUETE.exibirAviso(msg);
-										$('#modalRealizaOrcamento').dialog('close');
 										BRIQUETE.orcamento.consultaOrcamento();
 										BRIQUETE.orcamento.limparFrm();
 									},
@@ -170,8 +170,8 @@ $(document).ready(function(){
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-1",
 									success: function(msg) {
+										$(this).dialog('close');
 										BRIQUETE.exibirAviso(msg);
-										$('#modalRealizaOrcamento').dialog('close');
 										BRIQUETE.orcamento.consultaOrcamento();
 										BRIQUETE.orcamento.limparFrm();
 									},

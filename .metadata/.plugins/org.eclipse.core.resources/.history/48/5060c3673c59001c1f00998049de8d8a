@@ -176,8 +176,8 @@ table{
 	color: #7FFFD4;
 }
 
-#tabelaValor{
-	text-align: right;
+#tabelaValor th{
+	margin-left:auto;
 }
 
 

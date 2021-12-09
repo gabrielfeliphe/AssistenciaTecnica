@@ -64,7 +64,7 @@ public class JDBCServicosDAO {
 
 
 		// Criação da instrução SQL para busca de todos funcionarios
-		String comando = "SELECT * FROM orcamento INNER JOIN cliente on orcamento.idcliente = cliente.idcliente ORDER BY status ASC";
+		String comando = "SELECT * FROM orcamento INNER JOIN cliente on orcamento.idcliente = cliente.idcliente";
 
 		List<Orcamento> listaOrcamento = new ArrayList<Orcamento>();
 
