@@ -158,9 +158,6 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 
 		BRIQUETE.almoxarife.exibirPecasModal = function (dadosOrcamento){
 			
-			
-
-			
 			var tabela = "<table class='table table-bordered table-dark'>" +
 			"<tr>" +
 			"<th>Peca</th>" +
@@ -205,7 +202,5 @@ BRIQUETE.almoxarife.verificaItemEstoque = function(idorcamento){
 			    }       
 			  }
 			}
-	
 
-	
 });

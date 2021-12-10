@@ -152,6 +152,7 @@ table{
 }
 
 #modalRealizaOrcamento label{
+	font-size: 14px;
 	margin-bottom: 2px;
 }
 
@@ -179,6 +180,9 @@ table{
 	text-align: right;
 }
 
+table label{
+	font-size: 20px;
+}
 
 
 

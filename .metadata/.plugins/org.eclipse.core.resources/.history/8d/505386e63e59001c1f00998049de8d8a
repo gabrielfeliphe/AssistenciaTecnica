@@ -49,9 +49,9 @@
 </div>
 
 <table>
-<th><label class="labelValor">Valor: </label></th>
+<th><label>Valor: </label></th>
 <th></th>
-<th id='tabelaValor'><label id="valorTotal" class="labelValor"></label></th>
+<th id='tabelaValor'><label id="valorTotal"></label></th>
 </table>
 </div>
 </body>

@@ -152,7 +152,6 @@ table{
 }
 
 #modalRealizaOrcamento label{
-	font-size: 14px;
 	margin-bottom: 2px;
 }
 
@@ -179,6 +178,7 @@ table{
 #tabelaValor{
 	text-align: right;
 }
+
 
 
 

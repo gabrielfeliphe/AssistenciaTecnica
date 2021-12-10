@@ -148,6 +148,7 @@ $(document).ready(function(){
 							},
 							"Aprovar": function(){
 								
+								
 								$.ajax({
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"3",
