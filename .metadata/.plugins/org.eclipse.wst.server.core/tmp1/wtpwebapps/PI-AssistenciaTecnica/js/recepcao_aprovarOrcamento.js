@@ -113,7 +113,10 @@ $(document).ready(function(){
 				
 				//CARREGAMENTO DOS ITENS NA LABEL VIA DADOS
 				
-				console.log(dados);
+				valorStatus = BRIQUETE.orcamento.verificaQtPecas(dados.servicos);
+				
+				console.log("valorStatus: ")
+				console.log(valorStatus);
 				
 				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
@@ -151,7 +154,7 @@ $(document).ready(function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"3",
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+valorStatus,
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										$('#modalRealizaOrcamento').dialog('close');
@@ -293,6 +296,16 @@ $(document).ready(function(){
 			
 	}
 	
+	BRIQUETE.orcamento.verificaQtPecas = function(servicos){
+		
+		var retorno = 4;
 
+		for(var z=0;z<servicos.length; z++){
+			if(servicos[z].tipo == 1){
+				retorno = 3;
+			}
+		}
+		return retorno;
+	}
 
 });

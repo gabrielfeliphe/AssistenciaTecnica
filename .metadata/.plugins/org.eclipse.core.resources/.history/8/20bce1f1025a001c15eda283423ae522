@@ -267,6 +267,10 @@ public class ServicosRest extends UtilRest{
 	@Consumes("application/*")
 	public Response aprovarOrcamento(@PathParam("idOrcamento")int idOrcamento,@PathParam("operacao") int operacao) {
 		
+		System.out.println("Querys:"+idOrcamento);
+		System.out.println(operacao);
+		
+		
 		try {
 			
 			Conexao conec = new Conexao();

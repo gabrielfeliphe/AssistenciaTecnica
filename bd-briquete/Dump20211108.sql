@@ -143,6 +143,11 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2021-11-08 14:26:09
+
+ALTER TABLE `der-pi`.`servico` 
+CHANGE COLUMN `idservico` `idservico` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador da tabela servico.' ;
+
+
 select * from cliente;
 
 select * from servico;

@@ -115,9 +115,6 @@ $(document).ready(function(){
 				
 				valorStatus = BRIQUETE.orcamento.verificaQtPecas(dados.servicos);
 				
-				console.log("valorStatus: ")
-				console.log(valorStatus);
-				
 				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 				document.getElementById('garantia').innerHTML  = dados.garantia == 1 ? 'Sim' : 'Não'; // ternario
@@ -301,7 +298,7 @@ $(document).ready(function(){
 		var retorno = 4;
 
 		for(var z=0;z<servicos.length; z++){
-			if(servicos[z].tipo == 1){
+			if(servicos[i].tipo == 1){
 				retorno = 3;
 			}
 		}
