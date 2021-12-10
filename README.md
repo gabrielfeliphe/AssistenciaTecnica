@@ -24,9 +24,17 @@
 
 ![realizar_orcamento](https://user-images.githubusercontent.com/62681139/144886951-d8e5258b-1a00-452f-b754-7cafb102bd47.gif)
 
+<h3 align="center">Demonstração tratativa de Orçamentos</h3>
+
+![tratativa_orcamentos](https://user-images.githubusercontent.com/62681139/145598001-557bb557-e813-4307-9cb3-2c12aec8419c.gif)
+
+<h3 align="center">Demonstração Verificação de item em estoque</h3>
+
+![verificarItemEstoque](https://user-images.githubusercontent.com/62681139/145598051-bede1ac3-f9a9-4d64-8a71-934434295605.gif)
+
+
 <h2>Sobre o projeto</h2>
 Projeto de uma assistência técnica Ficticia que permitirá o cadastro de funcionários no sistema, cadastro de clientes, abertura de orçamentos, aberturas ordem de serviço, pedidos de peças, e entrega de produtos para o cliente final.
-
 
 <h2>Tecnologias</h2>
  
