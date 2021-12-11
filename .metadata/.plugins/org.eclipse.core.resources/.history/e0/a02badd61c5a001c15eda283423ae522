@@ -12,8 +12,8 @@ $(document).ready(function(){
 	
 	BRIQUETE.carregaPagina= function(pagename){
 		//Remove o contúdo criado na abertura de uma janela pelo modal JQueryUI
-		if($(".ui-dialog"))
-			$(".ui-dialog").remove();
+		//if($(".ui-dialog"))
+		//	$(".ui-dialog").remove();
 		//limpa a tag section, excluindo todo o conteúdo de dentro dela
 
 		$("section").empty();

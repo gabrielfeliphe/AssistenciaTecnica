@@ -153,11 +153,10 @@ $(document).ready(function(){
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+valorStatus,
 									success: function(msg) {
-										BRIQUETE.exibirAviso(msg);
-										//$("#modalRealizaOrcamento").dialog("close");
-										BRIQUETE.orcamento.consultaOrcamento();
-										BRIQUETE.orcamento.limparFrm();
-										$("#modalRealizaOrcamento").dialog( "close" );
+										//BRIQUETE.exibirAviso(msg);
+										$(".ui-dialog").dialog("close");
+										//BRIQUETE.orcamento.consultaOrcamento();
+										//BRIQUETE.orcamento.limparFrm();
 									},
 									error: function(info) {
 										BRIQUETE.exibirAviso(info.responseText);
@@ -294,7 +293,7 @@ $(document).ready(function(){
 			
 	}
 	
-	BRIQUETE.orcamento.verificaQtPecas = function(servicos){ 	
+	BRIQUETE.orcamento.verificaQtPecas = function(servicos){
 		
 		var retorno = 4;
 

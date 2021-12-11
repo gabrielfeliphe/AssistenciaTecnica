@@ -130,7 +130,7 @@ $(document).ready(function(){
 					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
 					document.getElementById('observacoes').innerHTML = dados.observacao;
 					
-					$("#tabela-orcamento").html(BRIQUETE.orcamento.exibirOrcamentoModal(dados.servicos));
+					//$("#tabela-orcamento").html(BRIQUETE.orcamento.exibirOrcamentoModal(dados.servicos));
 					
 				}else{
 				
@@ -294,7 +294,7 @@ $(document).ready(function(){
 			
 	}
 	
-	BRIQUETE.orcamento.verificaQtPecas = function(servicos){ 	
+	BRIQUETE.orcamento.verificaQtPecas = function(servicos){
 		
 		var retorno = 4;
 

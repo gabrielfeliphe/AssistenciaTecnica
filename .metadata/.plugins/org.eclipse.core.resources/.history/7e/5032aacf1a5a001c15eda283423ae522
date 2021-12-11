@@ -294,7 +294,7 @@ $(document).ready(function(){
 			
 	}
 	
-	BRIQUETE.orcamento.verificaQtPecas = function(servicos){ 	
+	BRIQUETE.orcamento.verificaQtPecas = function(servicos){
 		
 		var retorno = 4;
 

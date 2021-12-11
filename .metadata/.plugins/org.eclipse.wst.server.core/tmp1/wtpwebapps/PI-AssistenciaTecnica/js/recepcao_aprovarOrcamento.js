@@ -115,9 +115,6 @@ $(document).ready(function(){
 				
 				valorStatus = BRIQUETE.orcamento.verificaQtPecas(dados.servicos);
 				
-				console.log("valorStatus: ")
-				console.log(valorStatus);
-				
 				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 				document.getElementById('garantia').innerHTML  = dados.garantia == 1 ? 'Sim' : 'Não'; // ternario
@@ -157,9 +154,10 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+valorStatus,
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										$('#modalRealizaOrcamento').dialog('close');
+										//$("#modalRealizaOrcamento").dialog("close");
 										BRIQUETE.orcamento.consultaOrcamento();
 										BRIQUETE.orcamento.limparFrm();
+										$("#modalRealizaOrcamento").dialog( "close" );
 									},
 									error: function(info) {
 										BRIQUETE.exibirAviso(info.responseText);
@@ -175,7 +173,7 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-1",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										$('#modalRealizaOrcamento').dialog('close');
+										$(this).dialog("close");
 										BRIQUETE.orcamento.consultaOrcamento();
 										BRIQUETE.orcamento.limparFrm();
 									},
@@ -296,7 +294,7 @@ $(document).ready(function(){
 			
 	}
 	
-	BRIQUETE.orcamento.verificaQtPecas = function(servicos){
+	BRIQUETE.orcamento.verificaQtPecas = function(servicos){ 	
 		
 		var retorno = 4;
 
