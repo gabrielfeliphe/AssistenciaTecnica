@@ -293,7 +293,6 @@ $(document).ready(function(){
 			$("#diaa").val("");
 			$("#tabela-orcamento").html("");
 			$("#valorTotal").html("");
-			document.getElementById("tabelaValor").hidden = true;
 			
 	}
 	

@@ -128,6 +128,9 @@ $(document).ready(function(){
 					
 					document.getElementById('validadeOrcamento').innerHTML = dados.validade;
 					document.getElementById('observacoes').innerHTML = dados.observacao;
+					document.getElementById("tabelaValor").hidden = false;
+					
+					console.log(document.getElementById("tabelaValor").hidden)
 					
 					$("#tabela-orcamento").html(BRIQUETE.orcamento.exibirOrcamentoModal(dados.servicos));
 					
@@ -290,6 +293,7 @@ $(document).ready(function(){
 			$("#diaa").val("");
 			$("#tabela-orcamento").html("");
 			$("#valorTotal").html("");
+			document.getElementById("tabelaValor").hidden = true;
 			
 	}
 	
