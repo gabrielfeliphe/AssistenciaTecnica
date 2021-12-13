@@ -27,8 +27,8 @@ public class JDBCServicosDAO {
 		System.out.println(orcamento.getData());
 		
 		String comando = "INSERT INTO orcamento(nome_equipamento,modelo_codigo,descricao_problema,"
-				+ "data_entrada,validade_orcamento,status,idcliente)"
-				+ "VALUES(?,?,?,?,?,?,?)";
+				+ "garantia,data_entrada,validade_orcamento,status,idcliente)"
+				+ "VALUES(?,?,?,?,?,?,?,?)";
 		
 		PreparedStatement p;
 		
@@ -44,10 +44,11 @@ public class JDBCServicosDAO {
 			p.setString(1, orcamento.getEquipamentoNome());
 			p.setString(2, orcamento.getEquipamentoModeloCodigo());
 			p.setString(3, orcamento.getDefeito());
-			p.setDate(4, orcamento.getData());
+			p.setInt(4, orcamento.getGarantia());
 			p.setDate(5, orcamento.getData());
-			p.setInt(6, status);
-			p.setInt(7, orcamento.getCliente().getIdcliente());
+			p.setDate(6, orcamento.getData());
+			p.setInt(7, status);
+			p.setInt(8, orcamento.getCliente().getIdcliente());
 			
 			// Executa o comando no BD
 			p.execute();
@@ -96,6 +97,7 @@ public class JDBCServicosDAO {
 				String nome_equipamento = rs.getString("nome_equipamento");
 				String modelo_codigo = rs.getString("modelo_codigo");
 				String descricao_problema = rs.getString("descricao_problema");
+				int garantia = rs.getInt("garantia");
 				Date data_entrada = rs.getDate("data_entrada");
 				Date validade_orcamento = rs.getDate("validade_orcamento");
 				String observacao = rs.getString("observacao");
@@ -112,6 +114,7 @@ public class JDBCServicosDAO {
 				orcamento.setData(data_entrada);
 				orcamento.setDefeito(descricao_problema);
 				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
+				orcamento.setGarantia(garantia);
 				orcamento.setEquipamentoNome(nome_equipamento);
 				orcamento.setIdorcamento(idorcamento);
 				orcamento.setStatus(status);
@@ -146,6 +149,7 @@ public class JDBCServicosDAO {
 				String nome_equipamento = rs.getString("nome_equipamento");
 				String modelo_codigo = rs.getString("modelo_codigo");
 				String descricao_problema = rs.getString("descricao_problema");
+				int garantia = rs.getInt("garantia");
 				Date data = rs.getDate("data_entrada");
 				int status = rs.getInt("status");
 				String nome = rs.getString("nome");
@@ -159,6 +163,7 @@ public class JDBCServicosDAO {
 				orcamento.setEquipamentoNome(nome_equipamento);
 				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
 				orcamento.setDefeito(descricao_problema);
+				orcamento.setGarantia(garantia);
 				orcamento.setData(data);
 				orcamento.setStatus(status);
 				orcamento.setCliente(cliente);

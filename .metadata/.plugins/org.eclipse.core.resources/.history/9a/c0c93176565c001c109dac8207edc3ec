@@ -74,6 +74,7 @@ BRIQUETE.orcamento.cadastrar = function(){
 	orcamento.equipamentoNome = document.frmAberturaOrcamento.equipamento.value;
 	orcamento.equipamentoModeloCodigo = document.frmAberturaOrcamento.modelo_codigo.value;
 	orcamento.defeito = document.frmAberturaOrcamento.defeito.value;
+	orcamento.garantia = document.frmAberturaOrcamento.garantia.value;
 	orcamento.data = document.frmAberturaOrcamento.data.value;
 	
 	
@@ -86,6 +87,8 @@ BRIQUETE.orcamento.cadastrar = function(){
 		BRIQUETE.exibirAviso("Insira o modelo ou código do equipamento");
 	}else if(orcamento.defeito==""){
 		BRIQUETE.exibirAviso("Insira o defeito do equipamento")
+	}else if(orcamento.garantia==""){
+		BRIQUETE.exibirAviso("Selecione a vigencia da garantia")
 	}else if(orcamento.data==""){
 		BRIQUETE.exibirAviso("Selecione a data de entrada do equipamento")
 	}else{

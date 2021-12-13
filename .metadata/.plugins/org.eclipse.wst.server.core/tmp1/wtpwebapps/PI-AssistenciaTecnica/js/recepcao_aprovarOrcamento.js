@@ -117,7 +117,6 @@ $(document).ready(function(){
 				
 				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
-				document.getElementById('garantia').innerHTML  = dados.garantia == 1 ? 'Sim' : 'Não'; // ternario
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 				document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
 				document.getElementById('data-entrada').innerHTML  = dados.data;

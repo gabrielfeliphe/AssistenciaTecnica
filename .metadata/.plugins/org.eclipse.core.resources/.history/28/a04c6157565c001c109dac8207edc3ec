@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Orcamento {
 	
 	String equipamentoNome,equipamentoModeloCodigo,defeito,observacao;
-	int status,idorcamento;
+	int garantia,status,idorcamento;
 	Date data,validade;
 	Cliente cliente;
 	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
@@ -31,6 +31,12 @@ public class Orcamento {
 		this.defeito = defeito;
 	}
 	
+	public int getGarantia() {
+		return garantia;
+	}
+	public void setGarantia(int garantia) {
+		this.garantia = garantia;
+	}
 	public Date getData() {
 		return data;
 	}

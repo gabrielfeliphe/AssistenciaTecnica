@@ -147,6 +147,10 @@ UNLOCK TABLES;
 ALTER TABLE `der-pi`.`servico` 
 CHANGE COLUMN `idservico` `idservico` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador da tabela servico.' ;
 
+ALTER TABLE `der-pi`.`orcamento` 
+DROP COLUMN `garantia`;
+
+
 
 select * from cliente;
 
@@ -161,5 +165,7 @@ update orcamento set status = 1 where idorcamento = 1;
 delete from servico where idservico between 3 and 8;
 
 update orcamento set status = ? where idorcamento = ?;
+
+
 
 
