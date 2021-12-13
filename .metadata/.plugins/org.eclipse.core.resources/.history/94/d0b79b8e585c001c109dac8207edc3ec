@@ -41,10 +41,8 @@
 </div>
 
 <table>
-<tr>
-<td></td>
-<td><label class="labelValor">Total: </label></td>
-<td id='tabelaValor'><label id="valorTotal" class="labelValor"></label></td>
-</tr>
+<th></th>
+<th><label class="labelValor">Valor: </label></th>
+<th id='tabelaValor'><label id="valorTotal" class="labelValor"></label></th>
 </table>
 </div>

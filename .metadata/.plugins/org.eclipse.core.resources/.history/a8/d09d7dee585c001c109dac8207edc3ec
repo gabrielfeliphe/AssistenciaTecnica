@@ -43,7 +43,7 @@
 <table>
 <tr>
 <td></td>
-<td><label class="labelValor">Total: </label></td>
+<td><label class="labelValor">Valor: </label></td>
 <td id='tabelaValor'><label id="valorTotal" class="labelValor"></label></td>
 </tr>
 </table>
