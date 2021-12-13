@@ -156,7 +156,6 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+valorStatus,
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										//$("#modalRealizaOrcamento").dialog("close");
 										BRIQUETE.orcamento.consultaOrcamento();
 										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOrcamento").dialog( "close" );
@@ -175,9 +174,9 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-1",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										$(this).dialog("close");
 										BRIQUETE.orcamento.consultaOrcamento();
 										BRIQUETE.orcamento.limparFrm();
+										$("#modalRealizaOrcamento").dialog( "close" );
 									},
 									error: function(info) {
 										BRIQUETE.exibirAviso(info.responseText);
