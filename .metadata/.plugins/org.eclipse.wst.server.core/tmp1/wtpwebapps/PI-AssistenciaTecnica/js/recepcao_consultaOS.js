@@ -70,8 +70,7 @@ $(document).ready(function(){
 	tabela += "</tbody></table>";
 
 	return tabela;
-		
-		
+
 	}
 	
 });
