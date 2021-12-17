@@ -1,5 +1,7 @@
 BRIQUETE.recepcao = new Object();
 
+console.log("entrou script consulta os")
+
 $(document).ready(function(){
 	
 	BRIQUETE.recepcao.consultaOS = function(){
@@ -21,7 +23,8 @@ $(document).ready(function(){
 	
 	BRIQUETE.recepcao.consultaOS();
 	
-	BRIQUETE.recepcao.exibirOS = function(dados){
+	BRIQUETE.recepcao.exibirOS = function(listaDeOS){
+
 		
 		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientes'>" +
 		"<thead>"+
@@ -40,21 +43,15 @@ $(document).ready(function(){
 		for (var i = 0; i < listaDeOS.length; i++) {
 			let statusOrcamento
 			switch (listaDeOS[i].status) {
-				case 1:
-					statusOrcamento = "Aguardando técnico"
+				case 4:
+					statusOrcamento = "Aguardando Manutenção"
 					break;
-				case 2:
+				case 5:
 					statusOrcamento = "Contatar Cliente"
-					break;
-				case -1:
-					statusOrcamento = "Rejeitado"
-					break;
-				case 3:
-					statusOrcamento = "Aprovado - Aguardando Peças"
 					break;
 			}
 			
-			if(listaDeOS[i].status <= 3){
+			if(listaDeOS[i].status >= 4){
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td class='exibeInformacoes' onclick='BRIQUETE.orcamento.aprovarOrcamento("+listaDeOS[i].idorcamento+")'>" + statusOrcamento + "</td>" +
