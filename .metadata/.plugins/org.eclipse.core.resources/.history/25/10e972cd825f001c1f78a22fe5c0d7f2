@@ -1,0 +1,22 @@
+BRIQUETE.recepcao = new Object();
+
+$(document).ready(function(){
+	
+	BRIQUETE.recepcao.consultaOS = function(){
+		
+		$.ajax({
+			type: "GET",
+			url: BRIQUETE.PATH + "servicos/buscarOrcamentos",
+			success: function(dados) {
+				console.log(dados);
+				$("#lista-orcamento").html(BRIQUETE.orcamento.exibirOrcamentos(dados));
+			},
+			error: function(info) {
+				console.log("erro : " + info);
+				//BRIQUETE.exibirAviso("Erro ao consultar os contatos: "+ info.status+" - " + info.statusText+ " - " + info.responseText);
+			},
+
+		});
+		
+	
+});
