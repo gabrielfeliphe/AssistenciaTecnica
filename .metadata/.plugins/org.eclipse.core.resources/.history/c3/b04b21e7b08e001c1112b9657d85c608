@@ -115,7 +115,7 @@ $(document).ready(function(){
 						buttons:{
 							"Cancelar": function(){
 								$(this).dialog("close");
-								//BRIQUETE.orcamento.limparFrm();	
+								BRIQUETE.orcamento.limparFrm();	
 							},
 							"Finalizar": function(){
 								
@@ -126,7 +126,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
-										//BRIQUETE.orcamento.limparFrm();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
 									error: function(info) {
@@ -144,7 +144,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
-										//BRIQUETE.orcamento.limparFrm();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
 									error: function(info) {
@@ -155,7 +155,7 @@ $(document).ready(function(){
 							}
 						},
 						close: function(){
-							//BRIQUETE.orcamento.limparFrm();
+							BRIQUETE.orcamento.limparFrm();
 							$(this).dialog('close');
 						}
 				};
@@ -163,8 +163,8 @@ $(document).ready(function(){
 				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
 				
 				if(dados.status !=5){ // desabilita botão quando for diferente de contatar o cliente;
-					$(":button:contains('Finalizar')").prop("disabled", true).addClass("ui-state-disabled")
-					$(":button:contains('Abandono')").prop("disabled", true).addClass("ui-state-disabled")
+					$(":button:contains('Aprovar')").prop("disabled", true).addClass("ui-state-disabled")
+					$(":button:contains('Rejeitar')").prop("disabled", true).addClass("ui-state-disabled")
 				}
 				
 			},

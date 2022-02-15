@@ -82,13 +82,14 @@ $(document).ready(function(){
 			success: function(dados) {
 				
 				//CARREGAMENTO DOS ITENS NA LABEL VIA DADOS
-				console.log("dados do idorcamento consultaos")
-				console.log(dados)
+				
+				valorStatus = BRIQUETE.orcamento.verificaQtPecas(dados.servicos);
 				
 				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
 				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
-				document.getElementById('observacoes').innerHTML  = dados.observacao;
+				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
 				document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
+				document.getElementById('data-entrada').innerHTML  = dados.data;
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 				
@@ -109,15 +110,15 @@ $(document).ready(function(){
 					
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
-						height:450,
-						width:900,
+						height: 650,
+						width: 1200,
 						modal: true,
 						buttons:{
 							"Cancelar": function(){
 								$(this).dialog("close");
-								//BRIQUETE.orcamento.limparFrm();	
+								BRIQUETE.orcamento.limparFrm();	
 							},
-							"Finalizar": function(){
+							"Aprovar": function(){
 								
 								
 								$.ajax({
@@ -126,7 +127,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
-										//BRIQUETE.orcamento.limparFrm();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
 									error: function(info) {
@@ -136,7 +137,7 @@ $(document).ready(function(){
 							
 								
 							},
-							"Abandono":function(){
+							"Rejeitar":function(){
 								
 								$.ajax({
 									type: "PUT",
@@ -144,7 +145,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
-										//BRIQUETE.orcamento.limparFrm();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
 									error: function(info) {
@@ -155,16 +156,16 @@ $(document).ready(function(){
 							}
 						},
 						close: function(){
-							//BRIQUETE.orcamento.limparFrm();
+							BRIQUETE.orcamento.limparFrm();
 							$(this).dialog('close');
 						}
 				};
 				
 				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
 				
-				if(dados.status !=5){ // desabilita botão quando for diferente de contatar o cliente;
-					$(":button:contains('Finalizar')").prop("disabled", true).addClass("ui-state-disabled")
-					$(":button:contains('Abandono')").prop("disabled", true).addClass("ui-state-disabled")
+				if(dados.status !=2){ // desabilita botão quando for diferente de contatar o cliente;
+					$(":button:contains('Aprovar')").prop("disabled", true).addClass("ui-state-disabled")
+					$(":button:contains('Rejeitar')").prop("disabled", true).addClass("ui-state-disabled")
 				}
 				
 			},

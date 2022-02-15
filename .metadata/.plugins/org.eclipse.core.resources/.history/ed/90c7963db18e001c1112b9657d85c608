@@ -115,7 +115,7 @@ $(document).ready(function(){
 						buttons:{
 							"Cancelar": function(){
 								$(this).dialog("close");
-								//BRIQUETE.orcamento.limparFrm();	
+								BRIQUETE.orcamento.limparFrm();	
 							},
 							"Finalizar": function(){
 								
@@ -126,7 +126,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
-										//BRIQUETE.orcamento.limparFrm();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
 									error: function(info) {
@@ -144,7 +144,7 @@ $(document).ready(function(){
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.orcamento.consultaOrcamento();
-										//BRIQUETE.orcamento.limparFrm();
+										BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
 									error: function(info) {
@@ -155,7 +155,7 @@ $(document).ready(function(){
 							}
 						},
 						close: function(){
-							//BRIQUETE.orcamento.limparFrm();
+							BRIQUETE.orcamento.limparFrm();
 							$(this).dialog('close');
 						}
 				};
