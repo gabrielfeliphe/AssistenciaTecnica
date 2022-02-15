@@ -92,8 +92,6 @@ $(document).ready(function(){
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 				document.getElementById('data-entrada').innerHTML = dados.data;
-				document.getElementById('tabelaValor').hidden = true;
-				document.getElementById('valorTotal').innerHTML = BRIQUETE.recepcao.calcularServicos(dados.servicos)
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
@@ -167,11 +165,9 @@ $(document).ready(function(){
 	BRIQUETE.recepcao.calcularServicos = function(servicos){
 		
 		var valor=0;
-		for(let i=0; i<servicos.length; i++){
-			valor += servicos[i].valor;
+		for(let i=0; < servicos.length; i++){
+			valor += servicos[i].length;
 		}
-		
-		return valor;
 		
 	}
 	

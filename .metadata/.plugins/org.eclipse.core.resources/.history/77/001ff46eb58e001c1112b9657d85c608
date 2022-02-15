@@ -179,8 +179,8 @@ table{
 	text-align: right;
 }
 
-#tabelaExibeClientesOS{
-	width: 75%;
+#tabelaExibeClientes table{
+	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }

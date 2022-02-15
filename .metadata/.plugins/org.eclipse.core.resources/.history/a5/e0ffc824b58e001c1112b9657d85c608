@@ -179,11 +179,7 @@ table{
 	text-align: right;
 }
 
-#tabelaExibeClientesOS{
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
-}
+
 
 
 

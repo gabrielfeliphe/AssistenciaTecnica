@@ -168,7 +168,7 @@ $(document).ready(function(){
 		
 		var valor=0;
 		for(let i=0; i<servicos.length; i++){
-			valor += servicos[i].valor;
+			valor += servicos[i].length;
 		}
 		
 		return valor;
