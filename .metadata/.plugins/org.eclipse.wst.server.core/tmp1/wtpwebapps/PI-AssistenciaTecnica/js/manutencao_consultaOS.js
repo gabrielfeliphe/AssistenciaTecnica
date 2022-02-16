@@ -126,11 +126,11 @@ $(document).ready(function(){
 							
 								
 							},
-							"Abortar":function(){
+							"Reiniciar":function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"1",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.manutencao.consultaOS();
