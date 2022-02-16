@@ -51,7 +51,7 @@ $(document).ready(function(){
 					break;
 			}
 			
-			if(listaDeOS[i].status == 4){
+			if(listaDeOS[i].status >= 4){
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td class='exibeInformacoes' onclick='BRIQUETE.manutencao.tratarOS("+listaDeOS[i].idorcamento+")'>" + statusOrcamento + "</td>" +
@@ -106,13 +106,14 @@ $(document).ready(function(){
 								//BRIQUETE.orcamento.limparFrm();	
 							},
 							"Finalizado": function(){
-
+								
+								
 								$.ajax({
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"5",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.manutencao.consultaOS();
+										BRIQUETE.orcamento.consultaOrcamento();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
@@ -130,7 +131,7 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.manutencao.consultaOS();
+										BRIQUETE.orcamento.consultaOrcamento();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},

@@ -1,17 +1,17 @@
-BRIQUETE.manutencao = new Object();
+BRIQUETE.recepcao = new Object();
 
-console.log("entrou script consulta os manutencao")
+console.log("entrou script consulta os")
 
 $(document).ready(function(){
 	
-	BRIQUETE.manutencao.consultaOS = function(){
+	BRIQUETE.recepcao.consultaOS = function(){
 		
 		$.ajax({
 			type: "GET",
 			url: BRIQUETE.PATH + "servicos/buscarOrcamentos",
 			success: function(dados) {
 				console.log(dados);
-				$("#lista-orcamento").html(BRIQUETE.manutencao.exibirOS(dados));
+				$("#lista-orcamento").html(BRIQUETE.recepcao.exibirOS(dados));
 			},
 			error: function(info) {
 				console.log("erro : " + info);
@@ -21,9 +21,9 @@ $(document).ready(function(){
 		});
 	}
 	
-	BRIQUETE.manutencao.consultaOS();
+	BRIQUETE.recepcao.consultaOS();
 	
-	BRIQUETE.manutencao.exibirOS = function(listaDeOS){
+	BRIQUETE.recepcao.exibirOS = function(listaDeOS){
 
 		
 		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
@@ -51,10 +51,10 @@ $(document).ready(function(){
 					break;
 			}
 			
-			if(listaDeOS[i].status == 4){
+			if(listaDeOS[i].status >= 4){
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
-				"<td class='exibeInformacoes' onclick='BRIQUETE.manutencao.tratarOS("+listaDeOS[i].idorcamento+")'>" + statusOrcamento + "</td>" +
+				"<td class='exibeInformacoes' onclick='BRIQUETE.recepcao.tratarOS("+listaDeOS[i].idorcamento+")'>" + statusOrcamento + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
 				"</tr>"
@@ -72,7 +72,7 @@ $(document).ready(function(){
 	
 	
 
-	BRIQUETE.manutencao.tratarOS = function(idorcamento){
+	BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		
 		$.ajax({
 			
@@ -93,7 +93,7 @@ $(document).ready(function(){
 				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 				document.getElementById('data-entrada').innerHTML = dados.data;
 				document.getElementById('tabelaValor').hidden = true;
-				document.getElementById('valorTotal').innerHTML = BRIQUETE.manutencao.calcularServicos(dados.servicos)
+				document.getElementById('valorTotal').innerHTML = BRIQUETE.recepcao.calcularServicos(dados.servicos)
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
@@ -105,14 +105,15 @@ $(document).ready(function(){
 								$(this).dialog("close");
 								//BRIQUETE.orcamento.limparFrm();	
 							},
-							"Finalizado": function(){
-
+							"Finalizar": function(){
+								
+								
 								$.ajax({
 									type: "PUT",
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"5",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.manutencao.consultaOS();
+										BRIQUETE.recepcao.consultaOS();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
@@ -123,14 +124,14 @@ $(document).ready(function(){
 							
 								
 							},
-							"Abortar":function(){
+							"Abandono":function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-1",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.manutencao.consultaOS();
+										BRIQUETE.recepcao.consultaOS();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
@@ -149,9 +150,9 @@ $(document).ready(function(){
 				
 				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
 				
-				if(dados.status !=4){ // desabilita botão quando for diferente de contatar o cliente;
-					$(":button:contains('Finalizado')").prop("disabled", true).addClass("ui-state-disabled")
-					$(":button:contains('Abortar')").prop("disabled", true).addClass("ui-state-disabled")
+				if(dados.status !=5){ // desabilita botão quando for diferente de contatar o cliente;
+					$(":button:contains('Finalizar')").prop("disabled", true).addClass("ui-state-disabled")
+					$(":button:contains('Abandono')").prop("disabled", true).addClass("ui-state-disabled")
 				}
 				
 			},
@@ -163,7 +164,7 @@ $(document).ready(function(){
 		});
 	}
 	
-	BRIQUETE.manutencao.calcularServicos = function(servicos){
+	BRIQUETE.recepcao.calcularServicos = function(servicos){
 		
 		var valor=0;
 		for(let i=0; i<servicos.length; i++){

@@ -112,7 +112,7 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"5",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.manutencao.consultaOS();
+										BRIQUETE.orcamento.consultaOrcamento();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
@@ -130,7 +130,7 @@ $(document).ready(function(){
 									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.manutencao.consultaOS();
+										BRIQUETE.orcamento.consultaOrcamento();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},

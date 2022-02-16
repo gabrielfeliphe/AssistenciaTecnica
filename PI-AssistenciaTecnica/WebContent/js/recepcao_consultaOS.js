@@ -49,6 +49,12 @@ $(document).ready(function(){
 				case 5:
 					statusOrcamento = "Contatar Cliente"
 					break;
+				case 6:
+					statusOrcamento = "Finalizado"
+					break;
+				case -5:
+					statusOrcamento = "Abandonado"
+					break;
 			}
 			
 			if(listaDeOS[i].status >= 4){
@@ -110,10 +116,10 @@ $(document).ready(function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+valorStatus,
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"6",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.orcamento.consultaOrcamento();
+										BRIQUETE.recepcao.consultaOS();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
@@ -128,10 +134,10 @@ $(document).ready(function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-1",
+									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.orcamento.consultaOrcamento();
+										BRIQUETE.recepcao.consultaOS();
 										//BRIQUETE.orcamento.limparFrm();
 										$("#modalRealizaOS").dialog( "close" );
 									},
