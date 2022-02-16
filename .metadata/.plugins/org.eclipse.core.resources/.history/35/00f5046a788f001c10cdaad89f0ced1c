@@ -77,10 +77,6 @@ textarea{
 	margin-bottom: 30px;
 }
 
-#tabelaValor {
-    text-align: right;
-}
-
 
 
 

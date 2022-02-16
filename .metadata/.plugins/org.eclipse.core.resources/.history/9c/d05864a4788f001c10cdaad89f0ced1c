@@ -279,7 +279,7 @@ public class ServicosRest extends UtilRest{
 			String msg = "";
 			
 			if (retorno == true) {
-				msg = "Status alterado com sucesso!";
+				msg = "Orçamento alterado com sucesso!";
 			} else {
 				msg = "Erro ao alterar Orçamento";
 			}
