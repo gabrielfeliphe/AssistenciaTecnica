@@ -1,4 +1,4 @@
-<script src="../../js/recepcao_consultaOS.js"></script>
+<script src="../../js/manutencao_consultaOS.js"></script>
 
 	<div class= "container">
 	<h4>Consulta de ordem de serviço</h4>
@@ -32,6 +32,7 @@
 		 <label>Data de entrada: </label><label id="data-entrada"></label></br>
 		 <label>Defeito: </label><label id="defeito"></label></br>
 		 <label>Telefone: </label><label id="telefone"></label></br>
+		 <label>Total:</label><label id="valorTotal"></label>
 		</div>
 
 </div>

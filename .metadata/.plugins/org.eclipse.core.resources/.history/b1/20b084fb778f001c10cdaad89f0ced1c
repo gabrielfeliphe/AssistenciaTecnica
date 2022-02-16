@@ -100,7 +100,7 @@ $(document).ready(function(){
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
-						height:650,
+						height:450,
 						width:900,
 						modal: true,
 						buttons:{

@@ -96,11 +96,11 @@ $(document).ready(function(){
 				document.getElementById('valorTotal').innerHTML = BRIQUETE.manutencao.calcularServicos(dados.servicos)
 				
 				
-				$("#tabela-orcamento").html(BRIQUETE.manutencao.exibirOrcamentoModal(dados.servicos));
+				$("#tabela-orcamento").html(BRIQUETE.orcamento.exibirOrcamentoModal(dados.servicos));
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
-						height:650,
+						height:450,
 						width:900,
 						modal: true,
 						buttons:{

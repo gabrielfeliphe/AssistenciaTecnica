@@ -92,15 +92,12 @@ $(document).ready(function(){
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 				document.getElementById('data-entrada').innerHTML = dados.data;
-				document.getElementById('tabelaValor').hidden = false;
+				document.getElementById('tabelaValor').hidden = true;
 				document.getElementById('valorTotal').innerHTML = BRIQUETE.manutencao.calcularServicos(dados.servicos)
-				
-				
-				$("#tabela-orcamento").html(BRIQUETE.manutencao.exibirOrcamentoModal(dados.servicos));
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
-						height:650,
+						height:450,
 						width:900,
 						modal: true,
 						buttons:{

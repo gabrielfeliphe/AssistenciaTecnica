@@ -98,12 +98,15 @@ $(document).ready(function(){
 				document.getElementById('defeito').innerHTML  = dados.defeito;
 				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
 				document.getElementById('data-entrada').innerHTML = dados.data;
-				document.getElementById('tabelaValor').hidden = true;
+				document.getElementById('tabelaValor').hidden = false;
 				document.getElementById('valorTotal').innerHTML = BRIQUETE.recepcao.calcularServicos(dados.servicos)
+			
+				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirOrcamentoModal(dados.servicos));
+					
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Orçamento",
-						height:450,
+						height:650,
 						width:900,
 						modal: true,
 						buttons:{
@@ -180,6 +183,59 @@ $(document).ready(function(){
 		return valor;
 		
 	}
+	
+BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
+		
+		console.log("invocado dados orçamento")
+		console.log(dadosOrcamento);
+		
+		var somaValores =0;
+		
+		var tabela = "<table class='table table-bordered table-dark'>" +
+		"<tr>" +
+		"<th>Categoria</th>" +
+		"<th>Descrição</th>" +
+		"<th>Valor</th>" +
+	"</tr>";
+
+
+		for (var i = 0; i < dadosOrcamento.length; i++) {
+			
+			somaValores += +dadosOrcamento[i].valor;
+			
+			let categoria
+			switch (dadosOrcamento[i].tipo) {
+				case 0:
+					categoria = "Servico"
+					break;
+				case 1:
+					categoria = "Peça"
+					break;
+			}
+
+			tabela += "<tr>" +
+				"<td>" + categoria + "</td>" +
+				"<td>" + dadosOrcamento[i].peca_servico + "</td>" +
+				"<td>" + currency(dadosOrcamento[i].valor) + "</td>" +
+				"</tr>"
+
+
+		}
+
+	tabela += "</table>";
+	
+	console.log(somaValores)
+	
+	
+	$("#valorTotal").html(currency(somaValores));
+
+	return tabela;
+		
+	}
+	
+	const currency = function(number){
+	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
+	};
 	
 	
 });
