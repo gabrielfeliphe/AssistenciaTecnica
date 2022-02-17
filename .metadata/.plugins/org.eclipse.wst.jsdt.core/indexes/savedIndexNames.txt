@@ -1,9 +1,5 @@
-INDEX VERSION 1.4+C:\Users\SENAI\Documents\GitHub\AssistenciaTecnica\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1418711201.index
-3884734790.index
-3697661509.index
-4010722973.index
-4099117639.index
-358417970.index
-809013634.index
-847940811.index
+INDEX VERSION 1.4+C:\Users\SENAI\Documents\GitHub\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+657503085.index
+2953235990.index
+4099763844.index
+333152333.index

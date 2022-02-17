@@ -300,7 +300,7 @@ public class JDBCServicosDAO {
 	
 	
 	public boolean deletarServicos(int idservico){
-		String comando ="DELETE from servico where idservico = ?";
+		String comando ="delete from servico where orcamento_idorcamento = ?";
 			
 		PreparedStatement p;
 		

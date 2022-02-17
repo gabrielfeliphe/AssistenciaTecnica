@@ -295,9 +295,11 @@ public class ServicosRest extends UtilRest{
 	}
 	
 	@PUT
-	@Path("/reiniciarOrcamento/{idOrcamento})")
+	@Path("/reiniciarOrcamento/{idOrcamento}")
 	@Consumes("application/*")
 	public Response reiniciarOrcamento(@PathParam("idOrcamento")int idOrcamento) {
+		
+		System.out.println("Entrou no reiniciar orçamento");
 		
 		try {
 			
@@ -306,11 +308,12 @@ public class ServicosRest extends UtilRest{
 			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
 			
 			boolean retorno = jdbcServicos.reiniciarOrcamento(idOrcamento);
+			boolean retornoDeletar = jdbcServicos.deletarServicos(idOrcamento);
 			
 
 			String msg = "";
 			
-			if (retorno == true) {
+			if (retorno == true && retornoDeletar == true) {
 				msg = "Status alterado com sucesso!";
 			} else {
 				msg = "Erro ao alterar Orçamento";
