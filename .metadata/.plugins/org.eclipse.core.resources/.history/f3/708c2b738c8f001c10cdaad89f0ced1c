@@ -293,37 +293,5 @@ public class ServicosRest extends UtilRest{
 			return this.buildErrorResponse(e.getMessage());
 		}
 	}
-	
-	@PUT
-	@Path("/reiniciarOrcamento/{idOrcamento})")
-	@Consumes("application/*")
-	public Response reiniciarOrcamento(@PathParam("idOrcamento")int idOrcamento) {
-		
-		try {
-			
-			Conexao conec = new Conexao();
-			Connection conexao = conec.abrirConexao();
-			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
-			
-			boolean retorno = jdbcServicos.reiniciarOrcamento(idOrcamento);
-			
-
-			String msg = "";
-			
-			if (retorno == true) {
-				msg = "Status alterado com sucesso!";
-			} else {
-				msg = "Erro ao alterar Orçamento";
-			}
-
-
-			conec.fecharConexao();
-			return this.buildResponse(msg);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return this.buildErrorResponse(e.getMessage());
-		}
-	}
 
 }

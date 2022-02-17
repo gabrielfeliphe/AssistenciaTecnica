@@ -130,7 +130,7 @@ $(document).ready(function(){
 								
 								$.ajax({
 									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"1",
+									url: BRIQUETE.PATH + "servicos/reiniciarOrcamento/"+idorcamento,
 									success: function(msg) {
 										BRIQUETE.exibirAviso(msg);
 										BRIQUETE.manutencao.consultaOS();

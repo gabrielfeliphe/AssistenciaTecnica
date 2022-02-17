@@ -348,32 +348,5 @@ public class JDBCServicosDAO {
 		
 		return true;
 	}
-	
-public boolean reiniciarOrcamento(int idOrcamento) {
-		
-		
-		String comando ="update orcamento set status = 1 where idorcamento = ?;";
-		
-		PreparedStatement p;
-		
-		try {
-			
-			p = this.conexao.prepareStatement(comando);
-
-			p.setInt(1, idOrcamento);
-			
-			System.out.println(p);
-			
-			// Executa o comando no BD
-			p.execute();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			return false;	
-		}
-		
-		
-		return true;
-	}
 
 }
