@@ -56,7 +56,7 @@ $(document).ready(function(){
 						break;
 				}
 				
-				if(listaDeOrcamentos[i].status <= 3 && listaDeOrcamentos[i].status >= 1 ){
+				if(listaDeOrcamentos[i].status <= 3 ||listaDeOrcamentos[i].status >= 1 ){
 
 				tabela += "<tr id='tabelaExibeOrcamentos'>" +
 					"<td class='exibeInformacoes' onclick='BRIQUETE.orcamento.aprovarOrcamento("+listaDeOrcamentos[i].idorcamento+")'>" + statusOrcamento + "</td>" +
