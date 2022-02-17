@@ -230,5 +230,12 @@ $(document).ready(function(){
 	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
 	};
 	
+	$("#procurarClientesOS").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#tabelaOrcamentos tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	
 	
 });

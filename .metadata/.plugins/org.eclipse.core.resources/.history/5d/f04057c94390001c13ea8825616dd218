@@ -92,7 +92,7 @@ BRIQUETE.manutencao.exibirOrcamentos = function(listaDeOrcamentos) {
 
 $("#procurarClientesOrcamentos").on("keyup", function() {
 		    var value = $(this).val().toLowerCase();
-		    $("#tabelaOrcamentos tr ").filter(function() {
+		    $("#tabelaOrcamentos tr").filter(function() {
 		      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
 		    });
 		  });

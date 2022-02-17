@@ -81,6 +81,10 @@ textarea{
     text-align: right;
 }
 
+input[type=checkbox]{
+	margin-right: -20%;
+}
+
 
 
 

@@ -4,7 +4,7 @@
 	<h4>Consulta de ordem de serviço</h4>
 		<div class = "row" >
 			<div class="col-sm">
-			 	 <input type="text" class="form-control" id="procurarClientesOS" placeholder="Procurar Cliente ou Equipamento">
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento">
 			</div>
 		</div>	
 	</div>
