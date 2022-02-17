@@ -306,6 +306,7 @@ public class ServicosRest extends UtilRest{
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
+			
 			boolean retorno = jdbcServicos.reiniciarOrcamento(idOrcamento);
 			boolean retornoDeletar = jdbcServicos.deletarServicos(idOrcamento);
 			

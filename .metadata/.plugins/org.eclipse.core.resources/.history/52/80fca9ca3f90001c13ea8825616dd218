@@ -81,6 +81,11 @@ textarea{
     text-align: right;
 }
 
+#lista-orcamento{
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 
 

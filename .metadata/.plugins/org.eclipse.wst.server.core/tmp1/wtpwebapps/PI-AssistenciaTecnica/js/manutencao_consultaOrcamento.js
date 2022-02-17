@@ -46,10 +46,10 @@ BRIQUETE.manutencao.exibirOrcamentos = function(listaDeOrcamentos) {
 		for (var i = 0; i < listaDeOrcamentos.length; i++) {
 			
 			
-			if(listaDeOrcamentos[i].status <= 2  && listaDeOrcamentos[i].status >=1){
+			if(listaDeOrcamentos[i].status == 1){
 				
 			triggerStatus = 1;
-			let statusOrcamento = listaDeOrcamentos[i].status == 1 ? "Aguardando técnico" : "Aguardando Recepção";
+			let statusOrcamento =  "Aguardando técnico";
 			
 
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
