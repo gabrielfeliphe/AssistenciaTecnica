@@ -100,6 +100,8 @@ $(document).ready(function(){
 				document.getElementById('data-entrada').innerHTML = dados.data;
 				document.getElementById('tabelaValor').hidden = false;
 				document.getElementById('valorTotal').innerHTML = BRIQUETE.recepcao.calcularServicos(dados.servicos)
+			
+				var a = BRIQUETE.recepcao.checkAbandonaProduto(dados.data);
 				
 				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirOrcamentoModal(dados.servicos));
 					
@@ -158,10 +160,6 @@ $(document).ready(function(){
 				};
 				
 				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
-				
-				if(BRIQUETE.recepcao.checkAbandonaProduto(dados.data) > 91){
-					BRIQUETE.exibirAviso("O equipamento está abandonado pois excede 90 dias em estoque");
-				}
 				
 				if(dados.status !=5){ // desabilita botão quando for diferente de contatar o cliente;
 					$(":button:contains('Finalizar')").prop("disabled", true).addClass("ui-state-disabled")
@@ -243,6 +241,9 @@ BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
 	
 	
 BRIQUETE.recepcao.checkAbandonaProduto = function (dataEntrada){
+	let abandonado = false;
+	
+	console.log(dataEntrada)
 	
 	dataEntrada = dataEntrada.replace("-","/");
 	

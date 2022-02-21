@@ -100,7 +100,7 @@ $(document).ready(function(){
 				document.getElementById('data-entrada').innerHTML = dados.data;
 				document.getElementById('tabelaValor').hidden = false;
 				document.getElementById('valorTotal').innerHTML = BRIQUETE.recepcao.calcularServicos(dados.servicos)
-				
+			
 				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirOrcamentoModal(dados.servicos));
 					
 				
@@ -158,10 +158,6 @@ $(document).ready(function(){
 				};
 				
 				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
-				
-				if(BRIQUETE.recepcao.checkAbandonaProduto(dados.data) > 91){
-					BRIQUETE.exibirAviso("O equipamento está abandonado pois excede 90 dias em estoque");
-				}
 				
 				if(dados.status !=5){ // desabilita botão quando for diferente de contatar o cliente;
 					$(":button:contains('Finalizar')").prop("disabled", true).addClass("ui-state-disabled")
@@ -240,29 +236,6 @@ BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
 	const currency = function(number){
 	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
 	};
-	
-	
-BRIQUETE.recepcao.checkAbandonaProduto = function (dataEntrada){
-	
-	dataEntrada = dataEntrada.replace("-","/");
-	
-	
-	var dataTeste = new Date().toLocaleDateString();
-	
-	dataTeste = dataTeste.split("/").reverse();
-	
-	const date1 = new Date(dataEntrada);
-    const date2 = new Date(dataTeste);
-    
-
-    // One day in milliseconds
-    const oneDay = 1000 * 60 * 60 * 24;
-    const diffInTime = date2.getTime() - date1.getTime();
-    const diffInDays = Math.round(diffInTime / oneDay);
-    
-	
-	return diffInDays;
-}
 	
 	
 });
