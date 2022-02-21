@@ -81,11 +81,10 @@ textarea{
     text-align: right;
 }
 
-
-.ordemServico{
+#os-orcamento{
 	margin-left: auto;
 	margin-right: auto;
-	width: 72%;
+	width: 80%;
 }
 
 

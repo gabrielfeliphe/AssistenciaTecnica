@@ -1,16 +1,10 @@
-<script src="../../js/recepcao_consultaOS.js"></script>
+<script src="../../js/manutencao_consultaOS.js"></script>
 
 	<div class= "container">
 	<h4>Consulta de ordem de serviço</h4>
-		<div class = "row" id="box">
+		<div class = "row" >
 			<div class="col-sm">
-			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id="inputConsultaOS">
-			</div>
-			<div class="col-sm">
-			<input type="checkbox" id="manutencao" name="manutencao" value="1">
-			<label for="vehicle1"> Apenas aguardando manutenção</label><br>
-			<input type="checkbox" id="pecas" name="pecas	" value="2">
-			<label for="vehicle2"> Apenas aguardando peças</label><br>
+			 	 <input type="text" class="form-control" id="procurarClientesOS" placeholder="Procurar Cliente ou Equipamento">
 			</div>
 		</div>	
 	</div>
