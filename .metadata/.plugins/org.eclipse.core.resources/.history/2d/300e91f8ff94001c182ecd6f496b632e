@@ -42,17 +42,11 @@ public class JDBCAutenticacaDAO {
 	
 	public int role (ArmazenaDadosUsuario dadosautentica) {
 		
-		int retorno = 9;
-		
-		String comando = "SELECT * FROM usuario WHERE matricula =? AND senha = ?";
-		
+		int retorno;
+		String comando = "SELECT * FROM usuario WHERE matricula = '" +dadosautentica.getMatricula()+"AND senha = '"+dadosautentica.getSenha()+"'";
 		try {
 			
 			PreparedStatement p = this.conexao.prepareStatement(comando);
-			
-			p.setString(1, dadosautentica.getMatricula());
-			p.setString(2, dadosautentica.getSenha());
-			
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
 				retorno = rs.getInt("funcao");; // vem do alias do comando

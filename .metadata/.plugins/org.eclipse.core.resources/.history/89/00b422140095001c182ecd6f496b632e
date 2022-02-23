@@ -29,25 +29,12 @@ public class AutenticacaoServlet extends HttpServlet{
 		
 		JDBCAutenticacaDAO jdbcAutentica = new JDBCAutenticacaDAO(conexao);
 		boolean retorno = jdbcAutentica.consultar(dadosautentica);
-		int role = jdbcAutentica.role(dadosautentica);
+		int role = jdbcAutentica.consultar(dadosautentica);
 		
 		if(retorno) {
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
-			switch(role) {
-			case 0:
-			response.sendRedirect("pages/adm");
-			break;
-			case 1:
-				response.sendRedirect("pages/recepcao");
-				break;
-			case 2:
-				response.sendRedirect("pages/manutencao");
-				break;
-			case 3:
-				response.sendRedirect("pages/almoxarife");
-				break;
-			}
+			response.sendRedirect("pages/recepcao");
 		}else {
 			response.sendRedirect("index.html");
 		}

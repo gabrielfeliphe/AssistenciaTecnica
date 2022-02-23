@@ -51,7 +51,7 @@ public class JDBCAutenticacaDAO {
 			PreparedStatement p = this.conexao.prepareStatement(comando);
 			
 			p.setString(1, dadosautentica.getMatricula());
-			p.setString(2, dadosautentica.getSenha());
+			p.setFloat(2, dadosautentica.getSenha());
 			
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {

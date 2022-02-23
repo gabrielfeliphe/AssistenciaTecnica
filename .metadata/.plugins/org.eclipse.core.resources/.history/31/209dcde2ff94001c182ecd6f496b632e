@@ -42,24 +42,25 @@ public class JDBCAutenticacaDAO {
 	
 	public int role (ArmazenaDadosUsuario dadosautentica) {
 		
-		int retorno = 9;
-		
-		String comando = "SELECT * FROM usuario WHERE matricula =? AND senha = ?";
-		
+		int retorno;
+		String comando = "SELECT * FROM usuario WHERE matricula = '" +dadosautentica.getMatricula()+"AND senha = '"+dadosautentica.getSenha()+"'";
 		try {
 			
 			PreparedStatement p = this.conexao.prepareStatement(comando);
-			
-			p.setString(1, dadosautentica.getMatricula());
-			p.setString(2, dadosautentica.getSenha());
-			
+			ResultSet rs = p.executeQuery();
+			String nome_equipamento = rs.getString("nome_equipamento");
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
-				retorno = rs.getInt("funcao");; // vem do alias do comando
+				int existencia = rs.getInt("resultado"); // vem do alias do comando
+				if (existencia == 1) {
+					retorno = true;
+				} else {
+					retorno = false;
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-
+			return false;
 		}
 	return retorno;
 }
