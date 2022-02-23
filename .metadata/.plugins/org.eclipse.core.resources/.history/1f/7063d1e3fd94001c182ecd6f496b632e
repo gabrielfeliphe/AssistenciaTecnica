@@ -15,8 +15,8 @@ public class JDBCAutenticacaDAO {
 	}
 	
 	public boolean consultar (ArmazenaDadosUsuario dadosautentica) {
-		
-			boolean retorno = false;
+		try {
+			
 			String comando = "SELECT EXISTS(SELECT * FROM usuario WHERE matricula = ? AND senha = ?)as resultado";
 			try {
 				

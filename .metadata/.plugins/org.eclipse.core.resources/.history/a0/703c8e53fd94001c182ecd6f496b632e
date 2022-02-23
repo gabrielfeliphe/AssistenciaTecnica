@@ -1,0 +1,35 @@
+package AutenticacaoJdbcDao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import ArmazenaDadosUsuario.ArmazenaDadosUsuario;
+
+public class JDBCAutenticacaDAO {
+	
+	private Connection conexao;
+	public JDBCAutenticacaDAO (Connection conexao) {
+		this.conexao = conexao;
+	}
+	
+	public boolean consultar (ArmazenaDadosUsuario dadosautentica) {
+		try {
+			String comando ="SELECT * FROM usuario WHERE usuario = '"+dadosautentica.getMatricula()+"- and "+
+		    " = '"+dadosautentica.getSenha()+ "'";
+			java.sql.Statement stmt = conexao.createStatement();
+			ResultSet rs = stmt.executeQuery(comando);
+			
+			System.out.println("comando autenticaçao: ");
+			System.out.println(comando);
+			
+			if(rs.next()) {
+				return true;
+			}else {
+				return false;
+			}
+		}catch(Exception e) {
+			return false;
+		}
+		
+	}
+}
