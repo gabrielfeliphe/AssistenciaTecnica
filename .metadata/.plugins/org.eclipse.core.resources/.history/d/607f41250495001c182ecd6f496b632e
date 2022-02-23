@@ -1,7 +1,6 @@
 package LoginServlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 
 import javax.servlet.ServletException;
@@ -35,13 +34,6 @@ public class AutenticacaoServlet extends HttpServlet{
 		
 		if(retorno) {
 			HttpSession sessao = request.getSession();
-			
-			
-			try(PrintWriter out = response.getWriter()) {
-            
-                out.println("<h1>idsessão : </h1>"+sessao.getId());
-     
-			}
 			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
 			switch(role) {
