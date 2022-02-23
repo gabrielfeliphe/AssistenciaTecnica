@@ -1,0 +1,37 @@
+package LoginServlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import ArmazenaDadosUsuario.ArmazenaDadosUsuario;
+
+public class AutenticacaoServlet extends HttpServlet{
+	private static final long serialVersionUID = 1L;
+	
+	private void process(HttpServletRequest request,
+			HttpServletResponse response)
+			throws ServletException, IOException{
+		ArmazenaDadosUsuario dadosautentica = new ArmazenaDadosUsuario();
+		
+		dadosautentica.setMatricula(request.getParameter("matricula"));
+		dadosautentica.setSenha(request.getParameter("senha"));
+		
+		System.out.println(dadosautentica.getSenha());
+		System.out.println(dadosautentica.getMatricula());
+		
+	}
+	
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response)throws ServletException, IOException {
+		process (request,response);
+	}
+	
+	protected void doPost (HttpServletRequest request,
+			HttpServletResponse response)throws ServletException, IOException {
+		process (request,response);
+	}
+
+}

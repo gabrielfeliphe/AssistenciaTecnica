@@ -18,3 +18,5 @@ function onlyNumbers(matricula) {
         document.getElementByName(matricula).value = newVal.replace(/[^0-9.]/g, "");
     }
 }
+
+

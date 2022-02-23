@@ -1,0 +1,17 @@
+package AutenticacaoJdbcDao;
+
+import java.sql.Connection;
+
+import ArmazenaDadosUsuario.ArmazenaDadosUsuario;
+
+public class JDBCAutenticacaDAO {
+	
+	private Connection conexao;
+	public JDBCAutenticacaDAO (Connection conexao) {
+		this.conexao = conexao;
+	}
+	
+	public boolean consultar (ArmazenaDadosUsuario dadosautentica) {
+		return false;
+	}
+}

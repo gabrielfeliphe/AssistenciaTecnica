@@ -22,9 +22,32 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+
+	
 	<servlet-mapping>
 		<servlet-name>Jersey REST Service</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>AutenticaServlet</servlet-name>
+		<servlet-class>LoginServlet.AutenticacaoServlet</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>LoginServlet</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	
+	<servlet-mapping>
+		<servlet-name>AutenticaServlet</servlet-name>
+		<url-pattern>/autenticar</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
 	
 </web-app>
