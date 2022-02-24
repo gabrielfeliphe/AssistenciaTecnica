@@ -54,6 +54,10 @@ public class AutenticacaoServlet extends HttpServlet{
 		dadosautentica.setSenha(sendmd5);
 		
 		dadosautentica.setMatricula(request.getParameter("matricula"));
+		dadosautentica.setSenha(request.getParameter("senha"));
+		
+		System.out.println("MD5");
+		System.out.println(sendmd5);
 		
 		
 		boolean retorno = jdbcAutentica.consultar(dadosautentica);

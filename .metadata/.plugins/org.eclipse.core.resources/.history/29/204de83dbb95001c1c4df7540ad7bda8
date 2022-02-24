@@ -30,34 +30,32 @@ public class AutenticacaoServlet extends HttpServlet{
 		System.out.print(descript);
 		
 		ArmazenaDadosUsuario dadosautentica = new ArmazenaDadosUsuario();
-		//dadosautentica.setMatricula(request.getParameter("matricula"));
-		//dadosautentica.setSenha(request.getParameter("senha"));
+		dadosautentica.setMatricula(request.getParameter("matricula"));
+		dadosautentica.setSenha(request.getParameter("senha"));
 		
 		
 		Conexao conec = new Conexao();
 		Connection conexao = (Connection)conec.abrirConexao();
+		MessageDigest md = null;
+		String sendmd5 = "";
+		BigInteger hash = new BigInteger(1, md.digest(request.getParameter("senha").getBytes()));
+		sendmd5 = hash.toString(16);
+		
+		dadosautentica.setSenha(sendmd5);
+		System.out.println("Senha md5: ");
+		System.out.println(sendmd5);
+		
+		
 		
 		JDBCAutenticacaDAO jdbcAutentica = new JDBCAutenticacaDAO(conexao);
-
-		String sendmd5 = "";
-		MessageDigest md = null;
+		boolean retorno = jdbcAutentica.consultar(dadosautentica);
+		int role = jdbcAutentica.role(dadosautentica);
 		
 		try {
 			md = MessageDigest.getInstance("MD5");
 		}catch(NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		
-		BigInteger hash = new BigInteger(1, md.digest(request.getParameter("senha").getBytes()));
-		sendmd5 = hash.toString(16);
-		
-		dadosautentica.setSenha(sendmd5);
-		
-		dadosautentica.setMatricula(request.getParameter("matricula"));
-		
-		
-		boolean retorno = jdbcAutentica.consultar(dadosautentica);
-		int role = jdbcAutentica.role(dadosautentica);
 		
 		if(retorno) {
 			HttpSession sessao = request.getSession();
