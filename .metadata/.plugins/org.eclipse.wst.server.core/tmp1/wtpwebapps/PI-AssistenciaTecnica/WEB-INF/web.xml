@@ -46,6 +46,19 @@
 		<url-pattern>/autenticar</url-pattern>
 	</servlet-mapping>
 	
+	<filter>
+		<filter-name>ServletFilter</filter-name>
+		<filter-class>filter.ServletFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>ServletFilter</filter-name>
+		<url-pattern>/pages/adm/*</url-pattern>
+		<url-pattern>/pages/almoxarife/*</url-pattern>
+		<url-pattern>/pages/manutencao/*</url-pattern>
+		<url-pattern>/pages/recepcao/*</url-pattern>
+	</filter-mapping>
+	
 	
 	
 	

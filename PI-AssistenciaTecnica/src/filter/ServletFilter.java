@@ -46,6 +46,8 @@ objeto request é do tipo ServletRequest e não
 */
 
 HttpSession session = ((HttpServletRequest)request).getSession();
+
+
 /*
 * Inicializando a variável usuário para depois sabermos se
 este chegou com valor o não.
@@ -54,14 +56,14 @@ String usuario = null;
 // Se existe uma Session
 if (session != null){
 //Atribua o valor do login de quem se logou a variável usuario
-usuario = (String)session.getAttribute("login");
+usuario = (String)session.getAttribute("matricula");
 }
 //Verificando se usuário é nulo
 if (usuario==null)
 
 {
 //Se for redireciona para a apresentação da mensagem de
-((HttpServletResponse)response).sendRedirect("index.html");
+((HttpServletResponse)response).sendRedirect(context+"/erro.html");
 }else{
 /*
 * Se não for nulo, o programa deve prosseguir

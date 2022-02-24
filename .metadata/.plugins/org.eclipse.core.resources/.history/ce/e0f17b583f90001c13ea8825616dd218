@@ -1,8 +1,0 @@
-.ui-dialog .ui-dialog-buttonpane {
-	margin-right: 30%;
-	
-}
-
-#lista-orcamento{
-	width:80%;
-}

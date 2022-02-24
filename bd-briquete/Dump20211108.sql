@@ -166,9 +166,7 @@ update orcamento set status = 1 where idorcamento = 1;
 
 delete from servico where idservico between 3 and 8;
 
-update usuario set senha= '296506902c693b458707ad6f7e24a544' where matricula between 2 and 4;
-
-
+update usuario set senha= '296506902c693b458707ad6f7e24a544' where matricula between 1 and 4;
 
 delete from servico where orcamento_idorcamento = 1;
 

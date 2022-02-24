@@ -13,15 +13,9 @@ togglePassword.addEventListener('click', function (e) {
 
 
 function ValidaDados(){
-	
-	alert(document.frmLogin.senha.value)
-	
 	var senhaEmBase64 = btoa(document.frmLogin.senha.value)
 	
 	document.frmLogin.senha.value = senhaEmBase64;
-	
-	alert(senhaEmBase64);
-	
 	
 	return true;
 	

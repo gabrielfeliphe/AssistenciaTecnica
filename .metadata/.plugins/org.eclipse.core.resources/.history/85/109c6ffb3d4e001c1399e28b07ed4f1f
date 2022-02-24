@@ -1,9 +1,0 @@
-package br.com.tecnicabriquete.modelo;
-
-public class Servicos {
-	
-	private int orcamento_idorcamento,idservico,tipo;
-	private String peca_servico ;
-	private float valor;
-
-}
