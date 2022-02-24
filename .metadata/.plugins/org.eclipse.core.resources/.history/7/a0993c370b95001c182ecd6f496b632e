@@ -52,7 +52,6 @@ public class AutenticacaoServlet extends HttpServlet{
 		BigInteger hash = new BigInteger(1, md.digest(request.getParameter("senha").getBytes()));
 		sendmd5 = hash.toString(16);
 		
-		dadosautentica.setSenha(sendmd5);
 		
 		
 		if(retorno) {

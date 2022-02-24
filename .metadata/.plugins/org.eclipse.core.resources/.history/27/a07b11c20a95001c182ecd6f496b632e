@@ -2,7 +2,6 @@ package LoginServlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -48,11 +47,6 @@ public class AutenticacaoServlet extends HttpServlet{
 		}catch(NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
-		
-		BigInteger hash = new BigInteger(1, md.digest(request.getParameter("senha").getBytes()));
-		sendmd5 = hash.toString(16);
-		
-		dadosautentica.setSenha(sendmd5);
 		
 		
 		if(retorno) {
