@@ -26,7 +26,7 @@
                 <div class="inicio-form">
                 <img src="imgs/logo.png" alt="logotipo briquete">
                  </div>
-                    <form name = "frmLogin" action="autenticar" method ="POST" onsubmit="return ValidaDados()">
+                    <form name = "frmLogin" action="autenticar" method ="POST">
                     Matrícula:
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Digite sua Matrícula " value="" pattern= "[0-9]{4}" name="matricula" name="usuario"/>

@@ -24,6 +24,7 @@ public class AutenticacaoServlet extends HttpServlet{
 			throws ServletException, IOException{
 		
 		String descript = new String(Base64.base64Decode(request.getParameter("senha")));
+		
 		System.out.print(descript);
 		
 		ArmazenaDadosUsuario dadosautentica = new ArmazenaDadosUsuario();
@@ -42,6 +43,12 @@ public class AutenticacaoServlet extends HttpServlet{
 			HttpSession sessao = request.getSession();
 			
 			System.out.println(sessao.getId());
+			
+			/*try(PrintWriter out = response.getWriter()) {
+            
+                out.println("<h1>idsessão : </h1>"+sessao.getId());
+     
+			}*/
 			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
 			switch(role) {

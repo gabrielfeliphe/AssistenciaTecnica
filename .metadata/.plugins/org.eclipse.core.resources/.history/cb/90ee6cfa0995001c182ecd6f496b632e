@@ -43,6 +43,12 @@ public class AutenticacaoServlet extends HttpServlet{
 			
 			System.out.println(sessao.getId());
 			
+			try(PrintWriter out = response.getWriter()) {
+            
+                out.println("<h1>idsessão : </h1>"+sessao.getId());
+     
+			}
+			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
 			switch(role) {
 			case 0:
