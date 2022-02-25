@@ -1,0 +1,12 @@
+127.0.0.1 - - [25/Feb/2022:19:31:32 -0300] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:32 -0300] "GET /PI-AssistenciaTecnica/ HTTP/1.1" 200 2810
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:32 -0300] "GET /PI-AssistenciaTecnica/css/login.css HTTP/1.1" 200 874
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:32 -0300] "GET /PI-AssistenciaTecnica/imgs/logo.png HTTP/1.1" 200 2031
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:32 -0300] "GET /PI-AssistenciaTecnica/js/login.js HTTP/1.1" 200 566
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:40 -0300] "GET /PI-AssistenciaTecnica/ HTTP/1.1" 200 2810
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:40 -0300] "GET /PI-AssistenciaTecnica/css/login.css HTTP/1.1" 200 874
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:40 -0300] "GET /PI-AssistenciaTecnica/js/login.js HTTP/1.1" 200 566
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:40 -0300] "GET /PI-AssistenciaTecnica/imgs/logo.png HTTP/1.1" 200 2031
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:41 -0300] "GET /favicon.ico HTTP/1.1" 404 1047
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:31:45 -0300] "GET /PI-AssistenciaTecnica/pages/adm HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [25/Feb/2022:19:32:57 -0300] "GET /PI-AssistenciaTecnica/pages/adm HTTP/1.1" 200 -

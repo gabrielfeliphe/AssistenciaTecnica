@@ -49,7 +49,7 @@ public class ServletFilter implements Filter {
 			String usuario = null;
 			
 			
-			Integer roleUser = (Integer) session.getAttribute("role");
+			int roleUser = (int) session.getAttribute("role");
 			
 			// Se existe uma Session
 			if (session != null) {
