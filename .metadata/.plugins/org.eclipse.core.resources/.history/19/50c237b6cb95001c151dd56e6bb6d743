@@ -28,7 +28,8 @@ public class ServletFilter implements Filter {
 	{
 		/*
 		 * O método getContextPath() é o responsável por retornar o contexto da URL que
-		 * realizou a requisição
+		 * realizou a requisição. Está com dúvidas do que ela retorna? Dá um print na
+		 * variável context e esclareça sua dúvida ok?
 		 */
 		String context = request.getServletContext().getContextPath();
 
@@ -47,12 +48,12 @@ public class ServletFilter implements Filter {
 			 * valor o não.
 			 */
 			String usuario = null;
-			// Se existe uma Session
+// Se existe uma Session
 			if (session != null) {
-				//Atribua o valor do login de quem se logou a variável usuario
+//Atribua o valor do login de quem se logou a variável usuario
 				usuario = (String) session.getAttribute("matricula");
 			}
-			//Verificando se usuário é nulo
+//Verificando se usuário é nulo
 			if (usuario == null)
 
 			{
