@@ -72,7 +72,6 @@ public class ServletFilter implements Filter {
 				 * inexistente ou com senha inexistente será redirecionado de lá para a página
 				 * de erro.
 				 */
-				
 				filterChain.doFilter(request, response);
 				
 			}

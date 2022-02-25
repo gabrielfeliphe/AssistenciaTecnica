@@ -55,7 +55,7 @@ public class ServletFilter implements Filter {
 				//Atribua o valor do login de quem se logou a variável usuario
 				usuario = (String) session.getAttribute("matricula");
 				
-				roleUser = (Integer) session.getAttribute("role");
+				
 			}
 			
 			
@@ -72,9 +72,7 @@ public class ServletFilter implements Filter {
 				 * inexistente ou com senha inexistente será redirecionado de lá para a página
 				 * de erro.
 				 */
-				
 				filterChain.doFilter(request, response);
-				
 			}
 		} catch (Exception e) {
 

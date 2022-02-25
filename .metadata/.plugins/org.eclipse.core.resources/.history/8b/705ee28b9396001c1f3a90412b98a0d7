@@ -73,7 +73,7 @@ public class AutenticacaoServlet extends HttpServlet{
 			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
 			sessao.setAttribute("role", role);
-			switch(role) {
+			/*switch(role) {
 			case 0:
 				response.sendRedirect("pages/adm");
 			break;
@@ -86,7 +86,7 @@ public class AutenticacaoServlet extends HttpServlet{
 			case 3:
 				response.sendRedirect("pages/almoxarife");
 				break;
-			}
+			}*/
 		}else {
 			response.sendRedirect("index.html");
 		}

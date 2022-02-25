@@ -72,8 +72,22 @@ public class ServletFilter implements Filter {
 				 * inexistente ou com senha inexistente será redirecionado de lá para a página
 				 * de erro.
 				 */
+				//filterChain.doFilter(request, response);
 				
-				filterChain.doFilter(request, response);
+				switch(roleUser) {
+				case 0:
+					((HttpServletResponse) response).sendRedirect(context+"pages/adm");
+				break;
+				case 1:
+					((HttpServletResponse) response).sendRedirect(context+"pages/recepcao");
+					break;
+				case 2:
+					((HttpServletResponse) response).sendRedirect(context+"pages/manutencao");
+					break;
+				case 3:
+					((HttpServletResponse) response).sendRedirect(context+"pages/almoxarife");
+					break;
+				}
 				
 			}
 		} catch (Exception e) {

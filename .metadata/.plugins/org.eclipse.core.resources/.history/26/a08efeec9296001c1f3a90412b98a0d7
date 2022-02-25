@@ -65,7 +65,7 @@ public class AutenticacaoServlet extends HttpServlet{
 		int role = jdbcAutentica.role(dadosautentica);
 		
 		dadosautentica.setRole(role);
-
+		
 		if(retorno) {
 			HttpSession sessao = request.getSession();
 			
@@ -90,7 +90,6 @@ public class AutenticacaoServlet extends HttpServlet{
 		}else {
 			response.sendRedirect("index.html");
 		}
-		
 		
 	}
 	
