@@ -72,7 +72,6 @@ public class AutenticacaoServlet extends HttpServlet{
 			//System.out.println(sessao.getId());
 			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
-			sessao.setAttribute("role", role);
 			switch(role) {
 			case 0:
 			response.sendRedirect("pages/adm");

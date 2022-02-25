@@ -47,24 +47,18 @@ public class ServletFilter implements Filter {
 			 * valor o não.
 			 */
 			String usuario = null;
-			
-			
-			int roleUser = (int) session.getAttribute("role");
-			
+			String role = (String)session.getAttribute("role");
 			// Se existe uma Session
 			if (session != null) {
 				//Atribua o valor do login de quem se logou a variável usuario
 				usuario = (String) session.getAttribute("matricula");
 				
-				
 			}
-			
-			
 			//Verificando se usuário é nulo
 			if (usuario == null)
 
 			{
-				//Se for redireciona para a apresentação da mensagem de
+//Se for redireciona para a apresentação da mensagem de
 				((HttpServletResponse) response).sendRedirect(context + "/erro.html");
 			} else {
 				/*

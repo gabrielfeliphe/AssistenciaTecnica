@@ -3,7 +3,6 @@ package ArmazenaDadosUsuario;
 public class ArmazenaDadosUsuario {
 	private String matricula;
 	private String senha;
-	private int role;
 	
 	
 	public String getMatricula() {
@@ -17,12 +16,6 @@ public class ArmazenaDadosUsuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-	public int getRole() {
-		return role;
-	}
-	public void setRole(int role) {
-		this.role = role;
 	}
 
 }
