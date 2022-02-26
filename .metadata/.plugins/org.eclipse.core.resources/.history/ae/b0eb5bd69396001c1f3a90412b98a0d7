@@ -69,7 +69,7 @@ public class AutenticacaoServlet extends HttpServlet{
 		if(retorno) {
 			HttpSession sessao = request.getSession();
 			
-			
+			//System.out.println(sessao.getId());
 			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
 			sessao.setAttribute("role", role);

@@ -31,7 +31,6 @@ public class ServletFilter implements Filter {
 		 * realizou a requisição
 		 */
 		String context = request.getServletContext().getContextPath();
-	
 
 		try {
 			/*
@@ -49,13 +48,14 @@ public class ServletFilter implements Filter {
 			 */
 			String usuario = null;
 			
-			Integer roleUser = (Integer) session.getAttribute("role");
-			
+			Integer roleUser = null;
 			
 			// Se existe uma Session
 			if (session != null) {
 				//Atribua o valor do login de quem se logou a variável usuario
 				usuario = (String) session.getAttribute("matricula");
+				
+				roleUser = (Integer) session.getAttribute("role");
 			}
 			
 			
@@ -72,6 +72,14 @@ public class ServletFilter implements Filter {
 				 * inexistente ou com senha inexistente será redirecionado de lá para a página
 				 * de erro.
 				 */
+				
+				System.out.println(session.getServletContext());
+				System.out.println(session.getCreationTime());
+				System.out.println(session.putValue("teste", userRole););
+				System.out.println(session.getServletContext());
+				System.out.println(session.getServletContext());
+				System.out.println(session.getServletContext());
+				System.out.println(session.getServletContext());
 				
 				
 				filterChain.doFilter(request, response);

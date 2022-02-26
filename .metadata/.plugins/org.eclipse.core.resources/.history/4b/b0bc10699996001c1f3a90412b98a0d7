@@ -73,6 +73,7 @@ public class ServletFilter implements Filter {
 				 * de erro.
 				 */
 				
+				System.out.println("entrou na filter");
 				
 				filterChain.doFilter(request, response);
 				

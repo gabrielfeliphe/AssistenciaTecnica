@@ -75,6 +75,7 @@ public class AutenticacaoServlet extends HttpServlet{
 			sessao.setAttribute("role", role);
 			switch(role) {
 			case 0:
+				System.out.println("teste"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/adm");
 			break;
 			case 1:

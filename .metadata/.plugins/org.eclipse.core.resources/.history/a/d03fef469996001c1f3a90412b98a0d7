@@ -31,7 +31,6 @@ public class ServletFilter implements Filter {
 		 * realizou a requisição
 		 */
 		String context = request.getServletContext().getContextPath();
-	
 
 		try {
 			/*
@@ -73,6 +72,7 @@ public class ServletFilter implements Filter {
 				 * de erro.
 				 */
 				
+				System.out.println("entrou na filter");
 				
 				filterChain.doFilter(request, response);
 				
