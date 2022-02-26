@@ -61,7 +61,6 @@ public class AutenticacaoServlet extends HttpServlet{
 		System.out.println("gettersenha: "+dadosautentica.getSenha());
 		
 		
-		
 		boolean retorno = jdbcAutentica.consultar(dadosautentica);
 		int role = jdbcAutentica.role(dadosautentica);
 		
@@ -70,24 +69,21 @@ public class AutenticacaoServlet extends HttpServlet{
 		if(retorno) {
 			HttpSession sessao = request.getSession();
 			
+			
+			
 			sessao.setAttribute("matricula", request.getParameter("matricula"));
 			sessao.setAttribute("role", role);
 			switch(role) {
 			case 0:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/adm");
 			break;
 			case 1:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/recepcao");
-				
 				break;
 			case 2:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/manutencao");
 				break;
 			case 3:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/almoxarife");
 				break;
 			}

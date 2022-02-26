@@ -48,10 +48,10 @@ public class ServletFilter implements Filter {
 			 * valor o não.
 			 */
 			String usuario = null;
-			int a = 1;
+			
 			Integer roleUser = (Integer) session.getAttribute("role");
 			
-			String[] voSessao = new String[2];
+			String[] voSessao = new String[3];
 			
 			// Se existe uma Session
 			if (session != null) {
@@ -59,8 +59,10 @@ public class ServletFilter implements Filter {
 				usuario = (String) session.getAttribute("matricula");
 				voSessao[0] = usuario;
 				voSessao[1] = session.getId();
+				voSessao[2] = (String) session.getAttribute("role");
 			}
-						
+			
+			
 			//Verificando se usuário é nulo
 			if (usuario == null)
 
@@ -74,8 +76,8 @@ public class ServletFilter implements Filter {
 				 * inexistente ou com senha inexistente será redirecionado de lá para a página
 				 * de erro.
 				 */
-				System.out.println(roleUser);
-
+				
+				
 				filterChain.doFilter(request, response);
 				
 			}

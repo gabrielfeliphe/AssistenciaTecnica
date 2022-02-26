@@ -74,20 +74,15 @@ public class AutenticacaoServlet extends HttpServlet{
 			sessao.setAttribute("role", role);
 			switch(role) {
 			case 0:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/adm");
 			break;
 			case 1:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/recepcao");
-				
 				break;
 			case 2:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/manutencao");
 				break;
 			case 3:
-				System.out.println("autentica"+sessao.getAttribute("role"));
 				response.sendRedirect("pages/almoxarife");
 				break;
 			}
