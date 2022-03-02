@@ -240,3 +240,16 @@
 0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:39:37 -0300] "GET /PI-AssistenciaTecnica/acessoNegado.html HTTP/1.1" 200 189
 0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:39:48 -0300] "GET /PI-AssistenciaTecnica/pages/admin HTTP/1.1" 404 1069
 0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:39:51 -0300] "GET /PI-AssistenciaTecnica/pages/adm HTTP/1.1" 302 -
+127.0.0.1 - - [02/Mar/2022:19:49:16 -0300] "GET / HTTP/1.1" 404 1036
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:20 -0300] "GET /PI-AssistenciaTecnica/pages/adm/funcao/cadastro_funcionario/ HTTP/1.1" 200 2744
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:20 -0300] "GET /PI-AssistenciaTecnica/css/admin.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:20 -0300] "GET /PI-AssistenciaTecnica/js/admin_cadastroFuncionario.js HTTP/1.1" 200 7580
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:21 -0300] "GET /PI-AssistenciaTecnica/rest/funcionario/buscar HTTP/1.1" 200 54
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:21 -0300] "GET /PI-AssistenciaTecnica/imgs/edit.png HTTP/1.1" 200 9699
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:21 -0300] "GET /PI-AssistenciaTecnica/imgs/delete.png HTTP/1.1" 200 55056
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:32 -0300] "GET /PI-AssistenciaTecnica/css/images/ui-bg_highlight-soft_100_eeeeee_1x100.png HTTP/1.1" 200 342
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:32 -0300] "GET /PI-AssistenciaTecnica/css/images/ui-bg_gloss-wave_35_f6a828_500x100.png HTTP/1.1" 200 5873
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:32 -0300] "GET /PI-AssistenciaTecnica/css/images/ui-icons_222222_256x240.png HTTP/1.1" 200 7025
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:32 -0300] "GET /PI-AssistenciaTecnica/css/images/ui-bg_diagonals-thick_20_666666_40x40.png HTTP/1.1" 200 384
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:37 -0300] "POST /PI-AssistenciaTecnica/rest/funcionario/cadastrar HTTP/1.1" 200 33
+0:0:0:0:0:0:0:1 - - [02/Mar/2022:19:49:37 -0300] "GET /PI-AssistenciaTecnica/rest/funcionario/buscar HTTP/1.1" 200 110

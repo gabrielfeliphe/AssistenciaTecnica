@@ -3,9 +3,6 @@ package br.com.tecnicabriquete.rest;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -63,22 +60,7 @@ public class FuncionarioRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
 			String msg="";
-			
-			String sendmd5 = "";
-			MessageDigest md = null;
-			
-			try {
-				md = MessageDigest.getInstance("MD5");
-			}catch(NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			}
-			byte[] messageDigest = md.digest(funcionario.getSenha().getBytes());
-			
-			BigInteger hash = new BigInteger(1, messageDigest);
-			sendmd5 = hash.toString(16);
-			
-			funcionario.setSenha(sendmd5);
-			
+
 				boolean retornoExistencia= jdbcFuncionario.verficiaExistencia(funcionario);
 				
 				if (retornoExistencia == false) {
@@ -179,21 +161,6 @@ public class FuncionarioRest extends UtilRest{
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
-			
-			String sendmd5 = "";
-			MessageDigest md = null;
-			
-			try {
-				md = MessageDigest.getInstance("MD5");
-			}catch(NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			}
-			byte[] messageDigest = md.digest(funcionario.getSenha().getBytes());
-			
-			BigInteger hash = new BigInteger(1, messageDigest);
-			sendmd5 = hash.toString(16);
-			
-			funcionario.setSenha(sendmd5);
 			
 			boolean retornoExistencia = jdbcFuncionario.verficiaExistenciaEditar(funcionario);
 			

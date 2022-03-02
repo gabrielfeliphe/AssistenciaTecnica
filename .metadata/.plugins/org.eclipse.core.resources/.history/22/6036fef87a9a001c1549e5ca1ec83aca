@@ -77,8 +77,6 @@ public class FuncionarioRest extends UtilRest{
 			BigInteger hash = new BigInteger(1, messageDigest);
 			sendmd5 = hash.toString(16);
 			
-			funcionario.setSenha(sendmd5);
-			
 				boolean retornoExistencia= jdbcFuncionario.verficiaExistencia(funcionario);
 				
 				if (retornoExistencia == false) {
@@ -179,21 +177,6 @@ public class FuncionarioRest extends UtilRest{
 			Conexao conec = new Conexao();
 			Connection conexao = conec.abrirConexao();
 			JDBCFuncionarioDAO jdbcFuncionario = new JDBCFuncionarioDAO(conexao);
-			
-			String sendmd5 = "";
-			MessageDigest md = null;
-			
-			try {
-				md = MessageDigest.getInstance("MD5");
-			}catch(NoSuchAlgorithmException e) {
-				e.printStackTrace();
-			}
-			byte[] messageDigest = md.digest(funcionario.getSenha().getBytes());
-			
-			BigInteger hash = new BigInteger(1, messageDigest);
-			sendmd5 = hash.toString(16);
-			
-			funcionario.setSenha(sendmd5);
 			
 			boolean retornoExistencia = jdbcFuncionario.verficiaExistenciaEditar(funcionario);
 			
