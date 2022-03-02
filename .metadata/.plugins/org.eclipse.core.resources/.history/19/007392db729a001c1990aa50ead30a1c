@@ -46,27 +46,9 @@ public class ServletFilter implements Filter {
 
 			HttpSession session = ((HttpServletRequest) request).getSession();
 			
-			String pathRequest = ((HttpServletRequest) request).getRequestURI();
+			String path = ((HttpServletRequest) request).getRequestURI();
 			
-			String[] compara = pathRequest.split("/");
 			
-			int role = 42;
-			
-			switch(compara[3]) {
-			case "adm":
-				role =0;
-				break;
-			case "recepcao":
-				role =1;
-				break;
-			case "almoxarife":
-				role=3;
-				break;
-			case "manutencao":
-				role = 2;
-				break;
-			}
-
 
 			/*
 			 * Inicializando a variável usuário para depois sabermos se este chegou com
@@ -103,13 +85,9 @@ public class ServletFilter implements Filter {
 				
 				
 				
-				System.out.println("Path "+pathRequest);
-				
-				if(role != roleUser) {
-					((HttpServletResponse) response).sendRedirect(context + "/acessoNegado.html");
-				}else {
-					filterChain.doFilter(request, response);
-				}
+				System.out.println("Path "+path);
+
+				filterChain.doFilter(request, response);
 				
 			}
 		} catch (Exception e) {

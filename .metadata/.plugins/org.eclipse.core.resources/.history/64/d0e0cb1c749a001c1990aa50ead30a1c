@@ -106,7 +106,7 @@ public class ServletFilter implements Filter {
 				System.out.println("Path "+pathRequest);
 				
 				if(role != roleUser) {
-					((HttpServletResponse) response).sendRedirect(context + "/acessoNegado.html");
+					((HttpServletResponse) response).sendRedirect(context + "/erro.html");
 				}else {
 					filterChain.doFilter(request, response);
 				}
