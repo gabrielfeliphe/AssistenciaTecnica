@@ -28,7 +28,7 @@ $(document).ready(function() {
 		novoFuncionario.matricula = document.frmAddFuncionario.matricula.value;
 		novoFuncionario.email = document.frmAddFuncionario.email.value;
 		novoFuncionario.funcao = document.frmAddFuncionario.funcao.value;
-		novoFuncionario.senha = document.frmAddFuncionario.senha.value;
+		novoFuncionario.senha = base64(document.frmAddFuncionario.senha.value);
 
 		if (novoFuncionario.matricula == "" || novoFuncionario.email == "" || novoFuncionario.funcao == "" || novoFuncionario.senha == "") {
 			BRIQUETE.exibirAviso("erro : preencha todos os campos!");
@@ -237,7 +237,7 @@ BRIQUETE.funcionario.editar = function (){
 		funcionario.matricula = document.frmEditaFuncionario.matricula.value;
 		funcionario.funcao = document.frmEditaFuncionario.funcao.value;
 		funcionario.email = document.frmEditaFuncionario.email.value;
-		funcionario.senha = document.frmEditaFuncionario.senha.value;
+		funcionario.senha = base64(document.frmEditaFuncionario.senha.value);
 	
 		
 		var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
@@ -262,6 +262,11 @@ BRIQUETE.funcionario.editar = function (){
 	}
 		
 	}
+
+function base64(password){
+	var senhaEmBase64 = btoa(password);
+	return senhaEmBase64;
+}
 
 
 
