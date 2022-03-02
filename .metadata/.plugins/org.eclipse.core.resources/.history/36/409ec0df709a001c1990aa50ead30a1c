@@ -46,9 +46,9 @@ public class ServletFilter implements Filter {
 
 			HttpSession session = ((HttpServletRequest) request).getSession();
 			
-			StringBuffer path = ((HttpServletRequest) request).getRequestURL();
+			// StringBuffer path = ((HttpServletRequest) request).getRequestURL();
 			
-			
+			String path = ((HttpServletRequest) request).getRequestURI();
 
 			/*
 			 * Inicializando a variável usuário para depois sabermos se este chegou com
@@ -82,8 +82,6 @@ public class ServletFilter implements Filter {
 				 * de erro.
 				 */
 				System.out.println("requisição do usuario: "+roleUser);
-				
-				
 				
 				System.out.println("Path "+path);
 

@@ -39,16 +39,9 @@ public class ServletFilter implements Filter {
 			 * necessário fazer um casting(conversão) pois o objeto request é do tipo
 			 * ServletRequest e não HttpServletRequest como no Servlet onde você utiliza
 			 * você utiliza o método em questão, sem o uso do casting.
-			 * 
-			 * 
 			 */
-			
 
 			HttpSession session = ((HttpServletRequest) request).getSession();
-			
-			StringBuffer path = ((HttpServletRequest) request).getRequestURL();
-			
-			
 
 			/*
 			 * Inicializando a variável usuário para depois sabermos se este chegou com
@@ -81,11 +74,7 @@ public class ServletFilter implements Filter {
 				 * inexistente ou com senha inexistente será redirecionado de lá para a página
 				 * de erro.
 				 */
-				System.out.println("requisição do usuario: "+roleUser);
-				
-				
-				
-				System.out.println("Path "+path);
+				System.out.println(roleUser);
 
 				filterChain.doFilter(request, response);
 				
