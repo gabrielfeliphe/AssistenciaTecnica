@@ -118,26 +118,6 @@ public class ServicosRest extends UtilRest{
 
 	}
 	
-	@GET
-	@Path("/buscarOrcamentosRelatorio")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response buscarOrcamentosRelatorio() {
-
-		try {
-			List<Orcamento> listaOrcamentos = new ArrayList<Orcamento>();
-
-			Conexao conec = new Conexao();
-			Connection conexao = conec.abrirConexao();
-			JDBCServicosDAO jdbcServicos = new JDBCServicosDAO(conexao);
-			listaOrcamentos = jdbcServicos.buscarOrcamentosRelatorio();
-			conec.fecharConexao();
-			return this.buildResponse(listaOrcamentos);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return this.buildErrorResponse(e.getMessage());
-		}
-	}
-	
 	@PUT
 	@Path("/realizaOrcamento")
 	@Consumes("application/*")

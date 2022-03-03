@@ -178,7 +178,7 @@ public class JDBCServicosDAO {
 	}
 	
 	
-	public List<Orcamento> buscarOrcamentosRelatorio() {
+	public List<Orcamento> buscarOrcamentoRelatorio() {
 
 
 		// Criação da instrução SQL para busca de todos funcionarios
