@@ -96,7 +96,7 @@ $(document).ready(function(){
 		
 		tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td>" + quantidade  + "</td>" +
-				"<td>" + currency(total)+ "</td>" +
+				"<td>" + total+ "</td>" +
 				"</tr>"
 		tabela += "</tbody></table>";
 

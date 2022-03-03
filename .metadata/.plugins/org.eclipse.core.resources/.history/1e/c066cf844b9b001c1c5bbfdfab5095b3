@@ -12,7 +12,7 @@ $(document).ready(function(){
 			success: function(dados) {
 				console.log(dados);
 				$("#lista-completa").html(BRIQUETE.admin.exibirOS(dados));
-				$("#lista-soma").html(BRIQUETE.admin.totalGeral(dados));
+				$("#lista-soma").html(BRIQUETE.admin.totalGeral(dados.valorTotal));
 			},
 			error: function(info) {
 				console.log("erro : " + info);
@@ -77,10 +77,10 @@ $(document).ready(function(){
 	};
 	
 	BRIQUETE.admin.totalGeral = function(dados){
-		var total=0;
-		var quantidade = dados.length;
+		var total;
+		//var qtd = dados.length;
 		for (var i=0;i<dados.length;i++){
-			total += dados[i].valorTotal
+			total += dados[i]
 		}
 		
 		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
@@ -92,11 +92,10 @@ $(document).ready(function(){
 		"</thead>"+
 		"<tbody id='tabelaOrcamentos'>";
 
-		console.log(total)
-		
+
 		tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td>" + quantidade  + "</td>" +
-				"<td>" + currency(total)+ "</td>" +
+				"<td>" + currency(total) + "</td>" +
 				"</tr>"
 		tabela += "</tbody></table>";
 

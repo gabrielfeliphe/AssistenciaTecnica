@@ -12,7 +12,6 @@ $(document).ready(function(){
 			success: function(dados) {
 				console.log(dados);
 				$("#lista-completa").html(BRIQUETE.admin.exibirOS(dados));
-				$("#lista-soma").html(BRIQUETE.admin.totalGeral(dados));
 			},
 			error: function(info) {
 				console.log("erro : " + info);
@@ -75,35 +74,6 @@ $(document).ready(function(){
 	const currency = function(number){
 	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
 	};
-	
-	BRIQUETE.admin.totalGeral = function(dados){
-		var total=0;
-		var quantidade = dados.length;
-		for (var i=0;i<dados.length;i++){
-			total += dados[i].valorTotal
-		}
-		
-		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
-		"<thead>"+
-		"<tr>" +
-		"<th>Quantidade</th>" +
-		"<th>Valor:</th>" +
-		"</tr>"+
-		"</thead>"+
-		"<tbody id='tabelaOrcamentos'>";
-
-		console.log(total)
-		
-		tabela += "<tr id='tabelaExibeOrcamentos'>" +
-				"<td>" + quantidade  + "</td>" +
-				"<td>" + currency(total)+ "</td>" +
-				"</tr>"
-		tabela += "</tbody></table>";
-
-	return tabela;
-		
-		
-	}
 
 	/*BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		
@@ -262,10 +232,34 @@ BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
 
 	return tabela;
 		
-}
+	}
+	
+	const currency = function(number){
+	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
+	};
+	
+	
+BRIQUETE.recepcao.checkAbandonaProduto = function (dataEntrada){
+	
+	dataEntrada = dataEntrada.replace("-","/");
+	
+	
+	var dataTeste = new Date().toLocaleDateString();
+	
+	dataTeste = dataTeste.split("/").reverse();
+	
+	const date1 = new Date(dataEntrada);
+    const date2 = new Date(dataTeste);
+    
 
+    // One day in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24;
+    const diffInTime = date2.getTime() - date1.getTime();
+    const diffInDays = Math.round(diffInTime / oneDay);
+    
 	
-	
+	return diffInDays;
+}
 	*/
 	
 });

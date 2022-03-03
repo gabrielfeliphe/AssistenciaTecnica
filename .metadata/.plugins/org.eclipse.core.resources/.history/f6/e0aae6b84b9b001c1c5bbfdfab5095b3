@@ -77,10 +77,10 @@ $(document).ready(function(){
 	};
 	
 	BRIQUETE.admin.totalGeral = function(dados){
-		var total=0;
-		var quantidade = dados.length;
+		var total;
+		var qantidade = dados.length;
 		for (var i=0;i<dados.length;i++){
-			total += dados[i].valorTotal
+			total += +dados[i].valorTotal
 		}
 		
 		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
@@ -92,11 +92,10 @@ $(document).ready(function(){
 		"</thead>"+
 		"<tbody id='tabelaOrcamentos'>";
 
-		console.log(total)
-		
+
 		tabela += "<tr id='tabelaExibeOrcamentos'>" +
-				"<td>" + quantidade  + "</td>" +
-				"<td>" + currency(total)+ "</td>" +
+				"<td>" + 1  + "</td>" +
+				"<td>" + currency(total) + "</td>" +
 				"</tr>"
 		tabela += "</tbody></table>";
 
