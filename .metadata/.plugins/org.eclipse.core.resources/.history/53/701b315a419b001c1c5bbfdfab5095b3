@@ -55,7 +55,7 @@ $(document).ready(function(){
 				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
-				"<td>" + currency(listaDeOS[i].valorTotal)+ "</td>" +
+				"<td>" + listaDeOS[i].valorTotal+ "</td>" +
 				"<td>" + listaDeOS[i].data + "</td>" +
 				"</tr>"
 

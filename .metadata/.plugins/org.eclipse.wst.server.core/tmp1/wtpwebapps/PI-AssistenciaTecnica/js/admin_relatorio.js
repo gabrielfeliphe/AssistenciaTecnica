@@ -55,7 +55,7 @@ $(document).ready(function(){
 				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
-				"<td>" + " fazer função de soma  "+ "</td>" +
+				"<td>" + currency(listaDeOS[i].valorTotal)+ "</td>" +
 				"<td>" + listaDeOS[i].data + "</td>" +
 				"</tr>"
 
@@ -71,15 +71,9 @@ $(document).ready(function(){
 	}
 	
 	
-	BRIQUETE.admin.somaValores = function (valores){
-		var soma;
-		
-		for (var i=0;i<valores.length;i++){
-			soma +=valor
-		}
-		
-		return soma;
-	}
+	const currency = function(number){
+	    return new Intl.NumberFormat('pt-BR', {style: 'currency',currency: 'BRL', minimumFractionDigits: 2}).format(number);
+	};
 
 	/*BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		
