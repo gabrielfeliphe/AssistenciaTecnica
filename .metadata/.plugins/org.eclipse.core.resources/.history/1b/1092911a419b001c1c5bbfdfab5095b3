@@ -182,7 +182,7 @@ public class JDBCServicosDAO {
 
 
 		// Criação da instrução SQL para busca de todos funcionarios
-		String comando = "SELECT orcamento.*,cliente.*, SUM(servico.valor) as valorTotal FROM orcamento " + 
+		String comando = "SELECT orcamento.*, SUM(servico.valor) as valorTotal FROM orcamento " + 
 				"INNER JOIN cliente on orcamento.idcliente = cliente.idcliente " + 
 				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
 				"GROUP BY idorcamento " + 
