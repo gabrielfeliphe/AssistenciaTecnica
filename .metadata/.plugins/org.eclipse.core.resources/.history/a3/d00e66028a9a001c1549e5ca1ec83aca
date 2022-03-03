@@ -71,15 +71,6 @@ $(document).ready(function(){
 	}
 	
 	
-	BRIQUETE.admin.somaValores = function (valores){
-		var soma;
-		
-		for (var i=0;i<valores.length;i++){
-			soma +=valor
-		}
-		
-		return soma;
-	}
 
 	/*BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		

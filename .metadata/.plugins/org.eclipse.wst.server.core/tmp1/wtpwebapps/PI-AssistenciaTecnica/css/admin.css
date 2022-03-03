@@ -94,3 +94,11 @@ form i{
 	margin-top:5px;
 	margin-left:-25px;
 }
+
+.exibeInformacoes{
+	cursor: pointer;
+}
+
+.exibeInformacoes:hover{
+	color: #7FFFD4;
+}

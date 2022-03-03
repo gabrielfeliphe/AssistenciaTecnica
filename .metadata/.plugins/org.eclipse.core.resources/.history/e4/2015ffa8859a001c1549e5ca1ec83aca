@@ -2,7 +2,6 @@
 
 #box {
 	border: solid 1px black;
-	padding: 20px;
 }
 
 h4 {
@@ -93,12 +92,4 @@ select {
 form i{
 	margin-top:5px;
 	margin-left:-25px;
-}
-
-.exibeInformacoes{
-	cursor: pointer;
-}
-
-.exibeInformacoes:hover{
-	color: #7FFFD4;
 }

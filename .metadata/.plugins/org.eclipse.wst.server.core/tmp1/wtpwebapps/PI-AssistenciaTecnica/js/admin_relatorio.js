@@ -24,14 +24,17 @@ $(document).ready(function(){
 	BRIQUETE.admin.consultaOS();
 	
 	BRIQUETE.admin.exibirOS = function(listaDeOS){
-
+		
+		console.log(listaDeOS)
 		
 		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
 		"<thead>"+
 		"<tr>" +
-		"<th>Status</th>" +
+		"<th>Tipo</th>" +
 		"<th>Cliente</th>" +
 		"<th>Equipamento</th>" +
+		"<th>Valor</th>" +
+		"<th>Data</th>" +
 		"</tr>"+
 		"</thead>"+
 		"<tbody id='tabelaOrcamentos'>";
@@ -41,30 +44,21 @@ $(document).ready(function(){
 		console.log(listaDeOS)
 
 		for (var i = 0; i < listaDeOS.length; i++) {
-			let statusOrcamento
-			switch (listaDeOS[i].status) {
-				case 4:
-					statusOrcamento = "Aguardando Manutenção"
-					break;
-				case 5:
-					statusOrcamento = "Contatar Cliente"
-					break;
-				case 6:
-					statusOrcamento = "Finalizado"
-					break;
-				case -5:
-					statusOrcamento = "Abandonado"
-					break;
-			}
+			let tipo
 			
-			if(listaDeOS[i].status >= 4){
-
+			if (listaDeOS[i].status < 4){
+				tipo = "Orçamento"
+			}else{
+				tipo = "Ordem de serviço"
+			}
 			tabela += "<tr id='tabelaExibeOrcamentos'>" +
-				"<td class='exibeInformacoes' onclick='BRIQUETE.admin.tratarOS("+listaDeOS[i].idorcamento+")'>" + statusOrcamento + "</td>" +
+				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
+				"<td>" + " fazer função de soma  "+ "</td>" +
+				"<td>" + listaDeOS[i].data + "</td>" +
 				"</tr>"
-			}
+
 		}
 
 	} else if (listaDeOS == "") {
@@ -77,6 +71,15 @@ $(document).ready(function(){
 	}
 	
 	
+	BRIQUETE.admin.somaValores = function (valores){
+		var soma;
+		
+		for (var i=0;i<valores.length;i++){
+			soma +=valor
+		}
+		
+		return soma;
+	}
 
 	/*BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		
