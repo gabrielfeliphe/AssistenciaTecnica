@@ -7,7 +7,6 @@ public class Orcamento {
 	
 	String equipamentoNome,equipamentoModeloCodigo,defeito,observacao;
 	int status,idorcamento;
-	float valorTotal;
 	Date data,validade;
 	Cliente cliente;
 	ArrayList<Servicos> servicos = new ArrayList<Servicos>();
@@ -73,12 +72,6 @@ public class Orcamento {
 	}
 	public void setServicos(ArrayList<Servicos> servicos) {
 		this.servicos = servicos;
-	}
-	public float getValorTotal() {
-		return valorTotal;
-	}
-	public void setValorTotal(float valorTotal) {
-		this.valorTotal = valorTotal;
 	}
 	
 	

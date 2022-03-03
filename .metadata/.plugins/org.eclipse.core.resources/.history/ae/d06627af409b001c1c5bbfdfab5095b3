@@ -189,9 +189,6 @@ public class JDBCServicosDAO {
 				"ORDER BY status ASC;";
 
 		List<Orcamento> listaOrcamento = new ArrayList<Orcamento>();
-		
-		System.out.println("comando novo: ");
-		System.out.println(comando);
 
 		
 	

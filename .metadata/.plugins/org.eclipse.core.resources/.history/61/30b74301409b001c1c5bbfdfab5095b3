@@ -182,16 +182,9 @@ public class JDBCServicosDAO {
 
 
 		// Criação da instrução SQL para busca de todos funcionarios
-		String comando = "SELECT orcamento.*, SUM(servico.valor) as valorTotal FROM orcamento " + 
-				"INNER JOIN cliente on orcamento.idcliente = cliente.idcliente " + 
-				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
-				"GROUP BY idorcamento " + 
-				"ORDER BY status ASC;";
+		String comando = "SELECT * FROM orcamento INNER JOIN cliente on orcamento.idcliente = cliente.idcliente ORDER BY status ASC";
 
 		List<Orcamento> listaOrcamento = new ArrayList<Orcamento>();
-		
-		System.out.println("comando novo: ");
-		System.out.println(comando);
 
 		
 	
@@ -229,7 +222,6 @@ public class JDBCServicosDAO {
 				int idcliente = rs.getInt("idcliente");
 				String nomeCliente = rs.getString("nome");
 				long numeroCliente = rs.getLong("telefone");
-				float valorTotal = rs.getFloat("valorTotal");
 				
 				cliente.setIdcliente(idcliente);
 				cliente.setNome(nomeCliente);
@@ -244,11 +236,9 @@ public class JDBCServicosDAO {
 				orcamento.setStatus(status);
 				orcamento.setValidade(validade_orcamento);
 				orcamento.setObservacao(observacao);
-				orcamento.setCliente(cliente);
-				orcamento.setValorTotal(valorTotal);
+				orcamento.setCliente(cliente);;
 				
-				System.out.println("Valor total: "+valorTotal);
-				
+		
 				listaOrcamento.add(orcamento);
 			}
 

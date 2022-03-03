@@ -8,7 +8,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type: "GET",
-			url: BRIQUETE.PATH + "servicos/buscarOrcamentos",
+			url: BRIQUETE.PATH + "servicos/buscarOrcamentosRelatorio",
 			success: function(dados) {
 				console.log(dados);
 				$("#lista-completa").html(BRIQUETE.admin.exibirOS(dados));
