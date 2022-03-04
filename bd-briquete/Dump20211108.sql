@@ -176,6 +176,10 @@ INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento
 GROUP BY idorcamento
 ORDER BY status ASC;
 
+SELECT orcamento.*, cliente.*,  FROM orcamento INNER JOIN cliente on orcamento.idcliente = cliente.idcliente 
+
+WHERE idorcamento = ?
+
 
 
 

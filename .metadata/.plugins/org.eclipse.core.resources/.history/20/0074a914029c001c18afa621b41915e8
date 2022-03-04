@@ -261,52 +261,6 @@ public class JDBCServicosDAO {
 		return listaOrcamento;
 	}
 	
-public Orcamento buscaRelatorioDetalhado(int idorcamento) {
-		
-		String comando = "SELECT orcamento.*,cliente.*, servico.* as valorTotal FROM orcamento " + 
-				"INNER JOIN cliente on orcamento.idcliente = cliente.idcliente " + 
-				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
-				"WHERE idorcamento = ?";
-		
-		System.out.println("Comando: "+comando);
-		Orcamento orcamento = new Orcamento();
-		Cliente cliente = new Cliente();
-		try {
-			PreparedStatement p = this.conexao.prepareStatement(comando);
-			p.setInt(1, idorcamento);
-			ResultSet rs = p.executeQuery();
-			while (rs.next()) {
-				
-				String nome_equipamento = rs.getString("nome_equipamento");
-				String modelo_codigo = rs.getString("modelo_codigo");
-				String descricao_problema = rs.getString("descricao_problema");
-				Date data = rs.getDate("data_entrada");
-				int status = rs.getInt("status");
-				String nome = rs.getString("nome");
-				String observacao = rs.getString("observacao");
-				Date validade = rs.getDate("validade_orcamento");
-				long telefone = rs.getLong("telefone");
-				
-				cliente.setNome(nome);
-				cliente.setTelefone(telefone);
-
-				orcamento.setEquipamentoNome(nome_equipamento);
-				orcamento.setEquipamentoModeloCodigo(modelo_codigo);
-				orcamento.setDefeito(descricao_problema);
-				orcamento.setData(data);
-				orcamento.setStatus(status);
-				orcamento.setCliente(cliente);
-				orcamento.setObservacao(observacao);
-				orcamento.setValidade(validade);
-				orcamento.setServicos(buscarServicos(idorcamento));
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return orcamento;
-	}
-	
 
 	public boolean realizaOrcamento(Orcamento orcamento) {
 		

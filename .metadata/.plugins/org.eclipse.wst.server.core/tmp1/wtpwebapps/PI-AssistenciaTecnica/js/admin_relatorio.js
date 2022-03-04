@@ -113,7 +113,8 @@ $(document).ready(function(){
 			url: BRIQUETE.PATH + "servicos/buscaRelatorioDetalhado",
 			data: "idorcamento="+idorcamento,
 			success: function(dados) {
-				
+				console.log("relatorio detalhado")
+				console.log(dados)
 				
 				$("#tabela-orcamento").html(BRIQUETE.admin.exibirRelatorioModal(dados));
 					

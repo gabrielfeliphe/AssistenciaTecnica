@@ -268,7 +268,7 @@ public Orcamento buscaRelatorioDetalhado(int idorcamento) {
 				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
 				"WHERE idorcamento = ?";
 		
-		System.out.println("Comando: "+comando);
+		System.out.println("Comando: "comando);
 		Orcamento orcamento = new Orcamento();
 		Cliente cliente = new Cliente();
 		try {

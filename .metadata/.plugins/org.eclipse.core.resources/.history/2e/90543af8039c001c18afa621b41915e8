@@ -267,8 +267,6 @@ public Orcamento buscaRelatorioDetalhado(int idorcamento) {
 				"INNER JOIN cliente on orcamento.idcliente = cliente.idcliente " + 
 				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
 				"WHERE idorcamento = ?";
-		
-		System.out.println("Comando: "+comando);
 		Orcamento orcamento = new Orcamento();
 		Cliente cliente = new Cliente();
 		try {
@@ -298,8 +296,12 @@ public Orcamento buscaRelatorioDetalhado(int idorcamento) {
 				orcamento.setCliente(cliente);
 				orcamento.setObservacao(observacao);
 				orcamento.setValidade(validade);
-				orcamento.setServicos(buscarServicos(idorcamento));
-
+				
+				if (status >= 2) {
+					orcamento.setServicos(buscarServicos(idorcamento));
+				}
+			
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
