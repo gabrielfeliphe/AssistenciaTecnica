@@ -124,49 +124,7 @@ $(document).ready(function(){
 						width:900,
 						modal: true,
 						buttons:{
-							"Cancelar": function(){
-								$(this).dialog("close");
-								//BRIQUETE.orcamento.limparFrm();	
-							},
-							"Finalizar": function(){
-								
-								
-								$.ajax({
-									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"6",
-									success: function(msg) {
-										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.recepcao.consultaOS();
-										//BRIQUETE.orcamento.limparFrm();
-										$("#modalRealizaOS").dialog( "close" );
-									},
-									error: function(info) {
-										BRIQUETE.exibirAviso(info.responseText);
-									}
-								});
-							
-								
-							},
-							"Abandono":function(){
-								
-								$.ajax({
-									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
-									success: function(msg) {
-										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.recepcao.consultaOS();
-										//BRIQUETE.orcamento.limparFrm();
-										$("#modalRealizaOS").dialog( "close" );
-									},
-									error: function(info) {
-										BRIQUETE.exibirAviso(info.responseText);
-									}
-								});
-								
-							}
-						},
-						close: function(){
-							//BRIQUETE.orcamento.limparFrm();
+						close: function(){					
 							$(this).dialog('close');
 						}
 				};

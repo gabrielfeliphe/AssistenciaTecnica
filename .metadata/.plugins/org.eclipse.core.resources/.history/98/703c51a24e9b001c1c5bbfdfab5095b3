@@ -105,7 +105,7 @@ $(document).ready(function(){
 		
 	}
 
-	BRIQUETE.recepcao.tratarOS = function(idorcamento){
+	/*BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		
 		$.ajax({
 			
@@ -114,12 +114,25 @@ $(document).ready(function(){
 			data: "idorcamento="+idorcamento,
 			success: function(dados) {
 				
+				//CARREGAMENTO DOS ITENS NA LABEL VIA DADOS
+				console.log("dados do idorcamento consultaos")
+				console.log(dados)
+				
+				document.getElementById('clienteNameModal').innerHTML  = dados.cliente.nome;
+				document.getElementById('equipamento').innerHTML  = dados.equipamentoNome;
+				document.getElementById('observacoes').innerHTML  = dados.observacao;
+				document.getElementById('mod-cod').innerHTML  = dados.equipamentoModeloCodigo;
+				document.getElementById('defeito').innerHTML  = dados.defeito;
+				document.getElementById('telefone').innerHTML = dados.cliente.telefone;
+				document.getElementById('data-entrada').innerHTML = dados.data;
+				document.getElementById('tabelaValor').hidden = false;
+				document.getElementById('valorTotal').innerHTML = BRIQUETE.recepcao.calcularServicos(dados.servicos)
 				
 				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirOrcamentoModal(dados.servicos));
 					
 				
 				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
-						title: "Relatório",
+						title: "Orçamento",
 						height:650,
 						width:900,
 						modal: true,
@@ -191,6 +204,17 @@ $(document).ready(function(){
 		});
 	}
 	
+	BRIQUETE.recepcao.calcularServicos = function(servicos){
+		
+		var valor=0;
+		for(let i=0; i<servicos.length; i++){
+			valor += servicos[i].valor;
+		}
+		
+		return valor;
+		
+	}
+	
 BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
 		
 		console.log("invocado dados orçamento")
@@ -242,6 +266,6 @@ BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
 
 	
 	
-	
+	*/
 	
 });
