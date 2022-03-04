@@ -166,7 +166,7 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		
 		for(var i=0;i<dadosOrcamento.servicos.length;i++){
 			if(dadosOrcamento.servicos[i].tipo == 1){
-				pecas = pecas+dadosOrcamento.servicos[i].peca_servico+",";
+				pecas = pecas+","+dadosOrcamento.servicos[i].peca_servico;
 			}else{
 				servicos = servicos+dadosOrcamento.servicos[i].peca_servico+",";
 			}

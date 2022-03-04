@@ -122,7 +122,7 @@ $(document).ready(function(){
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
 						height:350,
-						width:900,
+						width:1200,
 						modal: true,
 						buttons:{
 							"fechar": function(){
@@ -146,6 +146,11 @@ $(document).ready(function(){
 BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		
 		console.log(dadosOrcamento)
+		
+		var pecas ="";
+		var servicos="";
+		var status="";
+		var tipo="";
 
 		var tabela = "<table class='table table-bordered table-dark' >" +
 		"<tr>" +
@@ -157,15 +162,38 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		"<th>Tipo</th>" +
 		"<th>Status</th>" +
 	"</tr>";
+		
+		
+		for(var i=0;i<dadosOrcamento.servicos.length;i++){
+			if(dadosOrcamento.servicos[i].tipo == 1){
+				pecas = pecas+dadosOrcamento.servicos[i].peca_servico+",";
+			}else{
+				servicos = servicos+dadosOrcamento.servicos[i].peca_servico+",";
+			}
+		}
+		
+		if (dadosOrcamento.status < 4){
+			tipo = "Orçamento"
+		}else{
+			tipo = "Ordem de serviço"
+		}
+		
+		if(dadosOrcamento.status < 6 && dadosOrcamento.status >= 0 ){
+			status = "em andamento"
+		}else if (dadosOrcamento.status < 0){
+			status = "Abandonado"
+		}else{
+			status = "Finalizado"
+		}
 
 			tabela += "<tr>" +
 				"<td>" + dadosOrcamento.cliente.nome + "</td>" +
 				"<td>" + dadosOrcamento.equipamentoNome +"</td>" +
 				"<td>" + dadosOrcamento.data + "</td>" +
-				"<td>" + "peças aqui" + "</td>" +
-				"<td>" + "serviços aqui" + "</td>" +
-				"<td>" + "tipo aqui" + "</td>" +
-				"<td>" + "status aqui" + "</td>" +
+				"<td>" + pecas + "</td>" +
+				"<td>" + servicos + "</td>" +
+				"<td>" + tipo + "</td>" +
+				"<td>" + status + "</td>" +
 				"</tr>"
 
 

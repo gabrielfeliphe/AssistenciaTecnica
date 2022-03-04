@@ -122,7 +122,7 @@ $(document).ready(function(){
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
 						height:350,
-						width:1200,
+						width:900,
 						modal: true,
 						buttons:{
 							"fechar": function(){
@@ -166,9 +166,9 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		
 		for(var i=0;i<dadosOrcamento.servicos.length;i++){
 			if(dadosOrcamento.servicos[i].tipo == 1){
-				pecas = pecas+dadosOrcamento.servicos[i].peca_servico+",";
+				pecas = pecas+","+dadosOrcamento.servicos[i].peca_servico+",";
 			}else{
-				servicos = servicos+dadosOrcamento.servicos[i].peca_servico+",";
+				servicos = servicos+","+dadosOrcamento.servicos[i].peca_servico+",";
 			}
 		}
 		
@@ -176,14 +176,6 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 			tipo = "Orçamento"
 		}else{
 			tipo = "Ordem de serviço"
-		}
-		
-		if(dadosOrcamento.status < 6 && dadosOrcamento.status >= 0 ){
-			status = "em andamento"
-		}else if (dadosOrcamento.status < 0){
-			status = "Abandonado"
-		}else{
-			status = "Finalizado"
 		}
 
 			tabela += "<tr>" +
@@ -193,7 +185,7 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 				"<td>" + pecas + "</td>" +
 				"<td>" + servicos + "</td>" +
 				"<td>" + tipo + "</td>" +
-				"<td>" + status + "</td>" +
+				"<td>" + "status aqui" + "</td>" +
 				"</tr>"
 
 
