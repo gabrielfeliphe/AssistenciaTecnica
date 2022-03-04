@@ -52,7 +52,7 @@ $(document).ready(function(){
 			}else{
 				tipo = "Ordem de serviço"
 			}
-			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>"  
+			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>"  +
 				 + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +

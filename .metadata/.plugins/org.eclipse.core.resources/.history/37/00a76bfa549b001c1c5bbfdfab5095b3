@@ -52,8 +52,8 @@ $(document).ready(function(){
 			}else{
 				tipo = "Ordem de serviço"
 			}
-			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>"  
-				 + tipo + "</td>" +
+			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>" + "</td>" +
+				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
 				"<td>" + currency(listaDeOS[i].valorTotal)+ "</td>" +
