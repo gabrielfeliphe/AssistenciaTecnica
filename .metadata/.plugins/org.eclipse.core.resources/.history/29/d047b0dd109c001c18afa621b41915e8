@@ -235,7 +235,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 
 $("#procurar").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("#tabelaExibeClientesOS tr").filter(function() {
+    $("#tabelaExibeClientesOS tr ").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });	

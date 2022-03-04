@@ -18,7 +18,7 @@
 		<h4>Relatório Administrador</h4>
 		<div class = "row" id="box">		
 			<div class="col-sm">
-			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id="procurar"></br>
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento"></br>
 			 	 <label>Inicio:</label>
 			 	  <input type="date" id="diaa" name="diaa">
 			 	  <label>Fim:</label>

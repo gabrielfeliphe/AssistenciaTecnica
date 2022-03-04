@@ -83,7 +83,7 @@ $(document).ready(function(){
 			total += dados[i].valorTotal
 		}
 		
-		var tabela = "<table class='table table-bordered table-dark'>" +
+		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
 		"<thead>"+
 		"<tr>" +
 		"<th>Quantidade</th>" +
@@ -233,12 +233,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 	}
 }
 
-$("#procurar").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#tabelaExibeClientesOS tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });	
+	
 	
 	
 	

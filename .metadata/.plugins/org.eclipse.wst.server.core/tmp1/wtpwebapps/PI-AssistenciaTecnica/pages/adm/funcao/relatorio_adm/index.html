@@ -18,7 +18,7 @@
 		<h4>Relatório Administrador</h4>
 		<div class = "row" id="box">		
 			<div class="col-sm">
-			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento"></br>
+			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id="procurar"></br>
 			 	 <label>Inicio:</label>
 			 	  <input type="date" id="diaa" name="diaa">
 			 	  <label>Fim:</label>
@@ -26,9 +26,9 @@
 			 	 
 			</div>
 			<div class="col-sm">
-			<input type="checkbox" id="orcamento" name="orcamento" value="1">
+			<input type="checkbox" id="orcamento" name="orcamento" value="1" onclick="BRIQUETE.admin.filtroOrcamentos()">
 			<label for="vehicle1"> Apenas orçamentos</label><br>
-			<input type="checkbox" id="ordemservico" name="ordemservico" value="2">
+			<input type="checkbox" id="ordemservico" name="ordemservico" value="2" onclick="BRIQUETE.admin.filtroOrcamentos()">
 			<label for="vehicle2"> Apenas ordem de serviço</label><br>
 			</div>
 		</div>	

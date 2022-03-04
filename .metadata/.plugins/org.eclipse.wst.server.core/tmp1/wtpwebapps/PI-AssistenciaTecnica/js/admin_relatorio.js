@@ -83,7 +83,7 @@ $(document).ready(function(){
 			total += dados[i].valorTotal
 		}
 		
-		var tabela = "<table class='table table-bordered table-dark' id='tabelaExibeClientesOS'>" +
+		var tabela = "<table class='table table-bordered table-dark'>" +
 		"<thead>"+
 		"<tr>" +
 		"<th>Quantidade</th>" +
@@ -207,9 +207,38 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		
 }
 
-
-
+BRIQUETE.admin.filtroOrcamentos = function(){
 	
+	if(document.querySelector('#orcamento').checked && document.querySelector('#ordemservico').checked){
+		console.log("Disparou os dois")
+		$("#tabelaExibeClientesOS tr").filter(function() {
+			$("tr").show()
+		   });
+	}else if(document.querySelector('#orcamento').checked){
+		  $("#tabelaExibeClientesOS tr").filter(function() {
+		      $(this).toggle($(this).text().indexOf('Orçamento') > -1)
+		   });
+	}else if (document.querySelector('#ordemservico').checked){
+		$("#tabelaExibeClientesOS tr").filter(function() {
+		      $(this).toggle($(this).text().indexOf('Ordem de serviço') > -1)
+		   });
+	}else if (!document.querySelector('#orcamento').checked){
+		$("#tabelaExibeClientesOS tr").filter(function() {
+		      $(this).show()
+		   });
+	}else if (!document.querySelector('#ordemservico').checked){
+		$("#tabelaExibeClientesOS tr").filter(function() {
+		      $(this).show()
+		   });
+	}
+}
+
+$("#procurar").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#tabelaExibeClientesOS tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });	
 	
 	
 	
