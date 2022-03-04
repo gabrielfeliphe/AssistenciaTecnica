@@ -170,7 +170,7 @@ update usuario set senha= '296506902c693b458707ad6f7e24a544' where matricula bet
 
 delete from servico where orcamento_idorcamento = 1;
 
-SELECT orcamento.*, SUM(servico.valor) as valorTotal FROM orcamento 
+SELECT orcamento.*,cliente.*, SUM(servico.valor) as valorTotal FROM orcamento 
 INNER JOIN cliente on orcamento.idcliente = cliente.idcliente 
 INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento
 GROUP BY idorcamento
