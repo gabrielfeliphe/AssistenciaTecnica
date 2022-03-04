@@ -116,7 +116,7 @@ $(document).ready(function(){
 				console.log("relatorio detalhado")
 				console.log(dados)
 				
-				$("#tabela-relatorio").html(BRIQUETE.admin.exibirRelatorioModal(dados));
+				$("#tabela-orcamento").html(BRIQUETE.admin.exibirRelatorioModal(dados));
 					
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
