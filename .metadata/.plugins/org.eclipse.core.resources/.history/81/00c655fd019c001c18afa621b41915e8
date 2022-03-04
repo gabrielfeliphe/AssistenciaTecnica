@@ -150,7 +150,7 @@ public class ServicosRest extends UtilRest{
 			Connection conexao = conec.abrirConexao();
 			JDBCServicosDAO jdbcServicos= new JDBCServicosDAO(conexao);
 
-			orcamento = jdbcServicos.buscaRelatorioDetalhado(idorcamento);
+			orcamento = jdbcServicos.buscarOrcamentoId(idorcamento);
 
 			conec.fecharConexao();
 					

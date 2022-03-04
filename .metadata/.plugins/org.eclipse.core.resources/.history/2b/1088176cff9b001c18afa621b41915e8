@@ -110,12 +110,12 @@ $(document).ready(function(){
 		$.ajax({
 			
 			type: "GET",
-			url: BRIQUETE.PATH + "servicos/buscaRelatorioDetalhado",
+			url: BRIQUETE.PATH + "servicos/buscarOrcamentoId",
 			data: "idorcamento="+idorcamento,
 			success: function(dados) {
 				
 				
-				$("#tabela-orcamento").html(BRIQUETE.admin.exibirRelatorioModal(dados));
+				//$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
 					
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
@@ -142,14 +142,14 @@ $(document).ready(function(){
 		});
 	}
 	
-BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
+BRIQUETE.recepcao.exibirRelatorioModal = function (dadosOrcamento){
 		
-		console.log("invocado dados relatorio modal")
+		console.log("invocado dados orçamento")
 		console.log(dadosOrcamento);
 		
-		/*var somaValores =0;
+		var somaValores =0;
 		
-		var tabela = "<table class='table table-bordered table-dark' >" +
+		var tabela = "<table class='table table-bordered table-dark'>" +
 		"<tr>" +
 		"<th>Categoria</th>" +
 		"<th>Descrição</th>" +
@@ -187,11 +187,9 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 	
 	$("#valorTotal").html(currency(somaValores));
 
-	return tabela;*/	
+	return tabela;
 		
 }
-
-
 
 	
 	

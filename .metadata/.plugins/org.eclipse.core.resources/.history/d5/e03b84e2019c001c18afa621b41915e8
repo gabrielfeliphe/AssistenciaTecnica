@@ -110,7 +110,7 @@ $(document).ready(function(){
 		$.ajax({
 			
 			type: "GET",
-			url: BRIQUETE.PATH + "servicos/buscaRelatorioDetalhado",
+			url: BRIQUETE.PATH + "servicos/buscarOrcamentoId",
 			data: "idorcamento="+idorcamento,
 			success: function(dados) {
 				

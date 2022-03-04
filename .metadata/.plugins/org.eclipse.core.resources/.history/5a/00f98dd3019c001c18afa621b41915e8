@@ -110,12 +110,12 @@ $(document).ready(function(){
 		$.ajax({
 			
 			type: "GET",
-			url: BRIQUETE.PATH + "servicos/buscaRelatorioDetalhado",
+			url: BRIQUETE.PATH + "servicos/buscarOrcamentoId",
 			data: "idorcamento="+idorcamento,
 			success: function(dados) {
 				
 				
-				$("#tabela-orcamento").html(BRIQUETE.admin.exibirRelatorioModal(dados));
+				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
 					
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
