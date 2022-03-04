@@ -175,12 +175,7 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 			tabela += "<tr>" +
 				"<td>" + dadosOrcamento[i].Cliente + "</td>" +
 				"<td>" + dadosOrcamento[i].equipamentoNome +"</td>" +
-				"<td>" + dadosOrcamento[i].data + "</td>" +
-				"<td>" + dadosOrcamento[i].data + "</td>" +
-				"<td>" + "peças aqui" + "</td>" +
-				"<td>" + "serviços aqui" + "</td>" +
-				"<td>" + "tipo aqui" + "</td>" +
-				"<td>" + "status aqui" + "</td>" +
+				"<td>" + currency(dadosOrcamento[i].valor) + "</td>" +
 				"</tr>"
 
 

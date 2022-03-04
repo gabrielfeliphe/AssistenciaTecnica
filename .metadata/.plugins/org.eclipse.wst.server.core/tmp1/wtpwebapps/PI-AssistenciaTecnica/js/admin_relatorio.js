@@ -145,16 +145,16 @@ $(document).ready(function(){
 	
 BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		
-		console.log("invocado dados relatorio modal")
-		console.log(dadosOrcamento);
-		
-		/*var somaValores =0;
-		
+
 		var tabela = "<table class='table table-bordered table-dark' >" +
 		"<tr>" +
-		"<th>Categoria</th>" +
-		"<th>Descrição</th>" +
-		"<th>Valor</th>" +
+		"<th>Cliente</th>" +
+		"<th>Equipamento</th>" +
+		"<th>Data de entrada</th>" +
+		"<th>Peças</th>" +
+		"<th>Serviços</th>" +
+		"<th>Tipo</th>" +
+		"<th>Status</th>" +
 	"</tr>";
 
 
@@ -173,9 +173,14 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 			}
 
 			tabela += "<tr>" +
-				"<td>" + categoria + "</td>" +
-				"<td>" + dadosOrcamento[i].peca_servico + "</td>" +
-				"<td>" + currency(dadosOrcamento[i].valor) + "</td>" +
+				"<td>" + dadosOrcamento[i].Cliente + "</td>" +
+				"<td>" + dadosOrcamento[i].equipamentoNome +"</td>" +
+				"<td>" + dadosOrcamento[i].data + "</td>" +
+				"<td>" + dadosOrcamento[i].data + "</td>" +
+				"<td>" + "peças aqui" + "</td>" +
+				"<td>" + "serviços aqui" + "</td>" +
+				"<td>" + "tipo aqui" + "</td>" +
+				"<td>" + "status aqui" + "</td>" +
 				"</tr>"
 
 
@@ -188,7 +193,7 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 	
 	$("#valorTotal").html(currency(somaValores));
 
-	return tabela;*/	
+	return tabela;	
 		
 }
 

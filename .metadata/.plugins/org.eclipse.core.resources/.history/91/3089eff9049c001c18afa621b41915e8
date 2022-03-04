@@ -263,12 +263,10 @@ public class JDBCServicosDAO {
 	
 public Orcamento buscaRelatorioDetalhado(int idorcamento) {
 		
-		String comando = "SELECT orcamento.*,cliente.*, servico.* as valorTotal FROM orcamento " + 
+		String comando = "SELECT orcamento.*,cliente.*  FROM orcamento " + 
 				"INNER JOIN cliente on orcamento.idcliente = cliente.idcliente " + 
-				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
 				"WHERE idorcamento = ?";
 		
-		System.out.println("Comando: "+comando);
 		Orcamento orcamento = new Orcamento();
 		Cliente cliente = new Cliente();
 		try {
@@ -276,6 +274,8 @@ public Orcamento buscaRelatorioDetalhado(int idorcamento) {
 			p.setInt(1, idorcamento);
 			ResultSet rs = p.executeQuery();
 			while (rs.next()) {
+				
+				System.out.println("Comando: "+comando);
 				
 				String nome_equipamento = rs.getString("nome_equipamento");
 				String modelo_codigo = rs.getString("modelo_codigo");
