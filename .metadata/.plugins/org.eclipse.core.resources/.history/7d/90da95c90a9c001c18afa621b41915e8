@@ -49,6 +49,8 @@ $(document).ready(function(){
 			
 			if (listaDeOS[i].status < 4 && listaDeOS[i].status >=0){
 				tipo = "Orçamento"
+			}else if(listaDeOS[i].status < 0){
+				tipo = "Abandonado"
 			}else{
 				tipo = "Ordem de serviço"
 			}

@@ -47,7 +47,7 @@ $(document).ready(function(){
 		for (var i = 0; i < listaDeOS.length; i++) {
 			let tipo
 			
-			if (listaDeOS[i].status < 4 && listaDeOS[i].status >=0){
+			if (listaDeOS[i].status < 4){
 				tipo = "Orçamento"
 			}else{
 				tipo = "Ordem de serviço"

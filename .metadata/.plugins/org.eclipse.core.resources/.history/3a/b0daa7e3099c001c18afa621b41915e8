@@ -47,7 +47,7 @@ $(document).ready(function(){
 		for (var i = 0; i < listaDeOS.length; i++) {
 			let tipo
 			
-			if (listaDeOS[i].status < 4 && listaDeOS[i].status >=0){
+			if (listaDeOS[i].status < 4){
 				tipo = "Orçamento"
 			}else{
 				tipo = "Ordem de serviço"
@@ -172,7 +172,7 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 			}
 		}
 		
-		if (dadosOrcamento.status < 4 && dadosOrcamento.status >=0){
+		if (dadosOrcamento.status < 4){
 			tipo = "Orçamento"
 		}else{
 			tipo = "Ordem de serviço"
@@ -186,7 +186,6 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 			status = "Finalizado"
 		}
 		
-		// Retira a ultima virgula da string
 		pecas = pecas.substring(0, pecas.length - 1);
 		servicos = servicos.substring(0, servicos.length - 1)
 
