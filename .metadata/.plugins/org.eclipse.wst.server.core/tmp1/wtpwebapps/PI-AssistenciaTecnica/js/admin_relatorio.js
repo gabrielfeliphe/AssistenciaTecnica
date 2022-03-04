@@ -52,7 +52,7 @@ $(document).ready(function(){
 			}else{
 				tipo = "Ordem de serviço"
 			}
-			tabela += "<tr id='tabelaExibeOrcamentos'>" +
+			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>" + "</td>" +
 				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
@@ -105,7 +105,7 @@ $(document).ready(function(){
 		
 	}
 
-	BRIQUETE.recepcao.tratarOS = function(idorcamento){
+	BRIQUETE.admin.exibirRelatorio = function(idorcamento){
 		
 		$.ajax({
 			
@@ -115,72 +115,23 @@ $(document).ready(function(){
 			success: function(dados) {
 				
 				
-				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirOrcamentoModal(dados.servicos));
+				//$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
 					
 				
-				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
+				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
 						height:650,
 						width:900,
 						modal: true,
 						buttons:{
-							"Cancelar": function(){
+							"fechar": function(){
 								$(this).dialog("close");
 								//BRIQUETE.orcamento.limparFrm();	
-							},
-							"Finalizar": function(){
-								
-								
-								$.ajax({
-									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"6",
-									success: function(msg) {
-										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.recepcao.consultaOS();
-										//BRIQUETE.orcamento.limparFrm();
-										$("#modalRealizaOS").dialog( "close" );
-									},
-									error: function(info) {
-										BRIQUETE.exibirAviso(info.responseText);
-									}
-								});
-							
-								
-							},
-							"Abandono":function(){
-								
-								$.ajax({
-									type: "PUT",
-									url: BRIQUETE.PATH + "servicos/aprovarOrcamento/"+idorcamento+"/"+"-5",
-									success: function(msg) {
-										BRIQUETE.exibirAviso(msg);
-										BRIQUETE.recepcao.consultaOS();
-										//BRIQUETE.orcamento.limparFrm();
-										$("#modalRealizaOS").dialog( "close" );
-									},
-									error: function(info) {
-										BRIQUETE.exibirAviso(info.responseText);
-									}
-								});
-								
-							}
+							},			
 						},
-						close: function(){
-							//BRIQUETE.orcamento.limparFrm();
-							$(this).dialog('close');
-						}
 				};
 				
-				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
-				
-				if(BRIQUETE.recepcao.checkAbandonaProduto(dados.data) > 91){
-					BRIQUETE.exibirAviso("O equipamento está abandonado pois excede 90 dias em estoque");
-				}
-				
-				if(dados.status !=5){ // desabilita botão quando for diferente de contatar o cliente;
-					$(":button:contains('Finalizar')").prop("disabled", true).addClass("ui-state-disabled")
-					$(":button:contains('Abandono')").prop("disabled", true).addClass("ui-state-disabled")
-				}
+				$("#modalRelatorio").dialog(modalRelatorio);
 				
 			},
 			error: function(info) {
@@ -191,7 +142,7 @@ $(document).ready(function(){
 		});
 	}
 	
-BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
+BRIQUETE.recepcao.exibirRelatorioModal = function (dadosOrcamento){
 		
 		console.log("invocado dados orçamento")
 		console.log(dadosOrcamento);

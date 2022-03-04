@@ -52,7 +52,7 @@ $(document).ready(function(){
 			}else{
 				tipo = "Ordem de serviço"
 			}
-			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>" + "</td>" +
+			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOrcamentos[i].idorcamento+")'>" + "</td>" +
 				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
@@ -115,7 +115,7 @@ $(document).ready(function(){
 			success: function(dados) {
 				
 				
-				//$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
+				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
 					
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL

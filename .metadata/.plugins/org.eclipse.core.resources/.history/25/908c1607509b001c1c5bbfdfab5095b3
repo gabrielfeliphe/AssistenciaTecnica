@@ -52,7 +52,7 @@ $(document).ready(function(){
 			}else{
 				tipo = "Ordem de serviço"
 			}
-			tabela += "<td class='exibeInformacoes' onclick='BRIQUETE.admin.exibirRelatorio("+listaDeOS[i].idorcamento+")'>" + "</td>" +
+			tabela += "<tr id='tabelaExibeOrcamentos'>" +
 				"<td>" + tipo + "</td>" +
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
@@ -105,7 +105,7 @@ $(document).ready(function(){
 		
 	}
 
-	BRIQUETE.admin.exibirRelatorio = function(idorcamento){
+	BRIQUETE.recepcao.tratarOS = function(idorcamento){
 		
 		$.ajax({
 			
@@ -115,10 +115,10 @@ $(document).ready(function(){
 			success: function(dados) {
 				
 				
-				//$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
+				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirOrcamentoModal(dados.servicos));
 					
 				
-				var modalRelatorio= { // CRIAÇÃO DA MODAL
+				var modalRealizaOrcamento = { // CRIAÇÃO DA MODAL
 						title: "Relatório",
 						height:650,
 						width:900,
@@ -131,7 +131,7 @@ $(document).ready(function(){
 						},
 				};
 				
-				$("#modalRelatorio").dialog(modalRelatorio);
+				$("#modalRealizaOS").dialog(modalRealizaOrcamento);
 				
 			},
 			error: function(info) {
@@ -142,7 +142,7 @@ $(document).ready(function(){
 		});
 	}
 	
-BRIQUETE.recepcao.exibirRelatorioModal = function (dadosOrcamento){
+BRIQUETE.recepcao.exibirOrcamentoModal = function (dadosOrcamento){
 		
 		console.log("invocado dados orçamento")
 		console.log(dadosOrcamento);

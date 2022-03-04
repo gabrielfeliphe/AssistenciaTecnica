@@ -115,7 +115,7 @@ $(document).ready(function(){
 			success: function(dados) {
 				
 				
-				//$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
+				$("#tabela-orcamento").html(BRIQUETE.recepcao.exibirRelatorioModal(dados.servicos));
 					
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
