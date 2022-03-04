@@ -243,6 +243,8 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 
 	
 	teste = function(){
+		
+		
 		if($('#diaa').val() !="" && $('#diab').val() != ""){
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());

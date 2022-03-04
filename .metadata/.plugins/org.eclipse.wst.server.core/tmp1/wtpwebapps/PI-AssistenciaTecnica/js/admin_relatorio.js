@@ -57,7 +57,7 @@ $(document).ready(function(){
 				"<td>" + listaDeOS[i].cliente.nome+ "</td>" +
 				"<td>" + listaDeOS[i].equipamentoNome + "</td>" +
 				"<td>" + currency(listaDeOS[i].valorTotal)+ "</td>" +
-				"<td>" + listaDeOS[i].data + "</td>" +
+				"<td id='dataRelatorio'>" + listaDeOS[i].data + "</td>" +
 				"</tr>"
 
 		}
@@ -233,13 +233,32 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 	}
 }
 
-$("#procurar").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#tabelaExibeClientesOS tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });	
+	$("#procurar").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#tabelaExibeClientesOS tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });	
+		
+
 	
-	
+	teste = function(){
+		if($('#diaa').val() !="" && $('#diab').val() != ""){
+		var datea = new Date($('#diaa').val());
+		var dateb = new Date($('#diab').val());
+		var day1 = datea.getDate();
+		var month1 = datea.getMonth() + 1;
+		var year1 = datea.getFullYear();
+		var day2 = dateb.getDate();
+		var month2 = dateb.getMonth() + 1;
+		var year2 = dateb.getFullYear();
+		date1 = [year1, month1, day1].join('/');
+		date2 = [year2, month2, day2].join('/');  
+	    $("#dataRelatorio tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(date1) > -1)
+	    });
+		}
+	}
+
 	
 });
