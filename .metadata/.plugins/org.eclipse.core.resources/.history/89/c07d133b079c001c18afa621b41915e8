@@ -122,7 +122,7 @@ $(document).ready(function(){
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
 						height:350,
-						width:900,
+						width:700,
 						modal: true,
 						buttons:{
 							"fechar": function(){

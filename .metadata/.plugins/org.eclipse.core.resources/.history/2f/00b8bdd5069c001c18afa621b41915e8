@@ -121,7 +121,7 @@ $(document).ready(function(){
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
-						height:350,
+						height:650,
 						width:900,
 						modal: true,
 						buttons:{
@@ -158,16 +158,21 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		"<th>Status</th>" +
 	"</tr>";
 
+
+		for (var i = 0; i < dadosOrcamento.length; i++) {
+			
 			tabela += "<tr>" +
-				"<td>" + dadosOrcamento.cliente.nome + "</td>" +
-				"<td>" + dadosOrcamento.equipamentoNome +"</td>" +
-				"<td>" + dadosOrcamento.data + "</td>" +
+				"<td>" + dadosOrcamento[i].Cliente + "</td>" +
+				"<td>" + dadosOrcamento[i].equipamentoNome +"</td>" +
+				"<td>" + dadosOrcamento[i].data + "</td>" +
+				"<td>" + dadosOrcamento[i].data + "</td>" +
 				"<td>" + "peças aqui" + "</td>" +
 				"<td>" + "serviços aqui" + "</td>" +
 				"<td>" + "tipo aqui" + "</td>" +
 				"<td>" + "status aqui" + "</td>" +
 				"</tr>"
 
+		}
 
 	tabela += "</table>";
 

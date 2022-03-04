@@ -121,7 +121,7 @@ $(document).ready(function(){
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
-						height:350,
+						height:650,
 						width:900,
 						modal: true,
 						buttons:{

@@ -121,7 +121,7 @@ $(document).ready(function(){
 				
 				var modalRelatorio= { // CRIAÇÃO DA MODAL
 						title: "Relatório",
-						height:350,
+						height:650,
 						width:900,
 						modal: true,
 						buttons:{
@@ -145,7 +145,6 @@ $(document).ready(function(){
 	
 BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		
-		console.log(dadosOrcamento)
 
 		var tabela = "<table class='table table-bordered table-dark' >" +
 		"<tr>" +
@@ -158,16 +157,31 @@ BRIQUETE.admin.exibirRelatorioModal = function (dadosOrcamento){
 		"<th>Status</th>" +
 	"</tr>";
 
+
+		for (var i = 0; i < dadosOrcamento.length; i++) {
+			
+			let categoria
+			switch (dadosOrcamento[i].tipo) {
+				case 0:
+					categoria = "Servico"
+					break;
+				case 1:
+					categoria = "Peça"
+					break;
+			}
+
 			tabela += "<tr>" +
-				"<td>" + dadosOrcamento.cliente.nome + "</td>" +
-				"<td>" + dadosOrcamento.equipamentoNome +"</td>" +
-				"<td>" + dadosOrcamento.data + "</td>" +
+				"<td>" + dadosOrcamento[i].Cliente + "</td>" +
+				"<td>" + dadosOrcamento[i].equipamentoNome +"</td>" +
+				"<td>" + dadosOrcamento[i].data + "</td>" +
+				"<td>" + dadosOrcamento[i].data + "</td>" +
 				"<td>" + "peças aqui" + "</td>" +
 				"<td>" + "serviços aqui" + "</td>" +
 				"<td>" + "tipo aqui" + "</td>" +
 				"<td>" + "status aqui" + "</td>" +
 				"</tr>"
 
+		}
 
 	tabela += "</table>";
 
