@@ -263,8 +263,9 @@ public class JDBCServicosDAO {
 	
 public Orcamento buscaRelatorioDetalhado(int idorcamento) {
 		
-		String comando = "SELECT orcamento.*,cliente.*  FROM orcamento " + 
+		String comando = "SELECT orcamento.*,cliente.*, servico.* as valorTotal FROM orcamento " + 
 				"INNER JOIN cliente on orcamento.idcliente = cliente.idcliente " + 
+				"INNER JOIN servico on orcamento.idorcamento = servico.orcamento_idorcamento " + 
 				"WHERE idorcamento = ?";
 		
 		Orcamento orcamento = new Orcamento();
