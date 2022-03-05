@@ -252,8 +252,8 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		var day2 = dateb.getDate();
 		var month2 = dateb.getMonth() + 1;
 		var year2 = dateb.getFullYear();
-		date1 = [year1, month1, day1].join('-');
-		date2 = [year2, month2, day2].join('-');  
+		date1 = [year1, month1, day1].join('/');
+		date2 = [year2, month2, day2].join('/');  
 	    $("#tabelaExibeClientesOS #dataRelatorio tr").filter(function() {
 	      $(this).toggle($(this).text().toLowerCase().indexOf(date1) > -1)
 	    });
