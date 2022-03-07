@@ -249,21 +249,19 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		if($('#diaa').val() !="" && $('#diab').val() != ""){
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());
-		var day1 = datea.getDate();
+		var day1 = datea.getDate()+1;
 		var month1 = datea.getMonth() + 1;
 		var year1 = datea.getFullYear();
-		var day2 = dateb.getDate();
+		var day2 = dateb.getDate()+1;
 		var month2 = dateb.getMonth() + 1;
 		var year2 = dateb.getFullYear();
 		date1 = [year1, month1, day1].join('-');
 		date2 = [year2, month2, day2].join('-');  
-	//    $("#tabelaExibeClientesOS #dataRelatorio tr").filter(function() {
-	 //     $(this).toggle($(this).text().toLowerCase().indexOf(date1) > -1)
-	//	});
-		
+
 
 		var input, filter, table, tr, td, i, txtValue;
-		input = Date.parse(date1)
+		input = Date.parse(date1);
+		input2 = Date.parse(date2);
 		table = document.getElementById("tabelaExibeClientesOS");
 		tr = table.getElementsByTagName("tr");
 	  
@@ -271,7 +269,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		  td = tr[i].getElementsByTagName("td")[4];
 		  if (td) {
 			txtValue = Date.parse(td.textContent);
-			if (txtValue >=input) {
+			if (txtValue >=input && txtValue<=input2) {
 			  tr[i].style.display = "";
 			} else {
 			  tr[i].style.display = "none";
@@ -279,10 +277,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		  }
 		}
 	  }
-
-
-
-		}
+}
 
 	
 });
