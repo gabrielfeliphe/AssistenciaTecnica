@@ -243,11 +243,9 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 
 	function reset(){
 		console.log("resetado")
-			table = document.getElementById("tabelaExibeClientesOS");
-			tr = table.getElementsByTagName("tr");
-			for (i = 0; i < tr.length; i++) {
-			td = tr[i].getElementsByTagName("td")[4];
-			tr[i].style.display = "";
+			  for (i = 0; i < tr.length; i++) {
+			  td = tr[i].getElementsByTagName("td")[4];
+			  tr[i].style.display = "";
 			}
 	}
 	
@@ -257,12 +255,10 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		
 		
 		if($('#diaa').val() !="" && $('#diab').val() != ""){
-		//reset()
+		reset()
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());
-		var day1 = 0
-		console.log("$diaa".val());
-		if(datea.getDate() != 1){day1=datea.getDate()+1}else{day1=datea.getDate()};
+		var day1 = datea.getDate()+1;
 		var month1 = datea.getMonth() + 1;
 		var year1 = datea.getFullYear();
 		var day2 = dateb.getDate()+1;
@@ -270,10 +266,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		var year2 = dateb.getFullYear();
 		date1 = [year1, month1, day1].join('-');
 		date2 = [year2, month2, day2].join('-');  
-		
-		console.log("Data 1:"+date1);
-		console.log("Data 2:"+date2)
-;
+
 		
 		var input, filter, table, tr, td, i, txtValue;
 		input = Date.parse(date1);
@@ -285,12 +278,8 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		  td = tr[i].getElementsByTagName("td")[4];
 		  if (td) {
 			txtValue = Date.parse(td.textContent);
-			if (input <= txtValue) {
-				if(input2 >= txtValue){
-					tr[i].style.display = "";
-				}else{
-					tr[i].style.display = "none";
-				}
+			if (txtValue >=input && txtValue<=input2) {
+			  tr[i].style.display = "";
 			} else {
 			  tr[i].style.display = "none";
 			}

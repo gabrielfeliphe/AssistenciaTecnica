@@ -20,9 +20,9 @@
 			<div class="col-sm">
 			 	 <input type="text" class="form-control"  placeholder="Procurar Cliente ou Equipamento" id="procurar"></br>
 			 	 <label>Inicio:</label>
-			 	  <input type="date" id="diaa" name="diaa" oninput="BRIQUETE.admin.filtrarData()">
+			 	  <input type="date" id="diaa" name="diaa">
 			 	  <label>Fim:</label>
-			 	  <input type="date" id="diab" name="diab" oninput="BRIQUETE.admin.filtrarData()">
+			 	  <input type="date" id="diab" name="diab" onchange="BRIQUETE.admin.filtrarData()">
 			 	 
 			</div>
 			<div class="col-sm">

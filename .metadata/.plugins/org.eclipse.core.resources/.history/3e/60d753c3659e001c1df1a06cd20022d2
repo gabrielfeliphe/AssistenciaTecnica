@@ -261,7 +261,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());
 		var day1 = 0
-		console.log("$diaa".val());
+		console.log("$diaa");
 		if(datea.getDate() != 1){day1=datea.getDate()+1}else{day1=datea.getDate()};
 		var month1 = datea.getMonth() + 1;
 		var year1 = datea.getFullYear();
