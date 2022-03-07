@@ -260,11 +260,13 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		//reset()
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());
-		var day1 = datea.getUTCDate();
-		var month1 = datea.getUTCMonth()+1;
+		var day1 = 0
+		console.log("$diaa".val());
+		if(datea.getDate() != 1){day1=datea.getDate()+1}else{day1=datea.getDate()};
+		var month1 = datea.getMonth() + 1;
 		var year1 = datea.getFullYear();
-		var day2 = dateb.getUTCDate();
-		var month2 = dateb.getUTCMonth() + 1;
+		var day2 = dateb.getDate()+1;
+		var month2 = dateb.getMonth() + 1;
 		var year2 = dateb.getFullYear();
 		date1 = [year1, month1, day1].join('-');
 		date2 = [year2, month2, day2].join('-');  
