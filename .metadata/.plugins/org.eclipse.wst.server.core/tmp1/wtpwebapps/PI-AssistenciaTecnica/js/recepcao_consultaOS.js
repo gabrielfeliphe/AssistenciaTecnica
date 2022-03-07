@@ -263,6 +263,7 @@ BRIQUETE.recepcao.checkAbandonaProduto = function (dataEntrada){
 	
 	return diffInDays;
 }
+
 	
 	
 });
