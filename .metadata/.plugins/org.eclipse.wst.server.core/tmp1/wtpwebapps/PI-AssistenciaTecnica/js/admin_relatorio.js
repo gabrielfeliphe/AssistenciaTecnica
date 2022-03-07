@@ -242,7 +242,10 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		
 
 	
-	teste = function(){
+	BRIQUETE.admin.filtrarData = function(){
+		
+		console.log("disparo")
+		
 		if($('#diaa').val() !="" && $('#diab').val() != ""){
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());
@@ -254,11 +257,32 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		var year2 = dateb.getFullYear();
 		date1 = [year1, month1, day1].join('-');
 		date2 = [year2, month2, day2].join('-');  
-	    $("#tabelaExibeClientesOS #dataRelatorio tr").filter(function() {
-	      $(this).toggle($(this).text().toLowerCase().indexOf(date1) > -1)
-	    });
+	//    $("#tabelaExibeClientesOS #dataRelatorio tr").filter(function() {
+	 //     $(this).toggle($(this).text().toLowerCase().indexOf(date1) > -1)
+	//	});
+		
+
+		var input, filter, table, tr, td, i, txtValue;
+		input = Date.parse(date1)
+		table = document.getElementById("tabelaExibeClientesOS");
+		tr = table.getElementsByTagName("tr");
+	  
+		for (i = 0; i < tr.length; i++) {
+		  td = tr[i].getElementsByTagName("td")[4];
+		  if (td) {
+			txtValue = Date.parse(td.textContent);
+			if (txtValue >=input) {
+			  tr[i].style.display = "";
+			} else {
+			  tr[i].style.display = "none";
+			}
+		  }
 		}
-	}
+	  }
+
+
+
+		}
 
 	
 });

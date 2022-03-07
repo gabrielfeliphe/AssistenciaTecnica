@@ -243,9 +243,6 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 
 	
 	BRIQUETE.admin.filtrarData = function(){
-		
-		console.log("disparo")
-		
 		if($('#diaa').val() !="" && $('#diab').val() != ""){
 		var datea = new Date($('#diaa').val());
 		var dateb = new Date($('#diab').val());
@@ -271,7 +268,7 @@ BRIQUETE.admin.filtroOrcamentos = function(){
 		  td = tr[i].getElementsByTagName("td")[4];
 		  if (td) {
 			txtValue = Date.parse(td.textContent);
-			if (txtValue >=input) {
+			if (txtValue.indexOf(input) > -1 && txtValue >=input) {
 			  tr[i].style.display = "";
 			} else {
 			  tr[i].style.display = "none";
